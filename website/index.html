@@ -3,23 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Leta — IT service on demand (Georgia)</title>
+    <meta name="theme-color" content="#1d4ed8" />
+    <title>Leta — IT field service on demand | Georgia</title>
     <meta
       name="description"
-      content="Leta helps service companies fulfill onsite IT work orders across Georgia—with transparency for partners and customers."
+      content="Leta is a fulfillment and transparency layer for IT field service in Georgia—built with partners who already own customer relationships, plus direct customer demand."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
       <div class="nav-inner">
-        <a class="logo" href="#top">Leta</a>
+        <a class="logo" href="#top"
+          ><span class="logo-mark">Leta<span class="dot">.</span></span
+          ><span class="sub">field IT · geo-aware · GA-first</span></a
+        >
         <nav aria-label="Primary">
           <ul>
-            <li><a href="#partners">Partners</a></li>
-            <li><a href="#technicians">Technicians</a></li>
+            <li><a class="nav-highlight" href="#partners">Partners</a></li>
             <li><a href="#customers">Customers</a></li>
-            <li><a href="#how">How it works</a></li>
+            <li><a href="#technicians">Technicians</a></li>
+            <li><a href="#model">Model</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -28,114 +38,183 @@
 
     <main id="top">
       <section class="hero">
-        <p class="tag">Georgia first</p>
-        <h1>IT service on demand—with the field bench to actually show up.</h1>
-        <p class="lead">
-          Leta connects <strong>companies that already sell IT field service</strong> (and need more onsite capacity) with a
-          <strong>Georgia-wide network of professional technicians</strong>—through one transparent platform. Direct
-          customers can also request a tech the same way they would order a ride or a meal: clear status, clear outcomes.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/Atouba64/leta" target="_blank" rel="noopener noreferrer"
-            >View project on GitHub</a
-          >
-          <a class="btn btn-secondary" href="#contact">Partner or pilot inquiry</a>
+        <div class="hero-inner">
+          <p class="tag">geo_dispatch · partner_channel · status_api mindset</p>
+          <h1>We help you fulfill onsite IT—not compete for your accounts.</h1>
+          <p class="lead">
+            <strong>Leta</strong> is a centralized platform for the lifecycle of professional IT field service in
+            <strong>Georgia</strong>: partner and customer demand, dispatch, onsite execution, remote escalation when
+            needed, and payout. If you are a fulfillment partner with real work orders and tight SLAs, we are built as
+            <strong>capacity + visibility</strong> alongside your brand—not a parallel sales force going after your book
+            of business.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Talk to us about partnership</a>
+            <a class="btn btn-secondary" href="#customers">I need a tech (customer)</a>
+          </div>
         </div>
       </section>
+
+      <div class="callout" aria-labelledby="clarity-heading">
+        <h2 id="clarity-heading">Plain language before the first call</h2>
+        <div class="callout-grid">
+          <div class="callout-col">
+            <h3>What we are</h3>
+            <ul>
+              <li>A <strong>fulfillment layer</strong> when you already won the ticket but need qualified bodies in a Georgia radius.</li>
+              <li>A product mindset: <strong>status, routing, evidence</strong>—the kind of surface engineering and ops teams expect.</li>
+              <li><strong>Co-strengthening</strong> with national and regional field networks: you bring demand and trust; we help deliver.</li>
+            </ul>
+          </div>
+          <div class="callout-col">
+            <h3>What we are not</h3>
+            <ul>
+              <li>Not here to <strong>disintermediate</strong> your enterprise contracts or rebrand your customer relationships by default.</li>
+              <li>Not a generic “gig” noise platform—scope is <strong>professional IT</strong> workflows, SLAs, and close-out discipline.</li>
+              <li>Not pretending nationwide hyper-scale on day one—we are deliberate about <strong>Georgia depth first</strong> for quality.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <section id="partners">
-        <h2>For partners (dispatch &amp; field service companies)</h2>
-        <p style="color: var(--muted); margin-top: 0">
-          If you already have <strong>clients and work orders</strong> but struggle to staff every Georgia market with
-          qualified onsite techs, Leta is built as a <strong>fulfillment layer</strong>—not a competitor to your
-          relationships. Examples of the kind of organizations we mean include national and regional networks such as
-          <strong>Barrister Group LLC</strong> and similar service providers.
+        <h2>For fulfillment partners</h2>
+        <p class="section-intro">
+          Dispatch companies, MSPs, and Barrister-class national or regional IT service organizations: if your constraint is
+          <strong>onsite headcount in every metro and corridor</strong>, Leta matches work to vetted field professionals with
+          geo-aware rules—so your ops team spends less time chasing status and more time hitting commitments.
         </p>
-        <div class="card-grid" style="margin-top: 1.25rem">
+        <div class="table-wrap">
+          <table class="simple">
+            <thead>
+              <tr>
+                <th>Your pressure</th>
+                <th>How Leta helps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tech shortage</td>
+                <td>Access to a Georgia-wide pool coordinated through one platform—not a spreadsheet and a phone tree.</td>
+              </tr>
+              <tr>
+                <td>SLA risk</td>
+                <td>Matching tuned to radius and capacity so tickets are more likely to be accepted and completed in-window.</td>
+              </tr>
+              <tr>
+                <td>Opaque field execution</td>
+                <td>Partner-visible execution where contract allows: tracking, artifacts, structured close-out.</td>
+              </tr>
+              <tr>
+                <td>Linear hiring cost</td>
+                <td>Cover more geography without W-2 bench in every zip code for every spike.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-grid card-grid--tight-top">
           <div class="card">
-            <h3>Coverage</h3>
-            <p>Geo-aware matching so tickets inside a reasonable mile radius are more likely to be accepted and completed on time.</p>
+            <h3>Demand stays yours</h3>
+            <p>
+              Partner-originated work orders remain <strong>your customer story</strong> in the partner-led model. Leta’s job is
+              delivery mechanics and transparency—not channel warfare.
+            </p>
           </div>
           <div class="card">
-            <h3>Transparency</h3>
-            <p>Partner-facing visibility into status, proof of work, and structured close-out—so your ops team spends less time chasing updates.</p>
+            <h3>Liquidity for techs</h3>
+            <p>
+              We also aggregate <strong>direct</strong> customer orders into the same technician pool. That improves utilization,
+              which helps <strong>your</strong> tickets get picked up when the market is thin.
+            </p>
           </div>
           <div class="card">
-            <h3>Growth</h3>
-            <p>Take on more work from your existing book of business without linear W-2 hiring in every zip code.</p>
+            <h3>Built like infra people think</h3>
+            <p>
+              One platform, clear states, audit-friendly artifacts—closer to how you’d design an internal service than a consumer
+              toy. Georgia-first rollout is intentional QA before geography expands.
+            </p>
           </div>
         </div>
-      </section>
-
-      <section id="technicians">
-        <h2>For technicians</h2>
-        <p style="color: var(--muted); margin-top: 0">
-          Leta aggregates demand from <strong>partner-originated tickets</strong> and <strong>direct customer orders</strong>
-          into one pool—so when you are Active, you see more relevant offers and less idle time. The goal is
-          <strong>steady, defensible work</strong> in Georgia, with modern tooling and fast payouts (per product policy).
-        </p>
-        <ul class="clean">
-          <li>Push-based offers matched to your skills, radius, and rating.</li>
-          <li>Escalation path to remote experts when a job gets complex on-site.</li>
-          <li>Digital close-out: signatures, photos, and artifacts that protect you and the customer.</li>
-        </ul>
       </section>
 
       <section id="customers">
-        <h2>For customers (businesses &amp; individuals)</h2>
-        <p style="color: var(--muted); margin-top: 0">
-          Order onsite IT help with the same clarity you expect from on-demand logistics: <strong>who is coming</strong>,
-          <strong>when</strong>, and <strong>what it will take</strong> to complete the job—backed by professional
-          workflows, not a black box.
+        <h2>For customers</h2>
+        <p class="section-intro">
+          Businesses and individuals who need <strong>onsite IT</strong> get ordering and tracking with on-demand clarity:
+          who is coming, when, and what “done” looks like—without living in voicemail loops.
+        </p>
+        <ul class="clean">
+          <li><strong>B2B &amp; B2C</strong> — branch IT, break/fix, installs, and similar professional scopes as the network matures.</li>
+          <li><strong>Transparency</strong> — status you can trust; professional close-out, not a black box.</li>
+          <li><strong>Fair economics</strong> — marketplace efficiency and less rework as liquidity builds (pricing follows published policy).</li>
+        </ul>
+        <p class="section-intro section-intro--spaced">
+          Mobile apps are the operational product; this page is for <strong>trust and routing</strong>. App store links land here when
+          builds are public.
         </p>
       </section>
 
-      <section id="how">
-        <h2>Win-win-win</h2>
+      <section id="technicians">
+        <h2>For field technicians</h2>
+        <p class="section-intro">
+          1099 professionals in Georgia: combined <strong>partner + direct</strong> demand in one Active pool—more relevant offers,
+          modern tooling, faster payouts per policy, and escalation to remote experts when a job gets hard on-site.
+        </p>
+        <ul class="clean">
+          <li>Offers matched to skills, radius, and quality signals.</li>
+          <li>Digital close-out: signatures, photos, and artifacts that protect you and the customer.</li>
+          <li>“Overwatch” path—remote experts on live video/audio when you need backup.</li>
+        </ul>
+      </section>
+
+      <section id="model">
+        <h2>Three-sided win</h2>
         <div class="card-grid">
           <div class="card">
             <span class="pill">Partners</span>
-            <h3 style="color: var(--text); margin-top: 0">Fulfillment you can trust</h3>
-            <p>More completed work orders in Georgia, happier end customers, and less internal chaos.</p>
+            <h3 class="card-title-neutral">Higher fulfillment</h3>
+            <p>More completed work in Georgia, happier end customers, less internal coordination tax.</p>
           </div>
           <div class="card">
             <span class="pill">Technicians</span>
-            <h3 style="color: var(--text); margin-top: 0">More real work</h3>
-            <p>Combined marketplace liquidity from partners and direct demand.</p>
+            <h3 class="card-title-neutral">Steadier pipeline</h3>
+            <p>One liquidity pool from partner tickets and direct orders—built toward primary-income depth, not random side gigs.</p>
           </div>
           <div class="card">
             <span class="pill">Customers</span>
-            <h3 style="color: var(--text); margin-top: 0">Faster, clearer service</h3>
-            <p>Qualified techs, transparent execution, and a product built for professional IT—not generic gig noise.</p>
+            <h3 class="card-title-neutral">Predictable IT visits</h3>
+            <p>Qualified techs, clear execution, product scope aimed at professional IT—not undifferentiated gig work.</p>
           </div>
         </div>
       </section>
 
-      <section id="contact">
+      <section id="contact" class="contact-panel">
         <h2>Contact</h2>
-        <p style="color: var(--muted); margin-top: 0">
-          Leta is in active documentation and build-out. For partnership conversations or early pilots, open a thread on
-          the GitHub repository (best for now) or reach out through whichever channel the founder has shared with you
-          directly.
+        <p class="section-intro">
+          Leta is in active documentation and build-out. For <strong>partnership conversations</strong>, pilots, or technical
+          diligence, start a thread on the GitHub repo (best for a paper trail today)—or use whatever channel the founder has
+          already shared with you.
         </p>
-        <div class="cta-row" style="margin-top: 1rem">
+        <div class="cta-row">
           <a class="btn btn-primary" href="https://github.com/Atouba64/leta/issues" target="_blank" rel="noopener noreferrer"
             >Open a GitHub issue</a
+          >
+          <a class="btn btn-secondary" href="https://github.com/Atouba64/leta" target="_blank" rel="noopener noreferrer"
+            >Browse the repo &amp; docs</a
           >
         </div>
       </section>
 
       <p class="footnote">
-        Leta is <strong>not</strong> positioned as zero-sum competition with established service companies that already
-        own client relationships. The default story is <strong>co-strengthening</strong>: they bring demand; Leta helps
-        deliver it—with transparency and speed. See the repository docs under <code>05-marketing-and-sales/</code> for the
-        full written strategy.
+        External messaging follows the guardrails in <code>05-marketing-and-sales/partner-channel-win-win.md</code> and
+        <code>website-and-messaging.md</code>: emphasize <strong>partnership and fulfillment</strong>, tie bold claims to pilot
+        metrics when they exist, and surface insurance and vetting in onboarding—not as empty marketing hype.
       </p>
     </main>
 
-    <footer>
-      <p><strong>Leta</strong> — IT field service, Georgia first. © 2026</p>
-      <p style="margin-top: 0.5rem">Repository: <a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
+    <footer class="site-footer">
+      <p><strong>Leta</strong> — IT field service on demand. Georgia first. © 2026</p>
+      <p class="footer-repo">Repository: <a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
     </footer>
   </body>
 </html>
