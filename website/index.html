@@ -104,7 +104,21 @@
           </button>
         </div>
       </header>
-      <nav class="nav-panel" id="nav-panel" aria-label="Primary">
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg class="nav-panel__close-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                d="M18 6 6 18M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
         <ul class="nav-list">
           <li><a class="nav-highlight" href="#partners">Partners</a></li>
           <li><a href="#customers">Customers</a></li>
@@ -363,6 +377,7 @@
         var toggle = document.getElementById("nav-toggle");
         var panel = document.getElementById("nav-panel");
         var backdrop = document.getElementById("nav-backdrop");
+        var closeBtn = document.getElementById("nav-close");
         if (!toggle || !panel || !backdrop) return;
 
         function setOpen(open) {
@@ -371,6 +386,9 @@
           toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
           backdrop.hidden = !open;
           backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+          if (!open && closeBtn && document.activeElement === closeBtn) {
+            toggle.focus();
+          }
         }
 
         function close() {
@@ -378,8 +396,17 @@
         }
 
         toggle.addEventListener("click", function () {
-          setOpen(!document.body.classList.contains("nav-drawer-open"));
+          var willOpen = !document.body.classList.contains("nav-drawer-open");
+          setOpen(willOpen);
+          if (willOpen && closeBtn && window.matchMedia("(max-width: 767px)").matches) {
+            window.requestAnimationFrame(function () {
+              closeBtn.focus();
+            });
+          }
         });
+        if (closeBtn) {
+          closeBtn.addEventListener("click", close);
+        }
         backdrop.addEventListener("click", close);
         panel.querySelectorAll("a").forEach(function (link) {
           link.addEventListener("click", close);
