@@ -1,47 +1,47 @@
-# leta
+# Leta
 
-Early-stage project repository for **leta**—a dedicated place to grow one focused codebase with clear docs and history.
+**Leta** is a centralized, geo-aware mobile and web platform for the full lifecycle of IT service work—from ticket intake and dispatch through field execution, remote escalation, and payout. The product is designed to replace the gray areas of traditional break/fix IT: poor visibility for customers, brittle dispatch tools for field technicians, and weak handoff between people on-site and remote experts.
 
 **Repository:** [github.com/Atouba64/leta](https://github.com/Atouba64/leta)
 
-## Status
+> **Note:** All product and documentation naming in this repository use **Leta** (a prior working title has been fully retired).
 
-The repo is intentionally minimal while scope and stack are decided. This README is the landing page; deeper design notes, architecture, and runbooks should live here as the project matures.
+## Problem (why Leta exists)
 
-## Goals
+- **Customers** rarely get reliable ETAs or live status; they live in phone trees and email threads.
+- **Field technicians** juggle outdated dispatch portals, unclear scope, and slow payment cycles.
+- **Remote technicians** lack a clean path to join a live job when the field tech needs “overwatch” support.
 
-- Keep a single canonical source tree for the **leta** project.
-- Document assumptions, setup, and deployment as soon as they exist.
-- Add automated checks (format, test, security) once there is code to exercise them.
+## Solution (what Leta delivers)
 
-## Getting started
+One platform that connects:
 
-```bash
-git clone https://github.com/Atouba64/leta.git
-cd leta
-```
+| Audience | Value |
+|----------|--------|
+| **Customers (B2B & B2C)** | Modern ticket flow, estimated cost up front, and **live GPS-style tracking** of the assigned field tech (similar to consumer delivery apps). |
+| **Field techs** | Mobile-first workflow: go **Active**, receive **push** jobs near their location (initial focus: **Georgia**), capture signatures and job artifacts, and **faster automated payouts**. |
+| **Remote techs (“Overwatch”)** | Web portal with **Escalate** → built-in **video/audio** session to raise first-time fix rate on complex work. |
+| **Investors / operators** | **Asset-light** model: 1099 field network + cloud infrastructure; **Georgia-first** rollout for QA and density before Southeast expansion. |
 
-Further steps (language version managers, dependency install, environment variables, database migrations, and so on) belong in this file once the stack is chosen. Until then, treat this section as a placeholder to replace with concrete commands.
+## Documentation map (start here)
 
-## Repository layout
+This repo is organized like an internal company handbook plus product specs. Work in batches; recommended order is **business plan first** (north star), then **app documentation** (software behavior).
 
-| Path | Purpose |
-|------|---------|
-| `README.md` | Project overview and entrypoint for contributors and users. |
+| Area | Path |
+|------|------|
+| Business plan | [`01-business-plan/`](./01-business-plan/) |
+| App documentation | [`02-app-documentation/`](./02-app-documentation/) |
+| Research & ideas | [`03-research-and-ideas/`](./03-research-and-ideas/) |
+| Legal & compliance | [`04-legal-and-compliance/`](./04-legal-and-compliance/) *(outline only—engage counsel before use)* |
+| Marketing & sales | [`05-marketing-and-sales/`](./05-marketing-and-sales/) |
 
-Add rows to this table when you introduce directories such as `src/`, `cmd/`, `docs/`, or `infra/`.
+## Engineering (when code lands)
 
-## Roadmap (suggested)
-
-1. Lock the **problem statement** and primary user or operator.
-2. Pick the **runtime and dependencies**; add lockfiles or equivalent.
-3. Add a **minimal runnable path** (CLI, API, library, or app) with smoke tests.
-4. Wire **CI** (for example GitHub Actions) for lint and tests.
-5. Expand **usage and architecture** sections in this README or under `docs/`.
+Application source, infrastructure-as-code, and CI will live alongside this documentation as the implementation phase starts (for example `apps/`, `services/`, or `packages/`). Until then, treat this tree as the **single source of truth** for product and operations intent.
 
 ## Contributing
 
-Issues and pull requests are welcome. For larger changes, open an issue first so direction and interfaces can be agreed before a big diff.
+Issues and PRs are welcome. For large doc restructures or new legal language, use PRs so changes stay reviewable.
 
 ## Maintainer
 
@@ -49,4 +49,4 @@ Issues and pull requests are welcome. For larger changes, open an issue first so
 
 ## License
 
-No license file is present yet. Add a `LICENSE` (and state it here) before redistributing or accepting external contributions you intend to treat as open source.
+No `LICENSE` file is committed yet. Add one before redistributing code or inviting contributions you intend to treat as open source.
