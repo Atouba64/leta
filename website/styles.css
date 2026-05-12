@@ -142,30 +142,34 @@ a:hover {
   overflow: hidden;
 }
 
-/* Top bar: sticky shell + desktop nav sibling (drawer fixed children must not sit under backdrop-filter). */
-.site-bar {
+/* Sticky top chrome: no backdrop-filter here — it traps position:fixed descendants under page tiles. */
+.site-top {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200010;
   max-width: var(--max);
   margin: 0 auto;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem 1rem;
-  padding: 0 var(--pad-x-right) 0 var(--pad-x);
-  padding-top: max(0, env(safe-area-inset-top));
-  background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
-  backdrop-filter: blur(16px) saturate(1.35);
-  -webkit-backdrop-filter: blur(16px) saturate(1.35);
+  gap: 0.75rem 1rem;
+  padding: max(0.35rem, env(safe-area-inset-top)) var(--pad-x-right) max(0.65rem, env(safe-area-inset-bottom)) var(--pad-x);
+  background: color-mix(in srgb, var(--bg-elevated) 94%, transparent);
   border-bottom: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-sm);
+  overflow: visible;
 }
 
-body.nav-drawer-open .site-bar {
-  z-index: 100002;
+@media (prefers-color-scheme: dark) {
+  .site-top {
+    background: color-mix(in srgb, var(--bg-elevated) 96%, transparent);
+  }
+}
+
+body.nav-drawer-open .site-top {
+  z-index: 300010;
 }
 
 .site-header {
@@ -175,8 +179,6 @@ body.nav-drawer-open .site-bar {
   background: transparent;
   border: none;
   box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 
 .nav-inner {
@@ -282,17 +284,17 @@ body.nav-drawer-open .nav-toggle-bar:nth-child(3) {
 .nav-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 100000;
-  background: color-mix(in srgb, #0f172a 55%, transparent);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  z-index: 200009;
+  background: color-mix(in srgb, #0f172a 42%, transparent);
+  backdrop-filter: blur(12px) saturate(1.25);
+  -webkit-backdrop-filter: blur(12px) saturate(1.25);
   cursor: pointer;
   touch-action: manipulation;
 }
 
 @media (prefers-color-scheme: dark) {
   .nav-backdrop {
-    background: color-mix(in srgb, #020617 70%, transparent);
+    background: color-mix(in srgb, #020617 58%, transparent);
   }
 }
 
@@ -370,18 +372,21 @@ body.nav-drawer-open .nav-toggle-bar:nth-child(3) {
     top: 0;
     right: 0;
     bottom: 0;
-    width: min(20rem, calc(100vw - 2.5rem));
+    width: min(20.5rem, calc(100vw - 2.25rem));
     max-width: 100%;
-    z-index: 100001;
-    isolation: isolate;
-    background: var(--bg-elevated);
+    z-index: 1;
+    background: color-mix(in srgb, var(--bg-elevated) 72%, transparent);
     color: var(--text);
-    border-left: 1px solid var(--border-subtle);
-    box-shadow: var(--shadow-drawer);
+    border-left: 1px solid color-mix(in srgb, var(--border-subtle) 80%, transparent);
+    box-shadow:
+      -28px 0 64px -12px rgba(15, 23, 42, 0.18),
+      inset 1px 0 0 rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(22px) saturate(1.5);
+    -webkit-backdrop-filter: blur(22px) saturate(1.5);
     padding: max(4.25rem, calc(env(safe-area-inset-top, 0px) + 3.25rem)) var(--tile-pad-x)
       max(1.25rem, env(safe-area-inset-bottom, 0px));
     transform: translateX(105%);
-    transition: transform 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     -webkit-tap-highlight-color: transparent;
@@ -389,6 +394,16 @@ body.nav-drawer-open .nav-toggle-bar:nth-child(3) {
 
   body.nav-drawer-open .nav-panel {
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 767px) and (prefers-color-scheme: dark) {
+  .nav-panel {
+    background: color-mix(in srgb, #0f172a 78%, transparent);
+    border-left-color: color-mix(in srgb, var(--border-subtle) 90%, transparent);
+    box-shadow:
+      -28px 0 64px -12px rgba(0, 0, 0, 0.55),
+      inset 1px 0 0 rgba(255, 255, 255, 0.06);
   }
 }
 
@@ -408,10 +423,13 @@ body.nav-drawer-open .nav-toggle-bar:nth-child(3) {
     width: auto;
     max-width: none;
     background: transparent;
+    color: inherit;
     border: none;
     box-shadow: none;
     padding: 0;
     overflow: visible;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .nav-list {
@@ -432,6 +450,14 @@ body.nav-drawer-open .nav-toggle-bar:nth-child(3) {
 
 body.nav-drawer-open {
   overflow: hidden;
+}
+
+body.nav-drawer-open main {
+  pointer-events: none;
+}
+
+body.nav-drawer-open .site-top {
+  pointer-events: auto;
 }
 
 main {
