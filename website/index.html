@@ -7,17 +7,78 @@
     <title>Leta — IT field service on demand | Georgia</title>
     <meta
       name="description"
-      content="Leta is a fulfillment and transparency layer for IT field service in Georgia—built with partners who already own customer relationships, plus direct customer demand."
+      content="Leta connects fulfillment partners and customers with professional onsite IT across Georgia—capacity, transparency, Georgia first."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="i-map" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21c-3.5-3.8-6-7.5-6-11a6 6 0 1 1 12 0c0 3.5-2.5 7.2-6 11Z" />
+          <circle cx="12" cy="10" r="2.5" fill="currentColor" stroke="none" />
+        </symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m12.83 2.18 8.18 4.73a1 1 0 0 1 0 1.73l-8.18 4.73a2 2 0 0 1-1.66 0L3 8.64a1 1 0 0 1 0-1.73L11.17 2.18a2 2 0 0 1 1.66 0Z" />
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 12.5 12.83 17.27a2 2 0 0 1-1.66 0L2 12.5M22 17.5l-9.17 4.77a2 2 0 0 1-1.66 0L2 17.5" />
+        </symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4" />
+        </symbol>
+        <symbol id="i-users" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm11 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 6v6l4 2" />
+        </symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z" />
+          <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2" />
+        </symbol>
+        <symbol id="i-trend" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m22 7-8.5 8.5-5-5L2 17" />
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 7h6v6" />
+        </symbol>
+        <symbol id="i-cpu" viewBox="0 0 24 24">
+          <rect width="16" height="16" x="4" y="4" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+          <rect width="8" height="8" x="8" y="8" fill="none" stroke="currentColor" stroke-width="2" />
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 2v2M15 2v2M9 20v2M15 20v2M20 9h2M20 15h2M2 9h2M2 15h2" />
+        </symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24">
+          <rect width="14" height="20" x="5" y="2" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 18h.01" />
+        </symbol>
+        <symbol id="i-wrench" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+        </symbol>
+        <symbol id="i-video" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V8.4a.5.5 0 0 0-.8-.4L16 11" />
+          <rect width="14" height="12" x="2" y="6" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+        </symbol>
+        <symbol id="i-message" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 15a4 4 0 0 1-4 4H8l-5 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+        </symbol>
+        <symbol id="i-ban" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m4.9 4.9 14.2 14.2" />
+        </symbol>
+        <symbol id="i-spark" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
+        </symbol>
+        <symbol id="i-github" viewBox="0 0 24 24">
+          <path fill="currentColor" stroke="none" d="M12 2C6.48 2 2 6.84 2 12.3c0 4.43 2.87 8.18 6.84 9.5.5.09.68-.23.68-.5 0-.24-.01-1.01-.01-1.83-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .08 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.64-1.37-2.22-.26-4.55-1.14-4.55-5.08 0-1.12.4-2.03 1.05-2.75-.1-.26-.46-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.8c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.56 1.41.21 2.45.1 2.71.65.72 1.05 1.63 1.05 2.75 0 3.95-2.34 4.81-4.57 5.07.36.32.68.95.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .28.18.59.69.48A10.09 10.09 0 0 0 22 12.3C22 6.84 17.52 2 12 2Z" />
+        </symbol>
+      </defs>
+    </svg>
+
     <header>
       <div class="nav-inner">
         <a class="logo" href="#top"
@@ -37,184 +98,245 @@
     </header>
 
     <main id="top">
-      <section class="hero">
-        <div class="hero-inner">
-          <p class="tag">geo_dispatch · partner_channel · status_api mindset</p>
-          <h1>We help you fulfill onsite IT—not compete for your accounts.</h1>
-          <p class="lead">
-            <strong>Leta</strong> is a centralized platform for the lifecycle of professional IT field service in
-            <strong>Georgia</strong>: partner and customer demand, dispatch, onsite execution, remote escalation when
-            needed, and payout. If you are a fulfillment partner with real work orders and tight SLAs, we are built as
-            <strong>capacity + visibility</strong> alongside your brand—not a parallel sales force going after your book
-            of business.
+      <section class="hero-bento" aria-labelledby="hero-heading">
+        <div class="bento bento--hero">
+          <div class="tile tile--hero">
+            <p class="eyebrow">Partner channel · professional IT · Georgia</p>
+            <h1 id="hero-heading">Fulfill more onsite IT—without channel conflict.</h1>
+            <p class="hero-lead">
+              Leta is one platform for demand, dispatch, field execution, escalation, and payout.
+            </p>
+            <p class="hero-lead hero-lead--soft">
+              Built for partners who already own the relationship—and for customers who want clarity, not phone tag.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact">Partner conversation</a>
+              <a class="btn btn-secondary" href="#customers">I need a tech</a>
+            </div>
+          </div>
+
+          <div class="tile tile--mini tile--blue">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-map" /></svg></span>
+            <h2 class="tile-kicker">Coverage</h2>
+            <p class="tile-blurb">Georgia-first depth before we chase geography.</p>
+          </div>
+
+          <div class="tile tile--mini">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-layers" /></svg></span>
+            <h2 class="tile-kicker">Layer</h2>
+            <p class="tile-blurb">Fulfillment &amp; visibility—not a parallel sales org.</p>
+          </div>
+
+          <div class="tile tile--mini">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-shield" /></svg></span>
+            <h2 class="tile-kicker">Trust</h2>
+            <p class="tile-blurb">Evidence-minded workflows ops teams recognize.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block" aria-labelledby="clarity-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Before we talk</p>
+          <h2 id="clarity-heading">What to expect</h2>
+        </header>
+
+        <div class="bento bento--clarity">
+          <div class="tile tile--clarity tile--yes">
+            <span class="tile-icon tile-icon--sm" aria-hidden="true"><svg><use href="#i-layers" /></svg></span>
+            <h3 class="tile-title">Fulfillment layer</h3>
+            <p>You won the ticket—we help staff it inside a sane radius.</p>
+          </div>
+          <div class="tile tile--clarity tile--yes">
+            <span class="tile-icon tile-icon--sm" aria-hidden="true"><svg><use href="#i-cpu" /></svg></span>
+            <h3 class="tile-title">Status &amp; routing</h3>
+            <p>Surfaces your engineering and ops teams already think in.</p>
+          </div>
+          <div class="tile tile--clarity tile--yes">
+            <span class="tile-icon tile-icon--sm" aria-hidden="true"><svg><use href="#i-users" /></svg></span>
+            <h3 class="tile-title">Co-strengthening</h3>
+            <p>You bring demand and trust; we help deliver with transparency.</p>
+          </div>
+          <div class="tile tile--clarity tile--no">
+            <span class="tile-icon tile-icon--sm" aria-hidden="true"><svg><use href="#i-ban" /></svg></span>
+            <h3 class="tile-title">Not disintermediation</h3>
+            <p>We are not here to rebrand your enterprise accounts by default.</p>
+          </div>
+          <div class="tile tile--clarity tile--no">
+            <span class="tile-icon tile-icon--sm" aria-hidden="true"><svg><use href="#i-spark" /></svg></span>
+            <h3 class="tile-title">Not generic gig noise</h3>
+            <p>Scope is professional IT: SLAs, discipline, close-out.</p>
+          </div>
+          <div class="tile tile--clarity tile--no">
+            <span class="tile-icon tile-icon--sm" aria-hidden="true"><svg><use href="#i-map" /></svg></span>
+            <h3 class="tile-title">Not fake scale</h3>
+            <p>Georgia depth first—quality over a hollow nationwide map.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block" id="partners" aria-labelledby="partners-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Dispatch · MSP · national field networks</p>
+          <h2 id="partners-heading">Partners</h2>
+          <p class="section-deck">
+            When headcount does not match every metro you still have to cover, Leta adds coordinated bench and clearer field
+            signal—without picking a fight with your channel.
           </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#contact">Talk to us about partnership</a>
-            <a class="btn btn-secondary" href="#customers">I need a tech (customer)</a>
+        </header>
+
+        <div class="bento bento--quad">
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-users" /></svg></span>
+            <h3 class="tile-title">Bench gap</h3>
+            <p>Georgia-wide pool, one platform—less spreadsheet archaeology.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-clock" /></svg></span>
+            <h3 class="tile-title">SLA pressure</h3>
+            <p>Radius-aware matching so tickets are more likely to clear in-window.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-eye" /></svg></span>
+            <h3 class="tile-title">Opaque trucks</h3>
+            <p>Partner-visible execution where contract allows: status, artifacts, close-out.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-trend" /></svg></span>
+            <h3 class="tile-title">Hiring curve</h3>
+            <p>Cover spikes without linear W-2 growth in every zip.</p>
+          </div>
+        </div>
+
+        <div class="bento bento--trio section-spacer">
+          <div class="tile tile--soft">
+            <span class="tile-icon tile-icon--muted" aria-hidden="true"><svg><use href="#i-shield" /></svg></span>
+            <h3 class="tile-title">Your story stays yours</h3>
+            <p>Partner-led work remains your customer narrative. We handle delivery mechanics.</p>
+          </div>
+          <div class="tile tile--soft">
+            <span class="tile-icon tile-icon--muted" aria-hidden="true"><svg><use href="#i-layers" /></svg></span>
+            <h3 class="tile-title">Shared liquidity</h3>
+            <p>Direct orders feed the same pool—better fill when the market is thin.</p>
+          </div>
+          <div class="tile tile--soft">
+            <span class="tile-icon tile-icon--muted" aria-hidden="true"><svg><use href="#i-cpu" /></svg></span>
+            <h3 class="tile-title">Built for operators</h3>
+            <p>Clear states and audit-friendly artifacts—not a consumer toy stack.</p>
           </div>
         </div>
       </section>
 
-      <div class="callout" aria-labelledby="clarity-heading">
-        <h2 id="clarity-heading">Plain language before the first call</h2>
-        <div class="callout-grid">
-          <div class="callout-col">
-            <h3>What we are</h3>
-            <ul>
-              <li>A <strong>fulfillment layer</strong> when you already won the ticket but need qualified bodies in a Georgia radius.</li>
-              <li>A product mindset: <strong>status, routing, evidence</strong>—the kind of surface engineering and ops teams expect.</li>
-              <li><strong>Co-strengthening</strong> with national and regional field networks: you bring demand and trust; we help deliver.</li>
-            </ul>
-          </div>
-          <div class="callout-col">
-            <h3>What we are not</h3>
-            <ul>
-              <li>Not here to <strong>disintermediate</strong> your enterprise contracts or rebrand your customer relationships by default.</li>
-              <li>Not a generic “gig” noise platform—scope is <strong>professional IT</strong> workflows, SLAs, and close-out discipline.</li>
-              <li>Not pretending nationwide hyper-scale on day one—we are deliberate about <strong>Georgia depth first</strong> for quality.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <section class="section-block" id="customers" aria-labelledby="customers-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">B2B &amp; B2C</p>
+          <h2 id="customers-heading">Customers</h2>
+          <p class="section-deck">Order onsite IT with the clarity you expect from modern logistics—who, when, done.</p>
+        </header>
 
-      <section id="partners">
-        <h2>For fulfillment partners</h2>
-        <p class="section-intro">
-          Dispatch companies, MSPs, and Barrister-class national or regional IT service organizations: if your constraint is
-          <strong>onsite headcount in every metro and corridor</strong>, Leta matches work to vetted field professionals with
-          geo-aware rules—so your ops team spends less time chasing status and more time hitting commitments.
-        </p>
-        <div class="table-wrap">
-          <table class="simple">
-            <thead>
-              <tr>
-                <th>Your pressure</th>
-                <th>How Leta helps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tech shortage</td>
-                <td>Access to a Georgia-wide pool coordinated through one platform—not a spreadsheet and a phone tree.</td>
-              </tr>
-              <tr>
-                <td>SLA risk</td>
-                <td>Matching tuned to radius and capacity so tickets are more likely to be accepted and completed in-window.</td>
-              </tr>
-              <tr>
-                <td>Opaque field execution</td>
-                <td>Partner-visible execution where contract allows: tracking, artifacts, structured close-out.</td>
-              </tr>
-              <tr>
-                <td>Linear hiring cost</td>
-                <td>Cover more geography without W-2 bench in every zip code for every spike.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="bento bento--trio">
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-phone" /></svg></span>
+            <h3 class="tile-title">On-demand clarity</h3>
+            <p>Status you can trust. Less voicemail, fewer mystery arrivals.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-eye" /></svg></span>
+            <h3 class="tile-title">Transparent close-out</h3>
+            <p>Professional workflows—not a black box.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-trend" /></svg></span>
+            <h3 class="tile-title">Fair economics</h3>
+            <p>Efficiency and less rework as the network matures. Pricing follows policy.</p>
+          </div>
         </div>
-        <div class="card-grid card-grid--tight-top">
-          <div class="card">
-            <h3>Demand stays yours</h3>
-            <p>
-              Partner-originated work orders remain <strong>your customer story</strong> in the partner-led model. Leta’s job is
-              delivery mechanics and transparency—not channel warfare.
-            </p>
+        <p class="section-note">Apps are the product; this site is for trust and routing until store links ship.</p>
+      </section>
+
+      <section class="section-block" id="technicians" aria-labelledby="tech-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">1099 field pros · Georgia</p>
+          <h2 id="tech-heading">Technicians</h2>
+          <p class="section-deck">Partner + direct demand in one pool—more relevant offers when you are Active.</p>
+        </header>
+
+        <div class="bento bento--trio">
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-map" /></svg></span>
+            <h3 class="tile-title">Smarter offers</h3>
+            <p>Matched to skills, radius, and quality signals.</p>
           </div>
-          <div class="card">
-            <h3>Liquidity for techs</h3>
-            <p>
-              We also aggregate <strong>direct</strong> customer orders into the same technician pool. That improves utilization,
-              which helps <strong>your</strong> tickets get picked up when the market is thin.
-            </p>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-wrench" /></svg></span>
+            <h3 class="tile-title">Digital close-out</h3>
+            <p>Signatures, photos, artifacts that protect you and the customer.</p>
           </div>
-          <div class="card">
-            <h3>Built like infra people think</h3>
-            <p>
-              One platform, clear states, audit-friendly artifacts—closer to how you’d design an internal service than a consumer
-              toy. Georgia-first rollout is intentional QA before geography expands.
-            </p>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-video" /></svg></span>
+            <h3 class="tile-title">Overwatch</h3>
+            <p>Remote experts on live video when the job gets hard on-site.</p>
           </div>
         </div>
       </section>
 
-      <section id="customers">
-        <h2>For customers</h2>
-        <p class="section-intro">
-          Businesses and individuals who need <strong>onsite IT</strong> get ordering and tracking with on-demand clarity:
-          who is coming, when, and what “done” looks like—without living in voicemail loops.
-        </p>
-        <ul class="clean">
-          <li><strong>B2B &amp; B2C</strong> — branch IT, break/fix, installs, and similar professional scopes as the network matures.</li>
-          <li><strong>Transparency</strong> — status you can trust; professional close-out, not a black box.</li>
-          <li><strong>Fair economics</strong> — marketplace efficiency and less rework as liquidity builds (pricing follows published policy).</li>
-        </ul>
-        <p class="section-intro section-intro--spaced">
-          Mobile apps are the operational product; this page is for <strong>trust and routing</strong>. App store links land here when
-          builds are public.
-        </p>
-      </section>
+      <section class="section-block" id="model" aria-labelledby="model-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">One loop</p>
+          <h2 id="model-heading">Three-sided win</h2>
+        </header>
 
-      <section id="technicians">
-        <h2>For field technicians</h2>
-        <p class="section-intro">
-          1099 professionals in Georgia: combined <strong>partner + direct</strong> demand in one Active pool—more relevant offers,
-          modern tooling, faster payouts per policy, and escalation to remote experts when a job gets hard on-site.
-        </p>
-        <ul class="clean">
-          <li>Offers matched to skills, radius, and quality signals.</li>
-          <li>Digital close-out: signatures, photos, and artifacts that protect you and the customer.</li>
-          <li>“Overwatch” path—remote experts on live video/audio when you need backup.</li>
-        </ul>
-      </section>
-
-      <section id="model">
-        <h2>Three-sided win</h2>
-        <div class="card-grid">
-          <div class="card">
+        <div class="bento bento--trio">
+          <div class="tile tile--model">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-users" /></svg></span>
             <span class="pill">Partners</span>
-            <h3 class="card-title-neutral">Higher fulfillment</h3>
-            <p>More completed work in Georgia, happier end customers, less internal coordination tax.</p>
+            <h3 class="tile-title">Higher fulfillment</h3>
+            <p>More completed work, happier end customers, less ops thrash.</p>
           </div>
-          <div class="card">
+          <div class="tile tile--model">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-wrench" /></svg></span>
             <span class="pill">Technicians</span>
-            <h3 class="card-title-neutral">Steadier pipeline</h3>
-            <p>One liquidity pool from partner tickets and direct orders—built toward primary-income depth, not random side gigs.</p>
+            <h3 class="tile-title">Steadier pipeline</h3>
+            <p>One liquidity pool—built toward real income depth.</p>
           </div>
-          <div class="card">
+          <div class="tile tile--model">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-phone" /></svg></span>
             <span class="pill">Customers</span>
-            <h3 class="card-title-neutral">Predictable IT visits</h3>
-            <p>Qualified techs, clear execution, product scope aimed at professional IT—not undifferentiated gig work.</p>
+            <h3 class="tile-title">Predictable visits</h3>
+            <p>Qualified techs, clear execution, professional scope.</p>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="contact-panel">
-        <h2>Contact</h2>
-        <p class="section-intro">
-          Leta is in active documentation and build-out. For <strong>partnership conversations</strong>, pilots, or technical
-          diligence, start a thread on the GitHub repo (best for a paper trail today)—or use whatever channel the founder has
-          already shared with you.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/Atouba64/leta/issues" target="_blank" rel="noopener noreferrer"
-            >Open a GitHub issue</a
-          >
-          <a class="btn btn-secondary" href="https://github.com/Atouba64/leta" target="_blank" rel="noopener noreferrer"
-            >Browse the repo &amp; docs</a
-          >
+      <section class="section-block contact-strip" id="contact" aria-labelledby="contact-heading">
+        <div class="bento bento--contact">
+          <div class="tile tile--contact-copy">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="#i-message" /></svg></span>
+            <h2 id="contact-heading">Contact</h2>
+            <p>Pilots, diligence, or partnership threads—GitHub keeps a paper trail for now.</p>
+          </div>
+          <div class="tile tile--contact-actions">
+            <a class="btn btn-primary btn--block" href="https://github.com/Atouba64/leta/issues" target="_blank" rel="noopener noreferrer">
+              <svg class="btn-icon" aria-hidden="true"><use href="#i-github" /></svg>
+              Open an issue
+            </a>
+            <a class="btn btn-secondary btn--block" href="https://github.com/Atouba64/leta" target="_blank" rel="noopener noreferrer">Browse repo &amp; docs</a>
+          </div>
         </div>
       </section>
 
-      <p class="footnote">
-        External messaging follows the guardrails in <code>05-marketing-and-sales/partner-channel-win-win.md</code> and
-        <code>website-and-messaging.md</code>: emphasize <strong>partnership and fulfillment</strong>, tie bold claims to pilot
-        metrics when they exist, and surface insurance and vetting in onboarding—not as empty marketing hype.
-      </p>
+      <aside class="tile tile--footnote" role="note">
+        <span class="tile-icon tile-icon--sm tile-icon--muted" aria-hidden="true"><svg><use href="#i-shield" /></svg></span>
+        <p>
+          Messaging follows <code>05-marketing-and-sales/</code> guardrails: partnership language, pilot-backed claims only,
+          insurance and vetting in onboarding.
+        </p>
+      </aside>
     </main>
 
     <footer class="site-footer">
-      <p><strong>Leta</strong> — IT field service on demand. Georgia first. © 2026</p>
-      <p class="footer-repo">Repository: <a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
+      <p><strong>Leta</strong> — IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
     </footer>
   </body>
 </html>
