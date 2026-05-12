@@ -768,21 +768,38 @@ main {
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 640px) {
   .bento--clarity {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1040px) {
+  .bento--clarity {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .tile--clarity {
-  padding: var(--tile-pad-y) var(--tile-pad-x);
+  padding: calc(var(--tile-pad-y) + 0.15rem) var(--tile-pad-x);
 }
 
-.tile--clarity p {
+.tile--clarity .tile-title {
+  margin: 0 0 0.85rem;
+}
+
+.tile--clarity .tile-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.tile--clarity .tile-line {
   margin: 0;
   font-size: clamp(0.9rem, 2.2vw, 0.95rem);
   color: var(--text-soft);
-  line-height: 1.58;
+  line-height: 1.65;
+  display: block;
 }
 
 .tile--yes {
