@@ -29,18 +29,17 @@
         <symbol id="i-layers" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m12.83 2.18 8.18 4.73a1 1 0 0 1 0 1.73l-8.18 4.73a2 2 0 0 1-1.66 0L3 8.64a1 1 0 0 1 0-1.73L11.17 2.18a2 2 0 0 1 1.66 0Z" />
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 12.5 12.83 17.27a2 2 0 0 1-1.66 0L2 12.5M22 17.5l-9.17 4.77a2 2 0 0 1-1.66 0L2 17.5" />
-        </symbol>Not generic gig noise
-
-
-
-
-
+        </symbol>
         <symbol id="i-shield" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4" />
+        </symbol>
+        <symbol id="i-users" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm11 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
-          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 6v6l4 2" /Not generic gig noise
-          >
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 6v6l4 2" />
         </symbol>
         <symbol id="i-eye" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z" />
@@ -82,6 +81,7 @@
       </defs>
     </svg>
 
+    <div class="site-bar">
     <header class="site-header">
       <div class="nav-inner">
         <a class="logo" href="#top"
@@ -102,18 +102,20 @@
             <span class="nav-toggle-bar"></span>
           </span>
         </button>
-        <div class="nav-backdrop" id="nav-backdrop" hidden></div>
-        <nav class="nav-panel" id="nav-panel" aria-label="Primary">
-          <ul class="nav-list">
-            <li><a class="nav-highlight" href="#partners">Partners</a></li>
-            <li><a href="#customers">Customers</a></li>
-            <li><a href="#technicians">Technicians</a></li>
-            <li><a href="#model">Model</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
+    <nav class="nav-panel" id="nav-panel" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a class="nav-highlight" href="#partners">Partners</a></li>
+        <li><a href="#customers">Customers</a></li>
+        <li><a href="#technicians">Technicians</a></li>
+        <li><a href="#model">Model</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
 
     <main id="top">
       <section class="hero-bento" aria-labelledby="hero-heading">
@@ -182,7 +184,7 @@
           </div>
           <div class="tile tile--clarity tile--no">
             <span class="tile-icon tile-icon--sm" aria-hidden="true"><svg><use href="#i-spark" /></svg></span>
-            <h3 class="tile-title">Not generic gig noise</h3>
+            <h3 class="tile-title">Professional IT, not gig noise</h3>
             <p>Scope is professional IT: SLAs, discipline, close-out.</p>
           </div>
           <div class="tile tile--clarity tile--no">
@@ -368,6 +370,7 @@
           toggle.setAttribute("aria-expanded", open ? "true" : "false");
           toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
           backdrop.hidden = !open;
+          backdrop.setAttribute("aria-hidden", open ? "false" : "true");
         }
 
         function close() {
