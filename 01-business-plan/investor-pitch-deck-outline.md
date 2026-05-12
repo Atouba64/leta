@@ -1,73 +1,63 @@
-# Investor pitch deck outline — Leta
+# Investor Pitch Deck Outline (10-12 Slides)
 
-Suggested slide flow for a seed-style narrative. Replace placeholders with real metrics as they exist.
+**Slide 1: Title Slide**
 
----
+- Logo: Leta
+- Tagline: "Modernizing IT Field Services. On-Demand. On-Site. On Point."
+- Presenter: Mabele (Founder & CEO)
 
-## 1. Title
+**Slide 2: The Problem**
 
-- **Leta** — geo-aware IT service lifecycle platform  
-- Tagline: *Visibility for customers. Modern tools for techs. Live escalation when jobs get hard.*
+- Visual: A chaotic, tangled mess of phone calls, emails, and frustrated techs.
+- Points: Legacy IT dispatch is broken. Customers have zero visibility. Techs suffer from delayed payments and zero on-site support.
 
-## 2. The problem
+**Slide 3: The Solution (Leta)**
 
-- Break/fix IT is **fragmented**—customers blind to arrival, field techs stuck in legacy portals, remote experts disconnected from the truck roll.
+- Visual: Sleek iPhone mockups showing the Customer tracking screen and the Tech work-order screen.
+- Points: A centralized app ecosystem. GPS tracking, instant payouts, and an integrated Remote Tech escalation button.
 
-## 3. Why now
+**Slide 4: How It Works (The Lifecycle)**
 
-- Expectations set by **consumer logistics** (tracking, ETAs, proof of delivery).  
-- Labor shortage pushes partners to **flexible 1099** networks—needs software discipline.  
-- Video + mobile reliability makes **overwatch** practical in the field.
+- Step 1: Customer requests service.
+- Step 2: Geo-matched Field Tech accepts.
+- Step 3: Tech arrives (tracked via app) and fixes the issue.
+- Step 4: (Optional) Tech pings Remote Tech for advanced help.
+- Step 5: Digital sign-off and instant payment.
 
-## 4. The solution — Leta
+**Slide 5: Why Georgia? (The Beachhead Market)**
 
-- **One platform**: ticket → dispatch → field execution → remote assist → payout.  
-- **Geo-aware** matching in **Georgia** first (controlled QA, density strategy).
+- Points: Booming tech hub (Atlanta). Diverse mix of enterprise branches and SMBs. Manageable geography for tight Quality Assurance during Year 1.
 
-## 5. Product demo storyboard (3 minutes)
+**Slide 6: Market Size & Opportunity**
 
-1. Customer submits ticket + sees **estimate**.  
-2. Field tech goes **Active**, accepts nearby job, **GPS tracking** visible to customer.  
-3. Tech hits **Escalate** → remote joins **video/audio** session.  
-4. Completion: **signature**, photos, **instant payout** to tech.
+- TAM (Total Addressable Market): US IT Services Market ($XXX Billion).
+- SAM (Serviceable Available Market): Southeast US Break/Fix Market.
+- SOM (Serviceable Obtainable Market): State of Georgia SMB/Enterprise Field IT ($XX Million).
 
-## 6. Customer segments
+**Slide 7: Business Model**
 
-- **B2C / SMB** direct.  
-- **B2B partners** (MSPs, OEM-adjacent service orgs) via subcontract or strategic partner channel.
+- Visual: Simple pie chart or flow chart showing money movement.
+- Points: 20-30% Take-Rate on transactions + B2B SaaS Subscriptions.
 
-## 7. Business model
+**Slide 8: Competitive Landscape**
 
-- **Take-rate** on work + optional **subscription tiers** for partner dashboards and APIs (see [`monetization-strategy.md`](./monetization-strategy.md)).
+- Matrix Graph: X-axis (Outdated vs. Modern Tech), Y-axis (Slow Service vs. Fast Service).
+- Competitors: Barrister, FieldNation, WorkMarket (placed in the outdated/slow quadrants). Leta in the top right.
 
-## 8. Moat / differentiation
+**Slide 9: The Founder's Advantage**
 
-- **Lifecycle ownership** (not a job board alone).  
-- **Hybrid tier** for partners: labor + **transparency dashboard** (map, photos, signatures) → stickier than pure staffing.
+- Highlight Mabele's 5 years of independent contracting with Barrister.
+- Point: "We know the exact pain points because we lived them. We already know what the techs want."
 
-## 9. Go-to-market
+**Slide 10: Traction & Go-to-Market Strategy**
 
-- **Georgia beachhead** → Southeast expansion.  
-- Land **anchor partners** with SLAs and rate cards (see [`operational-model.md`](./operational-model.md)).
+- Strategy: Onboard 100 top-tier Georgia techs first (supply side). Then aggressively target local Georgia SMBs with free first-time dispatch offers (demand side).
 
-## 10. Traction roadmap (fill in)
+**Slide 11: The Ask / Financial Projections**
 
-- Pilots, NPS, repeat partner revenue, technician retention, time-to-arrival vs SLA.
+- Seeking: $XXX,000 for Pre-Seed round.
+- Use of Funds: 60% App Development (Customer/Tech/Remote portals), 30% Marketing & Sales, 10% Legal/Compliance.
 
-## 11. Competition
+**Slide 12: Contact / Q&A**
 
-- Barrister-class incumbents, **WorkMarket**, **FieldNation**—positioning in [`../03-research-and-ideas/competitor-analysis.md`](../03-research-and-ideas/competitor-analysis.md).
-
-## 12. Team
-
-- Founder-market fit, ops advisors, legal/compliance bench.
-
-## 13. The ask
-
-- Use of funds: engineering, insurance/legal setup, initial marketplace liquidity in target metros.
-
-## 14. Appendix hooks
-
-- Unit economics assumptions.  
-- Insurance stack.  
-- Regulatory map (not legal advice—counsel required).
+- Logo, Email, Website.

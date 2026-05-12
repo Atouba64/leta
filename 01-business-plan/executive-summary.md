@@ -1,46 +1,30 @@
-# Executive summary — Leta
+# Leta: Executive Summary
 
-## One-liner
+## Our Mission
 
-**Leta** is a geo-aware dispatch and service platform for IT break/fix: customers get transparency, field techs get modern tooling and fast pay, remote techs provide live escalation, and partners get an asset-light labor + software layer.
+To modernize and streamline on-demand IT field services by providing a centralized, transparent, and hyper-efficient platform connecting customers, field technicians, and remote support experts.
 
-## The gap in the market
+## The Problem (The Legacy Bottleneck)
 
-Traditional break/fix IT is **fragmented**. Customers lack visibility into **when** a technician will arrive. Field technicians fight **legacy dispatch portals** and **delayed payments**. Remote experts are not wired into the same workflow as people on the ground, so complex jobs stall or get revisited.
+The current break/fix IT service industry (dominated by legacy companies like Barrister) is highly fragmented and plagued by outdated technology.
 
-Leta is not positioned as “another generic dispatch company.” It targets the **specific pain points** incumbents and manual operations leave open: lifecycle visibility, technician experience, and remote/field **integration**.
+- **Customers** suffer from a lack of transparency, unpredictable arrival times, and inconsistent repair quality.
+- **Field Technicians** are frustrated by clunky dispatch portals, delayed payments, and a lack of real-time support when they run into complex issues on-site.
+- **The Result:** High overhead costs, low first-time fix rates, and poor user experiences for all parties involved.
 
-## Product thesis
+## The Leta Solution
 
-A **fully centralized** mobile + web application that manages the **entire ticket lifecycle**:
+Leta is an "Uber-meets-IT-Support" platform, initially launching exclusively in the state of Georgia. We provide a single, centralized mobile and web application that handles the entire lifecycle of an IT service ticket.
 
-1. Customer request and pricing signals  
-2. Dispatch to a qualified **field** technician (geo-aware, Georgia-first launch)  
-3. Optional **remote overwatch** (video/audio) on demand  
-4. Proof of work, signatures, and **payout**
+- **Real-Time Visibility:** Customers can track their assigned tech via GPS and communicate directly through the app.
+- **Empowered Field Techs:** Technicians receive geo-targeted work orders, automated payouts, and a modern UI that eliminates administrative friction.
+- **The "Remote Tech" Safety Net:** If a Field Tech encounters a roadblock, they can instantly escalate the ticket within the app to connect with a Tier-2/Tier-3 Remote Tech via live video/audio, ensuring the job gets done right the first time.
 
-## Stakeholder outcomes
+## Target Market & Rollout Strategy
 
-- **Customers (B2B & B2C):** dashboard, ticket submission, estimated cost, **live tracking** of the assigned tech.  
-- **Field techs (1099):** intuitive mobile app, **Active** presence, proximity-based job offers, ticketing + signatures, **automated payouts**.  
-- **Remote techs:** specialized web portal; **Escalate** opens a guided session with the field tech.  
-- **Investors:** scalable, **asset-light** footprint (contractor workforce + cloud), deliberate **Georgia** beachhead before Southeast expansion.  
-- **Strategic partners / white-label buyers:** optional **hybrid** offering—labor plus a **partner dashboard** (real-time map, photos, digital signatures) so Leta becomes infrastructure, not “just staffing.”
+- **Phase 1 (Proof of Concept):** State of Georgia (focusing heavily on the Atlanta Metro, Gainesville, and Savannah areas).
+- **Target Audience:** Small-to-Medium Businesses (SMBs) needing network setups/repairs, Enterprise branch locations (retail POS systems, server racks), and high-end residential smart-home installations.
 
-## Go-to-market (initial)
+## The Founder's Advantage
 
-- **Geography:** Georgia (e.g. Atlanta, Gainesville, Savannah clusters—see [`../03-research-and-ideas/georgia-market-sizing.md`](../03-research-and-ideas/georgia-market-sizing.md)).  
-- **Positioning:** subcontract / strategic partner models (see [`operational-model.md`](./operational-model.md)).  
-- **Differentiation:** software transparency + dispatch discipline + remote escalation—not phone tag.
-
-## Risks (honest)
-
-- Two-sided marketplace cold start (supply and demand).  
-- Insurance, classification, and dispute handling must be airtight (see [`../04-legal-and-compliance/`](../04-legal-and-compliance/)).  
-- Partner channel conflict (brand visibility vs white-label invisibility).
-
-## Next documents in this folder
-
-- [`monetization-strategy.md`](./monetization-strategy.md) — take-rate, tiers, unit economics guardrails  
-- [`investor-pitch-deck-outline.md`](./investor-pitch-deck-outline.md) — narrative spine for a deck  
-- [`operational-model.md`](./operational-model.md) — dispatch logic, QA, disputes, partner models  
+Founded by a 5-year veteran of the independent IT contractor industry. Leta isn't built by outsiders guessing what the market needs; it is built by an insider who experienced the inefficiencies of legacy platforms firsthand and engineered the exact solution to fix them.

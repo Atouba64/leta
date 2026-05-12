@@ -1,74 +1,39 @@
-# Operational model — Leta
+# Operational Model: Day-to-Day Logistics
 
-Dispatch logic, partner models, QA, and dispute resolution at a conceptual level. Refine with legal and ops leadership before production use.
+This document outlines how Leta operates in the real world, ensuring high quality, safety, and dispute resolution.
 
-## Partner models
+## 1. The Dispatching Logic (The Algorithm)
 
-### Option A — Subcontractor / white-label
+Leta does not rely on human dispatchers frantically making phone calls. The system is automated based on four pillars:
 
-- Leta’s agents may appear under **partner branding** (or neutral gear) and represent the partner end-to-end.  
-- **Pros:** partner keeps the **customer relationship**; seamless to the client.  
-- **Cons:** Leta’s **consumer brand** does not compound in public view.
+- **Geo-Fencing:** When a ticket is created in Gainesville, the app pushes notifications only to active techs within a 30-mile radius.
+- **Skill Matching:** Tickets require specific tags (e.g., `Networking`, `Hardware Repair`, `POS Systems`). Only techs who have verified these skills in their profile receive the ping.
+- **Rating Hierarchy:** Techs with a 4.8+ star rating get a 5-minute head start to accept premium tickets before they are broadcasted to the wider network.
+- **The "Uber" Acceptance:** The first qualified tech to tap "Accept" claims the ticket.
 
-### Option B — Strategic partner / co-branded
+## 2. The Remote Tech Integration (Quality Assurance)
 
-- Partner tells the client: “We’re dispatching a **Leta**-verified technician as our official service partner.”  
-- **Pros:** builds **Leta reputation** and trust artifacts (reviews, badges).  
-- **Cons:** partners may fear **client poaching**—address with contract (non-solicitation, data firewalls).
+The biggest risk in break/fix IT is a tech arriving on-site and not knowing how to fix the problem, resulting in a wasted trip and an angry customer.
 
-### Hybrid “tier” (recommended differentiator)
+- **The Safety Net:** Field Techs are required to hit the "Escalate" button in the app before leaving a site unresolved.
+- **Live Connection:** This instantly video-calls a vetted Leta Remote Tech. The Remote Tech views the hardware through the Field Tech's phone camera and walks them through the solution step-by-step.
 
-Beyond bodies in trucks, offer partners a **live dashboard** (implementation sketch: React + Firebase or equivalent modern stack) showing:
+## 3. Tech Onboarding & Vetting
 
-- **Real-time** approximate location of active agents (privacy-safe UX).  
-- **Photos** of completed work and asset evidence.  
-- **Digital signatures** and structured close-out checklist.
+To maintain a premium reputation, Leta cannot let just anyone onto the platform.
 
-This makes Leta **infrastructure**, not a temp agency.
+- **Background Checks:** Mandatory criminal background check via Checkr API.
+- **Skill Verification:** Techs must upload certifications (CompTIA, Cisco, etc.) or pass a brief, in-app technical quiz during onboarding.
+- **Remote Tech Elite:** Remote Techs are highly vetted, often requiring 5+ years of Tier 3 support experience.
 
-## Dispatch logic (conceptual)
+## 4. Dispute Resolution & Protection
 
-1. **Intake:** ticket classified (skills, tools, urgency, SLA tier).  
-2. **Matching:** geo-radius search over **Active** field techs with required certs + rating + completion rate.  
-3. **Offer cascade:** push notification → accept window → next candidate if declined/expired.  
-4. **In progress:** customer tracking, partner visibility (if subscribed), chat channel policy.  
-5. **Escalation:** field tech triggers **Overwatch**; remote tech joins with scoped permissions.  
-6. **Close-out:** checklist, signatures, photos, parts/labor codes → **payout** + **partner invoice**.
+When things go wrong, the app protects all parties.
 
-## SLA categories (per-ticket agreement)
+- **Photographic Proof:** Field Techs must take "Before" and "After" photos within the app to close a ticket. This prevents customers from falsely claiming a job wasn't completed.
+- **Escrow System:** Customer funds are captured when the tech is en route but held in escrow. If a dispute arises, Leta Admin reviews the GPS logs, chat history, and photos to make a binding decision within 24 hours.
+- **Insurance:** Leta maintains a blanket liability policy, though 1099 Field Techs are required to carry their own basic liability insurance to be activated on the platform.
 
-Use explicit SLAs with partners and clear customer-facing windows where applicable.
+## Next Steps
 
-| Category | What to define |
-|----------|----------------|
-| **Response time** | e.g. 4-hour vs NBD vs scheduled window—clock starts when? |
-| **Rate card** | Flat SKUs + allowed variances vs time-and-materials. |
-| **Non-solicitation** | Field agents must not solicit partner’s clients for competing services. |
-| **Reporting** | Digital work order, signatures, media—delivery timeline to partner CRM/email/API. |
-| **Cancellation** | Fees, tech compensation if en route. |
-
-## QA program
-
-- **Job audits:** random review of photos/checklists.  
-- **Customer CSAT** and **partner scorecards**.  
-- **Tech quality tiers** (unlock better jobs / faster payout).  
-- **Rework policy:** who pays when first-time fix fails within X days.
-
-## Dispute resolution
-
-- **Evidence-first:** timestamped GPS (where legally permissible), chat logs, media, signatures.  
-- **Triage queue:** billing disputes vs quality vs scope creep.  
-- **Chargeback / refund rules** published to customers.  
-- **Partner arbitration** path for high-dollar enterprise contracts.
-
-## Payments
-
-- **Field techs:** 1099 contractors—automated payouts on verified close-out (see [`../04-legal-and-compliance/field-tech-1099-agreements.md`](../04-legal-and-compliance/field-tech-1099-agreements.md)).  
-- **Hidden cost clarity:** travel/gas/truck roll fees—either in payout, partner billable, or hybrid.
-
-## Metrics to run the marketplace
-
-- Time to **first offer** / time to **accept** / time to **arrival**.  
-- **First-time fix rate** (especially with overwatch).  
-- **Gross margin per ticket** after insurance and processing.  
-- **Tech utilization** and **churn**.
+The **01-business-plan** folder is the foundational blueprint for Leta. Whenever you are ready, continue with **02-app-documentation**, where you outline the exact features, buttons, and user flows for the Customer App, the Field Tech App, and the Remote Tech Portal.
