@@ -1,6 +1,6 @@
 # Leta
 
-**Leta** is a centralized, geo-aware mobile and web platform for the full lifecycle of IT service work—from ticket intake and dispatch through field execution, remote escalation, and payout. The product is designed to replace the gray areas of traditional break/fix IT: poor visibility for customers, brittle dispatch tools for field technicians, and weak handoff between people on-site and remote experts.
+**Leta** is a centralized, geo-aware mobile and web platform for the full lifecycle of IT field service—from partner and customer demand through dispatch, onsite execution, remote escalation when needed, and payout. Think **on-demand logistics for professional IT**, **Georgia first**, with a deliberate **fulfillment partner** channel so established service companies can cover more work orders without hiring a W-2 bench in every market.
 
 **Repository:** [github.com/Atouba64/leta](https://github.com/Atouba64/leta)
 
@@ -9,7 +9,8 @@
 ## Problem (why Leta exists)
 
 - **Customers** rarely get reliable ETAs or live status; they live in phone trees and email threads.
-- **Field technicians** juggle outdated dispatch portals, unclear scope, and slow payment cycles.
+- **Field technicians** need more consistent work and better tools; legacy dispatch flows and slow payouts hurt retention.
+- **Fulfillment partners** (national/regional field IT and dispatch orgs) often have **large client databases** but **not enough onsite techs** in every Georgia radius to meet SLAs.
 - **Remote technicians** lack a clean path to join a live job when the field tech needs “overwatch” support.
 
 ## Solution (what Leta delivers)
@@ -18,10 +19,15 @@ One platform that connects:
 
 | Audience | Value |
 |----------|--------|
-| **Customers (B2B & B2C)** | Modern ticket flow, estimated cost up front, and **live GPS-style tracking** of the assigned field tech (similar to consumer delivery apps). |
-| **Field techs** | Mobile-first workflow: go **Active**, receive **push** jobs near their location (initial focus: **Georgia**), capture signatures and job artifacts, and **faster automated payouts**. |
-| **Remote techs (“Overwatch”)** | Web portal with **Escalate** → built-in **video/audio** session to raise first-time fix rate on complex work. |
-| **Investors / operators** | **Asset-light** model: 1099 field network + cloud infrastructure; **Georgia-first** rollout for QA and density before Southeast expansion. |
+| **Fulfillment partners** (e.g. Barrister-class networks) | **Capacity + transparency**: help fulfill **their** work orders in Georgia with geo-aware matching and a partner-visible execution layer—**co-strengthening**, not channel warfare ([`05-marketing-and-sales/partner-channel-win-win.md`](./05-marketing-and-sales/partner-channel-win-win.md)). |
+| **Customers (B2B & B2C)** | Order onsite IT like modern on-demand services: **clear status**, professional close-out, and fair economics as the network matures. |
+| **Field techs** | **Active** workflow, combined **partner + direct** demand for more offers, **faster payouts**, and escalation to remote experts when jobs get hard. |
+| **Remote techs (“Overwatch”)** | Web portal with **Escalate** → live **video/audio** to lift first-time fix rate. |
+| **Investors / operators** | **Asset-light** model: 1099 field network + cloud software; **Georgia-first** rollout for QA before scaling geography. |
+
+## Public website (preview)
+
+A simple static marketing page for **partners**, **technicians**, and **customers** lives in [`website/`](./website/). Open `website/index.html` in a browser (or host via GitHub Pages later). Messaging strategy: [`05-marketing-and-sales/website-and-messaging.md`](./05-marketing-and-sales/website-and-messaging.md).
 
 ## Documentation map (start here)
 
@@ -30,10 +36,10 @@ This repo is organized like an internal company handbook plus product specs. Wor
 | Area | Path |
 |------|------|
 | Business plan | [`01-business-plan/`](./01-business-plan/) |
-| App documentation | [`02-app-documentation/`](./02-app-documentation/) |
+| App documentation | [`02-app-documentation/`](./02-app-documentation/) *(includes [`partner-portal/`](./02-app-documentation/partner-portal/user-stories.md))* |
 | Research & ideas | [`03-research-and-ideas/`](./03-research-and-ideas/) |
 | Legal & compliance | [`04-legal-and-compliance/`](./04-legal-and-compliance/) *(outline only—engage counsel before use)* |
-| Marketing & sales | [`05-marketing-and-sales/`](./05-marketing-and-sales/) |
+| Marketing & sales | [`05-marketing-and-sales/`](./05-marketing-and-sales/) *(partner win-win + website messaging)* |
 
 ## Engineering (when code lands)
 

@@ -47,7 +47,7 @@ High-level blueprint for a **centralized** platform with **mobile** (field), **w
 | **Media** | Upload, virus scan hook, retention policy, signed URLs. |
 | **Payments** | Customer charge, platform fee, tech payout, partner settlement. |
 | **Notifications** | Push, SMS, email providers with templating. |
-| **Partner integrations** | Webhooks/API for MSP tools, optional white-label config. |
+| **Partner integrations** | Webhooks/API for MSP tools, optional white-label config; **partner portal** for fulfillment partners (dispatch visibility, SLA, reconciliation—see [`partner-portal/user-stories.md`](./partner-portal/user-stories.md)). |
 
 ## Geo and privacy (design constraints)
 

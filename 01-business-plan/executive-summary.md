@@ -28,3 +28,11 @@ Leta is an "Uber-meets-IT-Support" platform, initially launching exclusively in 
 ## The Founder's Advantage
 
 Founded by a 5-year veteran of the independent IT contractor industry. Leta isn't built by outsiders guessing what the market needs; it is built by an insider who experienced the inefficiencies of legacy platforms firsthand and engineered the exact solution to fix them.
+
+That field experience includes a **deep network of IT professionals across Georgia**—a practical foundation for solving the industry’s hardest recurring problem: **getting qualified onsite techs to the right place on time**.
+
+## Partnership thesis (fulfillment, not rivalry)
+
+Many of the largest potential allies for Leta are **companies that already look like “competitors” on paper**—national or regional dispatch and field-service organizations (for example **Barrister Group LLC** and similar firms). In practice they often have **more client demand than they can staff** with onsite technicians in every Georgia market.
+
+Leta is designed to **strengthen** those partners: they keep **their** client relationships and contracts; Leta helps **fulfill** work orders with **transparency and speed** through a modern product layer. End customers and independent techs benefit from **combined liquidity** (partner-originated tickets **plus** direct “order a tech” demand in one marketplace). See [`../05-marketing-and-sales/partner-channel-win-win.md`](../05-marketing-and-sales/partner-channel-win-win.md).

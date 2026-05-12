@@ -26,10 +26,12 @@ Backlog ideas captured from product vision. **Prioritize** ruthlessly; not every
 
 ## Partner / B2B
 
+- [ ] **Fulfillment partner portal** (dispatch visibility, offer health, reconciliation) aligned to [`../../02-app-documentation/partner-portal/user-stories.md`](../../02-app-documentation/partner-portal/user-stories.md)  
 - [ ] **Hybrid dashboard:** map, photos, signatures for partner ops  
 - [ ] **Webhook + API** for PSA integration  
 - [ ] **White-label** comms templates  
-- [ ] **SLA breach** alerting and auto-escalation to partner dispatchers
+- [ ] **SLA breach** alerting and auto-escalation to partner dispatchers  
+- [ ] **Public marketing site** (GitHub Pages or CDN) from [`../../website/`](../../website/) with separate CTAs for partners vs customers vs tech apply
 
 ## Trust, safety, fraud
 
