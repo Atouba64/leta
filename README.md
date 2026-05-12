@@ -27,7 +27,9 @@ One platform that connects:
 
 ## Public website (preview)
 
-A simple static marketing page for **partners**, **technicians**, and **customers** lives in [`website/`](./website/). Open `website/index.html` in a browser (or host via GitHub Pages later). Messaging strategy: [`05-marketing-and-sales/website-and-messaging.md`](./05-marketing-and-sales/website-and-messaging.md).
+A simple static marketing page for **partners**, **technicians**, and **customers** lives in [`website/`](./website/). Open `website/index.html` in a browser (same folder as `styles.css`).
+
+**Netlify (`leta.repair`):** the repo includes [`netlify.toml`](./netlify.toml) with `publish = "website"` so production deploys serve `website/index.html` at the **site root** (fixes the default “Page not found” when Netlify was publishing the repo root, which has no `index.html`). Push to `main` and let Netlify rebuild, or in the Netlify UI set **Site configuration → Build & deploy → Publish directory** to `website` to match.
 
 ## Documentation map (start here)
 

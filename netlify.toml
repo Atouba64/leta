@@ -1,0 +1,13 @@
+# Netlify serves the static marketing site from /website (index.html lives there, not repo root).
+# If the Netlify UI "Base directory" is set to `website`, clear it—this file already points publish there.
+[build]
+  publish = "website"
+
+# No build step required — HTML/CSS only.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
