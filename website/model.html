@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
+    <title>Model — Leta | Three-sided field IT</title>
+    <meta
+      name="description"
+      content="Partners, technicians, and customers in one loop—higher fulfillment, steadier pipeline, predictable visits, and routing your ops team can reason about."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html#top"
+            ><span class="logo-mark">Leta<span class="dot">.</span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="nav-panel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-box" aria-hidden="true">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg class="nav-panel__close-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="technicians.html">Technicians</a></li>
+          <li><a class="nav-highlight" href="model.html">Model</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a></nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">One loop</p>
+        <h1>Three-sided win</h1>
+        <p class="section-deck">
+          Leta is deliberately three-sided: partners bring demand and trust, technicians bring execution capacity, and
+          customers get predictable visits. Shared liquidity makes the pool deeper than any single channel could sustain
+          alone—without Leta becoming a parallel sales organization.
+        </p>
+        <div class="page-cta">
+          <a class="btn btn-primary" href="platform.html">Fulfillment layer</a>
+          <a class="btn btn-secondary" href="contact.html">Talk to us</a>
+        </div>
+      </header>
+
+      <section class="section-block" aria-labelledby="model-trio-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Outcomes</p>
+          <h2 id="model-trio-heading">Each side, clearly</h2>
+        </header>
+        <div class="bento bento--trio">
+          <div class="tile tile--model">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-users" /></svg></span>
+            <span class="pill">Partners</span>
+            <h3 class="tile-title">Higher fulfillment</h3>
+            <p>More completed work, happier end customers, and less ops thrash when the bench and routing layer actually match reality.</p>
+          </div>
+          <div class="tile tile--model">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-wrench" /></svg></span>
+            <span class="pill">Technicians</span>
+            <h3 class="tile-title">Steadier pipeline</h3>
+            <p>One liquidity pool—built toward real income depth instead of fragmented, low-signal gig lists.</p>
+          </div>
+          <div class="tile tile--model">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-phone" /></svg></span>
+            <span class="pill">Customers</span>
+            <h3 class="tile-title">Predictable visits</h3>
+            <p>Qualified techs, clear execution, and professional scope—so “someone showed up” is not a surprise ending.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block" id="routing" aria-labelledby="routing-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Operations</p>
+          <h2 id="routing-heading">Status &amp; routing</h2>
+          <p class="section-deck">
+            Your engineering and ops teams already think in tickets, SLAs, and audit trails. Leta’s job is to surface field
+            reality in that same language: clear states, radius-aware assignment, and escalation paths you define—not a
+            consumer-style “map dot and pray” experience.
+          </p>
+        </header>
+        <div class="bento bento--trio">
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-cpu" /></svg></span>
+            <h3 class="tile-title">State machine discipline</h3>
+            <p>Tickets move through explicit states so dispatch, partners, and finance can agree on what happened and when.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-map" /></svg></span>
+            <h3 class="tile-title">Geo-aware matching</h3>
+            <p>Skills and radius gate offers so technicians see work they can actually complete—especially across Georgia’s mix of metros and rural routes.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-eye" /></svg></span>
+            <h3 class="tile-title">Visibility where allowed</h3>
+            <p>Partner-visible execution and artifacts when contract allows—reducing opaque “truck roll” anxiety without breaking confidentiality.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong> — IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="index.html">Home</a> · <a href="partners.html">Partners</a> · <a href="customers.html">Customers</a> ·
+        <a href="technicians.html">Technicians</a> · <a href="model.html">Model</a> · <a href="coverage.html">Coverage</a> ·
+        <a href="platform.html">Platform</a> · <a href="trust.html">Trust</a> · <a href="contact.html">Contact</a>
+      </p>
+      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
+    </footer>
+    <script src="site.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
+    <title>Coverage — Leta | Georgia-first field IT</title>
+    <meta
+      name="description"
+      content="Leta builds depth across Georgia—metros, edge markets, and rural routes—before chasing wider geography, with statewide coordination and local realism."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html#top"
+            ><span class="logo-mark">Leta<span class="dot">.</span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="nav-panel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-box" aria-hidden="true">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg class="nav-panel__close-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="technicians.html">Technicians</a></li>
+          <li><a href="model.html">Model</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a></nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">Georgia first</p>
+        <h1>Coverage</h1>
+        <p class="section-deck">
+          We cover the entire state of Georgia with intentional depth: Atlanta and secondary metros, edge markets, and rural
+          routes where “nationwide” networks often go thin. Geography is a product decision—better to be reliably excellent
+          here than nominally everywhere.
+        </p>
+        <div class="page-cta">
+          <a class="btn btn-primary" href="partners.html">Partner view</a>
+          <a class="btn btn-secondary" href="model.html#routing">Routing philosophy</a>
+        </div>
+      </header>
+
+      <section class="section-block" aria-labelledby="coverage-modes-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">How we think about the map</p>
+          <h2 id="coverage-modes-heading">Depth over spray</h2>
+        </header>
+        <div class="bento bento--trio">
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-map" /></svg></span>
+            <h3 class="tile-title">Metros &amp; corridors</h3>
+            <p>Higher density means faster iteration on matching, SLAs, and technician quality signals—without pretending every county behaves the same.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-clock" /></svg></span>
+            <h3 class="tile-title">Edge &amp; rural realism</h3>
+            <p>Radius and drive time matter more outside the Perimeter. Offers and windows respect real roads, not ruler distance.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-layers" /></svg></span>
+            <h3 class="tile-title">One statewide pool</h3>
+            <p>Partners and customers feed the same liquidity—so a quiet Tuesday in one region does not starve technicians who are willing to travel smartly.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong> — IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="index.html">Home</a> · <a href="partners.html">Partners</a> · <a href="customers.html">Customers</a> ·
+        <a href="technicians.html">Technicians</a> · <a href="model.html">Model</a> · <a href="coverage.html">Coverage</a> ·
+        <a href="platform.html">Platform</a> · <a href="trust.html">Trust</a> · <a href="contact.html">Contact</a>
+      </p>
+      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
+    </footer>
+    <script src="site.js" defer></script>
+  </body>
+</html>

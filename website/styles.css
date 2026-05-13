@@ -584,17 +584,17 @@ main {
     grid-row: 1 / -1;
   }
 
-  .bento--hero > .tile--mini:nth-of-type(2) {
+  .bento--hero > .tile--mini:nth-child(2) {
     grid-column: 2;
     grid-row: 1;
   }
 
-  .bento--hero > .tile--mini:nth-of-type(3) {
+  .bento--hero > .tile--mini:nth-child(3) {
     grid-column: 2;
     grid-row: 2;
   }
 
-  .bento--hero > .tile--mini:nth-of-type(4) {
+  .bento--hero > .tile--mini:nth-child(4) {
     grid-column: 2;
     grid-row: 3;
   }
@@ -826,6 +826,16 @@ main {
   letter-spacing: -0.03em;
   margin: 0 0 0.85rem;
   color: var(--text);
+}
+
+.section-head h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-head h2 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .section-deck {
@@ -1120,4 +1130,86 @@ main {
   .btn {
     transition: none;
   }
+}
+
+/* —— Inner pages & tile links —— */
+a.tile {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.tile:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.tile:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+a.tile .tile-kicker,
+a.tile .tile-title {
+  color: inherit;
+}
+
+.tile--clarity.tile--yes:focus-visible {
+  outline-offset: 4px;
+}
+
+.page-breadcrumb {
+  margin: 0.35rem 0 0;
+  padding-top: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.page-breadcrumb a {
+  font-weight: 600;
+}
+
+.page-hero {
+  margin-bottom: var(--section-gap);
+  padding-bottom: clamp(1.35rem, 3.5vw, 2.25rem);
+  border-bottom: 1px solid var(--border-subtle);
+  max-width: 44rem;
+}
+
+.page-hero h1 {
+  font-size: clamp(1.75rem, 4.5vw, 2.35rem);
+  line-height: 1.14;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.page-hero .section-deck {
+  margin: 0;
+}
+
+.page-hero .eyebrow {
+  margin-bottom: 0.65rem;
+}
+
+.page-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.footer-nav {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+}
+
+.footer-nav a {
+  font-weight: 600;
+  margin: 0 0.2rem;
+}
+
+.footer-nav a:first-of-type {
+  margin-left: 0;
 }

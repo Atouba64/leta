@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
+    <title>Trust — Leta | Evidence &amp; vetting</title>
+    <meta
+      name="description"
+      content="Evidence-minded workflows, onboarding vetting, and insurance guardrails—trust as an operator problem, not a marketing slogan."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html#top"
+            ><span class="logo-mark">Leta<span class="dot">.</span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="nav-panel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-box" aria-hidden="true">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg class="nav-panel__close-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="technicians.html">Technicians</a></li>
+          <li><a href="model.html">Model</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a></nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">Operations, not slogans</p>
+        <h1>Trust</h1>
+        <p class="section-deck">
+          “Trust” on a field network means receipts: vetting at onboarding, insurance posture you can diligence, artifacts at
+          close-out, and workflows your security and ops teams recognize. We bias toward evidence-minded design—not vibes.
+        </p>
+        <div class="page-cta">
+          <a class="btn btn-primary" href="contact.html">Diligence questions</a>
+          <a class="btn btn-secondary" href="technicians.html">Technician experience</a>
+        </div>
+      </header>
+
+      <section class="section-block" aria-labelledby="trust-pillars-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">What we invest in</p>
+          <h2 id="trust-pillars-heading">Pillars</h2>
+        </header>
+        <div class="bento bento--trio">
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-shield" /></svg></span>
+            <h3 class="tile-title">Vetting &amp; posture</h3>
+            <p>Onboarding and ongoing checks are part of the product—not a PDF appendix. Insurance and compliance details belong in diligence, not hero copy.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-eye" /></svg></span>
+            <h3 class="tile-title">Artifacts &amp; audit</h3>
+            <p>Photos, signatures, and structured close-out fields so “what happened on site” is defensible when disputes arise.</p>
+          </div>
+          <div class="tile tile--feature">
+            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-spark" /></svg></span>
+            <h3 class="tile-title">Pilot-backed claims</h3>
+            <p>Marketing follows internal guardrails: partnership language and claims grounded in pilots—see repo docs under <code>05-marketing-and-sales/</code>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong> — IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="index.html">Home</a> · <a href="partners.html">Partners</a> · <a href="customers.html">Customers</a> ·
+        <a href="technicians.html">Technicians</a> · <a href="model.html">Model</a> · <a href="coverage.html">Coverage</a> ·
+        <a href="platform.html">Platform</a> · <a href="trust.html">Trust</a> · <a href="contact.html">Contact</a>
+      </p>
+      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
+    </footer>
+    <script src="site.js" defer></script>
+  </body>
+</html>
