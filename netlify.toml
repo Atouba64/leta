@@ -1,0 +1,16 @@
+# Static site — Free Netlify plan (no build step).
+# Publish /website so https://leta.repair/ serves index.html at /.
+#
+# Netlify UI (Site configuration → Build & deploy):
+#   Build command:   (leave empty)
+#   Publish directory: website   OR leave blank and rely on this file
+#   Base directory:  (must be empty — do NOT set to "website")
+[build]
+  publish = "website"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

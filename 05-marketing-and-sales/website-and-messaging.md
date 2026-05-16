@@ -20,11 +20,9 @@ Elevator: *DoorDash-style clarity for ordering and tracking **professional field
 
 Single-page layout with anchor navigation is acceptable for v1 (see [`../website/`](../website/) static implementation).
 
-## Hosting (GitHub Pages — leta.repair)
+## Hosting (Netlify Free — leta.repair)
 
-Production is **GitHub Pages** only: push to `main` runs [`.github/workflows/deploy-website.yml`](../.github/workflows/deploy-website.yml), which publishes the [`website/`](../website/) folder. **Do not connect this repo to Netlify**—that causes duplicate deploys and can incur Netlify usage charges.
-
-Operational details, DNS, and how to turn off Netlify: [`../website/HOSTING.md`](../website/HOSTING.md).
+Production is **Netlify Starter**: [`netlify.toml`](../netlify.toml) publishes [`website/`](../website/). Push to `main` triggers a deploy. See [`../website/HOSTING.md`](../website/HOSTING.md) for 404 fixes and staying on the free plan.
 
 ## Copy pillars
 

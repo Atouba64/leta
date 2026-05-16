@@ -27,9 +27,9 @@ One platform that connects:
 
 ## Public website
 
-Static marketing pages for **partners**, **technicians**, and **customers** live in [`website/`](./website/). Edit files locally, preview by opening `website/index.html` in a browser, then **commit and push to `main`**—GitHub Actions deploys to **GitHub Pages** (free; no Netlify).
+Static marketing pages live in [`website/`](./website/). Edit locally, preview `website/index.html`, then **push to `main`**—**Netlify** (Starter / free plan) deploys automatically via [`netlify.toml`](./netlify.toml) (`publish = "website"`).
 
-**Live site:** [leta.repair](https://leta.repair) (custom domain via [`website/CNAME`](./website/CNAME)). Setup and DNS: [`website/HOSTING.md`](./website/HOSTING.md).
+**Live site:** [leta.repair](https://leta.repair). Deploy settings and avoiding paid usage: [`website/HOSTING.md`](./website/HOSTING.md).
 
 ## Documentation map (start here)
 

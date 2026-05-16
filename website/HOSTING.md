@@ -1,62 +1,45 @@
-# Hosting — leta.repair (GitHub Pages only)
+# Hosting — leta.repair (Netlify Free)
 
-The live marketing site is served from **`website/`** via **GitHub Pages**. There is **no Netlify** configuration in this repository.
+Production is **Netlify** on the **Starter (free)** plan. The repo root [`netlify.toml`](../netlify.toml) sets `publish = "website"` so `/` serves `website/index.html`.
 
-## Your workflow (local → live)
+## Local → live workflow
 
-1. Edit HTML/CSS/JS under [`website/`](./).
-2. Preview locally: open `index.html` in a browser (or use a simple static server).
-3. Commit and push to **`main`** on [github.com/Atouba64/leta](https://github.com/Atouba64/leta).
-4. GitHub Actions workflow **Deploy website** runs automatically and updates the live site (usually within a few minutes).
+1. Edit files under [`website/`](./).
+2. Preview: open `index.html` in a browser.
+3. Commit and push to **`main`** on GitHub.
+4. Netlify auto-deploys from the connected repo (usually 1–2 minutes).
 
-Check deploy status: **GitHub repo → Actions → Deploy website**.
+Check deploys: [app.netlify.com](https://app.netlify.com) → your site → **Deploys**.
 
-## One-time GitHub setup
+## Fix “Page not found” (Netlify 404)
 
-If Pages is not enabled yet:
+That page means Netlify is live but **not publishing the `website/` folder**. Align settings:
 
-1. Open **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
-3. Under **Custom domain**, enter **`leta.repair`** and save (GitHub will verify DNS).
-4. Enable **Enforce HTTPS** when the certificate is ready.
+| Setting | Correct value |
+|---------|----------------|
+| **Build command** | *(empty)* |
+| **Publish directory** | `website` |
+| **Base directory** | *(empty — not `website`)* |
 
-## DNS (point leta.repair at GitHub, not Netlify)
+Then: **Deploys → Trigger deploy → Deploy site** (or push any commit to `main`).
 
-At your domain registrar, **remove** Netlify DNS records (e.g. `NETLIFY` or Netlify-assigned targets).
+`netlify.toml` in the repo should match the table; after a Git deploy, UI overrides are merged—if 404 persists, set **Publish directory** to `website` in the UI and redeploy.
 
-For **apex** `leta.repair`, use GitHub’s documented **A** records (see [GitHub: Managing a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)):
+## Stay on the free plan (avoid surprise usage)
 
-| Type | Name | Value |
-|------|------|--------|
-| A | `@` | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
+- **Plan:** Starter — “Build and deploy free forever” for static sites.
+- **No build command** — HTML/CSS only; saves build minutes.
+- **Do not enable** paid add-ons: Netlify Analytics, Pro features, Identity, Large Media, etc.
+- **Bandwidth:** 100 GB/month included on Starter; a marketing site rarely exceeds this.
+- **Build minutes:** 300/month included; empty build uses almost none per deploy.
+- **One host:** use Netlify only for `leta.repair` (do not also deploy the same domain from GitHub Pages).
 
-For **`www`**, use a **CNAME** to `Atouba64.github.io` (or redirect `www` → apex at the registrar).
+If you see billing, open **Team settings → Billing** and confirm you are on **Starter**, not Pro, and remove unused sites.
 
-The file [`CNAME`](./CNAME) in this folder tells GitHub Pages which hostname to serve.
+## GitHub’s role
 
-## Stop Netlify charges (required)
+GitHub stores the code and triggers Netlify via the repo link. You do **not** need GitHub Pages for this site.
 
-Netlify bills when a site stays connected and receives traffic/builds—even for small static sites.
+## Custom domain
 
-1. Log in at [app.netlify.com](https://app.netlify.com).
-2. Open the **leta.repair** (or linked) site.
-3. **Site configuration → Build & deploy → Continuous deployment → Stop builds** (optional first step).
-4. **Site configuration → General → Delete site** (recommended so nothing deploys or meters usage).
-
-Also disconnect the GitHub repo under **Project configuration → Build & deploy** if it still lists `Atouba64/leta`.
-
-After deletion, only GitHub Pages serves the site once DNS points to GitHub.
-
-## Why credits were used on Netlify
-
-Common causes for a static repo like this:
-
-- **Connected Git deploys** on every push (build minutes).
-- **Bandwidth** over the free tier if the site gets traffic.
-- **Team / Pro** plan or add-ons (Forms, Analytics, Identity).
-- A **second** host (Netlify + GitHub) both building the same repo.
-
-This repo now deploys **only** through GitHub Actions → GitHub Pages.
+Configure **leta.repair** under Netlify → **Domain management**. DNS should point to Netlify (their load balancer or `CNAME` to your `*.netlify.app` subdomain), not GitHub Pages.
