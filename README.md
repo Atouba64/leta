@@ -25,11 +25,11 @@ One platform that connects:
 | **Remote techs (“Overwatch”)** | Web portal with **Escalate** → live **video/audio** to lift first-time fix rate. |
 | **Investors / operators** | **Asset-light** model: 1099 field network + cloud software; **Georgia-first** rollout for QA before scaling geography. |
 
-## Public website (preview)
+## Public website
 
-A simple static marketing page for **partners**, **technicians**, and **customers** lives in [`website/`](./website/). Open `website/index.html` in a browser (same folder as `styles.css`).
+Static marketing pages for **partners**, **technicians**, and **customers** live in [`website/`](./website/). Edit files locally, preview by opening `website/index.html` in a browser, then **commit and push to `main`**—GitHub Actions deploys to **GitHub Pages** (free; no Netlify).
 
-**Netlify (`leta.repair`):** the repo includes [`netlify.toml`](./netlify.toml) with `publish = "website"` so production deploys serve `website/index.html` at the **site root** (fixes the default “Page not found” when Netlify was publishing the repo root, which has no `index.html`). Push to `main` and let Netlify rebuild, or in the Netlify UI set **Site configuration → Build & deploy → Publish directory** to `website` to match.
+**Live site:** [leta.repair](https://leta.repair) (custom domain via [`website/CNAME`](./website/CNAME)). Setup and DNS: [`website/HOSTING.md`](./website/HOSTING.md).
 
 ## Documentation map (start here)
 

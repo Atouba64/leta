@@ -20,11 +20,11 @@ Elevator: *DoorDash-style clarity for ordering and tracking **professional field
 
 Single-page layout with anchor navigation is acceptable for v1 (see [`../website/`](../website/) static implementation).
 
-## Hosting (Netlify — leta.repair)
+## Hosting (GitHub Pages — leta.repair)
 
-The repository includes a root [`netlify.toml`](../netlify.toml) with `publish = "website"`. That tells Netlify to deploy the contents of the [`website/`](../website/) folder as the **document root**, so `/` serves `index.html`. If the publish directory is left at the repo root (the default when no `index.html` exists there), Netlify shows its generic **“Page not found”** page.
+Production is **GitHub Pages** only: push to `main` runs [`.github/workflows/deploy-website.yml`](../.github/workflows/deploy-website.yml), which publishes the [`website/`](../website/) folder. **Do not connect this repo to Netlify**—that causes duplicate deploys and can incur Netlify usage charges.
 
-If the UI was previously set incorrectly, align **Site configuration → Build & deploy → Publish directory** to `website` (or rely on `netlify.toml` after the next Git-based production deploy). Use **Trigger deploy → Clear cache and deploy site** after fixing settings if a stale deploy persists.
+Operational details, DNS, and how to turn off Netlify: [`../website/HOSTING.md`](../website/HOSTING.md).
 
 ## Copy pillars
 
