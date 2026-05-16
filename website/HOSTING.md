@@ -1,6 +1,12 @@
 # Hosting — leta.repair (Netlify Free)
 
-Production is **Netlify** on the **Starter (free)** plan. The repo root [`netlify.toml`](../netlify.toml) sets `publish = "website"` so `/` serves `website/index.html`.
+**Public URL only:** [https://leta.repair](https://leta.repair)
+
+**Netlify project:** `leta-tech` (linked to this GitHub repo). Admin: [app.netlify.com/projects/leta-tech](https://app.netlify.com/projects/leta-tech)
+
+Do **not** add a second Netlify site for Leta (random `*.netlify.app` URLs are unnecessary and can cause duplicate deploys). If you use the CLI locally: `netlify link --name leta-tech`.
+
+Production uses the **Starter (free)** plan. [`netlify.toml`](../netlify.toml) sets `publish = "website"` so `/` serves `website/index.html`.
 
 ## Local → live workflow
 
@@ -9,7 +15,7 @@ Production is **Netlify** on the **Starter (free)** plan. The repo root [`netlif
 3. Commit and push to **`main`** on GitHub.
 4. Netlify auto-deploys from the connected repo (usually 1–2 minutes).
 
-Check deploys: [app.netlify.com](https://app.netlify.com) → your site → **Deploys**.
+Check deploys: [leta-tech → Deploys](https://app.netlify.com/projects/leta-tech/deploys).
 
 ## Fix “Page not found” (Netlify 404)
 
@@ -42,4 +48,4 @@ GitHub stores the code and triggers Netlify via the repo link. You do **not** ne
 
 ## Custom domain
 
-Configure **leta.repair** under Netlify → **Domain management**. DNS should point to Netlify (their load balancer or `CNAME` to your `*.netlify.app` subdomain), not GitHub Pages.
+**leta.repair** is the primary domain on `leta-tech`. DNS should point to Netlify per their domain setup UI—not GitHub Pages.

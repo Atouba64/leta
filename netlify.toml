@@ -1,5 +1,5 @@
-# Static site — Free Netlify plan (no build step).
-# Publish /website so https://leta.repair/ serves index.html at /.
+# Static site — Netlify site: leta-tech → https://leta.repair (Starter / free).
+# Publish /website so / serves index.html. Do not create a second Netlify site for this repo.
 #
 # Netlify UI (Site configuration → Build & deploy):
 #   Build command:   (leave empty)
