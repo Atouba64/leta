@@ -13,6 +13,8 @@ The mark is an **engineered map pin** (onsite field presence) with a **bridge** 
 
 **Print, apparel, flags:** [`../brand/`](../brand/) — full-color SVG + PNG up to 4096px.
 
+**Contact & forms:** [`CONTACT-SETUP.md`](./CONTACT-SETUP.md) — Netlify Forms + Leta Guide assistant.
+
 ## Header usage
 
 ```html

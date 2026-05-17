@@ -1305,3 +1305,373 @@ a.tile .tile-title {
 .footer-nav a:first-of-type {
   margin-left: 0;
 }
+
+.footer-contact {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+}
+
+.footer-contact a {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* —— Contact page —— */
+.contact-channels {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .contact-channels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .contact-channels {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contact-channels .contact-channel--calendly[hidden] {
+    display: none;
+  }
+}
+
+.contact-channel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.contact-channel:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+.contact-channel strong {
+  font-size: 1.02rem;
+  color: var(--text);
+}
+
+.contact-channel__label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-hover);
+}
+
+.contact-channel__meta {
+  font-size: 0.86rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.contact-form-section {
+  scroll-margin-top: 5rem;
+}
+
+.leta-form {
+  max-width: 40rem;
+  padding: clamp(1.25rem, 3.5vw, 1.75rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+}
+
+.leta-form__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .leta-form__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .leta-form__field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.leta-form__field label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.leta-form__optional {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.leta-form__field input,
+.leta-form__field select,
+.leta-form__field textarea {
+  width: 100%;
+  padding: 0.72rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.leta-form__field textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.leta-form__field input:focus,
+.leta-form__field select:focus,
+.leta-form__field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent-border);
+}
+
+.leta-form__actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.leta-form__fine {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 32rem;
+}
+
+.form-status {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  max-width: 40rem;
+}
+
+.form-status--success {
+  background: color-mix(in srgb, #16a34a 18%, var(--bg-elevated));
+  border: 1px solid color-mix(in srgb, #16a34a 45%, transparent);
+  color: var(--text);
+}
+
+.form-status--error {
+  background: color-mix(in srgb, #dc2626 14%, var(--bg-elevated));
+  border: 1px solid color-mix(in srgb, #dc2626 40%, transparent);
+  color: var(--text);
+}
+
+.form-status--info {
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  color: var(--text);
+}
+
+/* —— Leta assistant (site-wide) —— */
+.leta-assistant {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+  pointer-events: none;
+}
+
+.leta-assistant__toggle,
+.leta-assistant__panel {
+  pointer-events: auto;
+}
+
+.leta-assistant__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: linear-gradient(135deg, #3b82f6 0%, var(--accent) 50%, #1d4ed8 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 6px 24px var(--accent-glow);
+}
+
+.leta-assistant__toggle-label {
+  max-width: 9rem;
+}
+
+@media (max-width: 420px) {
+  .leta-assistant__toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+
+.leta-assistant__panel {
+  width: min(22rem, calc(100vw - 2rem));
+  max-height: min(28rem, 70vh);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-tile);
+  overflow: hidden;
+}
+
+.leta-assistant__panel[hidden] {
+  display: none;
+}
+
+.leta-assistant__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--accent-surface);
+}
+
+.leta-assistant__header strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.leta-assistant__sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.leta-assistant__close {
+  border: none;
+  background: transparent;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-soft);
+  padding: 0.15rem 0.35rem;
+}
+
+.leta-assistant__log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 8rem;
+}
+
+.leta-assistant__msg {
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  max-width: 92%;
+}
+
+.leta-assistant__msg--bot {
+  align-self: flex-start;
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  color: var(--text);
+}
+
+.leta-assistant__msg--user {
+  align-self: flex-end;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text);
+}
+
+.leta-assistant__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0 1rem 0.5rem;
+}
+
+.leta-assistant__chip {
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--bg);
+  color: var(--accent-hover);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.leta-assistant__form {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0 1rem 0.65rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.65rem;
+}
+
+.leta-assistant__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.86rem;
+}
+
+.leta-assistant__send {
+  padding: 0.55rem 0.85rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.leta-assistant__foot {
+  margin: 0;
+  padding: 0.55rem 1rem 0.75rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.leta-assistant__foot a {
+  font-weight: 600;
+}

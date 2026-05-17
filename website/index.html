@@ -87,8 +87,8 @@
               Built for partners who already own the relationship—and for customers who want clarity, not phone tag.
             </p>
             <div class="cta-row">
-              <a class="btn btn-primary" href="contact.html">Partner conversation</a>
-              <a class="btn btn-secondary" href="customers.html">I need a tech</a>
+              <a class="btn btn-primary" href="contact.html?intent=partner">Partner conversation</a>
+              <a class="btn btn-secondary" href="contact.html?intent=customer">I need a tech</a>
             </div>
           </div>
 
@@ -290,14 +290,11 @@
           <div class="tile tile--contact-copy">
             <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-message" /></svg></span>
             <h2 id="contact-heading"><a href="contact.html">Contact</a></h2>
-            <p>Pilots, diligence, or partnership threads—GitHub keeps a paper trail for now.</p>
+            <p>Partnership pilots, diligence, or field-tech onboarding—message us directly. We reply to every inquiry.</p>
           </div>
           <div class="tile tile--contact-actions">
-            <a class="btn btn-primary btn--block" href="https://github.com/Atouba64/leta/issues" target="_blank" rel="noopener noreferrer">
-              <svg class="btn-icon" aria-hidden="true"><use href="icons.svg#i-github" /></svg>
-              Open an issue
-            </a>
-            <a class="btn btn-secondary btn--block" href="https://github.com/Atouba64/leta" target="_blank" rel="noopener noreferrer">Browse repo &amp; docs</a>
+            <a class="btn btn-primary btn--block" href="contact.html#contact-form">Send a message</a>
+            <a class="btn btn-secondary btn--block" data-leta-mailto-general href="mailto:hello@leta.repair">Email <span data-leta-email-general>hello@leta.repair</span></a>
           </div>
         </div>
       </section>
@@ -318,8 +315,13 @@
         <a href="technicians.html">Technicians</a> · <a href="model.html">Model</a> · <a href="coverage.html">Coverage</a> ·
         <a href="platform.html">Platform</a> · <a href="trust.html">Trust</a> · <a href="contact.html">Contact</a>
       </p>
-      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
+      <p class="footer-contact">
+        <a data-leta-mailto-general href="mailto:hello@leta.repair" data-leta-email-general>hello@leta.repair</a>
+      </p>
+      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">Company docs on GitHub</a></p>
     </footer>
+    <script src="contact-config.js" defer></script>
+    <script src="leta-assistant.js" defer></script>
     <script src="site.js" defer></script>
   </body>
 </html>

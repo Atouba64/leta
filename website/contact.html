@@ -6,8 +6,11 @@
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
-    <title>Contact — Leta | Pilots &amp; partnership</title>
-    <meta name="description" content="Reach Leta for pilots, diligence, or partnership threads via GitHub issues—transparent paper trail for now." />
+    <title>Contact — Leta | Partnerships &amp; inquiries</title>
+    <meta
+      name="description"
+      content="Contact Leta for partnership pilots, customer inquiries, and technician onboarding. Message form, email, and automated guide—Georgia field IT."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -71,26 +74,99 @@
         <p class="eyebrow eyebrow--section">Reach us</p>
         <h1>Contact</h1>
         <p class="section-deck">
-          Pilots, diligence, or partnership threads—we are keeping the paper trail on GitHub for now so expectations stay
-          explicit and searchable. Prefer the repo if you can; it helps both sides.
+          Partnership pilots, customer questions, or technician onboarding—send a message below. A small team reads
+          every inquiry and routes it to the right person, typically
+          <span data-leta-response-time>within 1–2 business days</span>.
         </p>
       </header>
 
-      <section class="section-block contact-strip" aria-label="GitHub contact">
-        <div class="bento bento--contact">
-          <div class="tile tile--contact-copy">
-            <span class="tile-icon" aria-hidden="true"><svg><use href="icons.svg#i-message" /></svg></span>
-            <h2>Start a thread</h2>
-            <p>Open an issue for pilots, questions, or introductions—we read everything and route it to the right person.</p>
-          </div>
-          <div class="tile tile--contact-actions">
-            <a class="btn btn-primary btn--block" href="https://github.com/Atouba64/leta/issues" target="_blank" rel="noopener noreferrer">
-              <svg class="btn-icon" aria-hidden="true"><use href="icons.svg#i-github" /></svg>
-              Open an issue
-            </a>
-            <a class="btn btn-secondary btn--block" href="https://github.com/Atouba64/leta" target="_blank" rel="noopener noreferrer">Browse repo &amp; docs</a>
-          </div>
+      <section class="section-block" aria-label="Contact channels">
+        <div class="contact-channels">
+          <a class="contact-channel" href="#contact-form">
+            <span class="contact-channel__label">Fastest</span>
+            <strong>Message form</strong>
+            <span class="contact-channel__meta">Structured request · goes to our inbox</span>
+          </a>
+          <a class="contact-channel" data-leta-mailto-general href="mailto:hello@leta.repair">
+            <span class="contact-channel__label">Email</span>
+            <strong data-leta-email-general>hello@leta.repair</strong>
+            <span class="contact-channel__meta">General &amp; introductions</span>
+          </a>
+          <a class="contact-channel" data-leta-mailto-partners href="mailto:partners@leta.repair">
+            <span class="contact-channel__label">Partners</span>
+            <strong data-leta-email-partners>partners@leta.repair</strong>
+            <span class="contact-channel__meta">MSPs, dispatch, OEM fulfillment</span>
+          </a>
+          <a class="contact-channel contact-channel--calendly" data-leta-calendly hidden href="#">
+            <span class="contact-channel__label">Optional</span>
+            <strong>Book a call</strong>
+            <span class="contact-channel__meta">15-minute intro (Calendly)</span>
+          </a>
         </div>
+      </section>
+
+      <section class="section-block contact-form-section" id="contact-form" aria-labelledby="form-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Message us</p>
+          <h2 id="form-heading">Send an inquiry</h2>
+          <p class="section-deck">
+            Tell us who you are and what you need. For pilot programs, include your typical ticket types and Georgia
+            metros you care about—we’ll follow up with concrete next steps.
+          </p>
+        </header>
+
+        <p id="form-status" class="form-status" hidden role="status"></p>
+
+        <form
+          id="leta-contact-form"
+          class="leta-form"
+          name="contact"
+          method="POST"
+          action="/"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="leta-form__honeypot" hidden>
+            <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="leta-form__grid">
+            <div class="leta-form__field">
+              <label for="inquiry_type">I am reaching out as</label>
+              <select id="inquiry_type" name="inquiry_type" required>
+                <option value="">Select…</option>
+                <option value="Partner / fulfillment">Partner / fulfillment</option>
+                <option value="Customer">Customer</option>
+                <option value="Field technician">Field technician</option>
+                <option value="General inquiry">General inquiry</option>
+              </select>
+            </div>
+            <div class="leta-form__field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" />
+            </div>
+            <div class="leta-form__field">
+              <label for="email">Work email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="160" />
+            </div>
+            <div class="leta-form__field">
+              <label for="company">Company <span class="leta-form__optional">(optional)</span></label>
+              <input id="company" name="company" type="text" autocomplete="organization" maxlength="160" />
+            </div>
+            <div class="leta-form__field leta-form__field--full">
+              <label for="message">How can we help?</label>
+              <textarea id="message" name="message" rows="5" required maxlength="4000" placeholder="Scope, locations, timeline, or questions…"></textarea>
+            </div>
+          </div>
+
+          <div class="leta-form__actions">
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="leta-form__fine">
+              By submitting, you agree we may reply to your email about Leta. We don’t sell your information.
+            </p>
+          </div>
+        </form>
       </section>
 
       <section class="section-block" aria-labelledby="contact-more-heading">
@@ -99,22 +175,33 @@
           <h2 id="contact-more-heading">Before you write</h2>
           <p class="section-deck">
             Skim <a href="partners.html">Partners</a>, <a href="customers.html">Customers</a>, and
-            <a href="coverage.html">Coverage</a> so we share vocabulary in the first message. If you are a field tech,
-            <a href="technicians.html">Technicians</a> describes how offers and close-out work at a high level.
+            <a href="coverage.html">Coverage</a> so we share vocabulary in the first message. Field techs should read
+            <a href="technicians.html">Technicians</a> for how offers and close-out work at a high level.
           </p>
         </header>
+        <p class="section-note">
+          Prefer our public handbook? The <a href="https://github.com/Atouba64/leta">GitHub repo</a> documents product
+          and operations intent—it is not our support inbox.
+        </p>
       </section>
     </main>
 
     <footer class="site-footer">
       <p><strong>Leta</strong> — IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-contact">
+        <a data-leta-mailto-general href="mailto:hello@leta.repair" data-leta-email-general>hello@leta.repair</a>
+      </p>
       <p class="footer-nav">
         <a href="index.html">Home</a> · <a href="partners.html">Partners</a> · <a href="customers.html">Customers</a> ·
         <a href="technicians.html">Technicians</a> · <a href="model.html">Model</a> · <a href="coverage.html">Coverage</a> ·
         <a href="platform.html">Platform</a> · <a href="trust.html">Trust</a> · <a href="contact.html">Contact</a>
       </p>
-      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">github.com/Atouba64/leta</a></p>
+      <p class="footer-repo"><a href="https://github.com/Atouba64/leta">Company docs on GitHub</a></p>
     </footer>
+
+    <script src="contact-config.js" defer></script>
+    <script src="leta-assistant.js" defer></script>
+    <script src="contact-form.js" defer></script>
     <script src="site.js" defer></script>
   </body>
 </html>
