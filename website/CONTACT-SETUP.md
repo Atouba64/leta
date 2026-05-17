@@ -99,7 +99,3 @@ bookingUrl: "https://cal.com/yourname/intro",
 - [ ] Tawk `tawkPropertyId` set (optional but best for live chat)
 - [ ] Cal.com `bookingUrl` set
 - [ ] Test: contact form, bot handoff, book link, `tel:` on mobile
-
-## GitHub
-
-Public repo = company handbook, not the support inbox. Footer: **Company docs on GitHub**.

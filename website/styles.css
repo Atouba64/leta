@@ -1187,10 +1187,6 @@ h1 + p.hero-tagline {
   color: var(--text);
 }
 
-.footer-repo {
-  margin-top: 0.6rem;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
