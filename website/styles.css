@@ -320,6 +320,10 @@ body.nav-drawer-open .nav-toggle-bar:nth-child(3) {
   }
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .nav-backdrop[hidden] {
   display: none !important;
 }
@@ -1325,18 +1329,14 @@ a.tile .tile-title {
 
 @media (min-width: 640px) {
   .contact-channels {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   }
 }
 
-@media (min-width: 960px) {
-  .contact-channels {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .contact-channels .contact-channel--calendly[hidden] {
-    display: none;
-  }
+.contact-channel[hidden],
+.contact-channel--booking[hidden],
+.contact-channel--calendly[hidden] {
+  display: none !important;
 }
 
 .contact-channel {
@@ -1487,6 +1487,15 @@ a.tile .tile-title {
   color: var(--text);
 }
 
+/* Reserve space so the fixed chat control does not cover footer links */
+body:has(.leta-chat-launch) {
+  padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+}
+
+body:has(.leta-chat-launch).nav-drawer-open {
+  padding-bottom: 0;
+}
+
 /* —— Live chat: site btn-primary launcher + Tawk panel —— */
 .leta-chat-launch {
   position: fixed;
@@ -1499,6 +1508,10 @@ a.tile .tile-title {
 .leta-chat-launch__btn {
   pointer-events: auto;
   white-space: nowrap;
+}
+
+.leta-chat-launch__btn--open {
+  background: linear-gradient(135deg, #1e40af 0%, var(--accent) 50%, var(--accent-hover) 100%);
 }
 
 @media (max-width: 420px) {
@@ -1530,12 +1543,25 @@ a.tile .tile-title {
 }
 
 .tawk-max-container {
+  right: max(1rem, env(safe-area-inset-right)) !important;
+  left: auto !important;
+  bottom: max(4.5rem, calc(1rem + env(safe-area-inset-bottom) + 3rem)) !important;
+  max-width: min(22rem, calc(100vw - 2rem)) !important;
   border-radius: var(--radius-lg) !important;
   overflow: hidden !important;
   box-shadow: var(--shadow-tile) !important;
   border: 1px solid var(--accent-border) !important;
   font-family: var(--font-sans) !important;
   background: var(--bg) !important;
+}
+
+@media (max-width: 480px) {
+  .tawk-max-container {
+    left: max(0.5rem, env(safe-area-inset-left)) !important;
+    right: max(0.5rem, env(safe-area-inset-right)) !important;
+    max-width: none !important;
+    bottom: max(4rem, calc(0.75rem + env(safe-area-inset-bottom) + 3rem)) !important;
+  }
 }
 
 .tawk-max-container iframe {

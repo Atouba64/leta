@@ -38,6 +38,7 @@
         node.setAttribute("rel", "noopener noreferrer");
       } else {
         node.hidden = true;
+        node.removeAttribute("href");
       }
     });
     document.querySelectorAll("[data-leta-calendly]").forEach(function (node) {
@@ -48,6 +49,7 @@
         node.setAttribute("rel", "noopener noreferrer");
       } else {
         node.hidden = true;
+        node.removeAttribute("href");
       }
     });
 

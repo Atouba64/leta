@@ -18,24 +18,73 @@
   };
 
   var launcherBuilt = false;
+  var chatLauncherBtn = null;
+  var chatLabelSpan = null;
+
+  function isChatOpen() {
+    if (window.Tawk_API && typeof window.Tawk_API.isChatMaximized === "function") {
+      return window.Tawk_API.isChatMaximized();
+    }
+    return document.documentElement.classList.contains("leta-chat-open");
+  }
+
+  function setChatOpen(open) {
+    document.documentElement.classList.toggle("leta-chat-open", open);
+    if (!chatLauncherBtn) return;
+    chatLauncherBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    chatLauncherBtn.setAttribute("aria-label", (open ? "Close chat — " : "Open chat — ") + label);
+    chatLauncherBtn.classList.toggle("leta-chat-launch__btn--open", open);
+    if (chatLabelSpan) {
+      chatLabelSpan.textContent = open ? "Close chat" : label;
+    }
+  }
+
+  function hideTawkBubble() {
+    if (typeof window.Tawk_API.hideWidget === "function") {
+      window.Tawk_API.hideWidget();
+    }
+  }
 
   function openChat() {
-    if (!window.Tawk_API) return;
+    hideTawkBubble();
     if (typeof window.Tawk_API.maximize === "function") {
       window.Tawk_API.maximize();
     } else if (typeof window.Tawk_API.toggle === "function") {
       window.Tawk_API.toggle();
     }
+    applyInteriorTheme();
+  }
+
+  function closeChat() {
+    if (typeof window.Tawk_API.minimize === "function") {
+      window.Tawk_API.minimize();
+    } else if (typeof window.Tawk_API.toggle === "function" && isChatOpen()) {
+      window.Tawk_API.toggle();
+    }
+    hideTawkBubble();
+    setChatOpen(false);
+  }
+
+  function toggleChat() {
+    if (isChatOpen()) {
+      closeChat();
+      return;
+    }
+    openChat();
   }
 
   window.LetaOpenLiveChat = function () {
+    if (isChatOpen()) {
+      closeChat();
+      return false;
+    }
     openChat();
     return true;
   };
 
-  function hideTawkBubble() {
-    if (typeof window.Tawk_API.hideWidget === "function") {
-      window.Tawk_API.hideWidget();
+  function applyInteriorTheme() {
+    if (typeof window.LetaApplyTawkTheme === "function") {
+      window.LetaApplyTawkTheme(18000);
     }
   }
 
@@ -47,35 +96,42 @@
     wrap.className = "leta-chat-launch";
     wrap.setAttribute("aria-live", "polite");
 
-    var btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "btn btn-primary leta-chat-launch__btn";
-    btn.setAttribute("aria-label", label + " — open live chat");
-    btn.innerHTML =
-      '<svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
-      '<path fill="currentColor" d="M21 15a4 4 0 0 1-4 4H8l-5 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>' +
-      "<span>" +
-      label +
-      "</span>";
+    chatLauncherBtn = document.createElement("button");
+    chatLauncherBtn.type = "button";
+    chatLauncherBtn.className = "btn btn-primary leta-chat-launch__btn";
+    chatLauncherBtn.setAttribute("aria-expanded", "false");
+    chatLauncherBtn.setAttribute("aria-controls", "tawk-chat-panel");
+    chatLauncherBtn.setAttribute("aria-label", "Open chat — " + label);
 
-    btn.addEventListener("click", function () {
-      hideTawkBubble();
-      openChat();
-    });
+    chatLabelSpan = document.createElement("span");
+    chatLabelSpan.textContent = label;
 
-    wrap.appendChild(btn);
+    var icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    icon.setAttribute("class", "btn-icon");
+    icon.setAttribute("width", "18");
+    icon.setAttribute("height", "18");
+    icon.setAttribute("viewBox", "0 0 24 24");
+    icon.setAttribute("aria-hidden", "true");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("fill", "currentColor");
+    path.setAttribute(
+      "d",
+      "M21 15a4 4 0 0 1-4 4H8l-5 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"
+    );
+    icon.appendChild(path);
+
+    chatLauncherBtn.appendChild(icon);
+    chatLauncherBtn.appendChild(chatLabelSpan);
+    chatLauncherBtn.addEventListener("click", toggleChat);
+
+    wrap.appendChild(chatLauncherBtn);
     document.body.appendChild(wrap);
-  }
-
-  function applyInteriorTheme() {
-    if (typeof window.LetaApplyTawkTheme === "function") {
-      window.LetaApplyTawkTheme(18000);
-    }
   }
 
   window.Tawk_API.onLoad = function () {
     hideTawkBubble();
     buildLauncher();
+    setChatOpen(false);
     applyInteriorTheme();
   };
 
@@ -84,16 +140,20 @@
   };
 
   window.Tawk_API.onChatMaximized = function () {
+    hideTawkBubble();
+    setChatOpen(true);
     applyInteriorTheme();
   };
 
   window.Tawk_API.onChatMinimized = function () {
     hideTawkBubble();
+    setChatOpen(false);
     applyInteriorTheme();
   };
 
   window.Tawk_API.onChatEnded = function () {
     hideTawkBubble();
+    setChatOpen(false);
   };
 
   var s1 = document.createElement("script");
