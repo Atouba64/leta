@@ -67,13 +67,29 @@
     document.body.appendChild(wrap);
   }
 
+  function applyInteriorTheme() {
+    if (typeof window.LetaApplyTawkTheme === "function") {
+      window.LetaApplyTawkTheme(10000);
+    }
+  }
+
   window.Tawk_API.onLoad = function () {
     hideTawkBubble();
     buildLauncher();
+    applyInteriorTheme();
+  };
+
+  window.Tawk_API.onRendered = function () {
+    applyInteriorTheme();
+  };
+
+  window.Tawk_API.onChatMaximized = function () {
+    applyInteriorTheme();
   };
 
   window.Tawk_API.onChatMinimized = function () {
     hideTawkBubble();
+    applyInteriorTheme();
   };
 
   window.Tawk_API.onChatEnded = function () {

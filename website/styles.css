@@ -1533,8 +1533,13 @@ a.tile .tile-title {
   border-radius: var(--radius-lg) !important;
   overflow: hidden !important;
   box-shadow: var(--shadow-tile) !important;
-  border: 1px solid var(--border-subtle) !important;
+  border: 1px solid var(--accent-border) !important;
   font-family: var(--font-sans) !important;
+  background: var(--bg) !important;
+}
+
+.tawk-max-container iframe {
+  border-radius: calc(var(--radius-lg) - 2px) !important;
 }
 
 .tawk-branding {

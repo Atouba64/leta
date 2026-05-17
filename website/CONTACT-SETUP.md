@@ -9,7 +9,7 @@ Everything visitors use on [leta.repair](https://leta.repair) is configured in [
 The site uses **[Tawk.to](https://www.tawk.to)** for chat ([`leta-live-chat.js`](./leta-live-chat.js)). Visitors see one **“Chat with Leta”** button styled like `btn btn-primary`; Tawk’s default bubble is hidden.
 
 1. Reply in the [Tawk dashboard](https://dashboard.tawk.to) or mobile app.
-2. **Chat panel colors**: Administration → Channels → Chat Widget → Appearance — header `#2563eb`, surfaces to match the site.
+2. **Chat panel colors**: Set in Tawk **Appearance** using the hex table in [`TAWK-APPEARANCE.md`](./TAWK-APPEARANCE.md) (required for full blue/white inside the chat). The site also injects matching CSS via `leta-tawk-theme.js` when Tawk allows it.
 3. Config: `tawkPropertyId`, `tawkWidgetId`, `chatLabel` in [`contact-config.js`](./contact-config.js).
 4. Optional: enable **Hide widget on load** in Tawk → Widget Behavior so only our button shows.
 
