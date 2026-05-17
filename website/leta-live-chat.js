@@ -32,7 +32,7 @@
     document.documentElement.classList.toggle("leta-chat-open", open);
     if (!chatLauncherBtn) return;
     chatLauncherBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    chatLauncherBtn.setAttribute("aria-label", (open ? "Close chat — " : "Open chat — ") + label);
+    chatLauncherBtn.setAttribute("aria-label", (open ? "Close chat. " : "Open chat. ") + label);
     chatLauncherBtn.classList.toggle("leta-chat-launch__btn--open", open);
     if (chatLabelSpan) {
       chatLabelSpan.textContent = open ? "Close chat" : label;
@@ -101,7 +101,7 @@
     chatLauncherBtn.className = "btn btn-primary leta-chat-launch__btn";
     chatLauncherBtn.setAttribute("aria-expanded", "false");
     chatLauncherBtn.setAttribute("aria-controls", "tawk-chat-panel");
-    chatLauncherBtn.setAttribute("aria-label", "Open chat — " + label);
+    chatLauncherBtn.setAttribute("aria-label", "Open chat. " + label);
 
     chatLabelSpan = document.createElement("span");
     chatLabelSpan.textContent = label;

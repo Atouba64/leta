@@ -29,7 +29,7 @@
     }
     if (params.get("success") === "1") {
       setStatus(
-        "Thank you — your message was received. We'll reply " + (cfg.responseTime || "soon") + ".",
+        "Thank you. Your message was received. We'll reply " + (cfg.responseTime || "soon") + ".",
         "success"
       );
       form.reset();
