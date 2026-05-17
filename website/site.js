@@ -8,25 +8,60 @@
     document.querySelectorAll("[data-leta-email-partners]").forEach(function (node) {
       if (cfg.partnersEmail) node.textContent = cfg.partnersEmail;
     });
+    document.querySelectorAll("[data-leta-email-support]").forEach(function (node) {
+      if (cfg.supportEmail) node.textContent = cfg.supportEmail;
+    });
+    document.querySelectorAll("[data-leta-email-techs]").forEach(function (node) {
+      if (cfg.techniciansEmail) node.textContent = cfg.techniciansEmail;
+    });
     document.querySelectorAll("[data-leta-mailto-general]").forEach(function (node) {
       if (cfg.generalEmail) node.setAttribute("href", "mailto:" + cfg.generalEmail);
     });
     document.querySelectorAll("[data-leta-mailto-partners]").forEach(function (node) {
       if (cfg.partnersEmail) node.setAttribute("href", "mailto:" + cfg.partnersEmail);
     });
+    document.querySelectorAll("[data-leta-mailto-support]").forEach(function (node) {
+      if (cfg.supportEmail) node.setAttribute("href", "mailto:" + cfg.supportEmail);
+    });
+    document.querySelectorAll("[data-leta-mailto-techs]").forEach(function (node) {
+      if (cfg.techniciansEmail) node.setAttribute("href", "mailto:" + cfg.techniciansEmail);
+    });
     document.querySelectorAll("[data-leta-response-time]").forEach(function (node) {
       if (cfg.responseTime) node.textContent = cfg.responseTime;
     });
-    document.querySelectorAll("[data-leta-calendly]").forEach(function (node) {
-      if (cfg.calendlyUrl) {
+    var bookingUrl = (cfg.bookingUrl || cfg.calendlyUrl || "").trim();
+    document.querySelectorAll("[data-leta-booking]").forEach(function (node) {
+      if (bookingUrl) {
         node.hidden = false;
-        node.href = cfg.calendlyUrl;
+        node.href = bookingUrl;
         node.setAttribute("target", "_blank");
         node.setAttribute("rel", "noopener noreferrer");
       } else {
         node.hidden = true;
       }
     });
+    document.querySelectorAll("[data-leta-calendly]").forEach(function (node) {
+      if (bookingUrl) {
+        node.hidden = false;
+        node.href = bookingUrl;
+        node.setAttribute("target", "_blank");
+        node.setAttribute("rel", "noopener noreferrer");
+      } else {
+        node.hidden = true;
+      }
+    });
+
+    var phone = (cfg.phone || "").replace(/\D/g, "");
+    var phoneDisplay = cfg.phoneDisplay || cfg.phone || "";
+    if (phone) {
+      var telHref = "tel:+1" + (phone.length === 10 ? phone : phone);
+      document.querySelectorAll("[data-leta-tel]").forEach(function (node) {
+        node.setAttribute("href", telHref);
+      });
+      document.querySelectorAll("[data-leta-phone-display]").forEach(function (node) {
+        node.textContent = phoneDisplay;
+      });
+    }
   }
 
   if (document.readyState === "loading") {

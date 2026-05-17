@@ -92,15 +92,30 @@
             <strong data-leta-email-general>hello@leta.repair</strong>
             <span class="contact-channel__meta">General &amp; introductions</span>
           </a>
+          <a class="contact-channel" data-leta-mailto-support href="mailto:support@leta.repair">
+            <span class="contact-channel__label">Support</span>
+            <strong data-leta-email-support>support@leta.repair</strong>
+            <span class="contact-channel__meta">Customer help · tickets &amp; visits</span>
+          </a>
           <a class="contact-channel" data-leta-mailto-partners href="mailto:partners@leta.repair">
             <span class="contact-channel__label">Partners</span>
             <strong data-leta-email-partners>partners@leta.repair</strong>
             <span class="contact-channel__meta">MSPs, dispatch, OEM fulfillment</span>
           </a>
-          <a class="contact-channel contact-channel--calendly" data-leta-calendly hidden href="#">
-            <span class="contact-channel__label">Optional</span>
+          <a class="contact-channel" data-leta-mailto-techs href="mailto:techs@leta.repair">
+            <span class="contact-channel__label">Technicians</span>
+            <strong data-leta-email-techs>techs@leta.repair</strong>
+            <span class="contact-channel__meta">Field tech onboarding</span>
+          </a>
+          <a class="contact-channel" data-leta-tel href="tel:+14702526681">
+            <span class="contact-channel__label">Phone</span>
+            <strong data-leta-phone-display>(470) 252-6681</strong>
+            <span class="contact-channel__meta">Georgia · business hours</span>
+          </a>
+          <a class="contact-channel contact-channel--booking" data-leta-booking data-leta-calendly hidden href="#">
+            <span class="contact-channel__label">Schedule</span>
             <strong>Book a call</strong>
-            <span class="contact-channel__meta">15-minute intro (Calendly)</span>
+            <span class="contact-channel__meta">Pick a time · Cal.com / calendar</span>
           </a>
         </div>
       </section>
@@ -140,6 +155,7 @@
                 <option value="Customer">Customer</option>
                 <option value="Field technician">Field technician</option>
                 <option value="General inquiry">General inquiry</option>
+                <option value="Live chat follow-up">Live chat follow-up</option>
               </select>
             </div>
             <div class="leta-form__field">
@@ -190,6 +206,8 @@
       <p><strong>Leta</strong> — IT field service on demand · Georgia first · © 2026</p>
       <p class="footer-contact">
         <a data-leta-mailto-general href="mailto:hello@leta.repair" data-leta-email-general>hello@leta.repair</a>
+        · <a data-leta-mailto-support href="mailto:support@leta.repair" data-leta-email-support>support@leta.repair</a>
+        · <a data-leta-tel href="tel:+14702526681"><span data-leta-phone-display>(470) 252-6681</span></a>
       </p>
       <p class="footer-nav">
         <a href="index.html">Home</a> · <a href="partners.html">Partners</a> · <a href="customers.html">Customers</a> ·
@@ -200,7 +218,7 @@
     </footer>
 
     <script src="contact-config.js" defer></script>
-    <script src="leta-assistant.js" defer></script>
+    <script src="leta-live-chat.js" defer></script>
     <script src="contact-form.js" defer></script>
     <script src="site.js" defer></script>
   </body>
