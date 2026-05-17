@@ -27,6 +27,7 @@ window.LETA_CONTACT = {
   tawkWidgetId: "1joqi2asv",
   responseTime: "within 1–2 business days",
   formName: "contact",
+  techOnboardingFormName: "tech-onboarding",
   /** Shown on the live-chat button (replaces Tawk’s default “We are here!”) */
   chatLabel: "Chat with Leta",
   /** Chat panel header (fixes truncated “customer suppor” from Tawk dashboard) */

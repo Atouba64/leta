@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
+    <title>Technician onboarding | Leta | 1099 field pros · Georgia</title>
+    <meta
+      name="description"
+      content="Apply to join Leta as an independent field technician in Georgia. Short application for 1099 pros — contact, skills, availability, and a few questions so we can vet fit."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html#top"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="nav-panel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-box" aria-hidden="true">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg class="nav-panel__close-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a class="nav-highlight" href="technicians.html">Technicians</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> · <a href="technicians.html">Technicians</a>
+      </nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">1099 independent contractor</p>
+        <h1>Onboarding &amp; questions</h1>
+        <p class="hero-tagline">Apply in about 8 minutes.</p>
+        <p class="section-deck">
+          Leta field techs are <strong>independent contractors</strong>, not employees — similar to gig platforms you may know.
+          You choose when to go active, accept offers that fit your skills and radius, and get paid per completed job.
+          This short form helps us see if you’re a fit before we run background checks and activate you on the network.
+        </p>
+        <ul class="onboard-meta" aria-label="What to expect">
+          <li>Georgia onsite IT · partner &amp; customer demand</li>
+          <li>We reply <span data-leta-response-time>within 1–2 business days</span></li>
+          <li>Questions? <a data-leta-mailto-techs href="mailto:techs@leta.repair">techs@leta.repair</a></li>
+        </ul>
+      </header>
+
+      <section class="section-block contact-form-section" id="tech-onboarding-form" aria-labelledby="tech-form-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Application</p>
+          <h2 id="tech-form-heading">Tell us about you</h2>
+          <p class="section-deck">
+            Answer honestly — we use this for initial screening. If we move forward, we’ll ask for ID verification,
+            insurance proof, and a formal background check separately.
+          </p>
+        </header>
+
+        <ol class="onboard-steps" aria-label="Form sections">
+          <li>You &amp; contact</li>
+          <li>Field readiness</li>
+          <li>Skills</li>
+          <li>Contractor basics</li>
+          <li>Fit &amp; motivation</li>
+        </ol>
+
+        <p id="tech-form-status" class="form-status" hidden role="status"></p>
+
+        <form
+          id="leta-tech-onboarding-form"
+          class="leta-form leta-form--onboard"
+          name="tech-onboarding"
+          method="POST"
+          action="/"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="tech-onboarding" />
+          <p class="leta-form__honeypot" hidden>
+            <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <fieldset class="leta-form__section">
+            <legend class="leta-form__section-title">1 · You &amp; contact</legend>
+            <p class="leta-form__section-hint">Legal name for payouts and background checks later.</p>
+            <div class="leta-form__grid">
+              <div class="leta-form__field">
+                <label for="legal_first_name">Legal first name</label>
+                <input id="legal_first_name" name="legal_first_name" type="text" autocomplete="given-name" required maxlength="80" />
+              </div>
+              <div class="leta-form__field">
+                <label for="legal_last_name">Legal last name</label>
+                <input id="legal_last_name" name="legal_last_name" type="text" autocomplete="family-name" required maxlength="80" />
+              </div>
+              <div class="leta-form__field">
+                <label for="preferred_name">Preferred name <span class="leta-form__optional">(optional)</span></label>
+                <input id="preferred_name" name="preferred_name" type="text" autocomplete="nickname" maxlength="80" />
+              </div>
+              <div class="leta-form__field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="160" />
+              </div>
+              <div class="leta-form__field">
+                <label for="phone">Mobile phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="24" placeholder="(470) 555-0100" />
+              </div>
+              <div class="leta-form__field">
+                <label for="birth_year">Year born</label>
+                <select id="birth_year" name="birth_year" required>
+                  <option value="">Select…</option>
+                </select>
+                <p class="leta-form__hint">Must be 18+ to work on customer sites.</p>
+              </div>
+              <div class="leta-form__field">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" autocomplete="address-level2" required maxlength="80" />
+              </div>
+              <div class="leta-form__field">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                  <option value="GA" selected>Georgia</option>
+                  <option value="AL">Alabama</option>
+                  <option value="FL">Florida</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="other">Other (will travel to GA)</option>
+                </select>
+              </div>
+              <div class="leta-form__field">
+                <label for="zip">ZIP code</label>
+                <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" required maxlength="10" pattern="[0-9]{5}(-[0-9]{4})?" />
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label class="leta-form__check">
+                  <input type="checkbox" name="work_authorized" value="Yes" required />
+                  <span>I am legally authorized to work in the United States as an independent contractor.</span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="leta-form__section">
+            <legend class="leta-form__section-title">2 · Field readiness</legend>
+            <p class="leta-form__section-hint">Can you reliably get to jobs and work on-site?</p>
+            <div class="leta-form__grid">
+              <div class="leta-form__field">
+                <label for="vehicle_reliable">Reliable vehicle for local travel</label>
+                <select id="vehicle_reliable" name="vehicle_reliable" required>
+                  <option value="">Select…</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="leta-form__field">
+                <label for="drivers_license_valid">Valid driver’s license</label>
+                <select id="drivers_license_valid" name="drivers_license_valid" required>
+                  <option value="">Select…</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="leta-form__field">
+                <label for="smartphone">Smartphone with mobile data</label>
+                <select id="smartphone" name="smartphone" required>
+                  <option value="">Select…</option>
+                  <option value="Yes">Yes — for offers, navigation, close-out</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="leta-form__field">
+                <label for="home_metro">Primary Georgia area</label>
+                <select id="home_metro" name="home_metro" required>
+                  <option value="">Select…</option>
+                  <option value="Metro Atlanta">Metro Atlanta</option>
+                  <option value="Athens">Athens area</option>
+                  <option value="Augusta">Augusta area</option>
+                  <option value="Columbus">Columbus area</option>
+                  <option value="Macon">Macon area</option>
+                  <option value="Savannah">Savannah area</option>
+                  <option value="North GA / mountains">North Georgia</option>
+                  <option value="South GA / rural">South / rural Georgia</option>
+                  <option value="Other GA">Other Georgia</option>
+                </select>
+              </div>
+              <div class="leta-form__field">
+                <label for="travel_radius">Typical travel radius</label>
+                <select id="travel_radius" name="travel_radius" required>
+                  <option value="">Select…</option>
+                  <option value="Up to 15 miles">Up to 15 miles</option>
+                  <option value="Up to 30 miles">Up to 30 miles</option>
+                  <option value="Up to 45 miles">Up to 45 miles</option>
+                  <option value="60+ miles">60+ miles if pay fits</option>
+                </select>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <span class="leta-form__group-label" id="availability-label">When are you usually available?</span>
+                <div class="leta-form__checkgroup" role="group" aria-labelledby="availability-label">
+                  <label class="leta-form__check"><input type="checkbox" name="availability" value="Weekday mornings" required /> Weekday mornings</label>
+                  <label class="leta-form__check"><input type="checkbox" name="availability" value="Weekday afternoons" /> Weekday afternoons</label>
+                  <label class="leta-form__check"><input type="checkbox" name="availability" value="Weekday evenings" /> Weekday evenings</label>
+                  <label class="leta-form__check"><input type="checkbox" name="availability" value="Weekends" /> Weekends</label>
+                  <label class="leta-form__check"><input type="checkbox" name="availability" value="Flexible / varies" /> Flexible / varies</label>
+                </div>
+                <p class="leta-form__hint">Select all that apply. You control when you mark Active in the app.</p>
+              </div>
+              <div class="leta-form__field">
+                <label for="hours_per_week">Hours per week when active</label>
+                <select id="hours_per_week" name="hours_per_week" required>
+                  <option value="">Select…</option>
+                  <option value="Under 10">Under 10 (side gig)</option>
+                  <option value="10–20">10–20</option>
+                  <option value="20–30">20–30</option>
+                  <option value="30+">30+ (primary income goal)</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="leta-form__section">
+            <legend class="leta-form__section-title">3 · Skills &amp; credentials</legend>
+            <p class="leta-form__section-hint">Helps us route offers you can actually finish — school, certs, and hustle all count.</p>
+            <div class="leta-form__grid">
+              <div class="leta-form__field">
+                <label for="experience_years">Hands-on IT / repair experience</label>
+                <select id="experience_years" name="experience_years" required>
+                  <option value="">Select…</option>
+                  <option value="Still learning (< 1 yr)">Still learning (&lt; 1 yr)</option>
+                  <option value="1–2 years">1–2 years</option>
+                  <option value="3–5 years">3–5 years</option>
+                  <option value="5+ years">5+ years</option>
+                </select>
+              </div>
+              <div class="leta-form__field">
+                <label for="education">Highest relevant education</label>
+                <select id="education" name="education" required>
+                  <option value="">Select…</option>
+                  <option value="In high school">In high school</option>
+                  <option value="High school / GED">High school / GED</option>
+                  <option value="Some college">Some college</option>
+                  <option value="Associate degree">Associate degree</option>
+                  <option value="Bachelor or higher">Bachelor’s or higher</option>
+                  <option value="Trade / bootcamp">Trade school or bootcamp</option>
+                  <option value="Self-taught">Self-taught — no formal degree</option>
+                </select>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <span class="leta-form__group-label" id="skills-label">What are you comfortable doing on-site?</span>
+                <div class="leta-form__checkgroup" role="group" aria-labelledby="skills-label">
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="PC / Mac repair" required /> PC / Mac repair &amp; troubleshooting</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="Networking / Wi-Fi" /> Networking / Wi-Fi</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="Printers / peripherals" /> Printers &amp; peripherals</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="POS / retail systems" /> POS / retail systems</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="AV / displays" /> AV / displays / conference rooms</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="Cable / rack / patch" /> Cable management / patch panels</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="Smart home / IoT" /> Smart home / IoT</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="Other" /> Other (describe below)</label>
+                </div>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <span class="leta-form__group-label" id="certs-label">Certifications <span class="leta-form__optional">(optional)</span></span>
+                <div class="leta-form__checkgroup" role="group" aria-labelledby="certs-label">
+                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="CompTIA A+" /> CompTIA A+</label>
+                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="CompTIA Network+" /> CompTIA Network+</label>
+                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="CompTIA Security+" /> CompTIA Security+</label>
+                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="Apple ACMT / ACiT" /> Apple ACMT / ACiT</label>
+                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="Microsoft / vendor" /> Microsoft or other vendor cert</label>
+                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="None yet" /> None yet — learning</label>
+                </div>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label for="tools_summary">Tools you typically carry <span class="leta-form__optional">(optional)</span></label>
+                <input id="tools_summary" name="tools_summary" type="text" maxlength="240" placeholder="e.g. laptop, Wi-Fi analyzer, labeler, basic hand tools…" />
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label for="portfolio_url">LinkedIn or portfolio URL <span class="leta-form__optional">(optional)</span></label>
+                <input id="portfolio_url" name="portfolio_url" type="url" inputmode="url" maxlength="300" placeholder="https://…" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="leta-form__section">
+            <legend class="leta-form__section-title">4 · Independent contractor basics</legend>
+            <p class="leta-form__section-hint">1099 means you handle taxes, schedule, and business insurance — we don’t withhold or guarantee hours.</p>
+            <div class="leta-form__grid">
+              <div class="leta-form__field leta-form__field--full">
+                <label class="leta-form__check">
+                  <input type="checkbox" name="contractor_1099_ack" value="Yes" required />
+                  <span>
+                    I understand Leta techs are <strong>1099 independent contractors</strong>, not W-2 employees. I am responsible for
+                    my own taxes, equipment, and deciding which offers to accept.
+                  </span>
+                </label>
+              </div>
+              <div class="leta-form__field">
+                <label for="insurance_status">General liability insurance</label>
+                <select id="insurance_status" name="insurance_status" required>
+                  <option value="">Select…</option>
+                  <option value="I have GL insurance now">I have GL insurance now</option>
+                  <option value="Will obtain before first job">Will obtain before first paid job</option>
+                  <option value="Need guidance">Need guidance on what to get</option>
+                </select>
+                <p class="leta-form__hint">Often required before your first dispatch. We can share expectations if you advance.</p>
+              </div>
+              <div class="leta-form__field">
+                <label for="prior_gig_work">Prior gig / contract field work?</label>
+                <select id="prior_gig_work" name="prior_gig_work" required>
+                  <option value="">Select…</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No — new to gig field work</option>
+                </select>
+              </div>
+              <div class="leta-form__field leta-form__field--full" id="prior-gig-detail-wrap" hidden>
+                <label for="prior_gig_detail">Where or what kind of gig work?</label>
+                <input id="prior_gig_detail" name="prior_gig_detail" type="text" maxlength="200" placeholder="e.g. Geek Squad agent, Field Nation, DoorDash, MSP subcontract…" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="leta-form__section">
+            <legend class="leta-form__section-title">5 · Fit &amp; motivation</legend>
+            <p class="leta-form__section-hint">Short answers — we read these to gauge reliability and whether you’ll show up for real work.</p>
+            <div class="leta-form__grid">
+              <div class="leta-form__field leta-form__field--full">
+                <label for="why_leta">Why do you want to work with Leta?</label>
+                <textarea id="why_leta" name="why_leta" rows="3" required maxlength="1200" placeholder="What caught your eye about field IT in Georgia?"></textarea>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label for="enjoy_helping">What do you enjoy about fixing tech for people?</label>
+                <textarea id="enjoy_helping" name="enjoy_helping" rows="3" required maxlength="1200"></textarea>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label for="proud_job">Describe a job or project you’re proud of</label>
+                <textarea id="proud_job" name="proud_job" rows="3" required maxlength="1200" placeholder="School project, side hustle, internship, help desk win — anything real."></textarea>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label for="tough_customer">A customer is frustrated on-site. What do you do?</label>
+                <textarea id="tough_customer" name="tough_customer" rows="3" required maxlength="1200"></textarea>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label for="additional_notes">Anything else we should know? <span class="leta-form__optional">(optional)</span></label>
+                <textarea id="additional_notes" name="additional_notes" rows="2" maxlength="1200" placeholder="Schedule limits, languages, referrals…"></textarea>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label class="leta-form__check">
+                  <input type="checkbox" name="background_check_consent" value="Yes" required />
+                  <span>
+                    If selected, I consent to identity verification and a background check (criminal history, driving record where
+                    applicable) consistent with field work on customer premises.
+                  </span>
+                </label>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label class="leta-form__check">
+                  <input type="checkbox" name="info_accurate" value="Yes" required />
+                  <span>I confirm the information above is accurate to the best of my knowledge.</span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="leta-form__actions">
+            <button type="submit" class="btn btn-primary">Submit application</button>
+            <p class="leta-form__fine">
+              By submitting, you agree we may contact you at the email and phone provided about your application and Leta
+              onboarding. We don’t sell your information. This is not a job offer or guarantee of work.
+            </p>
+          </div>
+        </form>
+      </section>
+
+      <section class="section-block" aria-labelledby="after-apply-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">What’s next</p>
+          <h2 id="after-apply-heading">After you apply</h2>
+          <p class="section-deck">
+            We review applications in batches. Strong fits get a short video or phone screen, then background check and insurance
+            verification before activation. Read <a href="technicians.html">how offers and close-out work</a> and our
+            <a href="trust.html">trust &amp; vetting</a> approach so you know what “going live” means.
+          </p>
+        </header>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong>. IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="index.html">Home</a> · <a href="partners.html">Partners</a> · <a href="customers.html">Customers</a> ·
+        <a href="technicians.html">Technicians</a> · <a href="model.html">Model</a> · <a href="coverage.html">Coverage</a> ·
+        <a href="platform.html">Platform</a> · <a href="trust.html">Trust</a> · <a href="contact.html">Contact</a>
+      </p>
+      <p class="footer-contact">
+        <a data-leta-mailto-general href="mailto:hello@leta.repair" data-leta-email-general>hello@leta.repair</a>
+        · <a data-leta-mailto-support href="mailto:support@leta.repair" data-leta-email-support>support@leta.repair</a>
+        · <a data-leta-tel href="tel:+14702526681"><span data-leta-phone-display>(470) 252-6681</span></a>
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        var sel = document.getElementById("birth_year");
+        if (!sel) return;
+        var y = new Date().getFullYear() - 18;
+        for (var end = y; end >= y - 55; end--) {
+          var opt = document.createElement("option");
+          opt.value = String(end);
+          opt.textContent = String(end);
+          sel.appendChild(opt);
+        }
+      })();
+    </script>
+    <script src="contact-config.js" defer></script>
+    <script src="leta-tawk-theme.js" defer></script>
+    <script src="leta-live-chat.js" defer></script>
+    <script src="tech-onboarding-form.js" defer></script>
+    <script src="site.js" defer></script>
+  </body>
+</html>

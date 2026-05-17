@@ -13,10 +13,12 @@ The site uses **[Tawk.to](https://www.tawk.to)** for chat ([`leta-live-chat.js`]
 3. Config: `tawkPropertyId`, `tawkWidgetId`, `chatLabel` in [`contact-config.js`](./contact-config.js).
 4. Optional: enable **Hide widget on load** in Tawk → Widget Behavior so only our button shows.
 
-### Netlify form (contact page)
+### Netlify forms
 
 1. [Netlify → leta-tech → Forms](https://app.netlify.com/projects/leta-tech/forms)
-2. **Form notifications → Email** for the **`contact`** form.
+2. **Form notifications → Email** for each form:
+   - **`contact`** — general inquiries ([`contact.html`](./contact.html))
+   - **`tech-onboarding`** — technician applications ([`tech-onboarding.html`](./tech-onboarding.html)); route to `techs@leta.repair`
 
 ---
 
