@@ -38,4 +38,17 @@ window.LETA_CONTACT = {
   /** Chat panel header (fixes truncated “customer suppor” from Tawk dashboard) */
   chatHeaderTitle: "Leta support",
   chatHeaderSubtitle: "Onsite IT help · we reply quickly",
+  /**
+   * WhatsApp Business number (E.164 digits, no +). Used for “Click to WhatsApp” recruit intake.
+   * Set up quick replies in WhatsApp Business → Tools → Quick replies (see recruit/whatsapp-flow.md).
+   */
+  whatsappPhone: "4702526681",
+  /** Pre-filled message when someone taps “Join on WhatsApp” */
+  whatsappRecruitMessage:
+    "Hey Leta — I want to join the Tech crew 🛠️\n\nMy name:\nMy city (GA):\nI have a smartphone (yes/no):",
+  /** Shown on referral tiles — update when program goes live */
+  referralBonusDisplay: "$50",
+  referralJobsRequired: "5",
+  /** Primary launch metros for recruit copy */
+  recruitMetros: "Metro Atlanta · Athens · Augusta · Columbus · Macon · Savannah",
 };

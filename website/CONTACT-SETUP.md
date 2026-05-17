@@ -24,7 +24,8 @@ Tawk’s round floating bubble is hidden. Set `showTawkBubble: true` in [`contac
 2. **Form notifications → Email** for each form:
    - **`contact`** — general inquiries ([`contact.html`](./contact.html))
    - **`tech-onboarding`** — technician applications ([`tech-onboarding.html`](./tech-onboarding.html)); route to `techs@leta.repair`  
-     Operator notes + third-party options: [`TECH-ONBOARDING-OPTIONS.md`](./TECH-ONBOARDING-OPTIONS.md)
+     Operator notes + third-party options: [`TECH-ONBOARDING-OPTIONS.md`](./TECH-ONBOARDING-OPTIONS.md)  
+     Recruit playbook (WhatsApp, TikTok, referrals): [`recruit/RECRUIT-PLAYBOOK.md`](./recruit/RECRUIT-PLAYBOOK.md)
 
 ---
 

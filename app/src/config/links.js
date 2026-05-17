@@ -4,6 +4,18 @@ import { getTicketLocation } from '../utils/ticketDisplay';
 export const WEB_BASE_URL = 'https://leta.repair';
 
 /** Technician onboarding form on the marketing site (multi-step application). */
+/** WhatsApp “join the crew” deep link (configure message in website/contact-config.js). */
+export function getWhatsAppRecruitUrl() {
+  const phone = '4702526681';
+  const text =
+    'Hey Leta — I want to join the Tech crew 🛠️\n\nMy name:\nMy city (GA):\nI have a smartphone (yes/no):';
+  return `https://wa.me/1${phone}?text=${encodeURIComponent(text)}`;
+}
+
+export function getTechniciansRecruitUrl() {
+  return `${WEB_BASE_URL}/technicians.html#join`;
+}
+
 export function getTechOnboardingUrl({ email, uid, displayName } = {}) {
   const params = new URLSearchParams();
   if (email) params.set('email', email.trim());

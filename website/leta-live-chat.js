@@ -112,7 +112,7 @@
 
   function applyInteriorTheme() {
     if (typeof window.LetaApplyTawkTheme === "function") {
-      window.LetaApplyTawkTheme(6000);
+      window.LetaApplyTawkTheme(12000);
     }
   }
 

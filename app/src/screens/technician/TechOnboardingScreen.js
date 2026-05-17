@@ -3,7 +3,7 @@ import { Alert, Linking, StyleSheet, Text } from 'react-native';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
 import LetaCard from '../../components/LetaCard';
-import { getTechOnboardingUrl } from '../../config/links';
+import { getTechOnboardingUrl, getWhatsAppRecruitUrl } from '../../config/links';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTechOnboarding } from '../../hooks/useTechOnboarding';
 import theme from '../../theme';
@@ -68,19 +68,27 @@ export default function TechOnboardingScreen() {
     );
   }
 
+  const openWhatsApp = () => Linking.openURL(getWhatsAppRecruitUrl());
+
   return (
-    <Screen scroll title="Onboarding required">
+    <Screen scroll title="Join the crew">
       <Text style={styles.lead}>
-        Before you can go active on dispatch, complete the{' '}
-        <Text style={styles.strong}>Onboarding & questions</Text> form on leta.repair. We collect skills,
-        availability, contractor details, and background-check consent there.
+        Before dispatch unlocks, join the <Text style={styles.strong}>Leta Tech crew</Text> — WhatsApp intro in
+        30 seconds, or the full application on leta.repair (~8 min). Same vibe: your schedule, 1099 field IT.
       </Text>
 
       <LetaCard style={styles.cardHighlight}>
+        <Text style={styles.step}>Fastest</Text>
+        <Text style={styles.cardTitle}>WhatsApp intro</Text>
+        <Text style={styles.cardSub}>Send your name, city, and smartphone — we reply on chat.</Text>
+        <LetaButton title="Join on WhatsApp" onPress={openWhatsApp} />
+      </LetaCard>
+
+      <LetaCard style={styles.card}>
         <Text style={styles.step}>Step 1</Text>
-        <Text style={styles.cardTitle}>Complete the web application</Text>
-        <Text style={styles.cardSub}>About 8 minutes · opens in your browser · use the same email as this app</Text>
-        <LetaButton title="Complete onboarding on web" onPress={openWebForm} />
+        <Text style={styles.cardTitle}>Full application on web</Text>
+        <Text style={styles.cardSub}>About 8 minutes · use the same email as this app</Text>
+        <LetaButton title="Open full application" variant="secondary" onPress={openWebForm} />
         {formOpened ? <Text style={styles.opened}>Form opened — submit it, then continue below.</Text> : null}
       </LetaCard>
 

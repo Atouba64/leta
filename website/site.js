@@ -64,6 +64,30 @@
         node.textContent = phoneDisplay;
       });
     }
+
+    var waPhone = (cfg.whatsappPhone || cfg.phone || "").replace(/\D/g, "");
+    var waText = (cfg.whatsappRecruitMessage || "").trim();
+    document.querySelectorAll("[data-leta-whatsapp]").forEach(function (node) {
+      if (!waPhone) {
+        node.hidden = true;
+        return;
+      }
+      var href = "https://wa.me/1" + waPhone;
+      if (waText) href += "?text=" + encodeURIComponent(waText);
+      node.href = href;
+      node.setAttribute("target", "_blank");
+      node.setAttribute("rel", "noopener noreferrer");
+      node.hidden = false;
+    });
+    document.querySelectorAll("[data-leta-referral-bonus]").forEach(function (node) {
+      if (cfg.referralBonusDisplay) node.textContent = cfg.referralBonusDisplay;
+    });
+    document.querySelectorAll("[data-leta-referral-jobs]").forEach(function (node) {
+      if (cfg.referralJobsRequired) node.textContent = cfg.referralJobsRequired;
+    });
+    document.querySelectorAll("[data-leta-recruit-metros]").forEach(function (node) {
+      if (cfg.recruitMetros) node.textContent = cfg.recruitMetros;
+    });
   }
 
   if (document.readyState === "loading") {
