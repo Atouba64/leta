@@ -31,10 +31,10 @@ window.LETA_CONTACT = {
   /** Shown on the live-chat button (replaces Tawk’s default “We are here!”) */
   chatLabel: "Chat with Leta",
   /**
-   * When true, keep Tawk’s floating bubble (“We are here!”) in addition to the branded
-   * “Chat with Leta” launcher and any in-page live-chat links.
+   * When true, also show Tawk’s round floating bubble. Leave false — use only the branded
+   * “Chat with Leta” launcher and in-page live-chat links (Contact, homepage).
    */
-  showTawkBubble: true,
+  showTawkBubble: false,
   /** Chat panel header (fixes truncated “customer suppor” from Tawk dashboard) */
   chatHeaderTitle: "Leta support",
   chatHeaderSubtitle: "Onsite IT help · we reply quickly",

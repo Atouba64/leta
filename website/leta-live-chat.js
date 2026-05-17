@@ -5,7 +5,7 @@
 
   var widgetId = (cfg.tawkWidgetId || "default").trim() || "default";
   var label = (cfg.chatLabel || "Chat with Leta").trim();
-  var showTawkBubble = cfg.showTawkBubble !== false;
+  var showTawkBubble = cfg.showTawkBubble === true;
 
   if (showTawkBubble) {
     document.documentElement.classList.add("leta-chat-dual");

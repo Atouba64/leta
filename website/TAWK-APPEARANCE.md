@@ -26,10 +26,12 @@ Use **dark text on light backgrounds** everywhere except the blue header and sen
 | Header background | `#2563eb` | Top bar only |
 | Header text | `#ffffff` | Top bar only (not message area) |
 | Send button | `#2563eb` | Button bg · `#ffffff` label |
-| Agent bubble | `#eff6ff` | Operator messages · text still `#0f172a` |
-| Border | `#bfdbfe` | Inputs, agent bubble |
+| Agent bubble | `#ffffff` | Same as visitor — white bubble, dark text (no blue tint) |
+| Border | `#e2e8f0` | Bubbles and inputs |
 
-**Do not use:** light gray text on white, white text outside the header, or Tawk green (`#03A84E`).
+**Do not use:** light gray text on white, white text outside the header, Tawk green (`#03A84E`), colored **highlights behind words**, or colored **icon/badge backgrounds** in the message area. The site CSS strips those; use flat white bubbles only.
+
+**Kept on purpose:** blue **header** bar and blue **Send** button only.
 
 ## Dark mode (if enabled in Tawk)
 
