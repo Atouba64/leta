@@ -6,12 +6,12 @@ Everything visitors use on [leta.repair](https://leta.repair) is configured in [
 
 ## 1. Live chat (Tawk)
 
-The site uses **[Tawk.to](https://www.tawk.to)** only ([`leta-live-chat.js`](./leta-live-chat.js)). One widget — no second launcher.
+The site uses **[Tawk.to](https://www.tawk.to)** for chat ([`leta-live-chat.js`](./leta-live-chat.js)). Visitors see one **“Chat with Leta”** button styled like `btn btn-primary`; Tawk’s default bubble is hidden.
 
 1. Reply in the [Tawk dashboard](https://dashboard.tawk.to) or mobile app.
-2. **Inside the chat panel**, set colors in **Administration → Channels → Chat Widget → Appearance** (matches site):  
-   Header `#2563eb` · agent bubbles `#eff6ff` · visitor `#ffffff` (light) / header `#60a5fa` · surfaces `#121a2e` (dark).
-3. Config: `tawkPropertyId`, `tawkWidgetId` in [`contact-config.js`](./contact-config.js).
+2. **Chat panel colors**: Administration → Channels → Chat Widget → Appearance — header `#2563eb`, surfaces to match the site.
+3. Config: `tawkPropertyId`, `tawkWidgetId`, `chatLabel` in [`contact-config.js`](./contact-config.js).
+4. Optional: enable **Hide widget on load** in Tawk → Widget Behavior so only our button shows.
 
 ### Netlify form (contact page)
 

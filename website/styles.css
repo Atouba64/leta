@@ -1487,24 +1487,47 @@ a.tile .tile-title {
   color: var(--text);
 }
 
-/* —— Live chat (Tawk only — Leta colors) —— */
+/* —— Live chat: site btn-primary launcher + Tawk panel —— */
+.leta-chat-launch {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 2147483640;
+  pointer-events: none;
+}
+
+.leta-chat-launch__btn {
+  pointer-events: auto;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .leta-chat-launch__btn {
+    padding: 0.85rem 1rem;
+    font-size: 0.84rem;
+  }
+
+  .leta-chat-launch__btn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+/* Hide Tawk’s default bubble (“We are here!”) — our .btn-primary opens chat */
 #tawk-bubble-container,
-.tawk-min-container {
-  font-family: var(--font-sans) !important;
-}
-
-#tawk-bubble-container .tawk-button-circle,
 .tawk-min-container .tawk-button-circle,
-#tawk-bubble-container .tawk-button,
-.tawk-min-container .tawk-button {
-  background: linear-gradient(135deg, #3b82f6 0%, var(--accent) 50%, #1d4ed8 100%) !important;
-  border: 1px solid var(--accent-border) !important;
-  box-shadow: 0 6px 24px var(--accent-glow) !important;
-}
-
-#tawk-bubble-container .tawk-button-circle:hover,
-.tawk-min-container .tawk-button-circle:hover {
-  filter: brightness(1.05);
+.tawk-min-container .tawk-button,
+.tawk-min-container .tawk-icon,
+.tawk-min-container .tawk-text {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
 
 .tawk-max-container {
@@ -1512,6 +1535,7 @@ a.tile .tile-title {
   overflow: hidden !important;
   box-shadow: var(--shadow-tile) !important;
   border: 1px solid var(--border-subtle) !important;
+  font-family: var(--font-sans) !important;
 }
 
 .tawk-branding {
