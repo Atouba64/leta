@@ -653,6 +653,26 @@ main {
   max-width: 18ch;
 }
 
+/* Site-wide: tighten gap when h1/h2 is immediately followed by p or .hero-tagline */
+h1:has(+ p),
+h1:has(+ p.hero-tagline),
+h2:has(+ p),
+h2:has(+ p.hero-tagline) {
+  margin-bottom: 0.35rem;
+}
+
+h1 + p,
+h1 + p.hero-tagline,
+h2 + p,
+h2 + p.hero-tagline {
+  margin-top: 0;
+}
+
+.hero-bento h1:has(+ p),
+.hero-bento h1:has(+ p.hero-tagline) {
+  margin-bottom: 0.35rem;
+}
+
 @media (min-width: 480px) {
   .hero-bento h1 {
     max-width: 22ch;
@@ -663,10 +683,14 @@ main {
   font-size: clamp(1.1rem, 3vw, 1.35rem);
   font-weight: 600;
   color: var(--accent);
-  margin: -0.5rem 0 1rem;
+  margin: 0 0 1rem;
   max-width: 28rem;
   line-height: 1.35;
   letter-spacing: -0.02em;
+}
+
+h1 + p.hero-tagline {
+  margin-top: 0;
 }
 
 .hero-lead {
@@ -816,6 +840,14 @@ main {
   margin: 0 0 0.4rem;
 }
 
+.tile-kicker:has(+ p) {
+  margin-bottom: 0.25rem;
+}
+
+.tile-kicker + p {
+  margin-top: 0;
+}
+
 .tile-blurb {
   margin: 0;
   font-size: 0.92rem;
@@ -839,6 +871,14 @@ main {
   letter-spacing: -0.03em;
   margin: 0 0 0.85rem;
   color: var(--text);
+}
+
+.section-head h2:has(+ p) {
+  margin-bottom: 0.35rem;
+}
+
+.section-head h2 + p {
+  margin-top: 0;
 }
 
 .section-head h2 a {
@@ -1042,6 +1082,14 @@ main {
   color: var(--text);
 }
 
+.tile--contact-copy h2:has(+ p) {
+  margin-bottom: 0.35rem;
+}
+
+.tile--contact-copy h2 + p {
+  margin-top: 0;
+}
+
 .tile--contact-copy p {
   margin: 0;
   color: var(--text-soft);
@@ -1197,6 +1245,14 @@ a.tile .tile-title {
   letter-spacing: -0.03em;
   margin: 0 0 1rem;
   color: var(--text);
+}
+
+.page-hero h1:has(+ p) {
+  margin-bottom: 0.35rem;
+}
+
+.page-hero h1 + p {
+  margin-top: 0;
 }
 
 .page-hero .section-deck {
