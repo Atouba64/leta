@@ -3,7 +3,7 @@ import { Alert, Linking, StyleSheet, Text } from 'react-native';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
 import LetaCard from '../../components/LetaCard';
-import { getTechOnboardingUrl, getWhatsAppRecruitUrl } from '../../config/links';
+import { getRecruitCallUrl, getRecruitSmsUrl, getTechOnboardingUrl } from '../../config/links';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTechOnboarding } from '../../hooks/useTechOnboarding';
 import theme from '../../theme';
@@ -53,6 +53,9 @@ export default function TechOnboardingScreen() {
     }
   };
 
+  const openSms = () => Linking.openURL(getRecruitSmsUrl());
+  const openCall = () => Linking.openURL(getRecruitCallUrl());
+
   if (complete) {
     return (
       <Screen scroll title="Onboarding">
@@ -68,21 +71,21 @@ export default function TechOnboardingScreen() {
     );
   }
 
-  const openWhatsApp = () => Linking.openURL(getWhatsAppRecruitUrl());
-
   return (
     <Screen scroll title="Join the crew">
       <Text style={styles.lead}>
-        Before dispatch unlocks, join the <Text style={styles.strong}>Leta Tech crew</Text> — statewide in
-        Georgia, from Atlanta to rural counties. WhatsApp intro in 30 seconds, then the full application on
-        leta.repair (~8 min). Your schedule, your radius, 1099 field IT.
+        Before dispatch unlocks, join the <Text style={styles.strong}>Leta Tech crew</Text> — statewide in Georgia.
+        Text our Google Voice line in 30 seconds, then complete the full application on leta.repair (~8 min).
       </Text>
 
       <LetaCard style={styles.cardHighlight}>
         <Text style={styles.step}>Fastest</Text>
-        <Text style={styles.cardTitle}>WhatsApp intro</Text>
-        <Text style={styles.cardSub}>Send your name, city or county, and that you have a phone + car — we reply on chat.</Text>
-        <LetaButton title="Join on WhatsApp" onPress={openWhatsApp} />
+        <Text style={styles.cardTitle}>Text to join</Text>
+        <Text style={styles.cardSub}>
+          Opens your messaging app with a starter message to (470) 252-6681. Add your name, city or county, and phone + car.
+        </Text>
+        <LetaButton title="Text to join" onPress={openSms} />
+        <LetaButton title="Call instead" variant="secondary" onPress={openCall} style={styles.btnSpaced} />
       </LetaCard>
 
       <LetaCard style={styles.card}>
@@ -140,6 +143,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: { ...theme.typography.h3, marginTop: 4 },
   cardSub: { ...theme.typography.bodySmall, color: theme.colors.textSoft, marginTop: 8, marginBottom: theme.spacing.md, lineHeight: 20 },
+  btnSpaced: { marginTop: theme.spacing.sm },
   opened: { ...theme.typography.caption, color: theme.colors.success, marginTop: theme.spacing.sm, fontWeight: '600' },
   doneTitle: { ...theme.typography.h3, color: theme.colors.success },
   demo: { ...theme.typography.caption, color: theme.colors.muted, marginTop: theme.spacing.sm, lineHeight: 18 },

@@ -65,19 +65,73 @@
       });
     }
 
-    var waPhone = (cfg.whatsappPhone || cfg.phone || "").replace(/\D/g, "");
-    var waText = (cfg.whatsappRecruitMessage || "").trim();
-    document.querySelectorAll("[data-leta-whatsapp]").forEach(function (node) {
-      if (!waPhone) {
+    var voicePhone = (cfg.phone || "").replace(/\D/g, "");
+    var recruitSmsBody = (cfg.recruitSmsMessage || "").trim();
+    var googleVoiceUrl = (cfg.googleVoiceUrl || "https://voice.google.com/").trim();
+
+    function smsHref(phone, body) {
+      var href = "sms:+1" + phone;
+      if (body) href += "?body=" + encodeURIComponent(body);
+      return href;
+    }
+
+    function wireSmsLinks(selector, body) {
+      document.querySelectorAll(selector).forEach(function (node) {
+        if (!voicePhone) {
+          node.hidden = true;
+          return;
+        }
+        node.href = smsHref(voicePhone, body);
+        node.hidden = false;
+      });
+    }
+
+    var contactSmsBody = (cfg.contactSmsMessage || "").trim();
+    wireSmsLinks("[data-leta-recruit-sms]", recruitSmsBody);
+    wireSmsLinks("[data-leta-whatsapp]", recruitSmsBody);
+    wireSmsLinks("[data-leta-contact-sms]", contactSmsBody);
+
+    document.querySelectorAll("[data-leta-recruit-call], [data-leta-voice-call]").forEach(function (node) {
+      if (!voicePhone) {
         node.hidden = true;
         return;
       }
-      var href = "https://wa.me/1" + waPhone;
-      if (waText) href += "?text=" + encodeURIComponent(waText);
-      node.href = href;
+      node.href = "tel:+1" + voicePhone;
+      node.hidden = false;
+    });
+
+    document.querySelectorAll("[data-leta-google-voice]").forEach(function (node) {
+      if (!googleVoiceUrl) {
+        node.hidden = true;
+        return;
+      }
+      node.href = googleVoiceUrl;
       node.setAttribute("target", "_blank");
       node.setAttribute("rel", "noopener noreferrer");
       node.hidden = false;
+    });
+
+    document.querySelectorAll("[data-leta-copy-recruit-sms]").forEach(function (btn) {
+      if (!recruitSmsBody) {
+        btn.hidden = true;
+        return;
+      }
+      btn.addEventListener("click", function () {
+        var done = function () {
+          var label = btn.getAttribute("data-leta-copy-label") || "Copied intro text";
+          btn.textContent = label;
+          window.setTimeout(function () {
+            btn.textContent = btn.getAttribute("data-leta-copy-default") || "Copy text to send";
+          }, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(recruitSmsBody).then(done).catch(function () {
+            window.prompt("Copy this message and paste into Google Voice or your texting app:", recruitSmsBody);
+          });
+        } else {
+          window.prompt("Copy this message:", recruitSmsBody);
+        }
+      });
     });
     document.querySelectorAll("[data-leta-referral-bonus]").forEach(function (node) {
       if (cfg.referralBonusDisplay) node.textContent = cfg.referralBonusDisplay;

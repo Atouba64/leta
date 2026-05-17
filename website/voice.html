@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
+    <title>Text &amp; call | Leta · Google Voice</title>
+    <meta
+      name="description"
+      content="Contact Leta by text or call on our Georgia Google Voice line. Crew inbox runs in the browser — calls, SMS, and voicemail."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html#top"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="nav-panel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-box" aria-hidden="true">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg class="nav-panel__close-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a href="technicians.html">Technicians</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a></nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">Google Voice · Georgia</p>
+        <h1>Text or call Leta</h1>
+        <p class="section-deck">
+          Our crew line is <strong data-leta-phone-display>(470) 252-6681</strong> on Google Voice. On your phone, tap
+          <strong>Text</strong> or <strong>Call</strong>. On desktop, copy the intro text and message us in
+          <a data-leta-google-voice href="https://voice.google.com/">Google Voice</a> after you sign in (WebRTC — no extra app).
+        </p>
+      </header>
+
+      <section class="section-block" aria-labelledby="reach-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Reach the crew</p>
+          <h2 id="reach-heading">Applicants &amp; customers</h2>
+        </header>
+        <div class="recruit-intake">
+          <a class="recruit-intake__lane recruit-intake__lane--primary" data-leta-recruit-sms href="#">
+            <span class="recruit-intake__label">Fastest</span>
+            <strong>Text to join or ask</strong>
+            <span class="recruit-intake__meta">Opens your messaging app with a starter message</span>
+          </a>
+          <a class="recruit-intake__lane" data-leta-recruit-call href="#">
+            <span class="recruit-intake__label">Call</span>
+            <strong><span data-leta-phone-display>(470) 252-6681</span></strong>
+            <span class="recruit-intake__meta">Voicemail if we miss you · Georgia</span>
+          </a>
+          <button
+            type="button"
+            class="recruit-intake__lane"
+            data-leta-copy-recruit-sms
+            data-leta-copy-default="Copy intro text"
+            data-leta-copy-label="Copied"
+          >
+            <span class="recruit-intake__label">Desktop</span>
+            <strong>Copy intro text</strong>
+            <span class="recruit-intake__meta">Paste into Google Voice Messages after you sign in</span>
+          </button>
+        </div>
+        <p class="voice-message-preview" id="sms-preview" hidden></p>
+      </section>
+
+      <section class="section-block voice-team" aria-labelledby="team-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Leta team</p>
+          <h2 id="team-heading">Crew inbox in the browser</h2>
+          <p class="section-deck">
+            Sign in at Google Voice with the account linked to <span data-leta-phone-display>(470) 252-6681</span>. Make and
+            receive calls, send texts, and check voicemail — audio routes in the browser via WebRTC.
+          </p>
+        </header>
+        <div class="page-cta">
+          <a class="btn btn-primary" data-leta-google-voice href="https://voice.google.com/">Open Google Voice</a>
+          <a class="btn btn-secondary" href="technicians.html#join">Join Leta Tech</a>
+        </div>
+        <p class="section-deck">
+          Setup checklist: <a href="recruit/google-voice-flow.md">google-voice-flow.md</a> · Templates:
+          <a href="recruit/google-voice-templates.txt">google-voice-templates.txt</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong>. IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="index.html">Home</a> · <a href="technicians.html">Technicians</a> · <a href="contact.html">Contact</a> ·
+        <a href="voice.html">Text &amp; call</a>
+      </p>
+      <p class="footer-contact">
+        <a data-leta-mailto-general href="mailto:hello@leta.repair" data-leta-email-general>hello@leta.repair</a>
+        · <a data-leta-tel href="tel:+14702526681"><span data-leta-phone-display>(470) 252-6681</span></a>
+      </p>
+    </footer>
+    <script src="contact-config.js" defer></script>
+    <script src="site.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var cfg = window.LETA_CONTACT || {};
+        var body = (cfg.recruitSmsMessage || "").trim();
+        var el = document.getElementById("sms-preview");
+        if (el && body) {
+          el.hidden = false;
+          el.textContent = "Starter message: “" + body + "”";
+        }
+      });
+    </script>
+  </body>
+</html>

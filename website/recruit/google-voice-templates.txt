@@ -1,0 +1,16 @@
+# Canned replies for Google Voice (Messages) — copy/paste or save as snippets
+
+--- NEW TEXT (incomplete) ---
+Thanks for texting Leta Tech. Reply with your name, city + county in Georgia, and yes/no for smartphone + car.
+
+--- GOT IT ---
+Perfect — we’ll reply within 1–2 business days. Faster path: full application (~8 min) https://leta.repair/tech-onboarding.html
+
+--- FULL APP ---
+Full application on your phone: https://leta.repair/tech-onboarding.html — use the same email you’ll use in the Leta app.
+
+--- REFERRAL (pilot) ---
+Referral program: when your friend completes their first 5 jobs, you both get a bonus — we’ll email terms when it’s live.
+
+--- VOICEMAIL GREETING (record in Google Voice settings) ---
+You’ve reached Leta Tech crew in Georgia. Leave your name, city or county, and a number where we can text you back. We return messages on business days.

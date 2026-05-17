@@ -44,8 +44,8 @@ After live → `socialInstagram`: `https://www.instagram.com/letatechga`
 |-------|--------|
 | Page name | Leta Tech Crew |
 | Username | `letatechga` |
-| About | 1099 field IT network in Georgia. WhatsApp or apply on leta.repair. |
-| CTA button | **Send message** (WhatsApp if linked) or **Learn more** → join URL |
+| About | 1099 field IT network in Georgia. text or apply on leta.repair. |
+| CTA button | **Send message** (Google Voice if linked) or **Learn more** → join URL |
 
 Pin post: link to [technicians.html#join](../technicians.html#join).  
 After live → `socialFacebook`: page URL.
@@ -65,14 +65,14 @@ After live → `socialYouTube`: channel URL.
 
 ---
 
-## 5. WhatsApp Business (required — already on site)
+## 5. Google Voice (required — already on site)
 
-Phone: `4702526681` (see `whatsappPhone`).
+Phone: `4702526681` (see `phone`).
 
-**Quick replies** — paste from [whatsapp-quick-replies.txt](./whatsapp-quick-replies.txt):
+**Canned replies** — keep [google-voice-templates.txt](./google-voice-templates.txt) open while you work in [voice.google.com](https://voice.google.com/) Messages.
 
-1. WhatsApp Business → **Tools** → **Quick replies** → Add each shortcut.
-2. Set **Away message** from [whatsapp-flow.md](./whatsapp-flow.md).
+1. Record **voicemail greeting** (see templates file).
+2. Team inbox: [voice.html](../voice.html) → **Open Google Voice** (calls, SMS, voicemail in browser).
 
 ---
 

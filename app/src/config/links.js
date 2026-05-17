@@ -3,17 +3,39 @@ import { getTicketLocation } from '../utils/ticketDisplay';
 /** Public web URLs (static site on Netlify). */
 export const WEB_BASE_URL = 'https://leta.repair';
 
-/** Technician onboarding form on the marketing site (multi-step application). */
-/** WhatsApp “join the crew” deep link (configure message in website/contact-config.js). */
+/** Google Voice line (E.164 digits, no +) — matches website/contact-config.js */
+export const VOICE_PHONE = '4702526681';
+
+/** Starter SMS for recruit intake */
+export const RECRUIT_SMS_MESSAGE =
+  'Hey Leta — I want to join the Tech crew. My name:  My city + county (GA):  I have a smartphone + car (yes/no):';
+
+/** Opens device messaging app with pre-filled crew intro */
+export function getRecruitSmsUrl() {
+  return `sms:+1${VOICE_PHONE}?body=${encodeURIComponent(RECRUIT_SMS_MESSAGE)}`;
+}
+
+/** Call the Leta Google Voice line */
+export function getRecruitCallUrl() {
+  return `tel:+1${VOICE_PHONE}`;
+}
+
+/** Google Voice in browser (calls, texts, voicemail via WebRTC) */
+export function getGoogleVoiceUrl() {
+  return 'https://voice.google.com/';
+}
+
+/** @deprecated Use getRecruitSmsUrl */
 export function getWhatsAppRecruitUrl() {
-  const phone = '4702526681';
-  const text =
-    'Hey Leta — I want to join the Tech crew 🛠️\n\nMy name:\nMy city + county (GA):\nI have a smartphone + car (yes/no):';
-  return `https://wa.me/1${phone}?text=${encodeURIComponent(text)}`;
+  return getRecruitSmsUrl();
 }
 
 export function getTechniciansRecruitUrl() {
   return `${WEB_BASE_URL}/technicians.html#join`;
+}
+
+export function getVoiceContactUrl() {
+  return `${WEB_BASE_URL}/voice.html`;
 }
 
 export function getTechOnboardingUrl({ email, uid, displayName } = {}) {

@@ -15,9 +15,9 @@ Detail: [`website/recruit/tech-personas.md`](../website/recruit/tech-personas.md
 
 ## Affordable channel mix (pilot)
 
-1. **WhatsApp** — 30-second intro (free, highest trust)
+1. **Google Voice** — 30-second intro (free, highest trust)
 2. **Organic TikTok/Reels** — phone-shot POV (time only)
-3. **Facebook local + gig groups** — long posts with wa.me link
+3. **Facebook local + gig groups** — long posts with text or call link
 4. **Hyper-local Meta ads** — $5–15/day per cluster when organic wins
 5. **Referrals** — after ~20 active techs (`referralBonusDisplay` in `contact-config.js`)
 
@@ -28,7 +28,7 @@ Full calendar, geo clusters, and metrics: [`website/recruit/social-media-strateg
 ```
 Social / flyer / app
   → technicians.html#join OR tech-onboarding.html
-      → WhatsApp intro (optional speed) + full web form (required for dispatch in app)
+      → text intro (optional speed) + full web form (required for dispatch in app)
           → Human screen (1–2 business days)
               → Active in app
 ```
@@ -37,11 +37,11 @@ Operator scripts: [`website/recruit/RECRUIT-PLAYBOOK.md`](../website/recruit/REC
 
 ## Config to maintain
 
-- `website/contact-config.js` — `whatsappPhone`, `whatsappRecruitMessage`, `recruitMetros`, `recruitRegions`
+- `website/contact-config.js` — `phone`, `recruitSmsMessage`, `recruitMetros`, `recruitRegions`
 - Netlify form → `techs@leta.repair`
 - Bio links → `https://leta.repair/technicians.html#join`
 
 ## Related
 
 - [`tech-onboarding-funnel.md`](./tech-onboarding-funnel.md) — Vetting & retention after signup
-- [`../website/recruit/`](../website/recruit/) — Captions, video scripts, WhatsApp quick replies
+- [`../website/recruit/`](../website/recruit/) — Captions, video scripts, Google Voice quick replies

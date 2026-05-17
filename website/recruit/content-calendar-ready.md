@@ -14,7 +14,7 @@ Full scripts: [video-scripts.md](./video-scripts.md) · Captions: [social-captio
 | **Mon** | TikTok + Reels | Film script **#1 Day in the life** — caption A from social-captions (`[city]` = Atlanta) |
 | **Wed** | IG Story | 3-frame sequence (Atlanta) |
 | **Fri** | Facebook | Post **Gig / field IT** group version — Atlanta |
-| **Sat** | WhatsApp Status | “Screening crew this week — DM if you want in” + link |
+| **Sat** | SMS or Google Voice | “Screening crew this week — DM if you want in” + link |
 
 ---
 
@@ -53,7 +53,7 @@ Full scripts: [video-scripts.md](./video-scripts.md) · Captions: [social-captio
 
 ## Metrics log (copy weekly)
 
-| Week | WhatsApp intros | Web applies | Notes |
+| Week | text intros | Web applies | Notes |
 |------|-----------------|-------------|-------|
 | 1 | | | |
 | 2 | | | |

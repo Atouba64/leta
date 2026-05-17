@@ -14,7 +14,7 @@ Phone-shot, vertical, captions burned in. Post to TikTok, Reels, Shorts. **Rotat
 | 15–22s | On-site fix | “Real field IT · not a call center” |
 | 22–28s | Close-out in app | “Tap done · get paid” |
 | 28–35s | Evening free | “Still got your night” |
-| CTA | Logo | “Link in bio · Georgia · WhatsApp or apply” |
+| CTA | Logo | “Link in bio · Georgia · text or apply” |
 
 **Caption:** Your phone. Your schedule. Join Leta Tech in [city]. #sidehustle #fieldtech #georgia
 
@@ -27,7 +27,7 @@ Phone-shot, vertical, captions burned in. Post to TikTok, Reels, Shorts. **Rotat
 | 0–5s | County road, truck | “They said tech jobs are only in Atlanta” |
 | 5–12s | Pull up to site | “Leta dispatches by **your** radius” |
 | 12–18s | Simple fix + app close-out | “[County] · paid · 1099” |
-| 18–25s | WhatsApp CTA | “You’re the local fixer? Link in bio” |
+| 18–25s | Google Voice CTA | “You’re the local fixer? Link in bio” |
 
 **Caption:** Small town techs — we need you in [county]. #rural #georgiajobs
 
@@ -48,10 +48,10 @@ Phone-shot, vertical, captions burned in. Post to TikTok, Reels, Shorts. **Rotat
 
 | Beat | Text |
 |------|------|
-| Thumb on app | “If you can WhatsApp…” |
+| Thumb on app | “If you can Google Voice…” |
 | Accept → navigate | “…you can run Leta Tech” |
 | Close-out | “Fix · photo · paid” |
-| WhatsApp pulse | “DM ‘CREW’ or tap link” |
+| Google Voice pulse | “DM ‘CREW’ or tap link” |
 
 ---
 
@@ -78,4 +78,4 @@ Phone-shot, vertical, captions burned in. Post to TikTok, Reels, Shorts. **Rotat
 - **Geo:** Rotate clusters A–H from [social-media-strategy.md](./social-media-strategy.md) — 25–60 mi radius.
 - **Age:** 18–40 (broader than campus-only; rural skews 21–45).
 - **Interests:** gig worker, IT troubleshooting, Field Nation, DoorDash, campus (where available).
-- **CTA:** “Send WhatsApp message” → `technicians.html#join`.
+- **CTA:** “Send Google Voice message” → `technicians.html#join`.

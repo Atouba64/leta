@@ -25,7 +25,7 @@ Tawk’s round floating bubble is hidden. Set `showTawkBubble: true` in [`contac
    - **`contact`** — general inquiries ([`contact.html`](./contact.html))
    - **`tech-onboarding`** — technician applications ([`tech-onboarding.html`](./tech-onboarding.html)); route to `techs@leta.repair`  
      Operator notes + third-party options: [`TECH-ONBOARDING-OPTIONS.md`](./TECH-ONBOARDING-OPTIONS.md)  
-     Recruit playbook (WhatsApp, TikTok, referrals): [`recruit/RECRUIT-PLAYBOOK.md`](./recruit/RECRUIT-PLAYBOOK.md)
+     Recruit playbook (Google Voice, TikTok, referrals): [`recruit/RECRUIT-PLAYBOOK.md`](./recruit/RECRUIT-PLAYBOOK.md)
 
 ---
 
@@ -72,6 +72,19 @@ Configured in `contact-config.js`:
 - `phoneDisplay: "(470) 252-6681"`
 
 Site links use `tel:+14702526681`. Update config if the number changes.
+
+### Google Voice (text, call, voicemail in the browser)
+
+The public line is a **Google Voice** number. Applicants tap **Text to join** (`sms:` with starter message) or **Call** (`tel:`). Your team runs the inbox at [voice.google.com](https://voice.google.com/) — WebRTC audio, no extra app.
+
+| Config key | Purpose |
+|------------|---------|
+| `phone` | Same GV number for `tel:` / `sms:` |
+| `recruitSmsMessage` | Pre-filled crew intro on recruit pages |
+| `contactSmsMessage` | Shorter starter on Contact page |
+| `googleVoiceUrl` | Team link (default `https://voice.google.com/`) |
+
+Hub page: [`voice.html`](./voice.html). Operator docs: [`recruit/google-voice-flow.md`](./recruit/google-voice-flow.md).
 
 ---
 
