@@ -20,7 +20,7 @@ export default function TechOnboardingGate({ children }) {
       <LetaCard style={styles.banner}>
         <Text style={styles.bannerTitle}>Onboarding required</Text>
         <Text style={styles.bannerSub}>
-          Complete the Onboarding &amp; questions form on leta.repair before you can go active or accept jobs.
+          Complete the onboarding form on leta.repair (anywhere in Georgia) before you can go active or accept jobs.
         </Text>
         <LetaButton title="Continue onboarding" onPress={() => navigation.navigate('TechOnboarding')} />
       </LetaCard>

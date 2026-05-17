@@ -88,6 +88,44 @@
     document.querySelectorAll("[data-leta-recruit-metros]").forEach(function (node) {
       if (cfg.recruitMetros) node.textContent = cfg.recruitMetros;
     });
+    document.querySelectorAll("[data-leta-recruit-regions]").forEach(function (node) {
+      if (cfg.recruitRegions) node.textContent = cfg.recruitRegions;
+    });
+
+    var linkInBio = (cfg.recruitLinkInBio || "").trim();
+    document.querySelectorAll("[data-leta-link-in-bio]").forEach(function (node) {
+      if (linkInBio) {
+        node.href = linkInBio;
+        node.textContent = linkInBio.replace(/^https?:\/\//, "");
+      }
+    });
+
+    var socialMap = [
+      { key: "socialTikTok", attr: "data-leta-social-tiktok", label: "TikTok" },
+      { key: "socialInstagram", attr: "data-leta-social-instagram", label: "Instagram" },
+      { key: "socialFacebook", attr: "data-leta-social-facebook", label: "Facebook" },
+      { key: "socialYouTube", attr: "data-leta-social-youtube", label: "YouTube" },
+    ];
+    socialMap.forEach(function (item) {
+      var url = (cfg[item.key] || "").trim();
+      document.querySelectorAll("[" + item.attr + "]").forEach(function (node) {
+        if (!url) {
+          node.hidden = true;
+          return;
+        }
+        node.hidden = false;
+        node.href = url;
+        node.setAttribute("target", "_blank");
+        node.setAttribute("rel", "noopener noreferrer");
+        if (!node.textContent.trim()) node.textContent = item.label;
+      });
+    });
+    document.querySelectorAll("[data-leta-social-follow]").forEach(function (wrap) {
+      var anyVisible = socialMap.some(function (item) {
+        return (cfg[item.key] || "").trim();
+      });
+      wrap.hidden = !anyVisible;
+    });
   }
 
   if (document.readyState === "loading") {

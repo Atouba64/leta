@@ -1,6 +1,6 @@
 # Leta Tech recruitment playbook
 
-Operator guide for building a high-energy 1099 field crew in Georgia. Public funnel lives on [technicians.html](../technicians.html) and [tech-onboarding.html](../tech-onboarding.html).
+Operator guide for building a statewide 1099 field crew in Georgia. Public funnel: [technicians.html](../technicians.html) · [tech-onboarding.html](../tech-onboarding.html).
 
 ## Philosophy
 
@@ -10,62 +10,78 @@ You are recruiting a **community**, not posting a job listing. Sell lifestyle, f
 |----|--------|
 | “Join the crew” · “Your phone · your schedule” | “Job opening” · “Responsibilities include…” |
 | WhatsApp + mobile form | PDF applications · desktop-only portals |
-| Short video, local faces | Polished corporate ads |
+| Short video, local faces (any GA county) | “Atlanta only” · polished corporate ads |
 | Referrals from happy techs | Cold LinkedIn |
 
-## Who (digital hustler)
+## Who (four personas — statewide)
 
-- **Age:** 18–26 (flex to 28 in ads if needed).
-- **Trait:** Resourceful, phone-native, learns by tapping.
-- **Motivation:** Independence, fast money, prestige of a “tech” brand.
+Not one demographic. Design creative and screening for all of:
+
+1. **Campus & side-hustle** (18–26, college towns + ATL)
+2. **Gig & field veteran** (Field Nation, cable/ISP, break-fix)
+3. **Rural & small-town builder** (county-level networks)
+4. **Career switcher** (help desk, retail, trades)
+
+Full profiles: [tech-personas.md](./tech-personas.md)
 
 ## Where they are
 
 | Channel | Use |
 |---------|-----|
-| TikTok / Reels | Primary paid + organic ([video-scripts.md](./video-scripts.md)) |
-| WhatsApp groups | Intake + community ([whatsapp-flow.md](./whatsapp-flow.md)) |
-| Facebook local / gig groups | Longer posts ([social-captions.md](./social-captions.md)) |
+| TikTok / Reels | Organic + Spark boost on winners ([video-scripts.md](./video-scripts.md)) |
+| WhatsApp | Intake + community ([whatsapp-flow.md](./whatsapp-flow.md)) |
+| Facebook local / gig groups | Veterans, rural, switchers ([social-captions.md](./social-captions.md)) |
+| County Facebook groups | Rural persona — Valdosta, Albany, Rome, Dalton |
 | Telegram job channels | Short blurb + link |
-| Campuses, transit hubs, gaming lounges | QR to `technicians.html#join` |
+| Campuses, barber shops, gaming lounges | QR to `technicians.html#join` |
 
-## Funnel (implemented on site)
+**Strategy doc:** [social-media-strategy.md](./social-media-strategy.md) — geo clusters, 4-week calendar, $300–500/mo paid test.
+
+## Funnel (implemented on site + app)
 
 ```
-Ad / story / flyer
+Ad / story / flyer / app profile
     → technicians.html#join
-        → WhatsApp (30 sec)  OR  tech-onboarding.html (~8 min)
+        → WhatsApp (30 sec)  +  tech-onboarding.html (~8 min) — app requires form confirm
             → Human screen (1–2 business days)
                 → Training + quiz (in-app — roadmap)
-                    → Background + insurance (Checkr / Stripe Identity — see TECH-ONBOARDING-OPTIONS.md)
-                        → Active in app
+                    → Background + insurance (Checkr / Stripe Identity)
+                        → Active in app · offers by radius
 ```
 
 ## Referral engine (pilot)
 
 Configured in `contact-config.js`: `referralBonusDisplay`, `referralJobsRequired`.
 
-Copy on site: when a referred friend completes N jobs, both earn bonus. Turn on in ops only after first ~20 solid techs.
+Turn on in ops only after first ~20 solid techs statewide.
 
 ## Config checklist
 
-- [ ] `whatsappPhone` — dedicated line if possible (WhatsApp Business).
-- [ ] Quick replies in WhatsApp ([whatsapp-flow.md](./whatsapp-flow.md)).
-- [ ] Netlify `tech-onboarding` form → email `techs@leta.repair`.
-- [ ] TikTok / Meta ads → `technicians.html#join`, CTA “Send WhatsApp message”.
-- [ ] Track leads: Airtable or spreadsheet (source: WhatsApp | web | app).
+- [ ] `whatsappPhone` — WhatsApp Business line
+- [ ] Quick replies ([whatsapp-flow.md](./whatsapp-flow.md))
+- [ ] `recruitRegions` + `recruitMetros` in `contact-config.js`
+- [ ] Netlify `tech-onboarding` form → `techs@leta.repair`
+- [ ] TikTok / IG bios → `technicians.html#join`
+- [ ] Meta ads → CTA “Send WhatsApp message”, rotate GA clusters weekly
+- [ ] Track leads: source = WhatsApp | web | app | referral
 
 ## Roadmap (not on site yet)
 
-1. **In-app gamified quiz** — 5 visual questions, unlock dispatch (Firebase flag).
-2. **3-minute training video** — hosted on site or YouTube unlisted, linked after approval.
-3. **Referral codes in app** — deep link `?ref=TECH123`.
-4. **Leta Tech gear** — shirts/hats for aspirational content.
+1. **In-app gamified quiz** — unlock dispatch (Firebase flag)
+2. **3-minute training video** — after approval
+3. **Referral codes in app** — `?ref=TECH123`
+4. **Leta Tech gear** — shirts/hats for UGC
 
 ## Files in this folder
 
 | File | Purpose |
 |------|---------|
+| [tech-personas.md](./tech-personas.md) | Who we’re talking to |
+| [social-media-strategy.md](./social-media-strategy.md) | Channels, calendar, paid test |
+| [social-profiles-setup.md](./social-profiles-setup.md) | Create TikTok/IG/FB + bios |
+| [content-calendar-ready.md](./content-calendar-ready.md) | Weeks 1–4 ready posts |
+| [whatsapp-quick-replies.txt](./whatsapp-quick-replies.txt) | Paste into WhatsApp Business |
+| [qr-flyer.html](./qr-flyer.html) | Printable QR for campus / barber |
 | [whatsapp-flow.md](./whatsapp-flow.md) | Chat scripts + quick replies |
 | [video-scripts.md](./video-scripts.md) | TikTok/Reels storyboards |
 | [social-captions.md](./social-captions.md) | Copy/paste posts |

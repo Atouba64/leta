@@ -45,10 +45,25 @@ window.LETA_CONTACT = {
   whatsappPhone: "4702526681",
   /** Pre-filled message when someone taps “Join on WhatsApp” */
   whatsappRecruitMessage:
-    "Hey Leta — I want to join the Tech crew 🛠️\n\nMy name:\nMy city (GA):\nI have a smartphone (yes/no):",
+    "Hey Leta — I want to join the Tech crew 🛠️\n\nMy name:\nMy city + county (GA):\nI have a smartphone + car (yes/no):",
   /** Shown on referral tiles — update when program goes live */
   referralBonusDisplay: "$50",
   referralJobsRequired: "5",
   /** Primary launch metros for recruit copy */
   recruitMetros: "Metro Atlanta · Athens · Augusta · Columbus · Macon · Savannah",
+  /** Statewide recruiting — shown on technicians.html */
+  recruitRegions:
+    "Every corner of Georgia — metro Atlanta, college towns, Central & East GA, the coast, South GA, and North GA mountains. We dispatch by your radius, not just downtown ATL.",
+  /** Link in bio for TikTok / Instagram / YouTube — same on all recruit social profiles */
+  recruitLinkInBio: "https://leta.repair/technicians.html#join",
+  /**
+   * Paste profile URLs after you create accounts (see recruit/social-profiles-setup.md).
+   * Leave "" to hide that link on the site until live.
+   */
+  socialTikTok: "",
+  socialInstagram: "",
+  socialFacebook: "",
+  socialYouTube: "",
+  /** Suggested handles when registering (update URLs above once claimed) */
+  socialHandleSuggested: "@letatechga",
 };

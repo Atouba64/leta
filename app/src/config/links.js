@@ -8,7 +8,7 @@ export const WEB_BASE_URL = 'https://leta.repair';
 export function getWhatsAppRecruitUrl() {
   const phone = '4702526681';
   const text =
-    'Hey Leta — I want to join the Tech crew 🛠️\n\nMy name:\nMy city (GA):\nI have a smartphone (yes/no):';
+    'Hey Leta — I want to join the Tech crew 🛠️\n\nMy name:\nMy city + county (GA):\nI have a smartphone + car (yes/no):';
   return `https://wa.me/1${phone}?text=${encodeURIComponent(text)}`;
 }
 

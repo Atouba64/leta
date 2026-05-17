@@ -1,0 +1,17 @@
+# Paste into WhatsApp Business → Tools → Quick replies
+# Shortcut = first word after / in whatsapp-flow.md
+
+--- /welcome ---
+Hey — thanks for hitting up Leta Tech. Drop your name, city + county in Georgia, and yes/no for smartphone + car.
+
+--- /gotit ---
+Perfect. A human on our crew will reply within 1–2 business days. Want to move faster? Full application: https://leta.repair/tech-onboarding.html
+
+--- /fullapp ---
+Full application (~8 min, on your phone): https://leta.repair/tech-onboarding.html — use the same email you'll use in the app.
+
+--- /refer ---
+Referral program (pilot): when your friend completes their first 5 jobs, you both get a bonus — we'll email terms when it's live.
+
+--- AWAY MESSAGE (Settings → Business tools → Away message) ---
+Leta Tech crew — we got your message. Reply with name, GA city/county, and phone + car yes/no. We're usually back within a few hours (business days).

@@ -73,14 +73,15 @@ export default function TechOnboardingScreen() {
   return (
     <Screen scroll title="Join the crew">
       <Text style={styles.lead}>
-        Before dispatch unlocks, join the <Text style={styles.strong}>Leta Tech crew</Text> — WhatsApp intro in
-        30 seconds, or the full application on leta.repair (~8 min). Same vibe: your schedule, 1099 field IT.
+        Before dispatch unlocks, join the <Text style={styles.strong}>Leta Tech crew</Text> — statewide in
+        Georgia, from Atlanta to rural counties. WhatsApp intro in 30 seconds, then the full application on
+        leta.repair (~8 min). Your schedule, your radius, 1099 field IT.
       </Text>
 
       <LetaCard style={styles.cardHighlight}>
         <Text style={styles.step}>Fastest</Text>
         <Text style={styles.cardTitle}>WhatsApp intro</Text>
-        <Text style={styles.cardSub}>Send your name, city, and smartphone — we reply on chat.</Text>
+        <Text style={styles.cardSub}>Send your name, city or county, and that you have a phone + car — we reply on chat.</Text>
         <LetaButton title="Join on WhatsApp" onPress={openWhatsApp} />
       </LetaCard>
 

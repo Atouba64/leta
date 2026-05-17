@@ -1732,6 +1732,25 @@ button.contact-channel {
   color: var(--text);
 }
 
+.social-follow {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.social-follow a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.social-follow a:hover {
+  text-decoration: underline;
+}
+
+.social-follow-hint {
+  margin-top: 0;
+}
+
 .onboard-steps {
   display: flex;
   flex-wrap: wrap;

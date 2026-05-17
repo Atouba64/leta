@@ -16,8 +16,11 @@ Marketplace quality = supply quality. Goal: largest **reliable** IT field roster
 
 ## 2. Acquisition channels
 
+**Statewide Georgia recruit (primary):** See [`tech-recruitment-georgia.md`](./tech-recruitment-georgia.md) and [`website/recruit/`](../website/recruit/) for personas, WhatsApp-first funnel, TikTok/Reels calendar, and Facebook gig/county groups.
+
+- Organic + hyper-local paid (rotate metro, college, rural clusters — not Atlanta-only).  
 - Geofenced ads near IT training centers, community colleges, cert testing sites.  
-- **Refer-a-tech:** e.g. $50 bonus after referral completes 3 jobs at 5★ (tune economically).
+- **Refer-a-tech:** e.g. $50 after referral completes N jobs (`referralJobsRequired` in `contact-config.js`).
 
 ## 3. Vetting & onboarding
 

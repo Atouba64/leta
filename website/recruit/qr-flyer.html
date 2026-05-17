@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Leta Tech — QR flyers (print)</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --blue: #1d4ed8;
+        --ink: #0f172a;
+        --muted: #64748b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: var(--ink);
+        margin: 0;
+        padding: 1.5rem;
+        background: #f1f5f9;
+      }
+      .toolbar {
+        max-width: 52rem;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .toolbar button,
+      .toolbar a {
+        font: inherit;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        background: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      .toolbar button.primary {
+        background: var(--blue);
+        color: #fff;
+        border-color: var(--blue);
+      }
+      .toolbar p {
+        flex: 1 1 100%;
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .flyers {
+        max-width: 52rem;
+        margin: 0 auto;
+        display: grid;
+        gap: 1.5rem;
+      }
+      .flyer {
+        background: #fff;
+        border: 1px dashed #cbd5e1;
+        border-radius: 12px;
+        padding: 1.25rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+      .flyer--sticker {
+        max-width: 14rem;
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+      .flyer img.qr {
+        width: 140px;
+        height: 140px;
+        display: block;
+      }
+      .flyer--sticker img.qr {
+        width: 120px;
+        height: 120px;
+      }
+      .flyer h1 {
+        font-size: 1.35rem;
+        margin: 0 0 0.35rem;
+        line-height: 1.2;
+      }
+      .flyer h1 span {
+        color: var(--blue);
+      }
+      .flyer .tag {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+      }
+      .flyer .url {
+        font-size: 0.8rem;
+        color: var(--muted);
+        word-break: break-all;
+      }
+      .flyer .bullets {
+        margin: 0.5rem 0 0;
+        padding-left: 1.1rem;
+        font-size: 0.85rem;
+        line-height: 1.45;
+      }
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+        .toolbar {
+          display: none;
+        }
+        .flyers {
+          gap: 0.5in;
+        }
+        .flyer {
+          border: 1px solid #e2e8f0;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <button type="button" class="primary" onclick="window.print()">Print flyers</button>
+      <a href="../technicians.html#join">Back to Join page</a>
+      <p>Campus · barber shop · gaming lounge — scan joins the Leta Tech crew statewide in Georgia.</p>
+    </div>
+
+    <div class="flyers" id="flyers"></div>
+
+    <script src="../contact-config.js"></script>
+    <script>
+      (function () {
+        var cfg = window.LETA_CONTACT || {};
+        var joinUrl = (cfg.recruitLinkInBio || "https://leta.repair/technicians.html#join").trim();
+        var qrApi =
+          "https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=8&data=" + encodeURIComponent(joinUrl);
+
+        var flyers = [
+          {
+            className: "flyer",
+            title: "Leta <span>Tech</span>",
+            tag: "Field IT gigs · Georgia statewide",
+            bullets: ["1099 · your schedule", "Phone + car", "Scan to join the crew"],
+          },
+          {
+            className: "flyer",
+            title: "Join the crew",
+            tag: "Paid onsite IT · every corner of GA",
+            bullets: ["WhatsApp or apply in 8 min", "Students · gig vets · rural fixers welcome"],
+          },
+          {
+            className: "flyer flyer--sticker",
+            title: "Leta Tech",
+            tag: "Scan · join crew",
+            bullets: [],
+          },
+        ];
+
+        var root = document.getElementById("flyers");
+        flyers.forEach(function (f) {
+          var el = document.createElement("article");
+          el.className = f.className;
+          var bulletsHtml =
+            f.bullets.length > 0
+              ? "<ul class=\"bullets\">" + f.bullets.map(function (b) { return "<li>" + b + "</li>"; }).join("") + "</ul>"
+              : "";
+          el.innerHTML =
+            '<img class="qr" src="' +
+            qrApi +
+            '" width="140" height="140" alt="QR code to join Leta Tech" />' +
+            "<div><h1>" +
+            f.title +
+            "</h1><p class=\"tag\">" +
+            f.tag +
+            "</p>" +
+            bulletsHtml +
+            '<p class="url">' +
+            joinUrl.replace(/^https?:\/\//, "") +
+            "</p></div>";
+          root.appendChild(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
