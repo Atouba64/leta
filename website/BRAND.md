@@ -11,6 +11,8 @@ The mark is an **engineered map pin** (onsite field presence) with a **bridge** 
 | `logo-icon.svg` | Header mark (black shapes for `mask-image`) |
 | `favicon.svg` | Browser tab (blue tile, white mark) |
 
+**Print, apparel, flags:** [`../brand/`](../brand/) — full-color SVG + PNG up to 4096px.
+
 ## Header usage
 
 ```html

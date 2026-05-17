@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" width="3600" height="800" role="img" aria-label="Leta">
+  <title>Leta</title>
+  <g transform="translate(6 10) scale(1.875)">
+    <path
+      fill="#2563eb"
+      d="M16 2C9.35 2 4.5 6.95 4.5 12.4c0 3.55 1.85 6.8 4.85 8.65L16 30l6.65-9.95c3-1.85 4.85-5.1 4.85-8.65C27.5 6.95 22.65 2 16 2z"
+    />
+    <path
+      fill="#2563eb"
+      d="M17.15 13.9 22.6 10.5a1.25 1.25 0 0 1 1.6.42 1.25 1.25 0 0 1-.22 1.72l-4.75 3.15a1.4 1.4 0 0 1-1.72-.22 1.4 1.4 0 0 1 .24-2.07z"
+    />
+    <circle cx="24.15" cy="11.05" r="2.5" fill="#2563eb" />
+  </g>
+  <text
+    x="88"
+    y="54"
+    font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="42"
+    font-weight="800"
+    letter-spacing="-0.03em"
+    fill="#0f172a"
+  >
+    Leta<tspan fill="#2563eb">.</tspan>
+  </text>
+</svg>
