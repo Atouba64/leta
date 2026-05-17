@@ -1,37 +1,52 @@
-# Tawk chat interior — Leta blue & white
+# Tawk — Leta-only colors (blue & white)
 
-The site injects matching CSS when Tawk allows it (`leta-tawk-theme.js`). **Also set these once in the dashboard** so colors always apply inside the chat iframe.
+Use **only** these colors in the Tawk dashboard so the chat matches [leta.repair](https://leta.repair). Do not use Tawk’s default green, orange, or custom hex outside this list.
 
-## Dashboard steps
+The site also applies the same palette via `leta-tawk-theme.js` when the chat iframe allows it.
 
-1. [Tawk dashboard](https://dashboard.tawk.to) → **Administration** → **Chat Widget**
-2. Open **Appearance** (or **Widget Appearance** / color settings)
-3. Use these values (light mode — matches [leta.repair](https://leta.repair)):
+## Steps
 
-| Setting | Hex |
-|---------|-----|
-| Header / primary | `#2563eb` |
-| Header gradient (if offered) | `#3b82f6` → `#1d4ed8` |
-| Header text | `#ffffff` |
-| Chat background | `#eef3f9` |
-| Agent / operator message | `#eff6ff` (background), `#0f172a` (text) |
-| Visitor message | `#ffffff` (background), `#0f172a` (text) |
-| Input area background | `#ffffff` |
-| Send button | `#2563eb` |
-| Links / accents | `#2563eb` |
+1. [dashboard.tawk.to](https://dashboard.tawk.to) → **Administration** → **Chat Widget**
+2. **Widget Appearance** → **Advanced**
+3. Set **every** color field to a value below (header, body, agent, visitor, buttons, pre-chat cards).
+4. **Widget Content** → for Online / Away / Offline cards: use **Heading** + **Text** only; set card backgrounds to white or `#eef3f9`, not green.
+5. **Widget Behavior** → **Hide widget on load** (desktop + mobile).
+6. **Save** / publish.
 
-4. **Widget Content** → set welcome text to mention Leta (optional).
-5. **Widget Behavior** → **Hide widget on load** (desktop + mobile) so only the site **Chat with Leta** button shows.
+## Allowed palette (light — primary)
 
-## Dark mode (optional in Tawk)
+| Role | Hex | Use for |
+|------|-----|---------|
+| Page background | `#eef3f9` | Chat body, away/offline card backgrounds |
+| Surface | `#ffffff` | Visitor bubbles, input area, cards |
+| Text | `#0f172a` | Message text, labels |
+| Muted text | `#475569` | Secondary labels |
+| Accent / header | `#2563eb` | Header bar, send button, links, badges |
+| Accent gradient end | `#1d4ed8` | Header gradient (with `#3b82f6`) |
+| Accent light | `#3b82f6` | Header gradient start |
+| Agent bubble | `#eff6ff` | Operator/agent messages |
+| Border | `#bfdbfe` | Inputs, agent bubble border |
+| Soft border | `#e2e8f0` | Visitor bubble border |
+| On accent | `#ffffff` | Header text, button labels |
 
-If your widget supports a dark theme:
+**Do not use:** Tawk green (`#03A84E`), orange status chips, or any color not in this table.
 
-| Setting | Hex |
-|---------|-----|
+## Dark mode (if enabled in Tawk)
+
+| Role | Hex |
+|------|-----|
 | Background | `#0b1020` |
-| Surfaces | `#121a2e` |
-| Header | `#2563eb` or `#60a5fa` |
+| Surface | `#121a2e` |
 | Text | `#f1f5f9` |
+| Accent | `#60a5fa` / `#2563eb` buttons |
+| Agent bubble | `rgba(37, 99, 235, 0.22)` |
 
-Save and publish the widget after changes.
+## Quick checklist
+
+- [ ] Header background → `#2563eb` (or gradient with `#3b82f6` / `#1d4ed8`)
+- [ ] Header text → `#ffffff`
+- [ ] Chat background → `#eef3f9`
+- [ ] Agent message → bg `#eff6ff`, text `#0f172a`
+- [ ] Visitor message → bg `#ffffff`, text `#0f172a`
+- [ ] Send button → `#2563eb`, text `#ffffff`
+- [ ] No green/orange anywhere in Appearance or Content cards

@@ -1540,8 +1540,13 @@ a.tile .tile-title {
 
 .tawk-max-container iframe {
   border-radius: calc(var(--radius-lg) - 2px) !important;
+  background: var(--bg) !important;
 }
 
-.tawk-branding {
-  opacity: 0.65;
+/* Suppress non-Leta hues on the outer Tawk shell */
+.tawk-max-container [style*="03a84e"],
+.tawk-max-container [style*="00b41d"],
+.tawk-max-container [style*="1bb76e"] {
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
 }

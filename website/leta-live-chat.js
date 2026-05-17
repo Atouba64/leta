@@ -69,7 +69,7 @@
 
   function applyInteriorTheme() {
     if (typeof window.LetaApplyTawkTheme === "function") {
-      window.LetaApplyTawkTheme(10000);
+      window.LetaApplyTawkTheme(18000);
     }
   }
 
