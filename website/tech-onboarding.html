@@ -92,17 +92,18 @@
           <p class="eyebrow eyebrow--section">Application</p>
           <h2 id="tech-form-heading">Tell us about you</h2>
           <p class="section-deck">
-            Answer honestly — we use this for initial screening. If we move forward, we’ll ask for ID verification,
-            insurance proof, and a formal background check separately.
+            Answer honestly — we use this for initial screening. Use <strong>Next</strong> to move through five short
+            sections. If we move forward, we’ll ask for ID verification, insurance proof, and a formal background check separately.
           </p>
         </header>
 
-        <ol class="onboard-steps" aria-label="Form sections">
-          <li>You &amp; contact</li>
-          <li>Field readiness</li>
-          <li>Skills</li>
-          <li>Contractor basics</li>
-          <li>Fit &amp; motivation</li>
+        <p class="onboard-progress-text" id="onboard-progress-text" aria-live="polite">Step 1 of 5 · You &amp; contact</p>
+        <ol class="onboard-steps" id="onboard-steps" aria-label="Application progress">
+          <li class="is-active" data-step="0">You &amp; contact</li>
+          <li data-step="1">Field readiness</li>
+          <li data-step="2">Skills</li>
+          <li data-step="3">Contractor basics</li>
+          <li data-step="4">Fit &amp; motivation</li>
         </ol>
 
         <p id="tech-form-status" class="form-status" hidden role="status"></p>
@@ -121,8 +122,9 @@
             <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
+          <div class="onboard-step is-active" data-step="0" data-step-title="You &amp; contact">
           <fieldset class="leta-form__section">
-            <legend class="leta-form__section-title">1 · You &amp; contact</legend>
+            <legend class="leta-form__section-title">You &amp; contact</legend>
             <p class="leta-form__section-hint">Legal name for payouts and background checks later.</p>
             <div class="leta-form__grid">
               <div class="leta-form__field">
@@ -180,9 +182,11 @@
               </div>
             </div>
           </fieldset>
+          </div>
 
+          <div class="onboard-step" data-step="1" data-step-title="Field readiness" hidden>
           <fieldset class="leta-form__section">
-            <legend class="leta-form__section-title">2 · Field readiness</legend>
+            <legend class="leta-form__section-title">Field readiness</legend>
             <p class="leta-form__section-hint">Can you reliably get to jobs and work on-site?</p>
             <div class="leta-form__grid">
               <div class="leta-form__field">
@@ -257,9 +261,11 @@
               </div>
             </div>
           </fieldset>
+          </div>
 
+          <div class="onboard-step" data-step="2" data-step-title="Skills" hidden>
           <fieldset class="leta-form__section">
-            <legend class="leta-form__section-title">3 · Skills &amp; credentials</legend>
+            <legend class="leta-form__section-title">Skills &amp; credentials</legend>
             <p class="leta-form__section-hint">Helps us route offers you can actually finish — school, certs, and hustle all count.</p>
             <div class="leta-form__grid">
               <div class="leta-form__field">
@@ -319,9 +325,11 @@
               </div>
             </div>
           </fieldset>
+          </div>
 
+          <div class="onboard-step" data-step="3" data-step-title="Contractor basics" hidden>
           <fieldset class="leta-form__section">
-            <legend class="leta-form__section-title">4 · Independent contractor basics</legend>
+            <legend class="leta-form__section-title">Independent contractor basics</legend>
             <p class="leta-form__section-hint">1099 means you handle taxes, schedule, and business insurance — we don’t withhold or guarantee hours.</p>
             <div class="leta-form__grid">
               <div class="leta-form__field leta-form__field--full">
@@ -357,9 +365,11 @@
               </div>
             </div>
           </fieldset>
+          </div>
 
+          <div class="onboard-step" data-step="4" data-step-title="Fit &amp; motivation" hidden>
           <fieldset class="leta-form__section">
-            <legend class="leta-form__section-title">5 · Fit &amp; motivation</legend>
+            <legend class="leta-form__section-title">Fit &amp; motivation</legend>
             <p class="leta-form__section-hint">Short answers — we read these to gauge reliability and whether you’ll show up for real work.</p>
             <div class="leta-form__grid">
               <div class="leta-form__field leta-form__field--full">
@@ -400,13 +410,23 @@
             </div>
           </fieldset>
 
-          <div class="leta-form__actions">
-            <button type="submit" class="btn btn-primary">Submit application</button>
-            <p class="leta-form__fine">
-              By submitting, you agree we may contact you at the email and phone provided about your application and Leta
-              onboarding. We don’t sell your information. This is not a job offer or guarantee of work.
-            </p>
           </div>
+
+          <div class="onboard-wizard-nav" id="onboard-wizard-nav">
+            <button type="button" class="btn btn-secondary onboard-wizard-nav__back" id="onboard-back" hidden>
+              Back
+            </button>
+            <button type="button" class="btn btn-primary onboard-wizard-nav__next" id="onboard-next">
+              Next
+            </button>
+            <button type="submit" class="btn btn-primary onboard-wizard-nav__submit" id="onboard-submit" hidden>
+              Submit application
+            </button>
+          </div>
+          <p class="leta-form__fine onboard-wizard-fine" id="onboard-fine" hidden>
+            By submitting, you agree we may contact you at the email and phone provided about your application and Leta
+            onboarding. We don’t sell your information. This is not a job offer or guarantee of work.
+          </p>
         </form>
       </section>
 

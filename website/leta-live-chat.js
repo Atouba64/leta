@@ -5,6 +5,11 @@
 
   var widgetId = (cfg.tawkWidgetId || "default").trim() || "default";
   var label = (cfg.chatLabel || "Chat with Leta").trim();
+  var showTawkBubble = cfg.showTawkBubble !== false;
+
+  if (showTawkBubble) {
+    document.documentElement.classList.add("leta-chat-dual");
+  }
 
   window.Tawk_API = window.Tawk_API || {};
   window.Tawk_LoadStart = new Date();
@@ -40,9 +45,31 @@
   }
 
   function hideTawkBubble() {
+    if (showTawkBubble) return;
     if (typeof window.Tawk_API.hideWidget === "function") {
       window.Tawk_API.hideWidget();
     }
+  }
+
+  function showTawkBubbleWidget() {
+    if (!showTawkBubble) return;
+    if (typeof window.Tawk_API.showWidget === "function") {
+      window.Tawk_API.showWidget();
+    }
+  }
+
+  function wireOpenChatTriggers() {
+    document.querySelectorAll("[data-leta-open-chat]").forEach(function (node) {
+      if (node.getAttribute("data-leta-chat-bound") === "1") return;
+      node.setAttribute("data-leta-chat-bound", "1");
+      node.addEventListener("click", function (e) {
+        e.preventDefault();
+        openChat();
+      });
+    });
+    document.querySelectorAll("[data-leta-chat-label]").forEach(function (node) {
+      node.textContent = label;
+    });
   }
 
   function openChat() {
@@ -62,6 +89,7 @@
       window.Tawk_API.toggle();
     }
     hideTawkBubble();
+    showTawkBubbleWidget();
     setChatOpen(false);
   }
 
@@ -129,8 +157,13 @@
   }
 
   window.Tawk_API.onLoad = function () {
-    hideTawkBubble();
+    if (showTawkBubble) {
+      showTawkBubbleWidget();
+    } else {
+      hideTawkBubble();
+    }
     buildLauncher();
+    wireOpenChatTriggers();
     setChatOpen(false);
     applyInteriorTheme();
   };
@@ -147,14 +180,22 @@
 
   window.Tawk_API.onChatMinimized = function () {
     hideTawkBubble();
+    showTawkBubbleWidget();
     setChatOpen(false);
     applyInteriorTheme();
   };
 
   window.Tawk_API.onChatEnded = function () {
     hideTawkBubble();
+    showTawkBubbleWidget();
     setChatOpen(false);
   };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wireOpenChatTriggers);
+  } else {
+    wireOpenChatTriggers();
+  }
 
   var s1 = document.createElement("script");
   var s0 = document.getElementsByTagName("script")[0];

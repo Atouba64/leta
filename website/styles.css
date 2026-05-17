@@ -1402,6 +1402,19 @@ a.tile .tile-title {
   outline-offset: 3px;
 }
 
+button.contact-channel {
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+  width: 100%;
+}
+
+.contact-channel--chat strong {
+  color: var(--accent);
+}
+
 .contact-channel strong {
   font-size: clamp(0.98rem, 2.2vw, 1.06rem);
   font-weight: 700;
@@ -1589,8 +1602,59 @@ a.tile .tile-title {
   color: var(--text-soft);
 }
 
+.onboard-steps li.is-active {
+  background: var(--accent-surface-strong);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+.onboard-steps li.is-done {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #16a34a;
+}
+
+.onboard-progress-text {
+  margin: 0 0 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.onboard-step[hidden] {
+  display: none !important;
+}
+
+.onboard-wizard-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1.25rem;
+  max-width: 44rem;
+}
+
+.onboard-wizard-nav .btn {
+  min-width: 7.5rem;
+}
+
+.onboard-wizard-nav__back {
+  margin-right: auto;
+}
+
+.onboard-wizard-fine {
+  max-width: 44rem;
+  margin-top: 1rem;
+}
+
 .leta-form--onboard {
   max-width: 44rem;
+}
+
+.leta-form--onboard .leta-form__section {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .leta-form__section {
@@ -1708,16 +1772,28 @@ body:has(.leta-chat-launch).nav-drawer-open {
   }
 }
 
-/* Hide Tawk’s default bubble (“We are here!”) — our .btn-primary opens chat */
-#tawk-bubble-container,
-.tawk-min-container .tawk-button-circle,
-.tawk-min-container .tawk-button,
-.tawk-min-container .tawk-icon,
-.tawk-min-container .tawk-text {
+/* Single-launcher mode: hide Tawk bubble — dual mode keeps bubble + branded button */
+html:not(.leta-chat-dual) #tawk-bubble-container,
+html:not(.leta-chat-dual) .tawk-min-container .tawk-button-circle,
+html:not(.leta-chat-dual) .tawk-min-container .tawk-button,
+html:not(.leta-chat-dual) .tawk-min-container .tawk-icon,
+html:not(.leta-chat-dual) .tawk-min-container .tawk-text {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
   opacity: 0 !important;
+}
+
+html.leta-chat-dual .leta-chat-launch {
+  bottom: max(5.25rem, calc(1rem + env(safe-area-inset-bottom, 0px) + 4.25rem));
+}
+
+html.leta-chat-dual:has(.leta-chat-launch) {
+  padding-bottom: calc(7.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+button[data-leta-open-chat].btn--block {
+  width: 100%;
 }
 
 .tawk-max-container {
@@ -1764,4 +1840,141 @@ body:has(.leta-chat-launch).nav-drawer-open {
   overflow: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+/* —— Ticket tracking (track.html) —— */
+.track-page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad-x) 3rem;
+}
+
+.track-hero {
+  margin-bottom: var(--section-gap);
+}
+
+.track-missing {
+  padding: var(--tile-pad-y) var(--tile-pad-x);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.track-panel {
+  padding: var(--tile-pad-y) var(--tile-pad-x);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-tile);
+  margin-bottom: 1.25rem;
+}
+
+.track-status {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--accent-surface);
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.track-status[data-status="completed"] {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.track-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.track-steps li {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.track-steps li.done {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.track-steps li.current {
+  background: var(--accent-surface-strong);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+.track-details {
+  display: grid;
+  grid-template-columns: minmax(7rem, 30%) 1fr;
+  gap: 0.65rem 1rem;
+  margin: 0;
+}
+
+.track-details dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.track-details dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.track-map-title {
+  font-size: 1.1rem;
+  margin: 0 0 0.35rem;
+}
+
+.track-map-note {
+  font-size: 0.875rem;
+  color: var(--text-soft);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.track-map-wrap {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.track-map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: min(320px, 50vh);
+  border: 0;
+}
+
+.track-map-links {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.track-map-links a {
+  color: var(--accent);
+  font-weight: 600;
 }

@@ -30,6 +30,11 @@ window.LETA_CONTACT = {
   techOnboardingFormName: "tech-onboarding",
   /** Shown on the live-chat button (replaces Tawk’s default “We are here!”) */
   chatLabel: "Chat with Leta",
+  /**
+   * When true, keep Tawk’s floating bubble (“We are here!”) in addition to the branded
+   * “Chat with Leta” launcher and any in-page live-chat links.
+   */
+  showTawkBubble: true,
   /** Chat panel header (fixes truncated “customer suppor” from Tawk dashboard) */
   chatHeaderTitle: "Leta support",
   chatHeaderSubtitle: "Onsite IT help · we reply quickly",
