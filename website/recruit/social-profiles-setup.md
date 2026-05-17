@@ -45,7 +45,7 @@ After live → `socialInstagram`: `https://www.instagram.com/letatechga`
 | Page name | Leta Tech Crew |
 | Username | `letatechga` |
 | About | 1099 field IT network in Georgia. text or apply on leta.repair. |
-| CTA button | **Send message** (Google Voice if linked) or **Learn more** → join URL |
+| CTA button | **Send message** or **Learn more** → join URL |
 
 Pin post: link to [technicians.html#join](../technicians.html#join).  
 After live → `socialFacebook`: page URL.
@@ -65,14 +65,14 @@ After live → `socialYouTube`: channel URL.
 
 ---
 
-## 5. Google Voice (required — already on site)
+## 5. Phone line (required — already on site)
 
-Phone: `4702526681` (see `phone`).
+Public number: `4702526681` (see `phone` in config). Site copy says **text or call** only — do not mention the carrier in ads.
 
-**Canned replies** — keep [google-voice-templates.txt](./google-voice-templates.txt) open while you work in [voice.google.com](https://voice.google.com/) Messages.
+**Canned replies** — [google-voice-templates.txt](./google-voice-templates.txt) (operator file).
 
 1. Record **voicemail greeting** (see templates file).
-2. Team inbox: [voice.html](../voice.html) → **Open Google Voice** (calls, SMS, voicemail in browser).
+2. Team inbox: operator URL in `googleVoiceUrl` (see [CONTACT-SETUP.md](../CONTACT-SETUP.md)).
 
 ---
 

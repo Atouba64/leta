@@ -2,7 +2,7 @@
 
 **Goal:** Build a statewide 1099 bench that can accept offers within their radius — affordably, phone-first, community-led.
 
-**Budget posture:** Bootstrap / pilot — prioritize **organic + Google Voice + hyper-local paid** over broad brand campaigns.
+**Budget posture:** Bootstrap / pilot — prioritize **organic + phone + hyper-local paid** over broad brand campaigns.
 
 ---
 
@@ -10,7 +10,7 @@
 
 1. **Statewide, not Atlanta-only** — Run separate creative and targeting per cluster (see geo table below).
 2. **Community, not job board** — “Join the crew” beats “Now hiring technicians.”
-3. **Two-step intake** — Google Voice (30 sec) → full application (8 min) → human screen.
+3. **Two-step intake** — text or call (30 sec) → full application (8 min) → human screen.
 4. **Show real people** — Phone-shot video, local mentions, no stock-office footage.
 5. **Referrals after proof** — Turn on bonuses only after ~20 active, reliable techs.
 
@@ -20,11 +20,11 @@
 
 | Channel | Cost | Best for | CTA |
 |---------|------|----------|-----|
-| **Google Voice** | Free | All personas; fastest trust | Pre-filled “join crew” message |
+| **SMS / phone** | Free | All personas; fastest trust | Pre-filled “join crew” message |
 | **TikTok organic** | Time | Hustlers 18–26 | Link in bio → technicians.html#join |
 | **Instagram Reels** | Time | Same as TikTok; cross-post | Bio link |
 | **Facebook groups** | Free | Veterans, rural, switchers | Long post + text or call link |
-| **Facebook/IG paid local** | $5–15/day/geo | Scale what organic proves | “Send Google Voice message” |
+| **Facebook/IG paid local** | $5–15/day/geo | Scale what organic proves | “Text or call” |
 | **TikTok Spark / boost** | $20–50/post | Winning organic clips only | Profile visit |
 | **Campus flyers / QR** | Print cost | Hustlers | leta.repair |
 | **Telegram job channels** | Free | Veterans, switchers | Short blurb |
@@ -57,10 +57,10 @@ Rotate **one cluster per week** in organic posts so the whole state sees themsel
 
 | Week | Mon | Wed | Fri | Sat |
 |------|-----|-----|-----|-----|
-| 1 | Reel: “POV fix Wi‑Fi on site” (A) | Story poll: “Got a car + phone?” | FB group post (gig) | Google Voice status: “3 slots screening” |
+| 1 | Reel: “POV fix Wi‑Fi on site” (A) | Story poll: “Got a car + phone?” | FB group post (gig) | SMS status: “3 slots screening” |
 | 2 | Reel: rural drive day (G) | Carousel: 4 personas | TikTok stitch trend | User-generated repost (if any) |
 | 3 | Reel: close-out in app (B) | Testimonial screenshot (redact) | College flyer photo | Live Q&A in Stories |
-| 4 | Reel: referral tease | “Apply in 30 sec” Google Voice CTA | Recap: “Now live in [city]” | Boost best Reel $25 |
+| 4 | Reel: referral tease | “Apply in 30 sec” text CTA | Recap: “Now live in [city]” | Boost best Reel $25 |
 
 **Production rule:** Shoot on phone, vertical, captions burned in, 15–45 sec.
 
@@ -106,22 +106,22 @@ Scripts: [video-scripts.md](./video-scripts.md) · Captions: [social-captions.md
 | Approved → Active in app | Track manually |
 | First job completed | North star |
 
-Log source: `Google Voice` | `web` | `app` | `referral` in spreadsheet.
+Log source: `text` | `call` | `web` | `app` | `referral` in spreadsheet.
 
 ---
 
 ## Implementation checklist (already on site)
 
-- [x] [technicians.html](../technicians.html) — crew positioning + Google Voice + follow section
+- [x] [technicians.html](../technicians.html) — crew positioning + text/call + follow section
 - [x] [tech-onboarding.html](../tech-onboarding.html) — 5-step application
 - [x] App — required onboarding + dispatch gate
 - [x] `recruitLinkInBio` + social URL slots in `contact-config.js`
 - [x] [social-profiles-setup.md](./social-profiles-setup.md) — bios, handles, wiring
 - [x] [content-calendar-ready.md](./content-calendar-ready.md) — weeks 1–4 posts
-- [x] [google-voice-templates.txt](./google-voice-templates.txt) — paste into Google Voice
+- [x] [google-voice-templates.txt](./google-voice-templates.txt) — operator reply templates
 - [x] [qr-flyer.html](./qr-flyer.html) — printable campus / barber QR
 - [ ] Create TikTok/IG/FB accounts → paste URLs into `contact-config.js` (social links auto-appear)
-- [ ] Paste Google Voice quick replies in Google Voice app
+- [ ] Record voicemail greeting on business line
 - [ ] Execute week 1 calendar · boost only after organic winner
 
 ---

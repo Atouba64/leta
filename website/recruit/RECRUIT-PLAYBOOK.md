@@ -9,7 +9,7 @@ You are recruiting a **community**, not posting a job listing. Sell lifestyle, f
 | Do | Don’t |
 |----|--------|
 | “Join the crew” · “Your phone · your schedule” | “Job opening” · “Responsibilities include…” |
-| Google Voice + mobile form | PDF applications · desktop-only portals |
+| phone + mobile form | PDF applications · desktop-only portals |
 | Short video, local faces (any GA county) | “Atlanta only” · polished corporate ads |
 | Referrals from happy techs | Cold LinkedIn |
 
@@ -29,7 +29,7 @@ Full profiles: [tech-personas.md](./tech-personas.md)
 | Channel | Use |
 |---------|-----|
 | TikTok / Reels | Organic + Spark boost on winners ([video-scripts.md](./video-scripts.md)) |
-| Google Voice | Intake + community ([google-voice-flow.md](./google-voice-flow.md)) |
+| Text / call | Intake + community ([google-voice-flow.md](./google-voice-flow.md)) |
 | Facebook local / gig groups | Veterans, rural, switchers ([social-captions.md](./social-captions.md)) |
 | County Facebook groups | Rural persona — Valdosta, Albany, Rome, Dalton |
 | Telegram job channels | Short blurb + link |
@@ -42,7 +42,7 @@ Full profiles: [tech-personas.md](./tech-personas.md)
 ```
 Ad / story / flyer / app profile
     → technicians.html#join
-        → Google Voice (30 sec)  +  tech-onboarding.html (~8 min) — app requires form confirm
+        → text or call (30 sec)  +  tech-onboarding.html (~8 min) — app requires form confirm
             → Human screen (1–2 business days)
                 → Training + quiz (in-app — roadmap)
                     → Background + insurance (Checkr / Stripe Identity)
@@ -57,13 +57,13 @@ Turn on in ops only after first ~20 solid techs statewide.
 
 ## Config checklist
 
-- [ ] `phone` — Google Voice line
+- [ ] `phone` — phone line
 - [ ] Quick replies ([google-voice-flow.md](./google-voice-flow.md))
 - [ ] `recruitRegions` + `recruitMetros` in `contact-config.js`
 - [ ] Netlify `tech-onboarding` form → `techs@leta.repair`
 - [ ] TikTok / IG bios → `technicians.html#join`
-- [ ] Meta ads → CTA “Send Google Voice message”, rotate GA clusters weekly
-- [ ] Track leads: source = Google Voice | web | app | referral
+- [ ] Meta ads → CTA “Text or call”, rotate GA clusters weekly
+- [ ] Track leads: source = text | web | app | referral
 
 ## Roadmap (not on site yet)
 

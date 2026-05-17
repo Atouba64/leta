@@ -3,7 +3,7 @@ import { getTicketLocation } from '../utils/ticketDisplay';
 /** Public web URLs (static site on Netlify). */
 export const WEB_BASE_URL = 'https://leta.repair';
 
-/** Google Voice line (E.164 digits, no +) — matches website/contact-config.js */
+/** Leta business line (E.164 digits, no +) — matches website/contact-config.js */
 export const VOICE_PHONE = '4702526681';
 
 /** Starter SMS for recruit intake */
@@ -15,12 +15,12 @@ export function getRecruitSmsUrl() {
   return `sms:+1${VOICE_PHONE}?body=${encodeURIComponent(RECRUIT_SMS_MESSAGE)}`;
 }
 
-/** Call the Leta Google Voice line */
+/** Call the Leta business line */
 export function getRecruitCallUrl() {
   return `tel:+1${VOICE_PHONE}`;
 }
 
-/** Google Voice in browser (calls, texts, voicemail via WebRTC) */
+/** Operator inbox (internal — not shown in public app copy) */
 export function getGoogleVoiceUrl() {
   return 'https://voice.google.com/';
 }

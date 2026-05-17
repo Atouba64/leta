@@ -16,7 +16,7 @@ Marketplace quality = supply quality. Goal: largest **reliable** IT field roster
 
 ## 2. Acquisition channels
 
-**Statewide Georgia recruit (primary):** See [`tech-recruitment-georgia.md`](./tech-recruitment-georgia.md) and [`website/recruit/`](../website/recruit/) for personas, Google Voice-first funnel, TikTok/Reels calendar, and Facebook gig/county groups.
+**Statewide Georgia recruit (primary):** See [`tech-recruitment-georgia.md`](./tech-recruitment-georgia.md) and [`website/recruit/`](../website/recruit/) for personas, phone-first funnel, TikTok/Reels calendar, and Facebook gig/county groups.
 
 - Organic + hyper-local paid (rotate metro, college, rural clusters — not Atlanta-only).  
 - Geofenced ads near IT training centers, community colleges, cert testing sites.  

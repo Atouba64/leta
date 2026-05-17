@@ -126,7 +126,7 @@
         };
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(recruitSmsBody).then(done).catch(function () {
-            window.prompt("Copy this message and paste into Google Voice or your texting app:", recruitSmsBody);
+            window.prompt("Copy this message and paste into your texting app:", recruitSmsBody);
           });
         } else {
           window.prompt("Copy this message:", recruitSmsBody);

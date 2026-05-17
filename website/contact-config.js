@@ -8,12 +8,12 @@ window.LETA_CONTACT = {
   supportEmail: "support@leta.repair",
   partnersEmail: "partners@leta.repair",
   techniciansEmail: "techs@leta.repair",
-  /** E.164 without + — Google Voice line; used for tel: and sms: links */
+  /** E.164 without + — business line; used for tel: and sms: links */
   phone: "4702526681",
   phoneDisplay: "(470) 252-6681",
   /**
-   * Google Voice in the browser (calls, texts, voicemail via WebRTC).
-   * Operators: sign in at this URL with the Google account linked to the number above.
+   * Operator inbox URL (internal — do not link on public pages).
+   * Sign in with the account linked to the number above.
    */
   googleVoiceUrl: "https://voice.google.com/",
   /** Pre-filled SMS when someone taps “Text to join” (recruit / tech pages) */

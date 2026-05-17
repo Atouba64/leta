@@ -75,14 +75,14 @@ export default function TechOnboardingScreen() {
     <Screen scroll title="Join the crew">
       <Text style={styles.lead}>
         Before dispatch unlocks, join the <Text style={styles.strong}>Leta Tech crew</Text> — statewide in Georgia.
-        Text our Google Voice line in 30 seconds, then complete the full application on leta.repair (~8 min).
+        Text or call us in 30 seconds, then complete the full application on leta.repair (~8 min).
       </Text>
 
       <LetaCard style={styles.cardHighlight}>
         <Text style={styles.step}>Fastest</Text>
         <Text style={styles.cardTitle}>Text to join</Text>
         <Text style={styles.cardSub}>
-          Opens your messaging app with a starter message to (470) 252-6681. Add your name, city or county, and phone + car.
+          Opens your messaging app with a starter message. Add your name, city or county, and phone + car.
         </Text>
         <LetaButton title="Text to join" onPress={openSms} />
         <LetaButton title="Call instead" variant="secondary" onPress={openCall} style={styles.btnSpaced} />

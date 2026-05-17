@@ -44,4 +44,4 @@ Operator scripts: [`website/recruit/RECRUIT-PLAYBOOK.md`](../website/recruit/REC
 ## Related
 
 - [`tech-onboarding-funnel.md`](./tech-onboarding-funnel.md) — Vetting & retention after signup
-- [`../website/recruit/`](../website/recruit/) — Captions, video scripts, Google Voice quick replies
+- [`../website/recruit/`](../website/recruit/) — Captions, video scripts, phone templates

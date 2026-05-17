@@ -33,7 +33,7 @@ Accept · drive · fix · photo · paid. No call-center script. Text us in 30 se
 You’re the person everyone in [county] calls when Wi‑Fi dies. Leta pays you for that — statewide GA, not just Atlanta.
 
 **F**  
-Small town · big radius · real field IT. Name + county + phone/car on Google Voice — link in bio.
+Small town · big radius · real field IT. Name + county + phone/car by text — link in bio.
 
 ---
 
@@ -51,7 +51,7 @@ Small town · big radius · real field IT. Name + county + phone/car on Google V
 >
 > Leta is a field IT network. You go Active when you want work, accept offers near you, close out in the app.
 >
-> **Fastest:** Google Voice (name, city/county, phone + car yes/no).  
+> **Fastest:** text (name, city/county, phone + car yes/no).  
 > **Full apply:** https://leta.repair/tech-onboarding.html
 >
 > Veterans, students, rural fixers welcome. No HR maze.
@@ -69,9 +69,9 @@ Small town · big radius · real field IT. Name + county + phone/car on Google V
 
 ---
 
-## Telegram / Google Voice group blurb
+## Telegram / text group blurb
 
-> Leta Tech — onsite IT gigs, 1099, all over GA. 30-sec Google Voice: [leta.repair/voice.html]. Full apply: leta.repair/tech-onboarding.html
+> Leta Tech — onsite IT gigs, 1099, all over GA. 30-sec text: [leta.repair/voice.html]. Full apply: leta.repair/tech-onboarding.html
 
 ---
 
