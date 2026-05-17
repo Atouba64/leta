@@ -1321,16 +1321,26 @@ a.tile .tile-title {
 }
 
 /* —— Contact page —— */
-.contact-channels {
-  display: grid;
-  gap: 0.85rem;
-  grid-template-columns: 1fr;
+.section-block:has(.contact-channels) {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+  box-sizing: border-box;
 }
 
-@media (min-width: 640px) {
-  .contact-channels {
-    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  }
+.contact-channels {
+  --contact-tile-w: 16.25rem;
+  --contact-gap: clamp(0.85rem, 2vw, 1.15rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: var(--contact-gap);
+  width: 100%;
+  max-width: calc(3 * var(--contact-tile-w) + 2 * var(--contact-gap));
+  margin: 0 auto;
+  padding: 0;
 }
 
 .contact-channel[hidden],
@@ -1342,40 +1352,97 @@ a.tile .tile-title {
 .contact-channel {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 1.1rem 1.2rem;
+  justify-content: center;
+  gap: 0.35rem;
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: var(--contact-tile-w);
+  min-height: 7.25rem;
+  box-sizing: border-box;
+  padding: 1.2rem 1.35rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
-  background: var(--bg-elevated);
+  background: linear-gradient(
+    165deg,
+    var(--bg-elevated) 0%,
+    color-mix(in srgb, var(--bg-elevated) 88%, var(--accent-surface) 12%) 100%
+  );
+  box-shadow: var(--shadow-tile);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-channel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6 0%, var(--accent) 50%, #1d4ed8 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .contact-channel:hover {
   border-color: var(--accent-border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-tile-hover);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
+.contact-channel:hover::before {
+  opacity: 1;
+}
+
+.contact-channel:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .contact-channel strong {
-  font-size: 1.02rem;
+  font-size: clamp(0.98rem, 2.2vw, 1.06rem);
+  font-weight: 700;
   color: var(--text);
+  line-height: 1.3;
+  word-break: break-word;
 }
 
 .contact-channel__label {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-hover);
+  color: var(--accent);
 }
 
 .contact-channel__meta {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: var(--text-soft);
-  line-height: 1.45;
+  line-height: 1.5;
+  margin-top: 0.1rem;
+}
+
+@media (min-width: 520px) {
+  .contact-channel {
+    flex: 1 1 calc(50% - var(--contact-gap) / 2);
+    max-width: calc(50% - var(--contact-gap) / 2);
+  }
+}
+
+@media (min-width: 900px) {
+  .contact-channel {
+    flex: 0 0 var(--contact-tile-w);
+    width: var(--contact-tile-w);
+    max-width: var(--contact-tile-w);
+  }
 }
 
 .contact-form-section {
@@ -1549,10 +1616,12 @@ body:has(.leta-chat-launch).nav-drawer-open {
   max-width: min(22rem, calc(100vw - 2rem)) !important;
   border-radius: var(--radius-lg) !important;
   overflow: hidden !important;
-  box-shadow: var(--shadow-tile) !important;
+  box-shadow:
+    var(--shadow-tile),
+    0 12px 40px -12px var(--accent-glow) !important;
   border: 1px solid var(--accent-border) !important;
   font-family: var(--font-sans) !important;
-  background: var(--bg) !important;
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%) !important;
 }
 
 @media (max-width: 480px) {

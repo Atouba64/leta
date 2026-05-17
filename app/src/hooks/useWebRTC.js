@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { mediaDevices, RTCPeerConnection, RTCSessionDescription, RTCIceCandidate } from 'react-native-webrtc';
+import { supportsWebRTC } from '../utils/runtime';
 import { publishSignal, subscribeSignals } from '../services/liveSession';
 
 const ICE_SERVERS = [{ urls: 'stun:stun.l.google.com:19302' }];
 
 /**
- * Firestore-backed WebRTC (Leta Live). Requires dev build — not Expo Go.
+ * Firestore-backed WebRTC (Leta Live). Expo Go shows a placeholder; use a dev build for video.
  */
 export function useWebRTC(sessionId, { isInitiator }) {
   const pcRef = useRef(null);
@@ -16,6 +16,19 @@ export function useWebRTC(sessionId, { isInitiator }) {
 
   useEffect(() => {
     if (!sessionId) return undefined;
+
+    if (!supportsWebRTC) {
+      setStatus('unsupported');
+      setError('Leta Live video needs a development build (not Expo Go).');
+      return undefined;
+    }
+
+    const {
+      mediaDevices,
+      RTCPeerConnection,
+      RTCSessionDescription,
+      RTCIceCandidate,
+    } = require('react-native-webrtc');
 
     let unsubSignals = () => {};
     let mounted = true;
@@ -32,13 +45,10 @@ export function useWebRTC(sessionId, { isInitiator }) {
 
         const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS });
         pcRef.current = pc;
-
         stream.getTracks().forEach((track) => pc.addTrack(track, stream));
 
         pc.ontrack = (event) => {
-          if (event.streams?.[0]) {
-            setRemoteStream(event.streams[0]);
-          }
+          if (event.streams?.[0]) setRemoteStream(event.streams[0]);
         };
 
         pc.onicecandidate = (event) => {
@@ -46,48 +56,36 @@ export function useWebRTC(sessionId, { isInitiator }) {
             publishSignal(sessionId, {
               type: 'ice',
               candidate: event.candidate.toJSON(),
-              from: isInitiator ? 'field' : 'remote',
             });
           }
         };
 
         unsubSignals = subscribeSignals(sessionId, async (signal) => {
           if (!pcRef.current) return;
-
           if (signal.type === 'offer' && !isInitiator) {
             await pcRef.current.setRemoteDescription(new RTCSessionDescription(signal.sdp));
             const answer = await pcRef.current.createAnswer();
             await pcRef.current.setLocalDescription(answer);
-            await publishSignal(sessionId, {
-              type: 'answer',
-              sdp: answer,
-              from: 'remote',
-            });
+            await publishSignal(sessionId, { type: 'answer', sdp: answer });
           } else if (signal.type === 'answer' && isInitiator) {
             await pcRef.current.setRemoteDescription(new RTCSessionDescription(signal.sdp));
           } else if (signal.type === 'ice') {
-            try {
-              await pcRef.current.addIceCandidate(new RTCIceCandidate(signal.candidate));
-            } catch {
-              /* ignore duplicate */
-            }
+            await pcRef.current.addIceCandidate(new RTCIceCandidate(signal.candidate));
           }
         });
 
         if (isInitiator) {
           const offer = await pc.createOffer();
           await pc.setLocalDescription(offer);
-          await publishSignal(sessionId, {
-            type: 'offer',
-            sdp: offer,
-            from: 'field',
-          });
+          await publishSignal(sessionId, { type: 'offer', sdp: offer });
         }
 
         setStatus('connected');
       } catch (e) {
-        setError(e.message || 'WebRTC failed');
-        setStatus('error');
+        if (mounted) {
+          setError(e.message || 'WebRTC failed');
+          setStatus('error');
+        }
       }
     }
 
@@ -97,9 +95,9 @@ export function useWebRTC(sessionId, { isInitiator }) {
       mounted = false;
       unsubSignals();
       pcRef.current?.close();
-      localStream?.getTracks().forEach((t) => t.stop());
+      pcRef.current = null;
+      localStream?.getTracks?.().forEach((t) => t.stop());
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId, isInitiator]);
 
   return { localStream, remoteStream, status, error };

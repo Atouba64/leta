@@ -1,0 +1,15 @@
+{
+  "name": "leta",
+  "private": true,
+  "description": "Leta monorepo — mobile app in app/, Cloud Functions in functions/",
+  "scripts": {
+    "start": "npm run start --prefix app",
+    "start:go": "npm run start:go --prefix app",
+    "start:dev": "npm run start:dev --prefix app",
+    "start:tunnel": "npm run start:tunnel --prefix app",
+    "ios": "npm run ios:device --prefix app",
+    "ios:device": "npm run ios:device --prefix app",
+    "install:app": "npm install --legacy-peer-deps --prefix app",
+    "install:functions": "npm install --prefix functions"
+  }
+}

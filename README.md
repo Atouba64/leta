@@ -50,7 +50,9 @@ This repo is organized like an internal company handbook plus product specs. Wor
 **React Native + Expo** in [`app/`](./app/README.md) — Firestore (`users`, `tickets`, `offers`), Auth custom claims, Maps, Storage, Stripe, and **Leta Live** (WebRTC + signaling).
 
 ```bash
-cd app && npm install --legacy-peer-deps && npx expo start
+npm run install:app
+npm start                 # from repo root — runs Expo dev client in app/
+# or: cd app && npm run start:dev
 ```
 
 ## Backend (Firebase)

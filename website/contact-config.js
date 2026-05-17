@@ -29,4 +29,7 @@ window.LETA_CONTACT = {
   formName: "contact",
   /** Shown on the live-chat button (replaces Tawk’s default “We are here!”) */
   chatLabel: "Chat with Leta",
+  /** Chat panel header (fixes truncated “customer suppor” from Tawk dashboard) */
+  chatHeaderTitle: "Leta support",
+  chatHeaderSubtitle: "Onsite IT help · we reply quickly",
 };

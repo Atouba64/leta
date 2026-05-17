@@ -7,6 +7,8 @@ functions/node_modules/
 # Mobile app
 app/node_modules/
 app/.expo/
+app/ios/
+app/android/
 app/dist/
 app/web-build/
 app/.env

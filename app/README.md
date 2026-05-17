@@ -13,26 +13,26 @@ React Native + Expo client for **customers**, **field technicians**, and **remot
 | **Stripe** | `@stripe/stripe-react-native` + `createPaymentIntent` callable |
 | **Leta Live** | WebRTC (`react-native-webrtc`) + Firestore signaling — **requires dev build** |
 
-## Run
+## Run on iPhone
+
+**Expo Go does not work** (WebRTC, Stripe, dev client). Use a development build:
 
 ```bash
 cd app
-cp .env.example .env
-# Fill Firebase + optional Maps/Stripe keys
 npm install --legacy-peer-deps
-npx expo start
+npm run ios:device    # USB + trust + Developer Mode on iPhone
+npm run start:dev     # then reload the app on the phone
 ```
 
-### Development build (maps, WebRTC, Stripe)
+Full steps (signing, tunnel, EAS cloud build): **[TEST_ON_IPHONE.md](./TEST_ON_IPHONE.md)**
+
+## Run (simulator / after dev client installed)
 
 ```bash
-npx expo prebuild
-npx expo run:ios
-# or
-npx expo run:android
+cp .env.example .env   # optional — demo mode works without Firebase
+npm install --legacy-peer-deps
+npm run start:dev      # not plain `expo start` after a dev build
 ```
-
-Expo Go does **not** support WebRTC or all native map keys.
 
 ## Environment
 

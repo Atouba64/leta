@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, StyleSheet, Text } from 'react-native';
-import { useStripe } from '@stripe/stripe-react-native';
+import { useStripePayment } from '../../hooks/useStripePayment';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
 import { createPaymentIntent } from '../../services/payments';
@@ -8,15 +8,20 @@ import theme from '../../theme';
 
 export default function PaymentScreen({ route, navigation }) {
   const { ticketId, amountCents, title } = route.params || {};
-  const { initPaymentSheet, presentPaymentSheet } = useStripe();
+  const { initPaymentSheet, presentPaymentSheet, available } = useStripePayment();
   const [loading, setLoading] = useState(false);
 
   const pay = async () => {
     setLoading(true);
     try {
       const { clientSecret, demo } = await createPaymentIntent(ticketId, amountCents);
-      if (demo || !clientSecret) {
-        Alert.alert('Demo mode', 'Payment simulated — configure Firebase + Stripe for live checkout.');
+      if (demo || !clientSecret || !available) {
+        Alert.alert(
+          'Demo mode',
+          available
+            ? 'Payment simulated — configure Firebase + Stripe for live checkout.'
+            : 'Expo Go: payment simulated. Use a dev build for real card checkout.',
+        );
         navigation.goBack();
         return;
       }

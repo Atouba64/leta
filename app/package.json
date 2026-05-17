@@ -5,8 +5,13 @@
   "private": true,
   "scripts": {
     "start": "expo start",
+    "start:go": "expo start",
+    "start:dev": "expo start --dev-client",
+    "start:tunnel": "expo start --dev-client --tunnel",
     "android": "expo run:android",
     "ios": "expo run:ios",
+    "ios:device": "expo run:ios --device",
+    "build:ios:dev": "eas build --profile development --platform ios",
     "web": "expo start --web",
     "lint": "node -e \"console.log('No linter configured yet')\""
   },
