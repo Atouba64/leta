@@ -1,41 +1,41 @@
-# Field technician mobile app — user stories (Leta)
+# Field tech mobile app — UI/UX & user stories
 
-Audience: **1099 field technicians** operating primarily in **Georgia** at launch.
+> Leta Advantage: [`../../docs/leta-advantage.md`](../../docs/leta-advantage.md)
 
-## Epic: Availability and trust
+## Overview
 
-- **As a field tech**, I want to **log in securely** and complete onboarding (ID, skills, service area) so that I can receive offers.  
-- **As a field tech**, I want to toggle **Active / Offline** so that I only receive jobs when I am available.  
-- **As a field tech**, I want my **service radius** and **certifications** respected by matching so that I do not get irrelevant offers.
+The mobile app is the lifeblood of the field technician. It must operate in **low-bandwidth** environments (grocery backrooms, concrete bunkers) and strip administrative friction.
 
-## Epic: Offers and navigation
+## Core screens & workflows
 
-- **As a field tech**, I want **push notifications** for nearby work orders so that I can accept quickly in competitive markets.  
-- **As a field tech**, I want to see **estimated payout**, distance, SLA, and required tools **before accept** so that I can make an informed decision.  
-- **As a field tech**, I want **turn-by-turn navigation** to the site from the accepted job.
+### 1. Dispatch board (home)
 
-## Epic: Execute the ticket
+- **UI:** Localized map + list of available work orders.  
+- **Card:** Distance, ETA to complete, tools required ("Tall ladder"), **exact payout**.  
+- **Action:** One-tap **Accept job**.
 
-- **As a field tech**, I want a **structured checklist** per job type so that I do not miss partner-required steps.  
-- **As a field tech**, I want to **capture photos**, serial numbers, and notes so that partners and customers get proof of work.  
-- **As a field tech**, I want **customer signature** capture on my device so that close-out is immediate.
+### 2. Active mission ("on-site")
 
-## Epic: Escalation to remote overwatch
+- **Section A — Logistics & access:** POC name, phone, physical access notes ("See Brad for roof keys").  
+- **Section B — Security & codes:** Tap-to-reveal lockbox / rack PINs (GPS-gated when enforced).  
+- **Section C — Technical briefing:** PDFs / quick-reference for ticket hardware.
 
-- **As a field tech**, when I am stuck on a complex install, I want to tap **Escalate** so that a **remote tech** can join with **video/audio** and guide me.  
-- **As a field tech**, I want the escalation session **scoped to the ticket** with clear recording/consent rules.
+### 3. Leta Live (native video)
 
-## Epic: Payouts and reputation
+- **Trigger:** Floating **Request Remote Expert**.  
+- **Behavior:** WebRTC via rear camera; routes to Tier 2 desk for **this ticket**—no Teams/Zoom handoff.  
+- **UX:** Speakerphone / Bluetooth default for hands-free rack work.
 
-- **As a field tech**, I want **fast automated payouts** after verified job completion so that cash flow matches my freelance model.  
-- **As a field tech**, I want to see my **rating, completion rate, and tier** so that I understand how to unlock better jobs.
+### 4. Close-out & payment
 
-## Non-goals (initial)
+- **Digital sign-off** pad for on-site POC.  
+- **Proof of work:** Required completion photos.  
+- **Payout UX:** "Funds released" after approval—**24-hour** target.
 
-- Building a full RMM suite inside the tech app.  
-- Multi-state licensing automation (add when expanding beyond Georgia).
+## Offline behavior
 
-## Related
+Queue actions locally; delta sync on reconnect—[`../../docs/technical_architecture/offline_first_edge_synchronization.md`](../../docs/technical_architecture/offline_first_edge_synchronization.md).
 
-- [`../remote-tech-dashboard/user-stories.md`](../remote-tech-dashboard/user-stories.md)  
-- [`../../01-business-plan/operational-model.md`](../../01-business-plan/operational-model.md)
+## Escalation policy
+
+Escalate via Leta Live before abandoning site when SLA/policy requires—protects first-time fix and partner SLA.

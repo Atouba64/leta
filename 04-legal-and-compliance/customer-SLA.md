@@ -1,43 +1,38 @@
-# Customer SLA — Leta (template outline)
+# Enterprise customer service level agreement (outline)
 
-**Important:** For customer-facing commitments, have **legal** review before publication. Numbers below are **illustrative placeholders**.
+> **Not legal advice.** Counsel review required before customer signature.
 
-## Purpose
+## Overview
 
-Define measurable service expectations between **Leta** (and/or partner) and the **customer** for on-site IT break/fix services booked through the platform.
+Performance guarantees, response times, and security protocols for Tier 2 partners and direct enterprise clients.
 
-## Scope
+## 1. Dispatch & on-site response (Phase 1 — Georgia)
 
-- Covered service categories (e.g. workstation, printer, network drop).  
-- Geography (initially **Georgia**).  
-- Service hours (business hours vs 24/7 premium).
+| Severity | Target |
+|----------|--------|
+| Critical (Sev 1) | On-site within **4 hours** (where coverage applies) |
+| High (Sev 2) | Next business day |
+| Scheduled deployment | Agreed date/time window |
 
-## Service levels (examples — replace with real policy)
+**Coverage (initial):** Standard SLA within ~100-mile radius of Greater Atlanta and Gainesville metros—expand per contract.
 
-| Metric | Target (example) |
-|--------|------------------|
-| **Acknowledgment** of ticket | < 15 minutes during service window |
-| **Dispatch assignment** | Per selected SLA tier (e.g. 4-hour vs NBD) |
-| **Arrival** | Within agreed window; trackable status updates |
-| **Communication** | Customer can reach support channel within X minutes |
+## 2. First-time fix commitment
 
-## Credits / remedies (optional model)
+- Techs use **Leta Live** when encountering unfamiliar hardware before leaving site (per ticket policy).  
+- Return trip due to documented tech negligence (skipped checklist, refused escalation): **Leta absorbs** secondary dispatch cost.
 
-- If Leta misses a committed window, customer receives **service credit** or **fee reduction** per a published table—**not** uncapped liability unless counsel approves.
+## 3. Security & IAM protocols
 
-## Customer responsibilities
+- **Zero-trust physical access:** Lockbox/rack codes shown in app only when GPS verifies on-site; codes expire at ticket close.  
+- **Data privacy:** No unauthorized copying of client data; photos limited to required QA artifacts.  
+- **Vetting:** Background check required before platform activation.
 
-- Safe site access, accurate issue description, adult representative present if required.  
-- **Scope approval** for changes before additional billable work.
+## 4. Multi-tenant visibility ("GUS")
 
-## Data and privacy
-
-- What location data is collected, how long retained, and how displayed to customers.
-
-## Force majeure
-
-- Weather, pandemic, civil unrest—suspend SLAs where legally permissible.
+- Partners receive portal and/or API access to their tickets.  
+- **Target:** 99.9% uptime for tracking dashboard (define measurement with counsel).
 
 ## Related
 
-- [`../01-business-plan/operational-model.md`](../01-business-plan/operational-model.md)
+- [`insurance-requirements.md`](./insurance-requirements.md)  
+- [`../02-app-documentation/partner-portal/user-stories.md`](../02-app-documentation/partner-portal/user-stories.md)

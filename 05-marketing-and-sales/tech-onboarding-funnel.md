@@ -1,53 +1,31 @@
-# Technician onboarding funnel — Leta
+# Technician recruitment & retention funnel
 
-Journey from **applicant** to **trusted Active tech** accepting paid jobs. Tune steps to reduce fraud and protect partner SLAs.
+## Overview
 
-## Funnel stages
+Marketplace quality = supply quality. Goal: largest **reliable** IT field roster in Georgia.
 
-### 1. Awareness
+## 1. Value proposition for technicians
 
-- Referrals, paid ads (geo-targeted), partner recruitment pages, local meetups.
+| Pain (incumbents) | Leta promise |
+|-------------------|--------------|
+| 45-minute hold for rack PIN | Access UI + tap-to-reveal codes |
+| Stranded on unfamiliar gear | **Leta Live**—earn while guided |
+| 30–45 day net pay | **24-hour payout** target after sign-off |
+| Field Nation 10% fee | No punitive platform tax narrative |
+| Last-minute cancel (Spencer-class) | Mobilization payout when not tech fault |
 
-### 2. Interest / application
+## 2. Acquisition channels
 
-- Mobile-friendly form: skills, certs, service radius, vehicle/tooling, availability patterns.  
-- **Disclosures:** 1099 nature, background check consent, insurance requirements.
+- Geofenced ads near IT training centers, community colleges, cert testing sites.  
+- **Refer-a-tech:** e.g. $50 bonus after referral completes 3 jobs at 5★ (tune economically).
 
-### 3. Screening
+## 3. Vetting & onboarding
 
-- **Identity verification** (vendor-assisted).  
-- **Background check** where lawful and proportional to risk.  
-- **Skills assessment:** scenario questions + optional practical for premium tiers.
-
-### 4. Credentialing
-
-- Upload **COI**, licenses, certifications.  
-- Review queue with SLA for ops team.
-
-### 5. Training
-
-- Short modules: **customer comms**, **photo standards**, **escalation etiquette**, **safety**, **partner white-label rules**.
-
-### 6. Shadow / supervised jobs (optional)
-
-- First N jobs paired with **mentor review** or lower-risk categories only.
-
-### 7. Activation
-
-- **Active** toggle enabled; **push offers** begin.  
-- **Tier system:** unlock higher payouts / premium SKUs as metrics improve.
-
-## Drop-off metrics to instrument
-
-- Time per stage, abandonment reasons, verification failure rate.
-
-## Retention loops
-
-- **Fast payouts** and transparent dispute handling.  
-- **Quality bonuses** for FTFR and CSAT.  
-- Community office hours with remote overwatch leads.
+1. **Application:** Resume, certs, background check authorization.  
+2. **App onboarding:** ~10 min security + white-label conduct module.  
+3. **Sandbox tickets:** Lower-severity jobs before high-severity enterprise access.
 
 ## Related
 
-- [`../04-legal-and-compliance/field-tech-1099-agreements.md`](../04-legal-and-compliance/field-tech-1099-agreements.md)  
-- [`../02-app-documentation/field-tech-app/user-stories.md`](../02-app-documentation/field-tech-app/user-stories.md)
+- [`../docs/stakeholder_ecosystem/technician_experience_redesign.md`](../docs/stakeholder_ecosystem/technician_experience_redesign.md)  
+- [`../04-legal-and-compliance/field-tech-1099-agreements.md`](../04-legal-and-compliance/field-tech-1099-agreements.md)

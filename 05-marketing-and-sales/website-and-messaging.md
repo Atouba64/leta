@@ -6,7 +6,11 @@ Leta will ship a **simple, credible marketing site** that speaks clearly to **tw
 
 **“Leta — IT service on demand. Georgia first.”**
 
-Elevator: *DoorDash-style clarity for ordering and tracking **professional field IT**—with a partner channel so established service companies can fulfill more of their own work orders.*
+**Hero tagline (site):** *Onsite IT, finally visible.*
+
+Elevator: *DoorDash-style clarity for ordering and tracking **professional field IT**—native **Leta Live** video, smart dispatch, and a partner channel so established service companies can fulfill more of their own work orders.*
+
+Strategic deep dives: [`../docs/`](../docs/) · [`../docs/leta-advantage.md`](../docs/leta-advantage.md)
 
 ## Site map (MVP)
 

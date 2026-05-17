@@ -42,6 +42,7 @@ This repo is organized like an internal company handbook plus product specs. Wor
 | Research & ideas | [`03-research-and-ideas/`](./03-research-and-ideas/) |
 | Legal & compliance | [`04-legal-and-compliance/`](./04-legal-and-compliance/) *(outline only—engage counsel before use)* |
 | Marketing & sales | [`05-marketing-and-sales/`](./05-marketing-and-sales/) *(partner win-win + website messaging)* |
+| Strategic architecture (long-form) | [`docs/`](./docs/) *(competitor forensics, microservices, dispatch, Leta Advantage)* |
 
 ## Engineering (when code lands)
 

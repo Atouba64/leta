@@ -1,39 +1,56 @@
-# Operational Model: Day-to-Day Logistics
+# Leta operational model
 
-This document outlines how Leta operates in the real world, ensuring high quality, safety, and dispute resolution.
+> Architecture deep dives: [`../docs/operations/`](../docs/operations/) · Leta Advantage: [`../docs/leta-advantage.md`](../docs/leta-advantage.md)
 
-## 1. The Dispatching Logic (The Algorithm)
+## 1. Multi-tier "GUS" subcontracting flow
 
-Leta does not rely on human dispatchers frantically making phone calls. The system is automated based on four pillars:
+Leta is built for complex service chains—the entity paying Leta is rarely the site experiencing the failure.
 
-- **Geo-Fencing:** When a ticket is created in Gainesville, the app pushes notifications only to active techs within a 30-mile radius.
-- **Skill Matching:** Tickets require specific tags (e.g., `Networking`, `Hardware Repair`, `POS Systems`). Only techs who have verified these skills in their profile receive the ping.
-- **Rating Hierarchy:** Techs with a 4.8+ star rating get a 5-minute head start to accept premium tickets before they are broadcasted to the wider network.
-- **The "Uber" Acceptance:** The first qualified tech to tap "Accept" claims the ticket.
+| Tier | Example | Role |
+|------|---------|------|
+| **Tier 1** | Food Lion store | End customer / site |
+| **Tier 2** | Bamboo IT, Qmatic | Enterprise IT / MSP / OEM holding national contract |
+| **Tier 3** | Leta | Localized smart hands for Tier 2 |
+| **Tier 4** | Leta field tech | Vetted 1099 contractor on site |
 
-## 2. The Remote Tech Integration (Quality Assurance)
+**Leta solution:** Unified partner dashboard—Tier 2 sees live ETA, on-site status, sign-off, and optional **Leta Live** video **without** calling a Leta dispatcher.
 
-The biggest risk in break/fix IT is a tech arriving on-site and not knowing how to fix the problem, resulting in a wasted trip and an angry customer.
+## 2. Dispatching & work order assignment
 
-- **The Safety Net:** Field Techs are required to hit the "Escalate" button in the app before leaving a site unresolved.
-- **Live Connection:** This instantly video-calls a vetted Leta Remote Tech. The Remote Tech views the hardware through the Field Tech's phone camera and walks them through the solution step-by-step.
+Legacy competitors use slow passive phone trees. Leta uses **algorithmic active dispatch**.
 
-## 3. Tech Onboarding & Vetting
+- **Smart push notifications:** Filter Georgia roster by distance, skill tags (`Cradlepoint`, `POS`, `Cabling`), and rating. Notify top matches instantly.
+- **Auto-accept premium:** High performers get a **5-minute exclusivity window** on premium jobs before general board.
+- **Rate transparency:** Exact payout (hourly vs flat) and estimated duration **before** accept.
 
-To maintain a premium reputation, Leta cannot let just anyone onto the platform.
+See [`../docs/operations/autonomous_algorithmic_dispatch.md`](../docs/operations/autonomous_algorithmic_dispatch.md).
 
-- **Background Checks:** Mandatory criminal background check via Checkr API.
-- **Skill Verification:** Techs must upload certifications (CompTIA, Cisco, etc.) or pass a brief, in-app technical quiz during onboarding.
-- **Remote Tech Elite:** Remote Techs are highly vetted, often requiring 5+ years of Tier 3 support experience.
+## 3. On-site execution & communication stack
 
-## 4. Dispute Resolution & Protection
+- **Pre-arrival briefings:** Manuals/quick-start for ticket hardware after accept.
+- **Access UI:** POC name/photo, physical access rules, tap-to-reveal rack PINs (GPS-gated when live).
+- **Leta Live:** One button → WebRTC to Tier 2 remote expert; rear camera default; session tied to ticket—no Teams link email chains.
 
-When things go wrong, the app protects all parties.
+## 4. Remote tech integration (quality assurance)
 
-- **Photographic Proof:** Field Techs must take "Before" and "After" photos within the app to close a ticket. This prevents customers from falsely claiming a job wasn't completed.
-- **Escrow System:** Customer funds are captured when the tech is en route but held in escrow. If a dispute arises, Leta Admin reviews the GPS logs, chat history, and photos to make a binding decision within 24 hours.
-- **Insurance:** Leta maintains a blanket liability policy, though 1099 Field Techs are required to carry their own basic liability insurance to be activated on the platform.
+- Field techs **escalate before leaving unresolved** when policy requires.
+- Remote experts guide via live video; events logged for QA and disputes.
 
-## Next Steps
+## 5. Rapid resolution & payout
 
-The **01-business-plan** folder is the foundational blueprint for Leta. Whenever you are ready, continue with **02-app-documentation**, where you outline the exact features, buttons, and user flows for the Customer App, the Field Tech App, and the Remote Tech Portal.
+- **Digital sign-off** on device; mandatory completion photos.
+- **Target: 24-hour payouts** after remote approval—retention lever vs 30–45 day net terms.
+
+## 6. Tech onboarding & vetting
+
+- Background checks (e.g. Checkr) before activation.
+- Cert uploads or in-app skill quizzes.
+- **Sandbox tickets** for new techs before high-severity enterprise access.
+
+## 7. Dispute resolution
+
+- GPS, chat, photos, and ticket event log reviewed by Leta admin when escrow disputes arise.
+
+## 8. Predictive logistics (differentiator)
+
+Parts validation and FSL kitting integrated into dispatch—see [`../docs/operations/predictive_logistics_and_supply_chain.md`](../docs/operations/predictive_logistics_and_supply_chain.md).

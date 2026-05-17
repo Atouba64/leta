@@ -1,51 +1,28 @@
-# Insurance requirements — Leta (outline)
+# Insurance & liability requirements (outline)
 
-**Important:** Work with a **commercial insurance broker** familiar with field services and technology E&O. This document captures **planning topics**, not binding coverage language.
+> **Not legal advice.** Validate limits and carriers with licensed broker and counsel.
 
-## Why insurance matters
+## Overview
 
-Field IT work can damage high-value equipment or cause business downtime. Leta needs a stack that protects **customers**, **technicians**, **partners**, and the **company** without destroying unit economics (see [`../01-business-plan/monetization-strategy.md`](../01-business-plan/monetization-strategy.md)).
+Protect Leta, clients, and technicians through defined minimum coverage.
 
-## Coverage types to evaluate
+## 1. Leta corporate (target minimums)
 
-### General liability (GL)
+| Policy | Target |
+|--------|--------|
+| **General liability** | $2M aggregate / $1M per occurrence |
+| **E&O / cyber** | $1M |
+| **Workers' compensation** | For Leta W-2 staff only (dispatch, engineering) |
 
-- Third-party **bodily injury** and **property damage** arising from operations on site.
+## 2. Technician requirements (1099)
 
-### Errors & omissions (E&O) / professional liability
+- **Auto insurance:** State minimums for vehicle used to reach sites.  
+- **Contractor GL (encouraged):** Protects tech from direct negligence claims; Leta umbrella covers contract scope as defined in MSA.
 
-- **Wrongful acts** in professional services (misconfiguration, data loss during service)—especially important for IT outcomes.
+## 3. Certificate of insurance workflow
 
-### Cyber liability
-
-- Breach of **platform data**, ransomware, vendor failure—distinct from on-site GL.
-
-### Workers’ compensation (if any W-2 roles)
-
-- If hybrid workforce evolves, revisit classification with counsel.
-
-### Commercial auto (if Leta-owned vehicles)
-
-- Most early models are **tech-owned vehicles**—still require proof of personal/commercial auto coverage from contractors where applicable.
-
-### Umbrella / excess
-
-- Once volume grows, layer additional limits cost-effectively.
-
-## Contractor certificate of insurance (COI) program
-
-- Minimum **GL** limits (numbers TBD by broker).  
-- **Additional insured** and **certificate holder** requirements for enterprise partners.  
-- Annual renewal checks before techs receive high-value jobs.
-
-## Partner contracts
-
-- Clarify **who carries** primary vs secondary coverage in white-label scenarios.
-
-## Claims workflow (ops)
-
-- Incident capture in app (photos, timeline).  
-- Single **claims intake** owner and SLA for reporting to carriers.
+- Collect COI at onboarding; renewal reminders before expiry.  
+- Enterprise partners may require additional named insured—process TBD with counsel.
 
 ## Related
 

@@ -1,62 +1,70 @@
-# Competitor analysis — Leta
+# Competitor & partner analysis
 
-Positioning against legacy and marketplace-style alternatives. Update with primary research, pricing intel, and win/loss notes.
+> Deep-dive forensics: [`../docs/market_analysis/`](../docs/market_analysis/) · Synthesis matrix: [`../docs/market_analysis/competitive_synthesis_matrix.md`](../docs/market_analysis/competitive_synthesis_matrix.md)
 
-## Coopetition: the same firms can be channel partners
+## Overview
 
-Companies such as **Barrister Group LLC** and other **legacy-style dispatch networks** are often framed only as **competitors**. For Leta's go-to-market, they are simultaneously the **most important potential partners**: they already own **client relationships** and **ticket volume**, and their recurring bottleneck is **onsite fulfillment capacity** in specific geographies (especially across **Georgia**).
+The IT field services and "smart hands" industry is heavily fragmented. It relies on a mix of legacy service brokers, modern labor marketplaces, and specialized MSPs. **Leta** operates as a hybrid: managed, white-glove fulfillment powered by a modern, automated tech stack—**Georgia first**.
 
-- **Partner lens:** Leta supplies **field labor liquidity** and **product transparency**; the partner supplies **demand** and often **brand** toward the end client.
-- **Product lens:** Leta aggregates **partner work orders** with **direct customer** orders so technicians see **more consistent work** (see [`../05-marketing-and-sales/partner-channel-win-win.md`](../05-marketing-and-sales/partner-channel-win-win.md)).
+## Coopetition: partners who look like competitors
 
-When a firm declines partnership, revert to the **competitive** framing below.
+Companies such as **Barrister Global Services** and similar dispatch networks are often framed only as competitors. For Leta's go-to-market, they are simultaneously **critical potential partners**: they own client relationships and ticket volume; their bottleneck is often **onsite fulfillment capacity** in specific geographies (especially Georgia).
 
-## Category: Legacy dispatch / break-fix networks
+- **Partner lens:** Leta supplies field labor liquidity + product transparency; the partner supplies demand and often brand toward the end client.
+- **Competitive lens:** When partnership is declined, emphasize transparency, native video, fair tech economics, and PSA integrations.
 
-### Barrister (and similar incumbents)
+See [`../05-marketing-and-sales/partner-channel-win-win.md`](../05-marketing-and-sales/partner-channel-win-win.md).
 
-- **What they are good at:** established relationships, national coverage claims, familiar to enterprise procurement.  
-- **Where customers feel pain:** **visibility** (arrival uncertainty), opaque communication, inconsistent digital proof of work.  
-- **Where partners feel pain internally:** **tech shortages** in certain metros/radii—work orders they cannot staff fast enough.  
-- **Leta angle (customer):** consumer-grade **tracking**, structured **close-out**, and **remote overwatch** integrated—not bolt-on call centers only.  
-- **Leta angle (partner):** **fulfillment coverage** + dashboard transparency without forcing them to surrender their book of business.
+---
 
-#### Weakness breakdown (hypotheses to validate)
+## The Big 5: competitors & potential partners
 
-Treat the bullets below as **pattern hypotheses for legacy dispatch / break-fix networks**, not assertions about any one legal entity. Confirm with **customer interviews**, **contractor interviews**, **win/loss reviews**, and (where ethical) **mystery-shop exercises**. Update or delete items that primary research contradicts.
+### 1. Barrister Global Services Network
 
-| Dimension | Typical structural tension | Why it matters to Leta |
-|-----------|---------------------------|-------------------------|
-| **End-customer UX** | Status lives in **call-center workflows** (IVR, email, callbacks) instead of a **single live view** of assignment + ETA + proof of work. | Product wedge is **transparency** and **predictability** without replacing the partner’s procurement relationship. |
-| **SLA economics** | **Coverage maps** are easy to sell; **consistent sub-hour staffing** in every Georgia radius is expensive. Shortages show up as **rolled appointments**, **long drive times**, or **tier mixing**. | Georgia-first **labor liquidity** and geo-aware dispatch reduce the partner’s **unstaffed tail risk**. |
-| **1099 / field labor** | Contractor pools are often **relationship-managed** in spreadsheets and tribal knowledge; **payout latency** and **dispute resolution** erode trust vs gig-native alternatives. | Faster, auditable **payouts** + clear **scope artifacts** improve **fulfillment capacity** and retention. |
-| **Product velocity** | Core systems are **decades-deep** (ticketing, telephony, partner portals); mobile-first UX and **video escalation** are frequently **bolted on**, not native. | Native **mobile lifecycle** + **overwatch** can raise **first-time fix** on complex jobs—if quality is provably better, not just prettier. |
-| **Data and integrations** | Partner and client data sits in **PSA / telephony silos**; analytics on **true on-time arrival** and **rework rate** may be incomplete across subcontractors. | A **partner dashboard** that aggregates fulfillment quality (without forcing PSA replacement day one) is a credible upsell. |
-| **Geographic coverage story** | “National” can mean **hub-and-spoke** reality: strong in major MSAs, thinner in **exurban / secondary cities**—exactly where tickets slip. | Secondary nodes called out in [`georgia-market-sizing.md`](./georgia-market-sizing.md) (Augusta, Macon, Columbus, coastal) are natural **stress tests** for staffing models incumbents struggle to dense-pack. |
-| **Procurement moat (also a weakness)** | Long **MSAs** and **vendor-of-record** status slow churn—but also slow **innovation adoption** when incumbents must cross internal IT and legal for every UX upgrade. | Land with **overflow / white-label fulfillment** wedges that do not require ripping the incumbent out on day one (see coopetition framing above). |
+- **Role:** Legacy IT services broker / direct competitor · potential fulfillment partner  
+- **Core business:** Multi-vendor IT support; break/fix, deployments, retail POS.  
+- **Strengths:** Massive enterprise and government/retail relationships; national coverage claims.  
+- **Weaknesses (Leta opportunity):** Highly manual dispatch; disjointed remote support (e.g. emailed Teams links); nested contracting ("GUS") → communication delays; workforce sentiment around rate opacity and travel uncompensated (see forensics—validate with primary research).  
+- **Leta wedge:** Native **Leta Live** video, locked rates at accept, partner-visible execution, Georgia density.
 
-**What not to overclaim:** large incumbents often retain advantages in **enterprise compliance**, **insurance / credentialing depth**, and **brand trust** with procurement. Leta wins where those strengths do not translate into **modern customer-visible execution**—and where partners still need **more bodies on the ground** than they can recruit.
+### 2. Field Nation
 
-**Georgia tie-in:** staffing and drive-time pain scale with **sprawl + secondary markets**; see market sizing for population and employer-firm anchors that explain why Georgia is a strong **operational proving ground**, not only a sales geography.
+- **Role:** IT labor marketplace / competitor & potential talent pool  
+- **Core business:** Freelance marketplace connecting buyers with independent field techs.  
+- **Strengths:** Very large work-order volume; strong skill/cert filtering.  
+- **Weaknesses:** Marketplace only—no managed outcome, tier-3 overwatch, or SLA ownership; **10% worker fee**; open pool → race to the bottom.  
+- **Leta wedge:** Managed fulfillment + overwatch + partner dashboard—not just a list of names.
 
-## Category: Labor marketplaces / field service gig platforms
+### 3. WorkMarket (by ADP)
 
-### FieldNation
+- **Role:** Contractor management system / competitor  
+- **Core business:** Labor Clouds, onboarding, 1099 compliance.  
+- **Strengths:** ADP payroll integration; compliance guardrails.  
+- **Weaknesses:** Administrative software, not operational IT partner; enables middleman wage shaving; no intelligent dispatch fairness.  
+- **Leta wedge:** Vertical IT workflows, auto-dispatch, ethical mobilization rules.
 
-- **Strengths:** large technician pool, marketplace dynamics, workflow for contingent labor.  
-- **Gaps for Leta story:** can feel **transactional** vs lifecycle-owned; partner **transparency dashboards** and tightly coupled **escalation video** may be less opinionated out of the box.  
-- **Leta angle:** **Georgia-first quality** + **SLA-backed** partner contracts + **productized** overwatch.
+### 4. Essintial Enterprise Solutions
 
-### WorkMarket (ADP)
+- **Role:** National IT infrastructure services / competitor  
+- **Core business:** Managed lifecycles, PMO, field dispatch, logistics (FSLs).  
+- **Strengths:** Retail POS/signage; forward/reverse logistics at scale.  
+- **Weaknesses:** Logistics/dispatch disconnect → high cancel-on-arrival; punitive tech penalties; support hold times.  
+- **Leta wedge:** Predictive parts + push routing in dense Georgia markets.
 
-- **Strengths:** enterprise compliance hooks, onboarding at scale, ties into broader workforce ecosystem.  
-- **Gaps:** may be **generic** for specialized IT break/fix UX (customer tracking, tech escalation loop).  
-- **Leta angle:** **vertical IT workflows** (rate cards, SKUs, escalation) and **partner hybrid tier**.
+### 5. Qmatic (and similar MSPs / OEMs)
 
-## Category: Direct and adjacent
+- **Role:** OEM & MSP / **strategic partner** (ideal profile)  
+- **Core business:** Customer journey / queuing / kiosk enterprise software.  
+- **Relationship:** Holds master SLA with end customer (e.g. Spectrum) but lacks local techs everywhere.  
+- **Leta strategy:** Premium sub-contractor with **Leta Live** so Qmatic remote engineers guide Leta techs on proprietary installs.
 
-- **MSP PSA tools (ConnectWise, Autotask, etc.):** systems of record for partners—Leta should **integrate**, not try to replace day one.  
-- **On-demand consumer tech (HelloTech-style):** proves customer UX patterns; Leta focuses **B2B + serious B2C** with **partner channel**.
+### Also tracked (forensics)
+
+- **Bailiwick** — pre-kitting strength; 40+ deliverable admin burden.  
+- **Spencer Technologies** — retail rollouts; last-minute cancels, weak travel/minimums.  
+- **Source Support Services** — enterprise branding vs. bottom-tier gig recruitment.
+
+---
 
 ## Competitive moat checklist (hypotheses to validate)
 
