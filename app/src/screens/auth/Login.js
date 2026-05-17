@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
+import useHideTabBarOnFocus from '../../hooks/useHideTabBarOnFocus';
 import { useAuth } from '../../contexts/AuthContext';
 import theme from '../../theme';
 
@@ -12,6 +13,7 @@ const ROLE_LABELS = {
 };
 
 export default function Login({ route, navigation }) {
+  useHideTabBarOnFocus();
   const role = route.params?.role || 'customer';
   const { signIn, demoMode } = useAuth();
   const [email, setEmail] = useState('');

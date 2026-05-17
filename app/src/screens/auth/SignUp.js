@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput } from 'react-native';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
+import useHideTabBarOnFocus from '../../hooks/useHideTabBarOnFocus';
 import { useAuth } from '../../contexts/AuthContext';
 import theme from '../../theme';
 
 export default function SignUp({ route, navigation }) {
+  useHideTabBarOnFocus();
   const role = route.params?.role || 'customer';
   const { signUp, demoMode } = useAuth();
   const [displayName, setDisplayName] = useState('');

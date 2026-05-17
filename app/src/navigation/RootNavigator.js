@@ -7,6 +7,7 @@ import CustomerNavigator from './CustomerNavigator';
 import TechnicianNavigator from './TechnicianNavigator';
 import RemoteNavigator from './RemoteNavigator';
 import theme from '../theme';
+import { navigationRef } from './navigationRef';
 
 function RoleApp() {
   const { role } = useAuth();
@@ -28,7 +29,7 @@ export default function RootNavigator() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       {isAuthenticated ? <RoleApp /> : <AuthNavigator />}
     </NavigationContainer>
   );

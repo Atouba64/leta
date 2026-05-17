@@ -5,6 +5,8 @@ import { Ionicons } from '@expo/vector-icons';
 import RemoteQueue from '../screens/remote/RemoteQueue';
 import RemoteSession from '../screens/remote/RemoteSession';
 import RemoteProfile from '../screens/remote/RemoteProfile';
+import HelpScreen from '../screens/shared/HelpScreen';
+import { MenuTabPlaceholder, menuTabListeners, menuTabScreenOptions } from './menuTab';
 import theme from '../theme';
 
 const Tab = createBottomTabNavigator();
@@ -18,12 +20,18 @@ function RemoteTabs() {
         tabBarActiveTintColor: theme.roleAccents.remote_tech,
         tabBarInactiveTintColor: theme.colors.muted,
         tabBarIcon: ({ color, size }) => {
-          const name = route.name === 'Queue' ? 'headset-outline' : 'person-outline';
-          return <Ionicons name={name} size={size} color={color} />;
+          const icons = { Queue: 'headset-outline', Menu: 'menu-outline', Profile: 'person-outline' };
+          return <Ionicons name={icons[route.name]} size={size} color={color} />;
         },
       })}
     >
       <Tab.Screen name="Queue" component={RemoteQueue} />
+      <Tab.Screen
+        name="Menu"
+        component={MenuTabPlaceholder}
+        options={menuTabScreenOptions}
+        listeners={menuTabListeners}
+      />
       <Tab.Screen name="Profile" component={RemoteProfile} />
     </Tab.Navigator>
   );
@@ -34,6 +42,7 @@ export default function RemoteNavigator() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="RemoteTabs" component={RemoteTabs} />
       <Stack.Screen name="RemoteSession" component={RemoteSession} />
+      <Stack.Screen name="Help" component={HelpScreen} />
     </Stack.Navigator>
   );
 }

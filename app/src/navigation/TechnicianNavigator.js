@@ -6,6 +6,8 @@ import TechDispatch from '../screens/technician/TechDispatch';
 import TechActiveJob from '../screens/technician/TechActiveJob';
 import TechEarnings from '../screens/technician/TechEarnings';
 import TechProfile from '../screens/technician/TechProfile';
+import HelpScreen from '../screens/shared/HelpScreen';
+import { MenuTabPlaceholder, menuTabListeners, menuTabScreenOptions } from './menuTab';
 import theme from '../theme';
 
 const Tab = createBottomTabNavigator();
@@ -23,6 +25,7 @@ function TechnicianTabs() {
             Dispatch: 'map-outline',
             Active: 'construct-outline',
             Earnings: 'wallet-outline',
+            Menu: 'menu-outline',
             Profile: 'person-outline',
           };
           return <Ionicons name={icons[route.name]} size={size} color={color} />;
@@ -32,6 +35,12 @@ function TechnicianTabs() {
       <Tab.Screen name="Dispatch" component={TechDispatch} />
       <Tab.Screen name="Active" component={TechActiveJob} />
       <Tab.Screen name="Earnings" component={TechEarnings} />
+      <Tab.Screen
+        name="Menu"
+        component={MenuTabPlaceholder}
+        options={menuTabScreenOptions}
+        listeners={menuTabListeners}
+      />
       <Tab.Screen name="Profile" component={TechProfile} />
     </Tab.Navigator>
   );
@@ -41,6 +50,7 @@ export default function TechnicianNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="TechnicianTabs" component={TechnicianTabs} />
+      <Stack.Screen name="Help" component={HelpScreen} />
     </Stack.Navigator>
   );
 }

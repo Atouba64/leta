@@ -3,6 +3,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AppProviders from './src/components/AppProviders';
 import { AuthProvider } from './src/contexts/AuthContext';
+import { AppMenuProvider } from './src/contexts/AppMenuContext';
 import RootNavigator from './src/navigation/RootNavigator';
 
 export default function App() {
@@ -11,7 +12,9 @@ export default function App() {
       <SafeAreaProvider>
         <AppProviders>
           <AuthProvider>
-            <RootNavigator />
+            <AppMenuProvider>
+              <RootNavigator />
+            </AppMenuProvider>
           </AuthProvider>
         </AppProviders>
       </SafeAreaProvider>

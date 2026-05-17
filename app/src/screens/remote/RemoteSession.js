@@ -26,7 +26,7 @@ export default function RemoteSession({ route, navigation }) {
   );
 
   return (
-    <Screen scroll contentStyle={styles.content}>
+    <Screen scroll title="Leta Live" contentStyle={styles.content}>
       <LetaButton title="Back" variant="ghost" onPress={() => navigation.goBack()} />
       <Text style={styles.title}>{title || 'Leta Live'}</Text>
       <Text style={styles.status}>Status: {demoMode ? 'demo' : status}</Text>

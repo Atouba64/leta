@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+import AppTopBar from './AppTopBar';
 import theme from '../theme';
 
 export default function Screen({
@@ -10,6 +11,7 @@ export default function Screen({
   style,
   contentStyle,
   edges = ['top', 'left', 'right'],
+  title,
 }) {
   const body = scroll ? (
     <ScrollView
@@ -26,6 +28,7 @@ export default function Screen({
   return (
     <SafeAreaView style={[styles.safe, style]} edges={edges}>
       <StatusBar style="dark" />
+      <AppTopBar title={title} />
       {body}
     </SafeAreaView>
   );

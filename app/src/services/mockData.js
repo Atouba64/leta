@@ -16,20 +16,24 @@ export const DEMO_CUSTOMER_TICKETS = [
     id: 'tkt-1001',
     title: 'POS terminal offline',
     site: '124 Peachtree St, Atlanta, GA',
+    address: { formatted: '124 Peachtree St, Atlanta, GA', lat: 33.749, lng: -84.388 },
     status: TICKET_STATUS.EN_ROUTE,
     estimate: '$185–$240',
     techName: 'Jordan M.',
     etaMinutes: 18,
     skillTags: ['POS Systems', 'Networking'],
+    description: 'Registers 3–5 show offline after power blip. Store open until 9pm.',
   },
   {
     id: 'tkt-1002',
     title: 'Printer queue stuck',
     site: '88 Main St, Gainesville, GA',
+    address: { formatted: '88 Main St, Gainesville, GA', lat: 34.2979, lng: -83.8247 },
     status: TICKET_STATUS.COMPLETED,
     estimate: '$95',
     techName: 'Alex R.',
-    completedAt: '2026-05-10',
+    completedAt: 'May 10, 2026',
+    skillTags: ['Printers'],
   },
 ];
 
@@ -73,6 +77,7 @@ export const DEMO_ACTIVE_JOB = {
 export const DEMO_REMOTE_QUEUE = [
   {
     id: 'esc-301',
+    sessionId: 'live-demo-301',
     ticketId: 'tkt-8842',
     title: 'Cisco switch stack — uplink flapping',
     techName: 'Jordan M.',
@@ -82,6 +87,7 @@ export const DEMO_REMOTE_QUEUE = [
   },
   {
     id: 'esc-302',
+    sessionId: 'live-demo-302',
     ticketId: 'tkt-8849',
     title: 'Windows imaging failure',
     techName: 'Sam K.',

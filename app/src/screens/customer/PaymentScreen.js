@@ -45,7 +45,7 @@ export default function PaymentScreen({ route, navigation }) {
   };
 
   return (
-    <Screen scroll>
+    <Screen scroll title="Payment">
       <Text style={styles.title}>Pay for service</Text>
       <Text style={styles.sub}>{title}</Text>
       <Text style={styles.amount}>${(amountCents / 100).toFixed(2)}</Text>

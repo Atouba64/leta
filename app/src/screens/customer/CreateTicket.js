@@ -57,7 +57,7 @@ export default function CreateTicket({ navigation }) {
   };
 
   return (
-    <Screen scroll>
+    <Screen scroll title="Request service">
       <Text style={styles.title}>Request service</Text>
       <Text style={styles.label}>Issue type</Text>
       <View style={styles.chips}>
