@@ -1498,7 +1498,6 @@ a.tile .tile-title {
 
 .leta-chat-launch__btn {
   pointer-events: auto;
-  border-radius: var(--radius-md);
   white-space: nowrap;
 }
 
