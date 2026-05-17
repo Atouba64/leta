@@ -1,37 +1,66 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React, { useEffect, useState } from 'react';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
-import LetaCard from '../../components/LetaCard';
+import LiveVideo from '../../components/LiveVideo';
+import { useWebRTC } from '../../hooks/useWebRTC';
+import { joinLiveSession } from '../../services/liveSession';
+import { useAuth } from '../../contexts/AuthContext';
 import theme from '../../theme';
 
 export default function RemoteSession({ route, navigation }) {
-  const item = route.params?.item || {};
+  const { sessionId, title } = route.params || {};
+  const { demoMode } = useAuth();
+  const [ready, setReady] = useState(demoMode);
+
+  useEffect(() => {
+    if (demoMode || !sessionId) return;
+    joinLiveSession(sessionId)
+      .then(() => setReady(true))
+      .catch((e) => Alert.alert('Join failed', e.message));
+  }, [sessionId, demoMode]);
+
+  const { localStream, remoteStream, status, error } = useWebRTC(
+    ready && !demoMode ? sessionId : null,
+    { isInitiator: false },
+  );
 
   return (
-    <Screen scroll>
-      <LetaButton title="Back to queue" variant="ghost" onPress={() => navigation.goBack()} />
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.meta}>Assisting {item.techName}</Text>
+    <Screen scroll contentStyle={styles.content}>
+      <LetaButton title="Back" variant="ghost" onPress={() => navigation.goBack()} />
+      <Text style={styles.title}>{title || 'Leta Live'}</Text>
+      <Text style={styles.status}>Status: {demoMode ? 'demo' : status}</Text>
+      {error ? <Text style={styles.error}>{error}</Text> : null}
 
-      <LetaCard style={styles.video}>
-        <Ionicons name="videocam" size={48} color={theme.roleAccents.remote_tech} />
-        <Text style={styles.videoTitle}>Leta Live</Text>
-        <Text style={styles.videoSub}>WebRTC session placeholder — ticket-scoped video/audio.</Text>
-      </LetaCard>
+      {demoMode ? (
+        <View style={styles.demoBox}>
+          <Text style={styles.demoText}>
+            WebRTC requires a development build (expo run:ios / run:android). Firestore signaling is configured.
+          </Text>
+        </View>
+      ) : (
+        <View style={styles.videoRow}>
+          <LiveVideo stream={remoteStream} label="Field (remote)" />
+          <LiveVideo stream={localStream} label="You" mirror />
+        </View>
+      )}
 
       <LetaButton title="Mark resolved" onPress={() => navigation.goBack()} />
-      <LetaButton title="Needs follow-up visit" variant="secondary" onPress={() => navigation.goBack()} style={styles.secondary} />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
+  content: { paddingBottom: 48 },
   title: { ...theme.typography.h1, marginTop: theme.spacing.md },
-  meta: { ...theme.typography.bodySmall, color: theme.colors.textSoft, marginBottom: theme.spacing.md },
-  video: { alignItems: 'center', paddingVertical: 40, backgroundColor: '#ccfbf1', marginBottom: theme.spacing.lg },
-  videoTitle: { ...theme.typography.h2, marginTop: theme.spacing.sm, color: '#0f766e' },
-  videoSub: { ...theme.typography.bodySmall, color: theme.colors.textSoft, textAlign: 'center', marginTop: 8, paddingHorizontal: theme.spacing.md },
-  secondary: { marginTop: theme.spacing.sm },
+  status: { color: theme.colors.textSoft, marginBottom: theme.spacing.md },
+  error: { color: theme.colors.danger, marginBottom: theme.spacing.md },
+  videoRow: { gap: theme.spacing.md, marginBottom: theme.spacing.lg },
+  demoBox: {
+    backgroundColor: '#ccfbf1',
+    padding: theme.spacing.lg,
+    borderRadius: theme.radii.lg,
+    marginBottom: theme.spacing.lg,
+  },
+  demoText: { color: '#0f766e', lineHeight: 22 },
 });

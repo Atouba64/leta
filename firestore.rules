@@ -1,0 +1,90 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function uid() {
+      return request.auth.uid;
+    }
+
+    function userDoc() {
+      return get(/databases/$(database)/documents/users/$(uid()));
+    }
+
+    function hasRole(role) {
+      return signedIn() && userDoc().data.role == role;
+    }
+
+    function isAdmin() {
+      return signedIn() && userDoc().data.role == 'admin';
+    }
+
+    // Users: own profile read/write; admins read all
+    match /users/{userId} {
+      allow read: if signedIn() && (userId == uid() || isAdmin());
+      allow create: if signedIn() && userId == uid();
+      allow update: if signedIn() && (userId == uid() || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    // Tickets: customers create/read own; techs read assigned or open for offers; remote read escalated
+    match /tickets/{ticketId} {
+      allow read: if signedIn() && (
+        resource.data.customerId == uid() ||
+        resource.data.assignedTechId == uid() ||
+        resource.data.remoteTechId == uid() ||
+        hasRole('field_tech') ||
+        hasRole('remote_tech') ||
+        isAdmin()
+      );
+      allow create: if signedIn() && hasRole('customer') && request.resource.data.customerId == uid();
+      allow update: if signedIn() && (
+        resource.data.customerId == uid() ||
+        resource.data.assignedTechId == uid() ||
+        resource.data.remoteTechId == uid() ||
+        isAdmin()
+      );
+      allow delete: if isAdmin();
+
+      match /events/{eventId} {
+        allow read: if signedIn();
+        allow create: if signedIn();
+      }
+    }
+
+    // Offers: techs read/create; customers read offers on their tickets via ticket ownership (simplified: tech + admin)
+    match /offers/{offerId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && hasRole('field_tech');
+      allow update: if signedIn() && (
+        resource.data.techId == uid() ||
+        isAdmin()
+      );
+    }
+
+    // Live sessions (Leta Live signaling)
+    match /live_sessions/{sessionId} {
+      allow read: if signedIn();
+      allow create: if signedIn();
+      allow update: if signedIn() && (
+        resource.data.fieldTechId == uid() ||
+        resource.data.remoteTechId == uid() ||
+        isAdmin()
+      );
+
+      match /signals/{signalId} {
+        allow read, write: if signedIn();
+      }
+    }
+
+    // Escalations queue metadata
+    match /escalations/{escalationId} {
+      allow read: if signedIn() && (hasRole('remote_tech') || hasRole('field_tech') || isAdmin());
+      allow create: if signedIn() && hasRole('field_tech');
+      allow update: if signedIn() && (hasRole('remote_tech') || isAdmin());
+    }
+  }
+}

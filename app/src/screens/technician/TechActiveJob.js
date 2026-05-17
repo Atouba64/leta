@@ -1,55 +1,100 @@
-import React, { useState } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Alert, StyleSheet, Text } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
 import LetaCard from '../../components/LetaCard';
 import StatusBadge from '../../components/StatusBadge';
+import SignaturePad from '../../components/SignaturePad';
+import { useAuth } from '../../contexts/AuthContext';
+import { subscribeTechActiveTicket, appendTicketPhoto, setTicketSignature, updateTicketStatus } from '../../services/tickets';
+import { requestEscalation } from '../../services/liveSession';
+import { uploadTicketPhoto, uploadSignaturePng } from '../../services/storage';
 import { DEMO_ACTIVE_JOB } from '../../services/mockData';
+import { TICKET_STATUS } from '../../firebase/collections';
 import theme from '../../theme';
 
-export default function TechActiveJob({ navigation }) {
-  const [job] = useState(DEMO_ACTIVE_JOB);
+export default function TechActiveJob() {
+  const { user, demoMode } = useAuth();
+  const [job, setJob] = useState(null);
+  const [sigVisible, setSigVisible] = useState(false);
 
-  const escalate = () => {
-    Alert.alert(
-      'Request remote expert',
-      'In production this opens Leta Live (WebRTC) to a vetted overwatch tech on this ticket.',
+  useEffect(() => {
+    if (demoMode) {
+      setJob(DEMO_ACTIVE_JOB);
+      return undefined;
+    }
+    return subscribeTechActiveTicket(user.uid, setJob);
+  }, [user.uid, demoMode]);
+
+  if (!job) {
+    return (
+      <Screen>
+        <Text style={styles.empty}>No active job. Accept an offer on Dispatch.</Text>
+      </Screen>
     );
+  }
+
+  const addPhoto = async () => {
+    const perm = await ImagePicker.requestCameraPermissionsAsync();
+    if (!perm.granted) {
+      Alert.alert('Camera permission required');
+      return;
+    }
+    const result = await ImagePicker.launchCameraAsync({ quality: 0.7 });
+    if (result.canceled) return;
+
+    const uri = result.assets[0].uri;
+    if (demoMode) {
+      Alert.alert('Photo captured', 'Would upload to Firebase Storage in production.');
+      return;
+    }
+    const url = await uploadTicketPhoto(job.id, uri, 'proof');
+    await appendTicketPhoto(job.id, url);
+    Alert.alert('Uploaded', 'Proof photo saved to ticket.');
+  };
+
+  const escalate = async () => {
+    try {
+      const session = await requestEscalation(job.id);
+      Alert.alert('Overwatch requested', `Session ${session.sessionId} — remote expert notified.`);
+    } catch (e) {
+      Alert.alert('Escalation failed', e.message);
+    }
+  };
+
+  const onSignature = async (dataUrl) => {
+    if (demoMode) {
+      Alert.alert('Signed', 'Demo complete.');
+      return;
+    }
+    const url = await uploadSignaturePng(job.id, dataUrl);
+    await setTicketSignature(job.id, url);
+    Alert.alert('Job complete', 'Customer signature and close-out recorded.');
   };
 
   return (
     <Screen scroll>
       <StatusBadge status={job.status} />
       <Text style={styles.title}>{job.title}</Text>
-      <Text style={styles.meta}>{job.customer}</Text>
 
       <LetaCard>
-        <Text style={styles.section}>Logistics</Text>
-        <Text style={styles.line}>POC: {job.contact}</Text>
-        <Text style={styles.line}>{job.phone}</Text>
-        <Text style={styles.line}>{job.accessNotes}</Text>
+        <Text style={styles.section}>Access</Text>
+        <Text>{job.accessNotes || job.contact || 'See ticket details'}</Text>
       </LetaCard>
 
-      <LetaCard>
-        <Text style={styles.section}>Close-out checklist</Text>
-        {job.checklist.map((c) => (
-          <Text key={c.id} style={styles.check}>
-            {c.done ? '✓' : '○'} {c.label}
-          </Text>
-        ))}
-      </LetaCard>
+      <LetaButton title="Mark en route" variant="secondary" onPress={() => !demoMode && updateTicketStatus(job.id, TICKET_STATUS.EN_ROUTE)} />
+      <LetaButton title="Add proof photo" variant="secondary" onPress={addPhoto} />
+      <LetaButton title="Request remote expert (Leta Live)" onPress={escalate} />
+      <LetaButton title="Customer signature & complete" onPress={() => setSigVisible(true)} />
 
-      <LetaButton title="Request remote expert" onPress={escalate} style={styles.escalate} />
-      <LetaButton title="Capture signature & complete" variant="secondary" onPress={() => Alert.alert('Complete', 'Photos + signature upload to Firebase Storage.')} />
+      <SignaturePad visible={sigVisible} onClose={() => setSigVisible(false)} onSave={onSignature} />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  title: { ...theme.typography.h1, marginTop: theme.spacing.md },
-  meta: { ...theme.typography.bodySmall, color: theme.colors.textSoft, marginBottom: theme.spacing.md },
+  empty: { ...theme.typography.body, color: theme.colors.textSoft, marginTop: theme.spacing.xl },
+  title: { ...theme.typography.h1, marginTop: theme.spacing.md, marginBottom: theme.spacing.md },
   section: { ...theme.typography.label, color: theme.colors.textSoft, marginBottom: 8 },
-  line: { ...theme.typography.body, marginBottom: 4 },
-  check: { fontSize: 16, marginBottom: 8, color: theme.colors.ink },
-  escalate: { marginTop: theme.spacing.md, marginBottom: theme.spacing.sm },
 });

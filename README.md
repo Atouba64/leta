@@ -47,15 +47,28 @@ This repo is organized like an internal company handbook plus product specs. Wor
 
 ## Mobile app
 
-**React Native + Expo** client in [`app/`](./app/README.md) — three roles (customer, field technician, remote expert), Leta branding, **demo mode** without Firebase, ready to wire Firestore/Auth from `.env`.
+**React Native + Expo** in [`app/`](./app/README.md) — Firestore (`users`, `tickets`, `offers`), Auth custom claims, Maps, Storage, Stripe, and **Leta Live** (WebRTC + signaling).
 
 ```bash
 cd app && npm install --legacy-peer-deps && npx expo start
 ```
 
+## Backend (Firebase)
+
+| Piece | Location |
+|-------|----------|
+| Firestore rules & indexes | [`firestore.rules`](./firestore.rules), [`firestore.indexes.json`](./firestore.indexes.json) |
+| Storage rules | [`storage.rules`](./storage.rules) |
+| Cloud Functions | [`functions/`](./functions/README.md) — Stripe, offers, live sessions, role claims |
+| Schema reference | [`docs/FIRESTORE_SCHEMA.md`](./docs/FIRESTORE_SCHEMA.md) |
+
+```bash
+firebase deploy --only firestore,storage,functions
+```
+
 ## Engineering (next)
 
-Cloud Functions, Stripe, and partner web portal will sit alongside `app/` as the implementation phase continues. Product intent remains in **02-app-documentation** and **docs/**.
+Partner web portal, production WebRTC (Chime/Twilio SFU), and offline-first sync per **docs/technical_architecture/**.
 
 ## Contributing
 

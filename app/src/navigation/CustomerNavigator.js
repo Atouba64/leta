@@ -6,6 +6,7 @@ import CustomerHome from '../screens/customer/CustomerHome';
 import CreateTicket from '../screens/customer/CreateTicket';
 import TicketTracking from '../screens/customer/TicketTracking';
 import CustomerProfile from '../screens/customer/CustomerProfile';
+import PaymentScreen from '../screens/customer/PaymentScreen';
 import theme from '../theme';
 
 const Tab = createBottomTabNavigator();
@@ -37,6 +38,7 @@ export default function CustomerNavigator() {
       <Stack.Screen name="CustomerTabs" component={CustomerTabs} />
       <Stack.Screen name="CreateTicket" component={CreateTicket} />
       <Stack.Screen name="TicketTracking" component={TicketTracking} />
+      <Stack.Screen name="Payment" component={PaymentScreen} options={{ title: 'Payment' }} />
     </Stack.Navigator>
   );
 }
