@@ -1,0 +1,28 @@
+import {
+  EXPO_PUBLIC_FIREBASE_API_KEY,
+  EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+  EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  EXPO_PUBLIC_FIREBASE_APP_ID,
+  EXPO_PUBLIC_GOOGLE_MAPS_API_KEY,
+  EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+} from '@env';
+
+export const env = {
+  firebase: {
+    apiKey: EXPO_PUBLIC_FIREBASE_API_KEY,
+    authDomain: EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: EXPO_PUBLIC_FIREBASE_APP_ID,
+  },
+  googleMapsApiKey: EXPO_PUBLIC_GOOGLE_MAPS_API_KEY,
+  stripePublishableKey: EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+};
+
+export function isFirebaseConfigured() {
+  const { apiKey, projectId, appId } = env.firebase;
+  return Boolean(apiKey && projectId && appId);
+}

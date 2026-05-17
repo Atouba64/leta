@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Leta",
+    "slug": "leta",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "scheme": "leta",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2563eb"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.leta.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Leta uses your location to match field technicians and show ticket progress in Georgia.",
+        "NSCameraUsageDescription": "Leta uses the camera for proof-of-work photos and remote expert sessions.",
+        "NSPhotoLibraryUsageDescription": "Leta uses your photo library to attach images to service tickets."
+      }
+    },
+    "android": {
+      "package": "com.leta.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2563eb"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": ["expo-location", "expo-image-picker", "expo-asset"],
+    "extra": {
+      "eas": {
+        "projectId": "REPLACE_WITH_EAS_PROJECT_ID"
+      }
+    }
+  }
+}

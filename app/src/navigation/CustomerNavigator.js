@@ -1,0 +1,42 @@
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Ionicons } from '@expo/vector-icons';
+import CustomerHome from '../screens/customer/CustomerHome';
+import CreateTicket from '../screens/customer/CreateTicket';
+import TicketTracking from '../screens/customer/TicketTracking';
+import CustomerProfile from '../screens/customer/CustomerProfile';
+import theme from '../theme';
+
+const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function CustomerTabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarInactiveTintColor: theme.colors.muted,
+        tabBarStyle: { borderTopColor: theme.colors.border },
+        tabBarIcon: ({ color, size }) => {
+          const icons = { Home: 'home-outline', Profile: 'person-outline' };
+          return <Ionicons name={icons[route.name] || 'ellipse-outline'} size={size} color={color} />;
+        },
+      })}
+    >
+      <Tab.Screen name="Home" component={CustomerHome} />
+      <Tab.Screen name="Profile" component={CustomerProfile} />
+    </Tab.Navigator>
+  );
+}
+
+export default function CustomerNavigator() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="CustomerTabs" component={CustomerTabs} />
+      <Stack.Screen name="CreateTicket" component={CreateTicket} />
+      <Stack.Screen name="TicketTracking" component={TicketTracking} />
+    </Stack.Navigator>
+  );
+}

@@ -1,2 +1,10 @@
 # Legacy Netlify CLI local state — not used for hosting
 .netlify/
+
+# Mobile app
+app/node_modules/
+app/.expo/
+app/dist/
+app/web-build/
+app/.env
+app/.env.local

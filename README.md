@@ -45,9 +45,17 @@ This repo is organized like an internal company handbook plus product specs. Wor
 | Brand assets (print / merch) | [`brand/`](./brand/) *(logo SVG + PNG for shirts, flags, signage)* |
 | Strategic architecture (long-form) | [`docs/`](./docs/) *(competitor forensics, microservices, dispatch, Leta Advantage)* |
 
-## Engineering (when code lands)
+## Mobile app
 
-Application source, infrastructure-as-code, and CI will live alongside this documentation as the implementation phase starts (for example `apps/`, `services/`, or `packages/`). Until then, treat this tree as the **single source of truth** for product and operations intent.
+**React Native + Expo** client in [`app/`](./app/README.md) — three roles (customer, field technician, remote expert), Leta branding, **demo mode** without Firebase, ready to wire Firestore/Auth from `.env`.
+
+```bash
+cd app && npm install --legacy-peer-deps && npx expo start
+```
+
+## Engineering (next)
+
+Cloud Functions, Stripe, and partner web portal will sit alongside `app/` as the implementation phase continues. Product intent remains in **02-app-documentation** and **docs/**.
 
 ## Contributing
 
