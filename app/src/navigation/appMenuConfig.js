@@ -23,6 +23,7 @@ const CUSTOMER_MENU = [
 
 /** @type {MenuItem[]} */
 const FIELD_MENU = [
+  { id: 'tech_onboarding', label: 'Onboarding & questions', icon: 'document-text-outline' },
   { id: 'tech_dispatch', label: 'Dispatch board', icon: 'map-outline' },
   { id: 'tech_active', label: 'Active job', icon: 'construct-outline' },
   { id: 'tech_earnings', label: 'Earnings', icon: 'wallet-outline' },

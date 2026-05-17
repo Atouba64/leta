@@ -22,6 +22,11 @@ export default function CustomerHome({ navigation }) {
   }, [user.uid, demoMode]);
 
   const active = tickets.find((t) => t.status && t.status !== 'completed' && t.status !== 'cancelled');
+  const recentTickets = active ? tickets.filter((t) => t.id !== active.id) : tickets;
+
+  const openTicket = (ticket) => {
+    navigation.navigate('TicketTracking', { ticketId: ticket.id, ticket });
+  };
 
   return (
     <Screen scroll>
@@ -41,7 +46,7 @@ export default function CustomerHome({ navigation }) {
       {active ? (
         <>
           <Text style={styles.section}>Active ticket</Text>
-          <LetaCard onPress={() => navigation.navigate('TicketTracking', { ticketId: active.id, ticket: active })}>
+          <LetaCard onPress={() => openTicket(active)}>
             <StatusBadge status={active.status} />
             <Text style={styles.ticketTitle}>{active.title}</Text>
             <Text style={styles.ticketMeta}>{active.address?.formatted || active.site}</Text>
@@ -62,13 +67,18 @@ export default function CustomerHome({ navigation }) {
         </>
       ) : null}
 
-      <Text style={styles.section}>Recent</Text>
-      {tickets.map((t) => (
-        <LetaCard key={t.id} style={styles.listCard}>
-          <StatusBadge status={t.status} />
-          <Text style={styles.ticketTitle}>{t.title}</Text>
-        </LetaCard>
-      ))}
+      {recentTickets.length ? (
+        <>
+          <Text style={styles.section}>Recent</Text>
+          {recentTickets.map((t) => (
+            <LetaCard key={t.id} style={styles.listCard} onPress={() => openTicket(t)}>
+              <StatusBadge status={t.status} />
+              <Text style={styles.ticketTitle}>{t.title}</Text>
+              <Text style={styles.ticketMeta}>{t.address?.formatted || t.site}</Text>
+            </LetaCard>
+          ))}
+        </>
+      ) : null}
     </Screen>
   );
 }

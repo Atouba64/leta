@@ -23,7 +23,8 @@ Tawk’s round floating bubble is hidden. Set `showTawkBubble: true` in [`contac
 1. [Netlify → leta-tech → Forms](https://app.netlify.com/projects/leta-tech/forms)
 2. **Form notifications → Email** for each form:
    - **`contact`** — general inquiries ([`contact.html`](./contact.html))
-   - **`tech-onboarding`** — technician applications ([`tech-onboarding.html`](./tech-onboarding.html)); route to `techs@leta.repair`
+   - **`tech-onboarding`** — technician applications ([`tech-onboarding.html`](./tech-onboarding.html)); route to `techs@leta.repair`  
+     Operator notes + third-party options: [`TECH-ONBOARDING-OPTIONS.md`](./TECH-ONBOARDING-OPTIONS.md)
 
 ---
 

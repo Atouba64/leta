@@ -86,6 +86,18 @@ export function navigateMenuItem(itemId, auth) {
         navigate('Home', { screen: 'Help' });
       }
       break;
+    case 'account_details':
+      navigate('AccountDetails');
+      break;
+    case 'tech_credentials':
+      navigate('TechCredentials');
+      break;
+    case 'tech_onboarding':
+      navigate('TechOnboarding');
+      break;
+    case 'remote_expert_details':
+      navigate('RemoteExpertDetails');
+      break;
     default:
       break;
   }

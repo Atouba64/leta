@@ -7,6 +7,9 @@ import TechActiveJob from '../screens/technician/TechActiveJob';
 import TechEarnings from '../screens/technician/TechEarnings';
 import TechProfile from '../screens/technician/TechProfile';
 import HelpScreen from '../screens/shared/HelpScreen';
+import AccountDetailsScreen from '../screens/shared/AccountDetailsScreen';
+import TechCredentialsScreen from '../screens/technician/TechCredentialsScreen';
+import TechOnboardingScreen from '../screens/technician/TechOnboardingScreen';
 import { MenuTabPlaceholder, menuTabListeners, menuTabScreenOptions } from './menuTab';
 import theme from '../theme';
 
@@ -51,6 +54,9 @@ export default function TechnicianNavigator() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="TechnicianTabs" component={TechnicianTabs} />
       <Stack.Screen name="Help" component={HelpScreen} />
+      <Stack.Screen name="AccountDetails" component={AccountDetailsScreen} />
+      <Stack.Screen name="TechCredentials" component={TechCredentialsScreen} />
+      <Stack.Screen name="TechOnboarding" component={TechOnboardingScreen} />
     </Stack.Navigator>
   );
 }

@@ -10,6 +10,7 @@ import { setTechActive, updateTechLocation } from '../../services/users';
 import { subscribePendingOffersForTech, acceptOfferCallable } from '../../services/offers';
 import { DEMO_TECH_OFFERS } from '../../services/mockData';
 import { formatMiles } from '../../utils/geo';
+import TechOnboardingGate from '../../components/TechOnboardingGate';
 import theme from '../../theme';
 
 export default function TechDispatch({ navigation }) {
@@ -64,6 +65,7 @@ export default function TechDispatch({ navigation }) {
 
   return (
     <Screen scroll>
+      <TechOnboardingGate>
       <View style={styles.activeRow}>
         <View>
           <Text style={styles.title}>Dispatch board</Text>
@@ -98,6 +100,7 @@ export default function TechDispatch({ navigation }) {
           </LetaCard>
         ))
       )}
+      </TechOnboardingGate>
     </Screen>
   );
 }

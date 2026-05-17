@@ -9,6 +9,7 @@ import CustomerProfile from '../screens/customer/CustomerProfile';
 import PaymentScreen from '../screens/customer/PaymentScreen';
 import ServiceHistory from '../screens/customer/ServiceHistory';
 import HelpScreen from '../screens/shared/HelpScreen';
+import AccountDetailsScreen from '../screens/shared/AccountDetailsScreen';
 import { MenuTabPlaceholder, menuTabListeners, menuTabScreenOptions } from './menuTab';
 import theme from '../theme';
 
@@ -50,6 +51,7 @@ export default function CustomerNavigator() {
       <Stack.Screen name="Payment" component={PaymentScreen} options={{ title: 'Payment' }} />
       <Stack.Screen name="ServiceHistory" component={ServiceHistory} />
       <Stack.Screen name="Help" component={HelpScreen} />
+      <Stack.Screen name="AccountDetails" component={AccountDetailsScreen} />
     </Stack.Navigator>
   );
 }

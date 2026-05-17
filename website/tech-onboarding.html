@@ -92,8 +92,9 @@
           <p class="eyebrow eyebrow--section">Application</p>
           <h2 id="tech-form-heading">Tell us about you</h2>
           <p class="section-deck">
-            Answer honestly — we use this for initial screening. Use <strong>Next</strong> to move through five short
-            sections. If we move forward, we’ll ask for ID verification, insurance proof, and a formal background check separately.
+            Answer honestly — we use this for initial screening. Fields marked <span class="leta-form__required-mark" aria-hidden="true">*</span> are required.
+            Use <strong>Next</strong> to move through five short sections. If we move forward, we’ll ask for ID verification,
+            insurance proof, and a formal background check separately.
           </p>
         </header>
 
@@ -145,7 +146,18 @@
               </div>
               <div class="leta-form__field">
                 <label for="phone">Mobile phone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="24" placeholder="(470) 555-0100" />
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  required
+                  maxlength="24"
+                  minlength="10"
+                  pattern="[\d\s().+\-]{10,}"
+                  placeholder="(470) 555-0100"
+                />
+                <p class="leta-form__hint">We text dispatch updates — use a number you answer.</p>
               </div>
               <div class="leta-form__field">
                 <label for="birth_year">Year born</label>
@@ -187,7 +199,7 @@
           <div class="onboard-step" data-step="1" data-step-title="Field readiness" hidden>
           <fieldset class="leta-form__section">
             <legend class="leta-form__section-title">Field readiness</legend>
-            <p class="leta-form__section-hint">Can you reliably get to jobs and work on-site?</p>
+            <p class="leta-form__section-hint">Can you reliably get to jobs and work on-site? Vehicle, license, and smartphone must be <strong>Yes</strong> to qualify.</p>
             <div class="leta-form__grid">
               <div class="leta-form__field">
                 <label for="vehicle_reliable">Reliable vehicle for local travel</label>
@@ -301,13 +313,18 @@
                   <label class="leta-form__check"><input type="checkbox" name="skills" value="AV / displays" /> AV / displays / conference rooms</label>
                   <label class="leta-form__check"><input type="checkbox" name="skills" value="Cable / rack / patch" /> Cable management / patch panels</label>
                   <label class="leta-form__check"><input type="checkbox" name="skills" value="Smart home / IoT" /> Smart home / IoT</label>
-                  <label class="leta-form__check"><input type="checkbox" name="skills" value="Other" /> Other (describe below)</label>
+                  <label class="leta-form__check"><input type="checkbox" name="skills" value="Other" id="skill-other-cb" /> Other (describe below)</label>
                 </div>
               </div>
+              <div class="leta-form__field leta-form__field--full" id="skills-other-wrap" hidden>
+                <label for="skills_other">Describe other skills</label>
+                <input id="skills_other" name="skills_other" type="text" maxlength="240" placeholder="e.g. low-voltage, access control, soldering…" />
+              </div>
               <div class="leta-form__field leta-form__field--full">
-                <span class="leta-form__group-label" id="certs-label">Certifications <span class="leta-form__optional">(optional)</span></span>
+                <span class="leta-form__group-label" id="certs-label">Certifications</span>
+                <p class="leta-form__hint">Select at least one — “None yet” is fine if you’re still building credentials.</p>
                 <div class="leta-form__checkgroup" role="group" aria-labelledby="certs-label">
-                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="CompTIA A+" /> CompTIA A+</label>
+                  <label class="leta-form__check"><input type="checkbox" name="certifications" value="CompTIA A+" required /> CompTIA A+</label>
                   <label class="leta-form__check"><input type="checkbox" name="certifications" value="CompTIA Network+" /> CompTIA Network+</label>
                   <label class="leta-form__check"><input type="checkbox" name="certifications" value="CompTIA Security+" /> CompTIA Security+</label>
                   <label class="leta-form__check"><input type="checkbox" name="certifications" value="Apple ACMT / ACiT" /> Apple ACMT / ACiT</label>
@@ -370,23 +387,23 @@
           <div class="onboard-step" data-step="4" data-step-title="Fit &amp; motivation" hidden>
           <fieldset class="leta-form__section">
             <legend class="leta-form__section-title">Fit &amp; motivation</legend>
-            <p class="leta-form__section-hint">Short answers — we read these to gauge reliability and whether you’ll show up for real work.</p>
+            <p class="leta-form__section-hint">Short answers (at least a few sentences each) — we read these to gauge reliability and whether you’ll show up for real work.</p>
             <div class="leta-form__grid">
               <div class="leta-form__field leta-form__field--full">
                 <label for="why_leta">Why do you want to work with Leta?</label>
-                <textarea id="why_leta" name="why_leta" rows="3" required maxlength="1200" placeholder="What caught your eye about field IT in Georgia?"></textarea>
+                <textarea id="why_leta" name="why_leta" rows="3" required minlength="60" maxlength="1200" placeholder="What caught your eye about field IT in Georgia?"></textarea>
               </div>
               <div class="leta-form__field leta-form__field--full">
                 <label for="enjoy_helping">What do you enjoy about fixing tech for people?</label>
-                <textarea id="enjoy_helping" name="enjoy_helping" rows="3" required maxlength="1200"></textarea>
+                <textarea id="enjoy_helping" name="enjoy_helping" rows="3" required minlength="60" maxlength="1200"></textarea>
               </div>
               <div class="leta-form__field leta-form__field--full">
                 <label for="proud_job">Describe a job or project you’re proud of</label>
-                <textarea id="proud_job" name="proud_job" rows="3" required maxlength="1200" placeholder="School project, side hustle, internship, help desk win — anything real."></textarea>
+                <textarea id="proud_job" name="proud_job" rows="3" required minlength="60" maxlength="1200" placeholder="School project, side hustle, internship, help desk win — anything real."></textarea>
               </div>
               <div class="leta-form__field leta-form__field--full">
                 <label for="tough_customer">A customer is frustrated on-site. What do you do?</label>
-                <textarea id="tough_customer" name="tough_customer" rows="3" required maxlength="1200"></textarea>
+                <textarea id="tough_customer" name="tough_customer" rows="3" required minlength="60" maxlength="1200"></textarea>
               </div>
               <div class="leta-form__field leta-form__field--full">
                 <label for="additional_notes">Anything else we should know? <span class="leta-form__optional">(optional)</span></label>

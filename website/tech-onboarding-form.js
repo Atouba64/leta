@@ -13,6 +13,7 @@
   var wizardNav = document.getElementById("onboard-wizard-nav");
   var fallbackEmail = cfg.techniciansEmail || cfg.generalEmail || "techs@leta.repair";
 
+  var MIN_ESSAY = 60;
   var steps = Array.prototype.slice.call(form.querySelectorAll(".onboard-step"));
   var totalSteps = steps.length;
   var currentStep = 0;
@@ -34,6 +35,20 @@
     if (detail) detail.required = show;
   }
 
+  function toggleSkillsOther() {
+    var otherCb = document.getElementById("skill-other-cb");
+    var wrap = document.getElementById("skills-other-wrap");
+    var input = form.querySelector('[name="skills_other"]');
+    if (!otherCb || !wrap || !input) return;
+    var show = otherCb.checked;
+    wrap.hidden = !show;
+    input.required = show;
+    if (!show) {
+      input.value = "";
+      input.setCustomValidity("");
+    }
+  }
+
   function validateCheckboxGroup(stepEl, name, message) {
     var boxes = stepEl.querySelectorAll('input[type="checkbox"][name="' + name + '"]');
     if (!boxes.length) return true;
@@ -51,6 +66,31 @@
     return false;
   }
 
+  function validateSelectYes(stepEl, name, label) {
+    var el = stepEl.querySelector('[name="' + name + '"]');
+    if (!el) return true;
+    if (el.value === "Yes") {
+      el.setCustomValidity("");
+      return true;
+    }
+    el.setCustomValidity(label + " must be Yes for Leta field work.");
+    el.reportValidity();
+    return false;
+  }
+
+  function validateTextareaEssay(stepEl, name) {
+    var el = stepEl.querySelector('[name="' + name + '"]');
+    if (!el || !el.required) return true;
+    var text = (el.value || "").trim();
+    if (text.length >= MIN_ESSAY) {
+      el.setCustomValidity("");
+      return true;
+    }
+    el.setCustomValidity("Please write at least " + MIN_ESSAY + " characters (a few real sentences).");
+    el.reportValidity();
+    return false;
+  }
+
   function validateStep(stepEl) {
     var ok = true;
     var fields = stepEl.querySelectorAll("input, select, textarea");
@@ -59,6 +99,7 @@
       if (field.type === "checkbox" && field.name === "availability") return;
       if (field.type === "checkbox" && field.name === "skills") return;
       if (field.type === "checkbox" && field.name === "certifications") return;
+      if (field.hidden || field.closest("[hidden]")) return;
       if (!field.checkValidity()) {
         field.reportValidity();
         ok = false;
@@ -74,7 +115,31 @@
       if (!validateCheckboxGroup(stepEl, "skills", "Select at least one skill you are comfortable with.")) {
         ok = false;
       }
+      toggleSkillsOther();
+      var otherInput = stepEl.querySelector('[name="skills_other"]');
+      if (otherInput && otherInput.required && !(otherInput.value || "").trim()) {
+        otherInput.setCustomValidity("Describe the other skills you selected.");
+        otherInput.reportValidity();
+        ok = false;
+      }
     }
+    if (stepEl.querySelector('input[name="certifications"]')) {
+      if (!validateCheckboxGroup(stepEl, "certifications", "Select at least one certification option (including “None yet”).")) {
+        ok = false;
+      }
+    }
+
+    if (stepEl.querySelector('[name="vehicle_reliable"]')) {
+      if (!validateSelectYes(stepEl, "vehicle_reliable", "Reliable vehicle")) ok = false;
+      if (!validateSelectYes(stepEl, "drivers_license_valid", "Valid driver’s license")) ok = false;
+      if (!validateSelectYes(stepEl, "smartphone", "Smartphone with mobile data")) ok = false;
+    }
+
+    ["why_leta", "enjoy_helping", "proud_job", "tough_customer"].forEach(function (name) {
+      if (stepEl.querySelector('[name="' + name + '"]') && !validateTextareaEssay(stepEl, name)) {
+        ok = false;
+      }
+    });
 
     return ok;
   }
@@ -119,7 +184,43 @@
     }
   }
 
+  function ensureHidden(name, value) {
+    if (!value) return;
+    var el = form.querySelector('[name="' + name + '"]');
+    if (!el) {
+      el = document.createElement("input");
+      el.type = "hidden";
+      el.name = name;
+      form.appendChild(el);
+    }
+    el.value = value;
+  }
+
+  function prefillFromApp() {
+    var params = new URLSearchParams(window.location.search);
+    var email = (params.get("email") || "").trim();
+    var uid = (params.get("uid") || "").trim();
+    var name = (params.get("name") || "").trim();
+
+    if (email) {
+      var emailEl = form.querySelector('[name="email"]');
+      if (emailEl) emailEl.value = email;
+    }
+    if (name) {
+      var parts = name.split(/\s+/);
+      var first = form.querySelector('[name="legal_first_name"]');
+      var last = form.querySelector('[name="legal_last_name"]');
+      if (first && parts[0]) first.value = parts[0];
+      if (last && parts.length > 1) last.value = parts.slice(1).join(" ");
+      var preferred = form.querySelector('[name="preferred_name"]');
+      if (preferred) preferred.value = name;
+    }
+    ensureHidden("app_uid", uid);
+    ensureHidden("app_source", params.get("source") || "web");
+  }
+
   function prefillFromQuery() {
+    prefillFromApp();
     if (new URLSearchParams(window.location.search).get("success") === "1") {
       setStatus(
         "Application received. We review every submission and reply " +
@@ -129,6 +230,7 @@
       );
       form.reset();
       togglePriorGigDetail();
+      toggleSkillsOther();
       if (wizardNav) wizardNav.hidden = true;
       if (fineEl) fineEl.hidden = true;
       if (progressText) progressText.hidden = true;
@@ -143,6 +245,12 @@
   if (priorSelect) {
     priorSelect.addEventListener("change", togglePriorGigDetail);
     togglePriorGigDetail();
+  }
+
+  var skillOtherCb = document.getElementById("skill-other-cb");
+  if (skillOtherCb) {
+    skillOtherCb.addEventListener("change", toggleSkillsOther);
+    toggleSkillsOther();
   }
 
   if (nextBtn) {
@@ -179,6 +287,10 @@
     }
     if (nextBtn) nextBtn.disabled = true;
     setStatus("Submitting your application…", "info");
+
+    var params = new URLSearchParams(window.location.search);
+    ensureHidden("app_uid", (params.get("uid") || "").trim());
+    ensureHidden("app_source", params.get("source") || "web");
 
     var body = new URLSearchParams(new FormData(form)).toString();
 

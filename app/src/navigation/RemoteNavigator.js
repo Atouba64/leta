@@ -6,6 +6,8 @@ import RemoteQueue from '../screens/remote/RemoteQueue';
 import RemoteSession from '../screens/remote/RemoteSession';
 import RemoteProfile from '../screens/remote/RemoteProfile';
 import HelpScreen from '../screens/shared/HelpScreen';
+import AccountDetailsScreen from '../screens/shared/AccountDetailsScreen';
+import RemoteExpertDetailsScreen from '../screens/remote/RemoteExpertDetailsScreen';
 import { MenuTabPlaceholder, menuTabListeners, menuTabScreenOptions } from './menuTab';
 import theme from '../theme';
 
@@ -43,6 +45,8 @@ export default function RemoteNavigator() {
       <Stack.Screen name="RemoteTabs" component={RemoteTabs} />
       <Stack.Screen name="RemoteSession" component={RemoteSession} />
       <Stack.Screen name="Help" component={HelpScreen} />
+      <Stack.Screen name="AccountDetails" component={AccountDetailsScreen} />
+      <Stack.Screen name="RemoteExpertDetails" component={RemoteExpertDetailsScreen} />
     </Stack.Navigator>
   );
 }

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex" />
+    <title>Track service | Leta</title>
+    <meta name="description" content="Track your Leta onsite IT service request. Map, status timeline, and technician ETA." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="track-data.js" defer></script>
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">service tracking</span></a
+          >
+        </div>
+      </header>
+    </div>
+
+    <main id="top" class="track-page">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a></nav>
+
+      <header class="page-hero track-hero">
+        <p class="eyebrow eyebrow--section">Live tracker</p>
+        <h1 id="track-title">Service request</h1>
+        <p class="section-deck" id="track-sub">Loading ticket…</p>
+      </header>
+
+      <div id="track-missing" class="track-missing" hidden>
+        <p>We could not find that ticket ID. Open the link from your Leta app or email, or <a href="contact.html">contact support</a>.</p>
+      </div>
+
+      <div id="track-body" hidden>
+        <section class="track-panel" aria-label="Status">
+          <p class="track-status" id="track-status"></p>
+          <ol class="track-steps" id="track-steps"></ol>
+        </section>
+
+        <section class="track-panel" aria-label="Details">
+          <dl class="track-details" id="track-details"></dl>
+        </section>
+
+        <section class="track-panel" aria-label="Map">
+          <h2 class="track-map-title">Service location</h2>
+          <p class="track-map-note" id="track-map-note">Map powered by OpenStreetMap (free, no account required).</p>
+          <div class="track-map-wrap" id="track-map-wrap"></div>
+          <p class="track-map-links" id="track-map-links"></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p><a href="index.html">Leta</a> · Georgia field IT · <a href="contact.html">Support</a></p>
+    </footer>
+
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const id = (params.get('id') || '').trim();
+        const tickets = window.LETA_TRACK_TICKETS || {};
+        const ticket = tickets[id];
+
+        const titleEl = document.getElementById('track-title');
+        const subEl = document.getElementById('track-sub');
+        const missingEl = document.getElementById('track-missing');
+        const bodyEl = document.getElementById('track-body');
+
+        if (!ticket) {
+          document.title = 'Ticket not found | Leta';
+          titleEl.textContent = 'Ticket not found';
+          subEl.textContent = id ? 'ID: ' + id : 'No ticket ID in the link.';
+          missingEl.hidden = false;
+          return;
+        }
+
+        document.title = ticket.title + ' | Track | Leta';
+        titleEl.textContent = ticket.title;
+        subEl.textContent = 'Ticket ' + ticket.id;
+
+        const statusEl = document.getElementById('track-status');
+        statusEl.textContent = ticket.statusLabel || ticket.status;
+        statusEl.dataset.status = ticket.status;
+
+        const stepsEl = document.getElementById('track-steps');
+        stepsEl.innerHTML = '';
+        (ticket.steps || []).forEach(function (label, i) {
+          const li = document.createElement('li');
+          if (i < ticket.currentStep) li.className = 'done';
+          else if (i === ticket.currentStep) li.className = 'current';
+          li.textContent = label;
+          stepsEl.appendChild(li);
+        });
+
+        const details = [
+          ['Location', ticket.site],
+          ['Technician', ticket.techName],
+          ticket.etaMinutes != null ? ['ETA', '~' + ticket.etaMinutes + ' min'] : null,
+          ['Estimate', ticket.estimate],
+          ['Completed', ticket.completedAt],
+          ['Skills', (ticket.skillTags || []).join(', ')],
+          ['Notes', ticket.description],
+        ].filter(Boolean);
+
+        const dl = document.getElementById('track-details');
+        dl.innerHTML = '';
+        details.forEach(function (pair) {
+          if (!pair[1]) return;
+          const dt = document.createElement('dt');
+          const dd = document.createElement('dd');
+          dt.textContent = pair[0];
+          dd.textContent = pair[1];
+          dl.appendChild(dt);
+          dl.appendChild(dd);
+        });
+
+        const mapWrap = document.getElementById('track-map-wrap');
+        const mapLinks = document.getElementById('track-map-links');
+        if (ticket.lat && ticket.lng) {
+          const pad = 0.012;
+          const bbox =
+            (ticket.lng - pad) +
+            '%2C' +
+            (ticket.lat - pad) +
+            '%2C' +
+            (ticket.lng + pad) +
+            '%2C' +
+            (ticket.lat + pad);
+          const iframe = document.createElement('iframe');
+          iframe.title = 'Map of service location';
+          iframe.loading = 'lazy';
+          iframe.referrerPolicy = 'no-referrer-when-downgrade';
+          iframe.src =
+            'https://www.openstreetmap.org/export/embed.html?bbox=' +
+            bbox +
+            '&layer=mapnik&marker=' +
+            ticket.lat +
+            '%2C' +
+            ticket.lng;
+          mapWrap.appendChild(iframe);
+
+          const gmaps =
+            'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(ticket.lat + ',' + ticket.lng);
+          mapLinks.innerHTML =
+            '<a href="' +
+            gmaps +
+            '" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>';
+        } else {
+          mapWrap.innerHTML = '<p class="track-map-note">Location map unavailable for this ticket.</p>';
+        }
+
+        if (ticket.status === 'en_route') {
+          document.getElementById('track-map-note').textContent =
+            'Your technician is en route. Map shows the service site; live GPS in the app when enabled.';
+        }
+
+        bodyEl.hidden = false;
+      })();
+    </script>
+  </body>
+</html>

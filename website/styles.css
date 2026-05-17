@@ -1494,6 +1494,23 @@ button.contact-channel {
   color: var(--muted);
 }
 
+.leta-form__required-mark {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.leta-form__field:has(> label[for]) > label:first-of-type:not(.leta-form__check)::after,
+.leta-form__field:has(.leta-form__group-label) > .leta-form__group-label::after {
+  content: " *";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.leta-form__field:has(.leta-form__optional) > label:first-of-type::after,
+.leta-form__field:has(.leta-form__optional) > .leta-form__group-label::after {
+  content: none;
+}
+
 .leta-form__field input,
 .leta-form__field select,
 .leta-form__field textarea {
