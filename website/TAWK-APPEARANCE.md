@@ -41,6 +41,10 @@ The site also applies the same palette via `leta-tawk-theme.js` when the chat if
 | Accent | `#60a5fa` / `#2563eb` buttons |
 | Agent bubble | `rgba(37, 99, 235, 0.22)` |
 
+## “Powered by tawk”
+
+The site hides this with CSS/JS when possible (`leta-tawk-theme.js`). If it still appears, Tawk may be blocking iframe styling — the official option is the [Remove Branding add-on](https://help.tawk.to/article/purchasing-the-remove-branding-and-white-label-add-on) (~$29/mo billed annually).
+
 ## Quick checklist
 
 - [ ] Header background → `#2563eb` (or gradient with `#3b82f6` / `#1d4ed8`)

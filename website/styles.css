@@ -1576,3 +1576,20 @@ body:has(.leta-chat-launch).nav-drawer-open {
   background: var(--accent) !important;
   background-color: var(--accent) !important;
 }
+
+/* Hide “Powered by tawk” on the widget shell (iframe interior via leta-tawk-theme.js) */
+.tawk-branding,
+.tawk-branding-link,
+[class*="tawk-branding"],
+.tawk-max-container .tawk-branding,
+.tawk-max-container a[href*="tawk.to"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

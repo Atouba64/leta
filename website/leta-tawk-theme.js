@@ -98,6 +98,10 @@
       L.textSoft +
       "!important}" +
       "img,[class*=avatar]{border-color:var(--leta-border)!important}" +
+      "[class*=branding],[class*=Branding],.tawk-branding,.tawk-branding-link," +
+      "a[href*='tawk.to'],a[href*='tawk.to/']{display:none!important;visibility:hidden!important;" +
+      "height:0!important;max-height:0!important;padding:0!important;margin:0!important;" +
+      "overflow:hidden!important;opacity:0!important;pointer-events:none!important}" +
       "[style*='03a84e'],[style*='00b41d'],[style*='1bb76e'],[style*='00ce7d'],[style*='4caf50']{" +
       "background:var(--leta-accent)!important;background-color:var(--leta-accent)!important;color:#fff!important}" +
       "@media (prefers-color-scheme:dark){:root{--leta-bg:" +
@@ -119,6 +123,33 @@
   }
 
   var cssText = buildCss();
+
+  var BRANDING_TEXT = /powered\s+by\s+tawk/i;
+
+  function stripBranding(doc) {
+    try {
+      var selectors = [
+        ".tawk-branding",
+        ".tawk-branding-link",
+        "[class*='branding']",
+        "[class*='Branding']",
+        "a[href*='tawk.to']",
+      ];
+      selectors.forEach(function (sel) {
+        doc.querySelectorAll(sel).forEach(function (el) {
+          el.remove();
+        });
+      });
+      doc.querySelectorAll("a, span, p, div, small, footer").forEach(function (el) {
+        var text = (el.textContent || "").trim();
+        if (text && BRANDING_TEXT.test(text) && el.children.length <= 2) {
+          el.remove();
+        }
+      });
+    } catch (err) {
+      /* ignore */
+    }
+  }
 
   function stripForeignInlineStyles(doc) {
     try {
@@ -156,6 +187,7 @@
       parent.appendChild(style);
     }
     stripForeignInlineStyles(doc);
+    stripBranding(doc);
     return true;
   }
 
