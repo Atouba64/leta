@@ -6,12 +6,12 @@ Everything visitors use on [leta.repair](https://leta.repair) is configured in [
 
 ## 1. Live chat (Tawk)
 
-The site uses **[Tawk.to](https://www.tawk.to)** with a custom **“Chat with Leta”** pill ([`leta-live-chat.js`](./leta-live-chat.js)) that matches the old assistant look. The default Tawk bubble is hidden.
+The site uses **[Tawk.to](https://www.tawk.to)** only ([`leta-live-chat.js`](./leta-live-chat.js)). One widget — no second launcher.
 
-1. Reply in the [Tawk dashboard](https://dashboard.tawk.to) or mobile app when visitors click the pill.
-2. Match chat colors to the site: **Administration → Channels → Chat Widget → Appearance**  
-   Suggested: header/primary `#2563eb` (light) or `#60a5fa` (dark), background near `#ffffff` / `#121a2e`.
-3. Config: `tawkPropertyId`, `tawkWidgetId`, `chatLabel` in [`contact-config.js`](./contact-config.js).
+1. Reply in the [Tawk dashboard](https://dashboard.tawk.to) or mobile app.
+2. **Inside the chat panel**, set colors in **Administration → Channels → Chat Widget → Appearance** (matches site):  
+   Header `#2563eb` · agent bubbles `#eff6ff` · visitor `#ffffff` (light) / header `#60a5fa` · surfaces `#121a2e` (dark).
+3. Config: `tawkPropertyId`, `tawkWidgetId` in [`contact-config.js`](./contact-config.js).
 
 ### Netlify form (contact page)
 

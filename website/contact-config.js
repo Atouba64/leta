@@ -27,6 +27,4 @@ window.LETA_CONTACT = {
   tawkWidgetId: "1joqi2asv",
   responseTime: "within 1–2 business days",
   formName: "contact",
-  /** Label on the live-chat pill button */
-  chatLabel: "Chat with Leta",
 };
