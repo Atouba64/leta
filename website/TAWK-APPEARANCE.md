@@ -13,23 +13,23 @@ The site also applies the same palette via `leta-tawk-theme.js` when the chat if
 5. **Widget Behavior** → **Hide widget on load** (desktop + mobile).
 6. **Save** / publish.
 
-## Allowed palette (light — primary)
+## Allowed palette (light — primary) — readability first
+
+Use **dark text on light backgrounds** everywhere except the blue header and send button.
 
 | Role | Hex | Use for |
 |------|-----|---------|
-| Page background | `#eef3f9` | Chat body, away/offline card backgrounds |
-| Surface | `#ffffff` | Visitor bubbles, input area, cards |
-| Text | `#0f172a` | Message text, labels |
-| Muted text | `#475569` | Secondary labels |
-| Accent / header | `#2563eb` | Header bar, send button, links, badges |
-| Accent gradient end | `#1d4ed8` | Header gradient (with `#3b82f6`) |
-| Accent light | `#3b82f6` | Header gradient start |
-| Agent bubble | `#eff6ff` | Operator/agent messages |
-| Border | `#bfdbfe` | Inputs, agent bubble border |
-| Soft border | `#e2e8f0` | Visitor bubble border |
-| On accent | `#ffffff` | Header text, button labels |
+| Page background | `#eef3f9` | Chat body |
+| Surface | `#ffffff` | Visitor bubbles, input field |
+| **Message text** | **`#0f172a`** | **All chat messages (required)** |
+| Muted / placeholder | `#475569` | Timestamps, placeholders |
+| Header background | `#2563eb` | Top bar only |
+| Header text | `#ffffff` | Top bar only (not message area) |
+| Send button | `#2563eb` | Button bg · `#ffffff` label |
+| Agent bubble | `#eff6ff` | Operator messages · text still `#0f172a` |
+| Border | `#bfdbfe` | Inputs, agent bubble |
 
-**Do not use:** Tawk green (`#03A84E`), orange status chips, or any color not in this table.
+**Do not use:** light gray text on white, white text outside the header, or Tawk green (`#03A84E`).
 
 ## Dark mode (if enabled in Tawk)
 

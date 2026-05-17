@@ -1569,14 +1569,6 @@ body:has(.leta-chat-launch).nav-drawer-open {
   background: var(--bg) !important;
 }
 
-/* Suppress non-Leta hues on the outer Tawk shell */
-.tawk-max-container [style*="03a84e"],
-.tawk-max-container [style*="00b41d"],
-.tawk-max-container [style*="1bb76e"] {
-  background: var(--accent) !important;
-  background-color: var(--accent) !important;
-}
-
 /* Hide “Powered by tawk” on the widget shell (iframe interior via leta-tawk-theme.js) */
 .tawk-branding,
 .tawk-branding-link,
