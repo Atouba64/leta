@@ -38,10 +38,11 @@ This repo is organized like an internal company handbook plus product specs. Wor
 | Area | Path |
 |------|------|
 | Business plan | [`01-business-plan/`](./01-business-plan/) |
-| App documentation | [`02-app-documentation/`](./02-app-documentation/) *(includes [`partner-portal/`](./02-app-documentation/partner-portal/user-stories.md))* |
+| App documentation | [`02-app-documentation/`](./02-app-documentation/) *(includes [`partner-portal/`](./02-app-documentation/partner-portal/))* |
 | Research & ideas | [`03-research-and-ideas/`](./03-research-and-ideas/) |
 | Legal & compliance | [`04-legal-and-compliance/`](./04-legal-and-compliance/) *(outline only—engage counsel before use)* |
 | Marketing & sales | [`05-marketing-and-sales/`](./05-marketing-and-sales/) *(partner win-win + website messaging)* |
+| Partner operations | [`06-partner-operations/`](./06-partner-operations/) *(onboarding, GUS tickets, billing, comms)* |
 | Brand assets (print / merch) | [`brand/`](./brand/) *(logo SVG + PNG for shirts, flags, signage)* |
 | Strategic architecture (long-form) | [`docs/`](./docs/) *(competitor forensics, microservices, dispatch, Leta Advantage)* |
 

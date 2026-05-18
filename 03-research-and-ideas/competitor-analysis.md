@@ -17,6 +17,9 @@ See [`../05-marketing-and-sales/partner-channel-win-win.md`](../05-marketing-and
 
 ---
 
+> **Workflow-focused comparison (five companies):** [`field-service-networks-comparison.md`](./field-service-networks-comparison.md)  
+> **Partner ops handbook:** [`../06-partner-operations/README.md`](../06-partner-operations/README.md)
+
 ## The Big 5: competitors & potential partners
 
 ### 1. Barrister Global Services Network

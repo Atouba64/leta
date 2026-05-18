@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Partner workflow | Leta</title>
+    <meta
+      name="description"
+      content="How Leta partners create work orders, track field techs, and close out jobs — without phone-tree dispatch."
+    />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="../index.html#top"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+            <span class="nav-toggle-box" aria-hidden="true"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a class="nav-highlight" href="../partners.html">Partners</a></li>
+          <li><a href="../customers.html">Customers</a></li>
+          <li><a href="../technicians.html">Technicians</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> · <a href="../partners.html">Partners</a></nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">How it works</p>
+        <h1>Partner workflow</h1>
+        <p class="section-deck">
+          You keep the customer relationship. Leta adds Georgia bench capacity, live status, and audit-ready close-out —
+          so your team spends less time on phone trees and more time on SLAs.
+        </p>
+      </header>
+
+      <section class="section-block">
+        <header class="section-head">
+          <h2>Multi-tier jobs (GUS)</h2>
+          <p class="section-deck">
+            Many tickets start upstream: your client’s IT team opens a ticket, you hold the SLA, Leta supplies the onsite
+            tech. Every job carries <strong>your work order number</strong> plus a Leta ticket id — no lost context.
+          </p>
+        </header>
+      </section>
+
+      <section class="section-block">
+        <header class="section-head">
+          <h2>Five steps</h2>
+        </header>
+        <ol class="recruit-steps">
+          <li><strong>Create</strong> — Site, scope, skills, POC, access rules (e.g. contact POC only), rate.</li>
+          <li><strong>Dispatch</strong> — Matched techs notified in-app; rate locked at accept.</li>
+          <li><strong>Track</strong> — Map and timeline: en route → on site → remote assist if needed.</li>
+          <li><strong>Execute</strong> — Field tech with optional live video to your remote engineer.</li>
+          <li><strong>Close</strong> — Photos, sign-off, CSV/PDF for your billing chain.</li>
+        </ol>
+      </section>
+
+      <section class="section-block">
+        <header class="section-head">
+          <h2>Better than phone-and-email dispatch</h2>
+        </header>
+        <div class="bento bento--trio">
+          <div class="tile tile--feature">
+            <h3 class="tile-title">No status calls</h3>
+            <p>See ETA and progress in the portal — routine “where’s the tech?” calls go away.</p>
+          </div>
+          <div class="tile tile--feature">
+            <h3 class="tile-title">One video session</h3>
+            <p>Hard tickets get a dedicated live session — not a fifty-person bridge.</p>
+          </div>
+          <div class="tile tile--feature">
+            <h3 class="tile-title">Georgia depth</h3>
+            <p>Statewide bench — metro, rural, and college markets — one coordinated pool.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="page-cta">
+          <a class="btn btn-primary" href="../contact.html?intent=partner">Start a partner pilot</a>
+          <a class="btn btn-secondary" href="../coverage.html">Coverage map</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong>. IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="../index.html">Home</a> · <a href="../partners.html">Partners</a> · <a href="../contact.html?intent=partner">Contact</a>
+      </p>
+    </footer>
+    <script src="../contact-config.js" defer></script>
+    <script src="../site.js" defer></script>
+  </body>
+</html>
