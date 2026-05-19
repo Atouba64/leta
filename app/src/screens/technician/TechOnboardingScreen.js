@@ -75,7 +75,7 @@ export default function TechOnboardingScreen() {
     <Screen scroll title="Join the crew">
       <Text style={styles.lead}>
         Before dispatch unlocks, join the <Text style={styles.strong}>Leta Tech crew</Text> — statewide in Georgia.
-        Text or call us in 30 seconds, then complete the full application on leta.repair (~8 min).
+        Text or call in 30 seconds, then complete the freelancer-style application on leta.repair (~10 min, including your marketplace profile).
       </Text>
 
       <LetaCard style={styles.cardHighlight}>

@@ -128,6 +128,14 @@
         ok = false;
       }
     }
+    if (stepEl.querySelector('input[name="work_preferences"]')) {
+      if (!validateCheckboxGroup(stepEl, "work_preferences", "Select at least one type of work you want.")) {
+        ok = false;
+      }
+    }
+    if (stepEl.querySelector('[name="profile_pitch"]') && !validateTextareaEssay(stepEl, "profile_pitch")) {
+      ok = false;
+    }
 
     if (stepEl.querySelector('[name="vehicle_reliable"]')) {
       if (!validateSelectYes(stepEl, "vehicle_reliable", "Reliable vehicle")) ok = false;

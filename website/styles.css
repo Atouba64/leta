@@ -2163,3 +2163,228 @@ button[data-leta-open-chat].btn--block {
   color: var(--accent);
   font-weight: 600;
 }
+
+/* —— App download + modals —— */
+.download-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .download-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.download-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.download-card__icon {
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.download-card__icon--android {
+  color: #3ddc84;
+}
+
+.store-badge-btn {
+  margin-top: 0.75rem;
+  width: 100%;
+  max-width: 16rem;
+}
+
+.page-cta--inline {
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+body.leta-modal-open {
+  overflow: hidden;
+}
+
+.leta-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.leta-modal[hidden] {
+  display: none;
+}
+
+.leta-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: rgba(12, 18, 34, 0.55);
+  cursor: pointer;
+}
+
+.leta-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 26rem);
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-lg, 0 24px 48px rgba(0, 0, 0, 0.18));
+}
+
+.leta-modal__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.leta-modal__body {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-soft, var(--muted));
+}
+
+.leta-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+/* —— Partner portal page —— */
+.portal-layout {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .portal-layout {
+    grid-template-columns: 1fr min(22rem, 38%);
+  }
+}
+
+.portal-feature-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-soft, var(--muted));
+}
+
+.portal-feature-list li + li {
+  margin-top: 0.5rem;
+}
+
+.portal-note {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.portal-signin__hint {
+  margin: -0.25rem 0 1rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.portal-signin__form {
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.portal-signin__submit {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.portal-signin__footer {
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.portal-signin .btn-secondary {
+  width: 100%;
+}
+
+.portal-preview {
+  padding: 0;
+  overflow: hidden;
+}
+
+.portal-preview__row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 0.9fr 0.7fr;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  border-top: 1px solid var(--border-subtle);
+  align-items: center;
+}
+
+.portal-preview__row--head {
+  border-top: 0;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: var(--bg);
+}
+
+.portal-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+}
+
+.portal-badge--green {
+  color: #15803d;
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.portal-badge--blue {
+  color: #1d4ed8;
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+
+.portal-badge--amber {
+  color: #b45309;
+  border-color: #fcd34d;
+  background: #fffbeb;
+}
+
+@media (max-width: 560px) {
+  .portal-preview__row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 0.75rem;
+  }
+
+  .portal-preview__row--head span:nth-child(3),
+  .portal-preview__row--head span:nth-child(4),
+  .portal-preview__row span:nth-child(3),
+  .portal-preview__row span:nth-child(4) {
+    grid-column: span 1;
+  }
+}

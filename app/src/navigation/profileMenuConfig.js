@@ -70,8 +70,8 @@ const FIELD_PROFILE = [
   {
     id: 'credentials',
     navigateId: 'tech_credentials',
-    label: 'Skills & credentials',
-    subtitle: 'Tags, insurance, activation',
+    label: 'Marketplace profile',
+    subtitle: 'Skills, headline, travel radius',
     icon: 'ribbon-outline',
   },
   {

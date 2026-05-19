@@ -10,7 +10,8 @@ Logical model aligned with [`../02-app-documentation/system-architecture.md`](..
 | `displayName` | string | |
 | `role` | string | `customer` \| `field_tech` \| `remote_tech` \| `partner_dispatcher` \| `admin` |
 | `phone` | string? | |
-| `skills` | string[] | Field tech tags |
+| `skills` | string[] | Field tech tags (denormalized from profile) |
+| `techProfile` | map? | Marketplace profile — see below |
 | `location` | map | `{ lat, lng, updatedAt }` for dispatch |
 | `isActive` | boolean | Field tech online toggle |
 | `rating` | number | |
@@ -18,6 +19,18 @@ Logical model aligned with [`../02-app-documentation/system-architecture.md`](..
 | `stripeConnectAccountId` | string? | Payouts (future) |
 | `createdAt` | timestamp | |
 | `updatedAt` | timestamp | |
+
+### `techProfile` (field tech)
+
+| Field | Type | Notes |
+|-------|------|--------|
+| `headline` | string | One-line title for partners |
+| `bio` | string | Pitch / overview |
+| `skillEntries` | array | `{ id, label, proficiency: learning \| comfortable \| expert }` |
+| `highlightSkillIds` | string[] | Up to 5 featured skills |
+| `travelRadiusMi` | number | Default max distance for offers |
+| `minPayout` | number | USD floor for dispatch filters |
+| `workPreferences` | string[] | e.g. break-fix, partner dispatch |
 
 Auth **custom claims** mirror `role` and `tenantId` (Cloud Function `syncUserRoleClaims`).
 

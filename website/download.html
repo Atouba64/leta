@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
+    <title>Download Leta Tech | iPhone &amp; Android</title>
+    <meta
+      name="description"
+      content="Download the Leta Tech app for field technicians, remote experts, and partner dispatch — Georgia field IT on demand."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html#top"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="nav-panel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-box" aria-hidden="true">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg class="nav-panel__close-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="customers.html">Customers</a></li>
+          <li><a class="nav-highlight" href="technicians.html">Technicians</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a></nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">Leta Tech · mobile app</p>
+        <h1>Download Leta Tech</h1>
+        <p class="section-deck">
+          One app for <strong>field technicians</strong>, <strong>remote experts</strong>, <strong>customers</strong>, and
+          <strong>partner dispatch</strong>. Accept jobs, message on ticket threads, and join Leta Live voice — built for
+          Georgia field IT.
+        </p>
+      </header>
+
+      <section class="section-block" aria-labelledby="download-heading">
+        <header class="section-head">
+          <h2 id="download-heading">Choose your device</h2>
+          <p class="section-deck">Store listings are coming soon. Tap a button below for details.</p>
+        </header>
+
+        <div class="download-grid">
+          <article class="tile tile--feature download-card">
+            <span class="download-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                <path
+                  d="M17.05 12.65c-.02-2.15 1.76-3.18 1.84-3.23-1-1.46-2.56-1.66-3.11-1.69-1.33-.14-2.59.78-3.26.78-.68 0-1.72-.76-2.83-.74-1.45.02-2.79.85-3.54 2.15-1.51 2.62-.39 6.49 1.08 8.62.72 1.04 1.57 2.2 2.69 2.16 1.08-.04 1.49-.7 2.79-.7 1.3 0 1.66.7 2.79.68 1.15-.02 1.88-1.05 2.58-2.09.81-1.18 1.14-2.33 1.16-2.39-.03-.01-2.23-.86-2.25-3.41zM14.52 4.38c.6-.73 1.01-1.74.9-2.76-.87.04-1.93.58-2.56 1.31-.56.64-1.05 1.67-.92 2.65.97.08 1.96-.5 2.58-1.2z"
+                />
+              </svg>
+            </span>
+            <h3 class="tile-title">iPhone &amp; iPad</h3>
+            <p>App Store · iOS 15+</p>
+            <button type="button" class="btn btn-primary store-badge-btn" data-leta-store-soon="ios">
+              Download on the App Store
+            </button>
+          </article>
+
+          <article class="tile tile--feature download-card">
+            <span class="download-card__icon download-card__icon--android" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                <path
+                  d="M17.6 9.48l1.84-3.18c.16-.28.04-.62-.28-.74-.28-.1-.62-.04-.74.28l-1.88 3.24a10.87 10.87 0 0 0-8.94 0L5.65 5.84c-.12-.32-.46-.38-.74-.28-.32.12-.44.46-.28.74L6.4 9.48A9.01 9.01 0 0 0 3 14.25h18a9.01 9.01 0 0 0-3.4-4.77zM7.75 14.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm8.5 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"
+                />
+              </svg>
+            </span>
+            <h3 class="tile-title">Android</h3>
+            <p>Google Play · Android 10+</p>
+            <button type="button" class="btn btn-primary store-badge-btn" data-leta-store-soon="android">
+              Get it on Google Play
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="tile tile--soft">
+          <h3 class="tile-title">Not on the stores yet?</h3>
+          <p>
+            We are finishing store review. In the meantime, field techs can
+            <a href="technicians.html">text or call to join</a>, partners can use the
+            <a href="partners/portal.html">partner portal</a> (mobile app), and customers can
+            <a href="contact.html?intent=customer">request a tech</a> on the web.
+          </p>
+          <div class="page-cta page-cta--inline">
+            <a class="btn btn-secondary" data-leta-recruit-sms href="#">Text Leta</a>
+            <a class="btn btn-secondary" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong>. IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="index.html">Home</a> · <a href="technicians.html">Technicians</a> · <a href="download.html">Download app</a> ·
+        <a href="contact.html">Contact</a>
+      </p>
+      <p class="footer-contact">
+        <a data-leta-tel href="tel:+14702526681"><span data-leta-phone-display>(470) 252-6681</span></a>
+      </p>
+    </footer>
+
+    <div class="leta-modal" id="leta-modal" hidden role="dialog" aria-modal="true" aria-labelledby="leta-modal-title">
+      <button type="button" class="leta-modal__backdrop" data-leta-modal-close aria-label="Close dialog"></button>
+      <div class="leta-modal__panel" role="document">
+        <h2 class="leta-modal__title" id="leta-modal-title"></h2>
+        <p class="leta-modal__body" id="leta-modal-body"></p>
+        <div class="leta-modal__actions">
+          <button type="button" class="btn btn-primary" data-leta-modal-close>OK</button>
+          <a class="btn btn-secondary" data-leta-recruit-sms href="#">Text us</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="contact-config.js" defer></script>
+    <script src="site.js" defer></script>
+    <script src="leta-modals.js" defer></script>
+    <script src="leta-tawk-theme.js" defer></script>
+    <script src="leta-live-chat.js" defer></script>
+  </body>
+</html>

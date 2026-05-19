@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)" />
+    <title>Partner portal | Leta</title>
+    <meta
+      name="description"
+      content="Leta partner portal — create work orders, message field techs on ticket threads, approve close-outs, and export billing artifacts."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="../index.html#top"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">field IT · geo-aware · GA-first</span></a
+          >
+          <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+            <span class="nav-toggle-box" aria-hidden="true"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></span>
+          </button>
+        </div>
+      </header>
+      <nav class="nav-panel" id="nav-panel" aria-labelledby="nav-panel-label">
+        <div class="nav-panel__header">
+          <span class="nav-panel__title" id="nav-panel-label">Menu</span>
+          <button type="button" class="nav-panel__close" id="nav-close" aria-label="Close menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a class="nav-highlight" href="../partners.html">Partners</a></li>
+          <li><a href="../customers.html">Customers</a></li>
+          <li><a href="../technicians.html">Technicians</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
+
+    <main id="top">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a> · <a href="../partners.html">Partners</a>
+      </nav>
+
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">Partner portal</p>
+        <h1>Dispatch visibility on Leta</h1>
+        <p class="section-deck">
+          Create work orders, track status, message techs on the ticket thread, and approve close-outs — without calling
+          our ops desk for every update.
+        </p>
+      </header>
+
+      <section class="section-block portal-layout">
+        <div class="portal-layout__main">
+          <header class="section-head">
+            <h2>What you can do</h2>
+          </header>
+          <ul class="portal-feature-list">
+            <li><strong>Create work orders</strong> — site, scope, partner WO #, POC &amp; contact policy</li>
+            <li><strong>Ticket thread</strong> — message assigned techs; voice via Leta Live (logged)</li>
+            <li><strong>Timeline</strong> — en route, on site, complete</li>
+            <li><strong>Approve close-out</strong> — photos &amp; sign-off for upstream billing</li>
+            <li><strong>Skill-tier bench</strong> — tag required skills on each WO; route economy techs or specialists from Leta’s marketplace profiles</li>
+          </ul>
+          <p class="portal-note">
+            Pilot partners: use the <strong>Leta Tech</strong> mobile app and choose <strong>Partner dispatch</strong> at
+            sign-up. Full browser sign-in is launching soon.
+          </p>
+          <div class="page-cta page-cta--inline">
+            <a class="btn btn-secondary" href="workflow.html">How the workflow works</a>
+            <a class="btn btn-secondary" href="../download.html">Download Leta Tech</a>
+          </div>
+        </div>
+
+        <aside class="tile tile--feature portal-signin" aria-labelledby="portal-signin-heading">
+          <h2 class="tile-title" id="portal-signin-heading">Sign in</h2>
+          <p class="portal-signin__hint">Partner dispatcher accounts · web dashboard rolling out</p>
+          <form id="partner-portal-signin" class="portal-signin__form leta-form" action="#" method="post">
+            <div class="leta-form__field leta-form__field--full">
+              <label for="portal-email">Work email</label>
+              <input id="portal-email" type="email" name="email" autocomplete="username" required placeholder="you@company.com" />
+            </div>
+            <div class="leta-form__field leta-form__field--full">
+              <label for="portal-password">Password</label>
+              <input id="portal-password" type="password" name="password" autocomplete="current-password" required placeholder="••••••••" />
+            </div>
+            <button type="submit" class="btn btn-primary portal-signin__submit">Sign in to portal</button>
+          </form>
+          <p class="portal-signin__footer">
+            Need access?
+            <a href="../contact.html?intent=partner">Start a partner thread</a>
+            or download the app below.
+          </p>
+          <a class="btn btn-secondary" href="../download.html">Get Leta Tech (iOS &amp; Android)</a>
+        </aside>
+      </section>
+
+      <section class="section-block" aria-labelledby="portal-preview-heading">
+        <header class="section-head">
+          <h2 id="portal-preview-heading">Dashboard preview</h2>
+          <p class="section-deck">What your ops team sees once tickets are live (sample data).</p>
+        </header>
+        <div class="portal-preview tile tile--soft">
+          <div class="portal-preview__row portal-preview__row--head">
+            <span>Partner WO #</span>
+            <span>Site</span>
+            <span>Status</span>
+            <span>SLA</span>
+          </div>
+          <div class="portal-preview__row">
+            <span>BAM-CRDL-88421</span>
+            <span>Food Lion #442</span>
+            <span class="portal-badge portal-badge--green">On site</span>
+            <span class="portal-badge portal-badge--amber">2h left</span>
+          </div>
+          <div class="portal-preview__row">
+            <span>QMAT-99102</span>
+            <span>Distribution center</span>
+            <span class="portal-badge portal-badge--blue">En route</span>
+            <span class="portal-badge portal-badge--green">OK</span>
+          </div>
+          <div class="portal-preview__row">
+            <span>GUS-22017</span>
+            <span>Store rollout</span>
+            <span class="portal-badge">Pending</span>
+            <span>—</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Leta</strong>. IT field service on demand · Georgia first · © 2026</p>
+      <p class="footer-nav">
+        <a href="../index.html">Home</a> · <a href="../partners.html">Partners</a> · <a href="portal.html">Portal</a> ·
+        <a href="../contact.html?intent=partner">Contact</a>
+      </p>
+    </footer>
+
+    <div class="leta-modal" id="leta-modal" hidden role="dialog" aria-modal="true" aria-labelledby="leta-modal-title">
+      <button type="button" class="leta-modal__backdrop" data-leta-modal-close aria-label="Close dialog"></button>
+      <div class="leta-modal__panel" role="document">
+        <h2 class="leta-modal__title" id="leta-modal-title"></h2>
+        <p class="leta-modal__body" id="leta-modal-body"></p>
+        <div class="leta-modal__actions">
+          <button type="button" class="btn btn-primary" data-leta-modal-close>OK</button>
+          <a class="btn btn-secondary" href="../download.html">Download app</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="../contact-config.js" defer></script>
+    <script src="../site.js" defer></script>
+    <script src="../leta-modals.js" defer></script>
+    <script src="../leta-tawk-theme.js" defer></script>
+    <script src="../leta-live-chat.js" defer></script>
+  </body>
+</html>

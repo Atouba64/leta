@@ -13,6 +13,7 @@ End-to-end workflows for **fulfillment partners** (MSPs, OEMs, national field ne
 | [**ticket-lifecycle-gus.md**](./ticket-lifecycle-gus.md) | How a work order moves (Food Lion + Qmatic patterns) |
 | [**communication-rails.md**](./communication-rails.md) | What replaces phone/email chaos |
 | [**platform-comms-and-incentives.md**](./platform-comms-and-incentives.md) | Partner ↔ tech messaging & calls on Leta |
+| [**tech-recruitment-and-matching.md**](./tech-recruitment-and-matching.md) | Modern tech recruiting · skill-tier bench for partners |
 | [**third-party-stack.md**](./third-party-stack.md) | Stripe, Checkr, Cal.com, etc. — who owns what risk |
 | [**reconciliation-and-billing.md**](./reconciliation-and-billing.md) | Partner invoice ↔ tech payout ↔ disputes |
 | [**pilot-playbook.md**](./pilot-playbook.md) | First 5–10 tickets in Georgia |

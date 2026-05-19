@@ -93,7 +93,7 @@
           <a class="recruit-intake__lane recruit-intake__lane--here" href="#tech-onboarding-form">
             <span class="recruit-intake__label">You’re here</span>
             <strong>Full application</strong>
-            <span class="recruit-intake__meta">Scroll down · 5 steps</span>
+            <span class="recruit-intake__meta">Scroll down · 6 steps</span>
           </a>
         </div>
         <ul class="onboard-meta" aria-label="What to expect">
@@ -109,18 +109,19 @@
           <h2 id="tech-form-heading">Tell us about you</h2>
           <p class="section-deck">
             Answer honestly — we use this for initial screening. Fields marked <span class="leta-form__required-mark" aria-hidden="true">*</span> are required.
-            Use <strong>Next</strong> to move through five short sections. If we move forward, we’ll ask for ID verification,
+            Use <strong>Next</strong> to move through six short sections. If we move forward, we’ll ask for ID verification,
             insurance proof, and a formal background check separately.
           </p>
         </header>
 
-        <p class="onboard-progress-text" id="onboard-progress-text" aria-live="polite">Step 1 of 5 · You &amp; contact</p>
+        <p class="onboard-progress-text" id="onboard-progress-text" aria-live="polite">Step 1 of 6 · You &amp; contact</p>
         <ol class="onboard-steps" id="onboard-steps" aria-label="Application progress">
           <li class="is-active" data-step="0">You &amp; contact</li>
           <li data-step="1">Field readiness</li>
           <li data-step="2">Skills</li>
-          <li data-step="3">Contractor basics</li>
-          <li data-step="4">Fit &amp; motivation</li>
+          <li data-step="3">Marketplace profile</li>
+          <li data-step="4">Contractor basics</li>
+          <li data-step="5">Fit &amp; motivation</li>
         </ol>
 
         <p id="tech-form-status" class="form-status" hidden role="status"></p>
@@ -360,7 +361,59 @@
           </fieldset>
           </div>
 
-          <div class="onboard-step" data-step="3" data-step-title="Contractor basics" hidden>
+          <div class="onboard-step" data-step="3" data-step-title="Marketplace profile" hidden>
+          <fieldset class="leta-form__section">
+            <legend class="leta-form__section-title">Your marketplace profile</legend>
+            <p class="leta-form__section-hint">
+              Like a freelancing profile — partners see this when routing work. Edit anytime in the Leta Tech app.
+            </p>
+            <div class="leta-form__grid">
+              <div class="leta-form__field leta-form__field--full">
+                <label for="profile_headline">Profile headline</label>
+                <input id="profile_headline" name="profile_headline" type="text" required maxlength="80" placeholder="e.g. Metro Atlanta POS and networking" />
+                <p class="leta-form__hint">One line partners scan first.</p>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <label for="profile_pitch">Profile pitch</label>
+                <textarea id="profile_pitch" name="profile_pitch" rows="4" required minlength="80" maxlength="1200" placeholder="Tools, brands, schedule, what jobs you want…"></textarea>
+                <p class="leta-form__hint">Like an Upwork overview — at least a few sentences.</p>
+              </div>
+              <div class="leta-form__field">
+                <label for="skill_level_self">Overall field IT level</label>
+                <select id="skill_level_self" name="skill_level_self" required>
+                  <option value="">Select…</option>
+                  <option value="Still building skills">Still building skills</option>
+                  <option value="Solid generalist">Solid generalist</option>
+                  <option value="Specialist">Specialist</option>
+                  <option value="Expert / lead">Expert / lead</option>
+                </select>
+              </div>
+              <div class="leta-form__field">
+                <label for="min_payout_per_job">Minimum pay per job</label>
+                <select id="min_payout_per_job" name="min_payout_per_job" required>
+                  <option value="">Select…</option>
+                  <option value="Any">Any — building experience</option>
+                  <option value="$75+">$75+</option>
+                  <option value="$100+">$100+</option>
+                  <option value="$125+">$125+</option>
+                  <option value="$150+">$150+</option>
+                  <option value="$200+">$200+ specialist / travel</option>
+                </select>
+              </div>
+              <div class="leta-form__field leta-form__field--full">
+                <span class="leta-form__group-label" id="work-pref-label">Types of work you want</span>
+                <div class="leta-form__checkgroup" role="group" aria-labelledby="work-pref-label">
+                  <label class="leta-form__check"><input type="checkbox" name="work_preferences" value="Quick break-fix" required /> Quick break-fix</label>
+                  <label class="leta-form__check"><input type="checkbox" name="work_preferences" value="Multi-hour projects" /> Multi-hour projects</label>
+                  <label class="leta-form__check"><input type="checkbox" name="work_preferences" value="Partner dispatch jobs" /> Partner dispatch jobs</label>
+                  <label class="leta-form__check"><input type="checkbox" name="work_preferences" value="Premium travel 60+ mi" /> Premium travel (60+ mi)</label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          </div>
+
+          <div class="onboard-step" data-step="4" data-step-title="Contractor basics" hidden>
           <fieldset class="leta-form__section">
             <legend class="leta-form__section-title">Independent contractor basics</legend>
             <p class="leta-form__section-hint">1099 means you handle taxes, schedule, and business insurance — we don’t withhold or guarantee hours.</p>
@@ -400,7 +453,7 @@
           </fieldset>
           </div>
 
-          <div class="onboard-step" data-step="4" data-step-title="Fit &amp; motivation" hidden>
+          <div class="onboard-step" data-step="5" data-step-title="Fit &amp; motivation" hidden>
           <fieldset class="leta-form__section">
             <legend class="leta-form__section-title">Fit &amp; motivation</legend>
             <p class="leta-form__section-hint">Short answers (at least a few sentences each) — we read these to gauge reliability and whether you’ll show up for real work.</p>
