@@ -43,6 +43,7 @@ This repo is organized like an internal company handbook plus product specs. Wor
 | Legal & compliance | [`04-legal-and-compliance/`](./04-legal-and-compliance/) *(outline only—engage counsel before use)* |
 | Marketing & sales | [`05-marketing-and-sales/`](./05-marketing-and-sales/) *(partner win-win + website messaging)* |
 | Partner operations | [`06-partner-operations/`](./06-partner-operations/) *(onboarding, GUS tickets, billing, comms)* |
+| Partner accounts (Barrister, etc.) | [`07-partner-accounts/`](./07-partner-accounts/) *(outreach, call scripts, pilots)* |
 | Brand assets (print / merch) | [`brand/`](./brand/) *(logo SVG + PNG for shirts, flags, signage)* |
 | Strategic architecture (long-form) | [`docs/`](./docs/) *(competitor forensics, microservices, dispatch, Leta Advantage)* |
 
