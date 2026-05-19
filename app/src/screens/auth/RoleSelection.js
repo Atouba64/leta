@@ -27,6 +27,12 @@ const ROLES_META = [
     subtitle: 'Overwatch · live assist on tickets',
     icon: 'videocam-outline',
   },
+  {
+    id: ROLES.PARTNER_DISPATCHER,
+    title: 'Partner dispatch',
+    subtitle: 'Create WOs · message & call techs on Leta',
+    icon: 'briefcase-outline',
+  },
 ];
 
 export default function RoleSelection({ navigation }) {

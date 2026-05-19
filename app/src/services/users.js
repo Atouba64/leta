@@ -16,11 +16,13 @@ export async function getUserProfile(uid) {
   return snap.exists() ? { id: snap.id, ...snap.data() } : null;
 }
 
-export async function createUserProfile(uid, { email, displayName, role, phone = null, skills = [] }) {
+export async function createUserProfile(uid, { email, displayName, role, phone = null, skills = [], tenantId = null }) {
   const { db, configured } = getFirebase();
   if (!configured) return null;
 
   const ref = doc(db, COLLECTIONS.USERS, uid);
+  const resolvedTenant =
+    tenantId || (role === 'partner_dispatcher' ? `partner_${uid}` : null);
   const payload = {
     email,
     displayName,
@@ -29,7 +31,7 @@ export async function createUserProfile(uid, { email, displayName, role, phone =
     skills,
     isActive: false,
     rating: 5,
-    tenantId: null,
+    tenantId: resolvedTenant,
     location: null,
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),

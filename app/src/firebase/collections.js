@@ -7,7 +7,15 @@ export const COLLECTIONS = {
   ESCALATIONS: 'escalations',
   LIVE_SESSIONS: 'live_sessions',
   TICKET_EVENTS: 'events',
+  MESSAGES: 'messages',
   SIGNALS: 'signals',
+};
+
+/** In-app ticket thread — keeps partner ↔ tech on Leta */
+export const MESSAGE_TYPE = {
+  TEXT: 'text',
+  SYSTEM: 'system',
+  CALL_INVITE: 'call_invite',
 };
 
 export const USER_ROLES = {

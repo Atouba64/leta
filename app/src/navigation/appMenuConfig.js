@@ -40,9 +40,18 @@ const REMOTE_MENU = [
   { id: 'sign_out', label: 'Sign out', icon: 'log-out-outline', type: 'action' },
 ];
 
+const PARTNER_MENU = [
+  { id: 'partner_home', label: 'Work orders', icon: 'briefcase-outline' },
+  { id: 'partner_create', label: 'Create work order', icon: 'add-circle-outline' },
+  { id: 'partner_profile', label: 'Profile', icon: 'person-outline' },
+  { id: 'help', label: 'Help & support', icon: 'help-circle-outline' },
+  { id: 'sign_out', label: 'Sign out', icon: 'log-out-outline', type: 'action' },
+];
+
 export function getMenuItems({ role, isAuthenticated }) {
   if (!isAuthenticated) return AUTH_MENU;
   if (role === ROLES.FIELD_TECH) return FIELD_MENU;
   if (role === ROLES.REMOTE_TECH) return REMOTE_MENU;
+  if (role === ROLES.PARTNER_DISPATCHER) return PARTNER_MENU;
   return CUSTOMER_MENU;
 }

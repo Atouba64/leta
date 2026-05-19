@@ -8,7 +8,7 @@ Logical model aligned with [`../02-app-documentation/system-architecture.md`](..
 |-------|------|--------|
 | `email` | string | |
 | `displayName` | string | |
-| `role` | string | `customer` \| `field_tech` \| `remote_tech` \| `admin` |
+| `role` | string | `customer` \| `field_tech` \| `remote_tech` \| `partner_dispatcher` \| `admin` |
 | `phone` | string? | |
 | `skills` | string[] | Field tech tags |
 | `location` | map | `{ lat, lng, updatedAt }` for dispatch |
@@ -28,7 +28,12 @@ Auth **custom claims** mirror `role` and `tenantId` (Cloud Function `syncUserRol
 | `customerId` | string | |
 | `assignedTechId` | string? | |
 | `remoteTechId` | string? | Overwatch |
-| `partnerId` | string? | Fulfillment partner |
+| `partnerId` | string? | Fulfillment partner (`tenantId` on dispatcher) |
+| `partnerDispatcherId` | string? | Who created the WO |
+| `partnerWorkOrderId` | string? | Partner’s upstream ticket id |
+| `contactPolicy` | string? | e.g. `poc_only` |
+| `poc` | map? | `{ name, phone }` — not shown to other parties in v1 |
+| `channelLocked` | boolean? | Prefer on-platform comms |
 | `status` | string | See `TICKET_STATUS` in app |
 | `title` | string | |
 | `description` | string | |
@@ -46,6 +51,10 @@ Auth **custom claims** mirror `role` and `tenantId` (Cloud Function `syncUserRol
 ### Subcollection `tickets/{id}/events/{eventId}`
 
 Append-only audit log: `type`, `actorId`, `payload`, `createdAt`.
+
+### Subcollection `tickets/{id}/messages/{messageId}`
+
+Partner ↔ tech thread (and system lines). Fields: `senderId`, `senderRole`, `senderLabel`, `body`, `type` (`text` \| `system` \| `call_invite`), `sessionId?`, `createdAt`.
 
 ## `offers/{offerId}`
 
@@ -65,4 +74,4 @@ Queue row when field tech requests overwatch.
 
 ## `live_sessions/{id}`
 
-WebRTC signaling room; subcollection `signals` for SDP/ICE relay.
+WebRTC signaling room; subcollection `signals` for SDP/ICE relay. `purpose`: `overwatch` \| `partner_voice`. Partner voice sessions set `partnerId`, `partnerDispatcherId`, `fieldTechId`.

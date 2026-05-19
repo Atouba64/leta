@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, StyleSheet, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
@@ -12,9 +13,11 @@ import { requestEscalation } from '../../services/liveSession';
 import { uploadTicketPhoto, uploadSignaturePng } from '../../services/storage';
 import { DEMO_ACTIVE_JOB } from '../../services/mockData';
 import { TICKET_STATUS } from '../../firebase/collections';
+import TicketThread from '../../components/TicketThread';
 import theme from '../../theme';
 
 export default function TechActiveJob() {
+  const navigation = useNavigation();
   const { user, demoMode } = useAuth();
   const [job, setJob] = useState(null);
   const [sigVisible, setSigVisible] = useState(false);
@@ -81,7 +84,25 @@ export default function TechActiveJob() {
       <LetaCard>
         <Text style={styles.section}>Access</Text>
         <Text>{job.accessNotes || job.contact || 'See ticket details'}</Text>
+        {job.partnerWorkOrderId ? (
+          <Text style={styles.partnerWo}>Partner WO #{job.partnerWorkOrderId}</Text>
+        ) : null}
       </LetaCard>
+
+      {job.partnerId || job.partnerWorkOrderId || demoMode ? (
+        <TicketThread
+          ticketId={job.id}
+          ticketTitle={job.title}
+          compact
+          onJoinVoiceCall={(data) =>
+            navigation.navigate('TicketVoiceCall', {
+              sessionId: data.sessionId,
+              ticketId: job.id,
+              title: job.title,
+            })
+          }
+        />
+      ) : null}
 
       <LetaButton title="Mark en route" variant="secondary" onPress={() => !demoMode && updateTicketStatus(job.id, TICKET_STATUS.EN_ROUTE)} />
       <LetaButton title="Add proof photo" variant="secondary" onPress={addPhoto} />
@@ -97,4 +118,5 @@ const styles = StyleSheet.create({
   empty: { ...theme.typography.body, color: theme.colors.textSoft, marginTop: theme.spacing.xl },
   title: { ...theme.typography.h1, marginTop: theme.spacing.md, marginBottom: theme.spacing.md },
   section: { ...theme.typography.label, color: theme.colors.textSoft, marginBottom: 8 },
+  partnerWo: { ...theme.typography.caption, color: theme.colors.primary, marginTop: 8, fontWeight: '600' },
 });

@@ -229,6 +229,95 @@ exports.joinLiveSession = onCall(async (request) => {
   return { sessionId, roomId: snap.data().roomId };
 });
 
+/**
+ * Callable: partner dispatcher ↔ field tech voice/video on ticket (Leta Live, purpose partner_voice).
+ * Does not replace overwatch escalation — lighter session for direct partner coordination.
+ */
+exports.createTicketChannelCall = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Sign in required.');
+  }
+
+  const { ticketId } = request.data || {};
+  if (!ticketId) {
+    throw new HttpsError('invalid-argument', 'ticketId required.');
+  }
+
+  const ticketRef = db.collection('tickets').doc(ticketId);
+  const ticketSnap = await ticketRef.get();
+  if (!ticketSnap.exists) {
+    throw new HttpsError('not-found', 'Ticket not found.');
+  }
+
+  const ticket = ticketSnap.data();
+  const uid = request.auth.uid;
+  const role = request.auth.token.role || '';
+  const tenantId = request.auth.token.tenantId || null;
+
+  const isField = ticket.assignedTechId === uid;
+  const isPartner = role === 'partner_dispatcher' && ticket.partnerId && ticket.partnerId === tenantId;
+
+  if (!isField && !isPartner) {
+    throw new HttpsError('permission-denied', 'Must be assigned tech or partner on this ticket.');
+  }
+
+  const sessionRef = db.collection('live_sessions').doc();
+  await sessionRef.set({
+    ticketId,
+    fieldTechId: ticket.assignedTechId || null,
+    partnerId: ticket.partnerId || null,
+    partnerDispatcherId: isPartner ? uid : ticket.partnerDispatcherId || null,
+    purpose: 'partner_voice',
+    status: 'waiting',
+    roomId: sessionRef.id,
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+  });
+
+  await ticketRef.update({
+    activeSessionId: sessionRef.id,
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  });
+
+  return { sessionId: sessionRef.id, roomId: sessionRef.id };
+});
+
+/**
+ * Callable: join partner_voice session (partner dispatcher or assigned field tech).
+ */
+exports.joinTicketChannelCall = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Sign in required.');
+  }
+
+  const { sessionId } = request.data || {};
+  const sessionRef = db.collection('live_sessions').doc(sessionId);
+  const snap = await sessionRef.get();
+  if (!snap.exists) {
+    throw new HttpsError('not-found', 'Session not found.');
+  }
+
+  const session = snap.data();
+  const uid = request.auth.uid;
+  const role = request.auth.token.role || '';
+  const tenantId = request.auth.token.tenantId || null;
+
+  const isField = session.fieldTechId === uid;
+  const isPartner = role === 'partner_dispatcher' && session.partnerId === tenantId;
+
+  if (!isField && !isPartner) {
+    throw new HttpsError('permission-denied', 'Not a participant on this call.');
+  }
+
+  const patch = {
+    status: 'active',
+    joinedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+  if (isPartner) patch.partnerDispatcherId = uid;
+
+  await sessionRef.update(patch);
+  return { sessionId, roomId: session.roomId };
+});
+
 // --- Express API (Stripe webhook + health) ---
 const app = express();
 app.use(cors({ origin: true }));

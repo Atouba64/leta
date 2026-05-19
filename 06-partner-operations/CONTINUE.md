@@ -4,15 +4,17 @@ Delivered in repo **docs + website summary**. Not yet built in code:
 
 ## Partner web portal (priority)
 
-- [ ] React or static admin on `partner.leta.repair` (subdomain)
-- [ ] Screens per [`../02-app-documentation/partner-portal/screen-inventory.md`](../02-app-documentation/partner-portal/screen-inventory.md)
-- [ ] Firebase Auth + `partner_dispatcher` + Firestore `tenantId` rules
+- [x] **Mobile v1:** `PartnerNavigator` — create WO, list, detail, thread, voice
+- [x] Ticket messages + `createTicketChannelCall` functions
+- [x] Field tech **TicketThread** on active partner jobs
+- [ ] React web portal on `partner.leta.repair` (optional mirror of app)
+- [ ] Live map tab on partner home
 
 ## Mobile app
 
-- [ ] `PARTNER_DISPATCHER` role in `AuthContext`
-- [ ] `PartnerNavigator` read-only lite (map + ticket list) OR web-only v1
-- [ ] Ticket fields: `partnerId`, `partnerWorkOrderId`, `contactPolicy`, `poc`
+- [x] `PARTNER_DISPATCHER` role + `tenantId` on signup
+- [x] Ticket fields: `partnerWorkOrderId`, `contactPolicy`, `poc`, `channelLocked`
+- [ ] Push notifications for new thread messages
 
 ## Integrations
 

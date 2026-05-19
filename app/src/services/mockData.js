@@ -59,12 +59,14 @@ export const DEMO_TECH_OFFERS = [
 ];
 
 export const DEMO_ACTIVE_JOB = {
-  id: 'job-501',
-  title: 'Network drop — new register',
+  id: 'demo-partner-1',
+  title: 'Cradlepoint — Food Lion #442',
   customer: 'Peachtree Retail Co.',
   contact: 'Brad — Store Mgr',
   phone: '(404) 555-0142',
-  accessNotes: 'Ask for Brad at loading dock. Roof keys at service desk.',
+  accessNotes: 'Ask for Brad at loading dock. POC only — do not call store main line.',
+  partnerId: 'demo-partner-tenant',
+  partnerWorkOrderId: 'BAM-CRDL-88421',
   status: TICKET_STATUS.ON_SITE,
   checklist: [
     { id: 'c1', label: 'Verify scope with POC', done: true },

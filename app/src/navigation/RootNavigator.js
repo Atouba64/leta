@@ -6,6 +6,7 @@ import AuthNavigator from './AuthNavigator';
 import CustomerNavigator from './CustomerNavigator';
 import TechnicianNavigator from './TechnicianNavigator';
 import RemoteNavigator from './RemoteNavigator';
+import PartnerNavigator from './PartnerNavigator';
 import theme from '../theme';
 import { navigationRef } from './navigationRef';
 
@@ -14,6 +15,7 @@ function RoleApp() {
 
   if (role === ROLES.FIELD_TECH) return <TechnicianNavigator />;
   if (role === ROLES.REMOTE_TECH) return <RemoteNavigator />;
+  if (role === ROLES.PARTNER_DISPATCHER) return <PartnerNavigator />;
   return <CustomerNavigator />;
 }
 

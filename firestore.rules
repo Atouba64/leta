@@ -22,7 +22,28 @@ service cloud.firestore {
       return signedIn() && userDoc().data.role == 'admin';
     }
 
-    // Users: own profile read/write; admins read all
+    function partnerTenant() {
+      return userDoc().data.tenantId;
+    }
+
+    function canReadTicket(ticket) {
+      return ticket.customerId == uid()
+        || ticket.assignedTechId == uid()
+        || ticket.remoteTechId == uid()
+        || (hasRole('partner_dispatcher') && ticket.partnerId == partnerTenant())
+        || hasRole('field_tech')
+        || hasRole('remote_tech')
+        || isAdmin();
+    }
+
+    function canWriteTicket(ticket) {
+      return ticket.customerId == uid()
+        || ticket.assignedTechId == uid()
+        || ticket.remoteTechId == uid()
+        || (hasRole('partner_dispatcher') && ticket.partnerId == partnerTenant())
+        || isAdmin();
+    }
+
     match /users/{userId} {
       allow read: if signedIn() && (userId == uid() || isAdmin());
       allow create: if signedIn() && userId == uid();
@@ -30,32 +51,27 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
-    // Tickets: customers create/read own; techs read assigned or open for offers; remote read escalated
     match /tickets/{ticketId} {
-      allow read: if signedIn() && (
-        resource.data.customerId == uid() ||
-        resource.data.assignedTechId == uid() ||
-        resource.data.remoteTechId == uid() ||
-        hasRole('field_tech') ||
-        hasRole('remote_tech') ||
-        isAdmin()
+      allow read: if signedIn() && canReadTicket(resource.data);
+      allow create: if signedIn() && (
+        (hasRole('customer') && request.resource.data.customerId == uid()) ||
+        (hasRole('partner_dispatcher') && request.resource.data.partnerId == partnerTenant())
       );
-      allow create: if signedIn() && hasRole('customer') && request.resource.data.customerId == uid();
-      allow update: if signedIn() && (
-        resource.data.customerId == uid() ||
-        resource.data.assignedTechId == uid() ||
-        resource.data.remoteTechId == uid() ||
-        isAdmin()
-      );
+      allow update: if signedIn() && canWriteTicket(resource.data);
       allow delete: if isAdmin();
 
       match /events/{eventId} {
-        allow read: if signedIn();
-        allow create: if signedIn();
+        allow read: if signedIn() && canReadTicket(get(/databases/$(database)/documents/tickets/$(ticketId)).data);
+        allow create: if signedIn() && canWriteTicket(get(/databases/$(database)/documents/tickets/$(ticketId)).data);
+      }
+
+      match /messages/{messageId} {
+        allow read: if signedIn() && canReadTicket(get(/databases/$(database)/documents/tickets/$(ticketId)).data);
+        allow create: if signedIn() && canReadTicket(get(/databases/$(database)/documents/tickets/$(ticketId)).data)
+          && request.resource.data.senderId == uid();
       }
     }
 
-    // Offers: techs read/create; customers read offers on their tickets via ticket ownership (simplified: tech + admin)
     match /offers/{offerId} {
       allow read: if signedIn();
       allow create: if signedIn() && hasRole('field_tech');
@@ -65,13 +81,13 @@ service cloud.firestore {
       );
     }
 
-    // Live sessions (Leta Live signaling)
     match /live_sessions/{sessionId} {
       allow read: if signedIn();
       allow create: if signedIn();
       allow update: if signedIn() && (
         resource.data.fieldTechId == uid() ||
         resource.data.remoteTechId == uid() ||
+        resource.data.partnerDispatcherId == uid() ||
         isAdmin()
       );
 
@@ -80,7 +96,6 @@ service cloud.firestore {
       }
     }
 
-    // Escalations queue metadata
     match /escalations/{escalationId} {
       allow read: if signedIn() && (hasRole('remote_tech') || hasRole('field_tech') || isAdmin());
       allow create: if signedIn() && hasRole('field_tech');

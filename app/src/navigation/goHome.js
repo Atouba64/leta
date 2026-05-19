@@ -6,6 +6,7 @@ const ROLE_HOME = {
   [ROLES.CUSTOMER]: { root: 'CustomerTabs', screen: 'Home' },
   [ROLES.FIELD_TECH]: { root: 'TechnicianTabs', screen: 'Dispatch' },
   [ROLES.REMOTE_TECH]: { root: 'RemoteTabs', screen: 'Queue' },
+  [ROLES.PARTNER_DISPATCHER]: { root: 'PartnerTabs', screen: 'WorkOrders' },
 };
 
 /**

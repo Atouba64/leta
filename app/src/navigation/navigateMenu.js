@@ -22,7 +22,13 @@ export function navigateMenuItem(itemId, auth) {
     return;
   }
 
-  if (itemId === 'home' || itemId === 'customer_home' || itemId === 'tech_dispatch' || itemId === 'remote_queue') {
+  if (
+    itemId === 'home' ||
+    itemId === 'customer_home' ||
+    itemId === 'tech_dispatch' ||
+    itemId === 'remote_queue' ||
+    itemId === 'partner_home'
+  ) {
     if (itemId === 'home') {
       goHome({ role, isAuthenticated });
       return;
@@ -37,6 +43,10 @@ export function navigateMenuItem(itemId, auth) {
     }
     if (itemId === 'remote_queue') {
       jumpToTab('RemoteTabs', 'Queue');
+      return;
+    }
+    if (itemId === 'partner_home') {
+      jumpToTab('PartnerTabs', 'WorkOrders');
       return;
     }
   }
@@ -97,6 +107,12 @@ export function navigateMenuItem(itemId, auth) {
       break;
     case 'remote_expert_details':
       navigate('RemoteExpertDetails');
+      break;
+    case 'partner_create':
+      navigate('PartnerCreateTicket');
+      break;
+    case 'partner_profile':
+      jumpToTab('PartnerTabs', 'Profile');
       break;
     default:
       break;
