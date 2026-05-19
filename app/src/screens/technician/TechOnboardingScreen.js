@@ -93,7 +93,12 @@ export default function TechOnboardingScreen() {
         <Text style={styles.cardTitle}>Full application on web</Text>
         <Text style={styles.cardSub}>About 8 minutes · use the same email as this app</Text>
         <LetaButton title="Open full application" variant="secondary" onPress={openWebForm} />
-        {formOpened ? <Text style={styles.opened}>Form opened — submit it, then continue below.</Text> : null}
+        {formOpened ? (
+          <Text style={styles.opened}>
+            Form opened with your email — all six steps are pre-filled. Review, tap Submit on the last step, then confirm
+            below.
+          </Text>
+        ) : null}
       </LetaCard>
 
       <LetaCard style={styles.card}>

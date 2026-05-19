@@ -44,6 +44,7 @@ export function getTechOnboardingUrl({ email, uid, displayName } = {}) {
   if (uid) params.set('uid', uid);
   if (displayName) params.set('name', displayName.trim());
   params.set('source', 'app');
+  params.set('autofill', '1');
   const qs = params.toString();
   return `${WEB_BASE_URL}/tech-onboarding.html${qs ? `?${qs}` : ''}`;
 }
