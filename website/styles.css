@@ -703,6 +703,10 @@ main {
   justify-content: flex-end;
 }
 
+.hero-slide--media.hero-slide--top {
+  justify-content: flex-start;
+}
+
 .hero-slide.is-active {
   opacity: 1;
   visibility: visible;
@@ -806,6 +810,11 @@ main {
 
 .hero-slide--media .hero-lead--soft {
   color: var(--text-soft);
+  max-width: 36rem;
+}
+
+.hero-slide--top .hero-lead:not(.hero-lead--soft) {
+  color: var(--text);
   max-width: 36rem;
 }
 
