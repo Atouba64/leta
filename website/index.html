@@ -75,20 +75,186 @@
     <main id="top">
       <section class="hero-bento" aria-labelledby="hero-heading">
         <div class="bento bento--hero">
-          <div class="tile tile--hero">
-            <p class="eyebrow">Partner channel · professional IT · Georgia-Based</p>
-            <h1 id="hero-heading">IT service on demand.</h1>
-            <p class="hero-tagline">Fulfill more onsite IT work orders</p>
-            <p class="hero-lead">
-              Leta is the modern fulfillment layer for onsite IT service. Demand, dispatch, and field execution in one platform.
-            </p>
-            <p class="hero-lead hero-lead--soft">
-              You keep the relationship. We add a skills-based tech marketplace — modern recruiting, freelancer-style profiles, and
-              dispatch your ops team can trust.
-            </p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="contact.html?intent=partner">Partner conversation</a>
-              <a class="btn btn-secondary" href="contact.html?intent=customer">I need a tech</a>
+          <div class="tile tile--hero hero-slideshow" id="hero-slideshow" data-hero-slideshow>
+            <div
+              class="hero-slideshow__viewport"
+              aria-live="polite"
+              aria-atomic="true"
+              aria-label="Leta overview"
+            >
+              <!-- Slide 1 — main (longest display) -->
+              <article
+                class="hero-slide is-active"
+                data-hero-slide
+                data-duration="9000"
+                aria-hidden="false"
+                aria-labelledby="hero-heading"
+              >
+                <div class="hero-slide__inner hero-slide__inner--plain">
+                  <p class="eyebrow">Partner channel · professional IT · Georgia-Based</p>
+                  <h1 id="hero-heading">IT service on demand.</h1>
+                  <p class="hero-tagline">Fulfill more onsite IT work orders</p>
+                  <p class="hero-lead">
+                    Leta is the modern fulfillment layer for onsite IT service. Demand, dispatch, and field execution in one platform.
+                  </p>
+                  <p class="hero-lead hero-lead--soft">
+                    You keep the relationship. We add a skills-based tech marketplace — modern recruiting, freelancer-style profiles, and
+                    dispatch your ops team can trust.
+                  </p>
+                  <div class="cta-row">
+                    <a class="btn btn-primary" href="contact.html?intent=partner">Partner conversation</a>
+                    <a class="btn btn-secondary" href="contact.html?intent=customer">I need a tech</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 2 — partners -->
+              <article
+                class="hero-slide hero-slide--media"
+                data-hero-slide
+                data-duration="5500"
+                aria-hidden="true"
+                aria-labelledby="hero-slide-partners-title"
+              >
+                <img
+                  class="hero-slide__img"
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=1400&amp;q=80"
+                  alt=""
+                  width="1400"
+                  height="875"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="hero-slide__scrim" aria-hidden="true"></div>
+                <div class="hero-slide__inner">
+                  <p class="eyebrow">For partners</p>
+                  <h2 class="hero-slide__title" id="hero-slide-partners-title">You keep the customer. We staff the field.</h2>
+                  <p class="hero-tagline">Overflow bench + live visibility in Georgia</p>
+                  <p class="hero-lead hero-lead--soft">
+                    Dispatch, MSPs, and national networks route work orders through Leta when they need
+                    <strong>local techs</strong>, <strong>partner WO numbers preserved</strong>, and fewer “where’s the tech?” calls.
+                  </p>
+                  <div class="cta-row">
+                    <a class="btn btn-primary" href="partners.html">Partner portal &amp; workflow</a>
+                    <a class="btn btn-secondary" href="contact.html?intent=partner">Start a pilot</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 3 — partners depth -->
+              <article
+                class="hero-slide hero-slide--media"
+                data-hero-slide
+                data-duration="5500"
+                aria-hidden="true"
+                aria-labelledby="hero-slide-partners-ops-title"
+              >
+                <img
+                  class="hero-slide__img"
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1400&amp;q=80"
+                  alt=""
+                  width="1400"
+                  height="933"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="hero-slide__scrim" aria-hidden="true"></div>
+                <div class="hero-slide__inner">
+                  <p class="eyebrow">For partners</p>
+                  <h2 class="hero-slide__title" id="hero-slide-partners-ops-title">Stop being the status-call switchboard.</h2>
+                  <p class="hero-tagline">Timeline, thread, and audit-ready close-out</p>
+                  <p class="hero-lead hero-lead--soft">
+                    Partners see <strong>en route → on site → complete</strong> in the portal. Techs coordinate on the ticket — not through your desk relaying texts.
+                  </p>
+                  <div class="cta-row">
+                    <a class="btn btn-primary" href="partners/workflow.html">How the workflow works</a>
+                    <a class="btn btn-secondary" href="partners/portal.html">Open partner portal</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 4 — customers -->
+              <article
+                class="hero-slide hero-slide--media"
+                data-hero-slide
+                data-duration="5500"
+                aria-hidden="true"
+                aria-labelledby="hero-slide-customers-title"
+              >
+                <img
+                  class="hero-slide__img"
+                  src="https://images.unsplash.com/photo-1556745757-41ede049a123?auto=format&amp;fit=crop&amp;w=1400&amp;q=80"
+                  alt=""
+                  width="1400"
+                  height="933"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="hero-slide__scrim" aria-hidden="true"></div>
+                <div class="hero-slide__inner">
+                  <p class="eyebrow">For customers</p>
+                  <h2 class="hero-slide__title" id="hero-slide-customers-title">Onsite IT without the black hole.</h2>
+                  <p class="hero-tagline">Know when help is coming — and when it’s done</p>
+                  <p class="hero-lead hero-lead--soft">
+                    Stores, offices, and sites get a <strong>clear request path</strong>, live status, and professional close-out — break/fix and rollouts across Georgia.
+                  </p>
+                  <div class="cta-row">
+                    <a class="btn btn-primary" href="contact.html?intent=customer">Request a tech</a>
+                    <a class="btn btn-secondary" href="customers.html">How customers use Leta</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 5 — customers + Georgia -->
+              <article
+                class="hero-slide hero-slide--media"
+                data-hero-slide
+                data-duration="5500"
+                aria-hidden="true"
+                aria-labelledby="hero-slide-coverage-title"
+              >
+                <img
+                  class="hero-slide__img"
+                  src="https://images.unsplash.com/photo-1477959857187-27a27b4caca4?auto=format&amp;fit=crop&amp;w=1400&amp;q=80"
+                  alt=""
+                  width="1400"
+                  height="933"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="hero-slide__scrim" aria-hidden="true"></div>
+                <div class="hero-slide__inner">
+                  <p class="eyebrow">Georgia first</p>
+                  <h2 class="hero-slide__title" id="hero-slide-coverage-title">From Atlanta to every corner of the state.</h2>
+                  <p class="hero-tagline">Geo-aware dispatch that respects distance</p>
+                  <p class="hero-lead hero-lead--soft">
+                    One platform for <strong>partner volume</strong> and <strong>direct customer requests</strong> — shared bench, smarter matching, evidence your ops team can trust.
+                  </p>
+                  <div class="cta-row">
+                    <a class="btn btn-primary" href="coverage.html">Coverage map</a>
+                    <a class="btn btn-secondary" href="platform.html">See the platform</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="hero-slideshow__chrome" aria-label="Hero slideshow controls">
+              <button
+                type="button"
+                class="hero-slideshow__pause"
+                data-hero-pause
+                aria-pressed="false"
+                aria-label="Pause slideshow"
+              >
+                Pause
+              </button>
+              <div class="hero-slideshow__dots" role="tablist" aria-label="Choose slide">
+                <button type="button" class="hero-slideshow__dot is-active" data-hero-goto="0" role="tab" aria-selected="true" aria-label="Slide 1: IT service on demand"></button>
+                <button type="button" class="hero-slideshow__dot" data-hero-goto="1" role="tab" aria-selected="false" aria-label="Slide 2: For partners"></button>
+                <button type="button" class="hero-slideshow__dot" data-hero-goto="2" role="tab" aria-selected="false" aria-label="Slide 3: Partner visibility"></button>
+                <button type="button" class="hero-slideshow__dot" data-hero-goto="3" role="tab" aria-selected="false" aria-label="Slide 4: For customers"></button>
+                <button type="button" class="hero-slideshow__dot" data-hero-goto="4" role="tab" aria-selected="false" aria-label="Slide 5: Georgia coverage"></button>
+              </div>
             </div>
           </div>
 
@@ -333,5 +499,6 @@
     <script src="leta-tawk-theme.js" defer></script>
     <script src="leta-live-chat.js" defer></script>
     <script src="site.js" defer></script>
+    <script src="hero-slideshow.js" defer></script>
   </body>
 </html>
