@@ -74,4 +74,12 @@ window.LETA_CONTACT = {
   socialYouTube: "",
   /** Suggested handles when registering (update URLs above once claimed) */
   socialHandleSuggested: "@letatechga",
+
+  /**
+   * OpenClaw (optional, not wired to the public site yet).
+   * Operator setup: ../openclaw/README.md
+   * Placeholders: OPENCLAW_URL, OPENCLAW_GATEWAY_TOKEN in openclaw/.env
+   */
+  openclawEnabled: false,
+  openclawOpsWebhookUrl: "YOUR_OPENCLAW_WEBHOOK_URL_OR_LEAVE_EMPTY",
 };

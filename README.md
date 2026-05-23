@@ -57,6 +57,17 @@ npm start                 # from repo root — runs Expo dev client in app/
 # or: cd app && npm run start:dev
 ```
 
+## OpenClaw (optional, budget-friendly)
+
+Local AI ops assistant for drafts and dev help — **Gemini free tier** + **local gateway** (no OpenClaw cloud fee).
+
+| Piece | Location |
+|-------|----------|
+| Setup guide | [`openclaw/README.md`](./openclaw/README.md) |
+| Placeholders | [`openclaw/.env.example`](./openclaw/.env.example), [`leta/.cursor/mcp.json`](./.cursor/mcp.json) |
+| Agent workspace | [`openclaw/workspace/`](./openclaw/workspace/) |
+| Cloud hook (off by default) | `functions/lib/openclawClient.js` → `openclawOpsDigest` |
+
 ## Backend (Firebase)
 
 | Piece | Location |

@@ -1,8 +1,12 @@
 # Legacy Netlify CLI local state — not used for hosting
 .netlify/
 
+# OpenClaw local secrets
+openclaw/.env
+
 # Firebase functions
 functions/node_modules/
+functions/.env
 
 # Mobile app
 app/node_modules/

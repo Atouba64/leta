@@ -14,6 +14,8 @@ const db = admin.firestore();
 const stripeSecret = process.env.STRIPE_SECRET_KEY;
 const stripe = stripeSecret ? require('stripe')(stripeSecret) : null;
 
+const { askOpenClaw, isOpenClawConfigured } = require('./lib/openclawClient');
+
 const ROLES = ['customer', 'field_tech', 'remote_tech', 'admin', 'partner_dispatcher'];
 
 /**
@@ -357,4 +359,38 @@ exports.stripeWebhook = onRequest(async (req, res) => {
   }
 
   res.json({ received: true });
+});
+
+/**
+ * Callable (admin): optional OpenClaw ops digest — off unless OPENCLAW_OPS_ENABLED=true.
+ * Placeholders: functions/.env → OPENCLAW_URL, OPENCLAW_GATEWAY_TOKEN, OPENCLAW_AGENT_ID.
+ */
+exports.openclawOpsDigest = onCall(async (request) => {
+  if (!request.auth) {
+    throw new HttpsError('unauthenticated', 'Sign in required.');
+  }
+  const role = request.auth.token.role || '';
+  if (role !== 'admin') {
+    throw new HttpsError('permission-denied', 'Admin only.');
+  }
+
+  if (!isOpenClawConfigured()) {
+    return {
+      enabled: false,
+      message:
+        'OpenClaw ops disabled. Set OPENCLAW_OPS_ENABLED=true and tokens in functions/.env (see openclaw/README.md).',
+    };
+  }
+
+  const { topic = 'daily ops summary', ticketId } = request.data || {};
+  const prompt = ticketId
+    ? `Leta field-service ops: summarize ticket ${ticketId}. Topic: ${topic}. Use bullet points only.`
+    : `Leta field-service ops: ${topic}. Use bullet points only. Do not invent ticket data.`;
+
+  const result = await askOpenClaw(prompt);
+  if (!result?.text) {
+    return { enabled: true, ok: false, message: 'OpenClaw request failed or returned empty.' };
+  }
+
+  return { enabled: true, ok: true, draft: result.text };
 });

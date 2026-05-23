@@ -1,0 +1,37 @@
+{
+  "agents": {
+    "list": [
+      {
+        "id": "leta",
+        "default": true,
+        "name": "Leta Ops",
+        "workspace": "/ABSOLUTE/PATH/TO/leta/openclaw/workspace",
+        "model": "google/gemini-2.0-flash"
+      }
+    ],
+    "defaults": {
+      "model": {
+        "primary": "google/gemini-2.0-flash"
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "http": {
+      "endpoints": {
+        "chatCompletions": { "enabled": true }
+      }
+    },
+    "auth": {
+      "mode": "token",
+      "token": "YOUR_OPENCLAW_GATEWAY_TOKEN"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "whatsapp": { "enabled": false }
+    }
+  }
+}
