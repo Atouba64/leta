@@ -669,6 +669,14 @@ main {
   grid-template: 1fr / 1fr;
   min-height: min(28rem, 72vh);
   flex: 1;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hero-slideshow__viewport.is-dragging {
+  cursor: grabbing;
 }
 
 @media (min-width: 900px) {
@@ -682,13 +690,17 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   min-height: 100%;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.65s ease, visibility 0.65s ease;
   z-index: 0;
+}
+
+.hero-slide--media {
+  justify-content: flex-end;
 }
 
 .hero-slide.is-active {
@@ -703,10 +715,25 @@ main {
   z-index: 2;
   padding: clamp(1.45rem, 4vw, 2.35rem) clamp(1.35rem, 4vw, 2.1rem);
   padding-bottom: clamp(3.25rem, 8vw, 3.75rem);
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .hero-slide__inner--plain {
-  padding-bottom: clamp(3.25rem, 8vw, 3.75rem);
+  flex: 0 0 auto;
+  padding-top: clamp(1.45rem, 4vw, 2.35rem);
+  padding-bottom: clamp(3.75rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 900px) {
+  .hero-slide__inner--plain {
+    padding-top: clamp(1.45rem, 3vw, 2.1rem);
+    padding-bottom: clamp(4rem, 5.5vw, 4.75rem);
+  }
+
+  .hero-slide__inner--plain .hero-lead--soft {
+    margin-bottom: 1.25rem;
+  }
 }
 
 .hero-slide--media {
@@ -791,7 +818,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 0.65rem;
   padding: 0.65rem clamp(1.35rem, 4vw, 2.1rem) 0.85rem;
   pointer-events: none;
@@ -826,25 +853,6 @@ main {
 .hero-slideshow__dot:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-}
-
-.hero-slideshow__pause {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-subtle);
-  background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
-  color: var(--text-soft);
-  cursor: pointer;
-}
-
-.hero-slideshow__pause:hover {
-  border-color: var(--accent-border);
-  color: var(--text);
 }
 
 @media (max-width: 479px) {
