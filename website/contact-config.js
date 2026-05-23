@@ -80,6 +80,10 @@ window.LETA_CONTACT = {
    * Operator setup: ../openclaw/README.md
    * Placeholders: OPENCLAW_URL, OPENCLAW_GATEWAY_TOKEN in openclaw/.env
    */
-  openclawEnabled: false,
-  openclawOpsWebhookUrl: "YOUR_OPENCLAW_WEBHOOK_URL_OR_LEAVE_EMPTY",
+  /** Local OpenClaw gateway — operator tools only, not public */
+  openclawEnabled: true,
+  openclawGatewayUrl: "http://127.0.0.1:18789",
+  /** WhatsApp allowlist placeholder — Leta business line (link device in OpenClaw) */
+  openclawWhatsAppPlaceholder: "+14702526681",
+  openclawOpsWebhookUrl: "",
 };

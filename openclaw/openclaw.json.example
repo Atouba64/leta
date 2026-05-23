@@ -5,7 +5,7 @@
         "id": "leta",
         "default": true,
         "name": "Leta Ops",
-        "workspace": "/ABSOLUTE/PATH/TO/leta/openclaw/workspace",
+        "workspace": "/home/zongo9/Documents/Github/projects/leta/openclaw/workspace",
         "model": "google/gemini-2.0-flash"
       }
     ],
@@ -13,6 +13,16 @@
       "model": {
         "primary": "google/gemini-2.0-flash"
       }
+    }
+  },
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "allowlist",
+      "selfChatMode": true,
+      "allowFrom": ["+14702526681"],
+      "groupPolicy": "allowlist",
+      "mediaMaxMb": 50,
+      "debounceMs": 0
     }
   },
   "gateway": {
@@ -31,7 +41,7 @@
   },
   "plugins": {
     "entries": {
-      "whatsapp": { "enabled": false }
+      "whatsapp": { "enabled": true }
     }
   }
 }

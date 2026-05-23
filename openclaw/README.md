@@ -2,6 +2,8 @@
 
 Run a **local OpenClaw gateway** ($0) + **Gemini free tier** for ops drafts, recruit copy, and dev help. No paid OpenClaw cloud required.
 
+See **`CONFIG-LOCATIONS.md`** for which files already exist (skipped on re-run).
+
 ## Placeholder map
 
 | File | What to fill in |

@@ -3,6 +3,8 @@
 
 # OpenClaw local secrets
 openclaw/.env
+openclaw/openclaw.json
+.cursor/mcp.json
 
 # Firebase functions
 functions/node_modules/
