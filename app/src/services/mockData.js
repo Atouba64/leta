@@ -1,5 +1,7 @@
 /** Demo tickets & offers until Firestore is wired */
 
+import { BARRISTER_PARTNER_ID, PARTNER_CHANNEL } from '../constants/partnerChannels';
+
 export const TICKET_STATUS = {
   PENDING: 'pending',
   ASSIGNED: 'assigned',
@@ -93,6 +95,91 @@ export const DEMO_TECH_OFFERS = [
     urgent: false,
   },
 ];
+
+export const DEMO_BARRISTER_OFFERS = [
+  {
+    id: 'offer-bar-701',
+    title: 'Cradlepoint install — Food Lion #442',
+    distanceMi: 14.2,
+    payout: '$185',
+    sla: 'NBD',
+    skills: ['Cradlepoint', 'Networking'],
+    urgent: false,
+    partnerChannel: PARTNER_CHANNEL.BARRISTER,
+    partnerId: BARRISTER_PARTNER_ID,
+    partnerWorkOrderId: 'BAM-CRDL-88421',
+    site: 'Food Lion #442 · 1200 Buford Hwy, Lawrenceville, GA',
+    ticketLocation: { lat: 33.9562, lng: -83.988 },
+    contactPolicy: 'poc_only',
+    scopeNotes:
+      'Replace failed Cradlepoint at manager office. Barrister email thread attached in dispatch notes.',
+    poc: { name: 'Brad M.', role: 'Store manager', phone: '(404) 555-0142' },
+    dispatch: { name: 'Barrister dispatch', phone: '(800) 555-0199' },
+  },
+  {
+    id: 'offer-bar-702',
+    title: 'POS lane 3 offline — grocery',
+    distanceMi: 6.8,
+    payout: '$142',
+    sla: '4 hr',
+    skills: ['POS', 'Networking'],
+    urgent: true,
+    partnerChannel: PARTNER_CHANNEL.BARRISTER,
+    partnerId: BARRISTER_PARTNER_ID,
+    partnerWorkOrderId: 'BAM-POS-77102',
+    site: 'Harbor Foods · Marietta, GA',
+    ticketLocation: { lat: 33.9526, lng: -84.5499 },
+    contactPolicy: 'poc_only',
+    scopeNotes: 'Lane 3 cannot reach auth server. Confirm WO open before leaving site.',
+    poc: { name: 'Tina R.', role: 'Front-end lead', phone: '(770) 555-0188' },
+    dispatch: { name: 'Barrister dispatch', phone: '(800) 555-0199' },
+  },
+  {
+    id: 'offer-bar-703',
+    title: 'Printer queue — law office suite',
+    distanceMi: 19.1,
+    payout: '$95',
+    sla: '48 hr',
+    skills: ['Printers'],
+    urgent: false,
+    partnerChannel: PARTNER_CHANNEL.BARRISTER,
+    partnerId: BARRISTER_PARTNER_ID,
+    partnerWorkOrderId: 'BAM-PRT-66004',
+    site: 'Peachtree Legal Group · Atlanta, GA',
+    contactPolicy: 'poc_only',
+    poc: { name: 'James K.', role: 'Office manager', phone: '(404) 555-0166' },
+    dispatch: { name: 'Barrister dispatch', phone: '(800) 555-0199' },
+  },
+];
+
+export function offerToActiveJob(offer) {
+  if (!offer?.partnerChannel && offer?.partnerId !== BARRISTER_PARTNER_ID) return null;
+  const poc = offer.poc || {};
+  return {
+    id: `active-${offer.id}`,
+    title: offer.title,
+    customer: offer.site?.split('·')[0]?.trim() || 'Partner site',
+    contact: poc.name || offer.contact,
+    phone: poc.phone,
+    poc,
+    dispatch: offer.dispatch,
+    accessNotes: offer.scopeNotes || offer.accessNotes,
+    partnerChannel: offer.partnerChannel || PARTNER_CHANNEL.BARRISTER,
+    partnerId: offer.partnerId || BARRISTER_PARTNER_ID,
+    partnerWorkOrderId: offer.partnerWorkOrderId,
+    contactPolicy: offer.contactPolicy,
+    status: TICKET_STATUS.ASSIGNED,
+    checklist: [
+      { id: 'c1', label: 'Confirm WO open with dispatch', done: false },
+      { id: 'c2', label: 'Verify scope with POC', done: false },
+      { id: 'c3', label: 'Before photos', done: false },
+      { id: 'c4', label: 'Complete repair', done: false },
+      { id: 'c5', label: 'Customer signature', done: false },
+    ],
+  };
+}
+
+export const DEMO_BARRISTER_ACTIVE_JOB = offerToActiveJob(DEMO_BARRISTER_OFFERS[0]);
 
 export const DEMO_ACTIVE_JOB = {
   id: 'demo-partner-1',

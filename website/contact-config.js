@@ -51,11 +51,17 @@ window.LETA_CONTACT = {
   /** Shown on referral tiles — update when program goes live */
   referralBonusDisplay: "$50",
   referralJobsRequired: "5",
-  /** Primary launch metros for recruit copy */
-  recruitMetros: "Metro Atlanta · Athens · Augusta · Columbus · Macon · Savannah",
+  /**
+   * Primary anchors for recruit copy (subset — full list on coverage.html).
+   * Canonical data: data/georgia-coverage.json
+   */
+  recruitMetros:
+    "Metro Atlanta · Macon · Savannah · Augusta · Columbus · Athens · Gainesville · Valdosta · Dalton · Albany",
   /** Statewide recruiting — shown on technicians.html */
   recruitRegions:
-    "Every corner of Georgia — metro Atlanta, college towns, Central & East GA, the coast, South GA, and North GA mountains. We dispatch by your radius, not just downtown ATL.",
+    "Eighteen anchor markets across Georgia — from Dalton on I-75 at Tennessee to Brunswick on the coast, Macon at the geographic center (I-75 × I-16), and Bainbridge/Albany in the southwest corner. We dispatch by your radius and corridor, not just downtown ATL.",
+  coveragePagePath: "coverage.html",
+  coverageAnchorCount: 18,
   /** Link in bio for TikTok / Instagram / YouTube — same on all recruit social profiles */
   recruitLinkInBio: "https://leta.repair/technicians.html#join",
   /**

@@ -8,6 +8,7 @@
 
 | Priority | File |
 |----------|------|
+| **Digital channel (web + app)** | [**`digital-channel.md`**](./digital-channel.md) |
 | **Phone call today** | [**`call-script-enver-first-partnership.md`**](./call-script-enver-first-partnership.md) |
 | Account context | [`account-profile.md`](./account-profile.md) |
 | Who’s who | [`stakeholder-map.md`](./stakeholder-map.md) |

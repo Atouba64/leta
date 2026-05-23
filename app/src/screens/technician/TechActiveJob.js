@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Alert, StyleSheet, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import Screen from '../../components/Screen';
 import LetaButton from '../../components/LetaButton';
@@ -11,8 +11,10 @@ import { useAuth } from '../../contexts/AuthContext';
 import { subscribeTechActiveTicket, appendTicketPhoto, setTicketSignature, updateTicketStatus } from '../../services/tickets';
 import { requestEscalation } from '../../services/liveSession';
 import { uploadTicketPhoto, uploadSignaturePng } from '../../services/storage';
-import { DEMO_ACTIVE_JOB } from '../../services/mockData';
+import { getDemoActiveJob } from '../../services/demoActiveJob';
 import { TICKET_STATUS } from '../../firebase/collections';
+import { isBarristerChannel } from '../../utils/partnerChannel';
+import TechPartnerActiveJob from './TechPartnerActiveJob';
 import TicketThread from '../../components/TicketThread';
 import theme from '../../theme';
 
@@ -23,12 +25,15 @@ export default function TechActiveJob() {
   const [sigVisible, setSigVisible] = useState(false);
 
   useEffect(() => {
-    if (demoMode) {
-      setJob(DEMO_ACTIVE_JOB);
-      return undefined;
-    }
+    if (demoMode) return undefined;
     return subscribeTechActiveTicket(user.uid, setJob);
   }, [user.uid, demoMode]);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (demoMode) setJob(getDemoActiveJob());
+    }, [demoMode]),
+  );
 
   if (!job) {
     return (
@@ -36,6 +41,10 @@ export default function TechActiveJob() {
         <Text style={styles.empty}>No active job. Accept an offer on Dispatch.</Text>
       </Screen>
     );
+  }
+
+  if (isBarristerChannel(job)) {
+    return <TechPartnerActiveJob job={job} />;
   }
 
   const addPhoto = async () => {

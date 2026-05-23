@@ -2388,3 +2388,134 @@ body.leta-modal-open {
     grid-column: span 1;
   }
 }
+
+/* Partner channel pages (e.g. Barrister liaison) */
+.partner-channel-hero {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+.partner-channel-hero p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.flow-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.flow-steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--card);
+}
+
+.flow-steps__num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.flow-steps h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.flow-steps p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.tile--phone {
+  border-color: #93c5fd;
+  background: linear-gradient(145deg, #eff6ff 0%, var(--card) 55%);
+}
+
+/* Georgia statewide anchor map (coverage.html) */
+.coverage-region {
+  margin-bottom: 2.5rem;
+}
+
+.coverage-region__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.coverage-region__deck {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  max-width: 52rem;
+}
+
+.coverage-anchor__sub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.coverage-anchor__cities {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.coverage-anchor__corridor,
+.coverage-anchor__phase {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+
+.coverage-anchor--highlight {
+  border-color: #93c5fd;
+  background: linear-gradient(160deg, #eff6ff 0%, var(--card) 70%);
+}
+
+.coverage-anchor__badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  margin: 0 0 0.5rem;
+}
+
+.coverage-corridors {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+}
+
+.coverage-corridors li {
+  margin-bottom: 0.5rem;
+}

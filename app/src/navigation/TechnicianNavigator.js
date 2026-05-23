@@ -11,6 +11,7 @@ import AccountDetailsScreen from '../screens/shared/AccountDetailsScreen';
 import TechCredentialsScreen from '../screens/technician/TechCredentialsScreen';
 import TechOnboardingScreen from '../screens/technician/TechOnboardingScreen';
 import PartnerVoiceCall from '../screens/partner/PartnerVoiceCall';
+import TechPartnerOfferDetail from '../screens/technician/TechPartnerOfferDetail';
 import { MenuTabPlaceholder, menuTabListeners, menuTabScreenOptions } from './menuTab';
 import theme from '../theme';
 
@@ -59,6 +60,7 @@ export default function TechnicianNavigator() {
       <Stack.Screen name="TechCredentials" component={TechCredentialsScreen} />
       <Stack.Screen name="TechOnboarding" component={TechOnboardingScreen} />
       <Stack.Screen name="TicketVoiceCall" component={PartnerVoiceCall} />
+      <Stack.Screen name="TechPartnerOfferDetail" component={TechPartnerOfferDetail} />
     </Stack.Navigator>
   );
 }

@@ -8,7 +8,7 @@ Share **after** Enver (or decision-maker) shows interest — not on cold open.
 |------|----------|
 | **Duration** | 4–6 weeks |
 | **Volume** | 5–10 work orders (scale to 25 if KPIs hit) |
-| **Geography** | Counties Barrister names (suggest: metro Atlanta + 1 secondary + 1 rural test) |
+| **Geography** | Counties Barrister names — align to Leta anchors ([`../../data/georgia-coverage.json`](../../data/georgia-coverage.json)): suggest **Macon** (center) + **Savannah** (coast) + **Columbus** (west) or ATL overflow only |
 | **Ticket format** | Barrister / partner **WO #** on every Leta ticket (GUS preserved) |
 | **Comms** | Partner dispatch uses **Leta portal/thread** for status; phone only for exceptions |
 | **Rates** | Agree **flat or hourly** band per SKU before dispatch — locked at tech accept |

@@ -11,9 +11,11 @@ import { SORT_OFFERS } from '../../constants/techSkills';
 import { getCurrentPosition } from '../../services/location';
 import { setTechActive, updateTechLocation } from '../../services/users';
 import { subscribePendingOffersForTech, acceptOfferCallable } from '../../services/offers';
-import { DEMO_TECH_OFFERS } from '../../services/mockData';
+import { DEMO_BARRISTER_OFFERS, DEMO_TECH_OFFERS } from '../../services/mockData';
+import { setDemoActiveJobFromOffer } from '../../services/demoActiveJob';
 import { filterAndSortOffers } from '../../utils/offerFilters';
-import { formatMiles } from '../../utils/geo';
+import { isPartnerChannelOffer } from '../../utils/partnerChannel';
+import PartnerOfferCard from '../../components/PartnerOfferCard';
 import TechOnboardingGate from '../../components/TechOnboardingGate';
 import theme from '../../theme';
 
@@ -26,6 +28,7 @@ export default function TechDispatch({ navigation }) {
   const [maxDistanceMi, setMaxDistanceMi] = useState(profile.travelRadiusMi || 30);
   const [sortBy, setSortBy] = useState(SORT_OFFERS.NEAREST);
   const [skillMatchOnly, setSkillMatchOnly] = useState(false);
+  const [partnerDispatchOnly, setPartnerDispatchOnly] = useState(false);
 
   useEffect(() => {
     if (profile.travelRadiusMi) setMaxDistanceMi(profile.travelRadiusMi);
@@ -33,23 +36,23 @@ export default function TechDispatch({ navigation }) {
 
   useEffect(() => {
     if (demoMode) {
-      setOffers(DEMO_TECH_OFFERS);
+      setOffers([...DEMO_BARRISTER_OFFERS, ...DEMO_TECH_OFFERS]);
       return undefined;
     }
     return subscribePendingOffersForTech(user.uid, setOffers);
   }, [user.uid, demoMode]);
 
-  const filteredOffers = useMemo(
-    () =>
-      filterAndSortOffers(offers, {
-        maxDistanceMi,
-        minPayout: profile.minPayout || 0,
-        skillMatchOnly,
-        techSkills: profile.skillEntries,
-        sortBy,
-      }),
-    [offers, maxDistanceMi, profile.minPayout, profile.skillEntries, skillMatchOnly, sortBy],
-  );
+  const filteredOffers = useMemo(() => {
+    const base = filterAndSortOffers(offers, {
+      maxDistanceMi,
+      minPayout: profile.minPayout || 0,
+      skillMatchOnly,
+      techSkills: profile.skillEntries,
+      sortBy,
+    });
+    if (!partnerDispatchOnly) return base;
+    return base.filter((o) => isPartnerChannelOffer(o));
+  }, [offers, maxDistanceMi, profile.minPayout, profile.skillEntries, skillMatchOnly, sortBy, partnerDispatchOnly]);
 
   const toggleActive = async (value) => {
     setActive(value);
@@ -67,8 +70,25 @@ export default function TechDispatch({ navigation }) {
     }
   };
 
-  const accept = async (offerId) => {
+  const openOffer = (offer) => {
+    if (isPartnerChannelOffer(offer)) {
+      navigation.navigate('TechPartnerOfferDetail', { offer });
+      return;
+    }
+    accept(offer);
+  };
+
+  const accept = async (offer) => {
+    const offerId = typeof offer === 'string' ? offer : offer?.id;
+    const full = typeof offer === 'object' ? offer : offers.find((o) => o.id === offerId);
     try {
+      if (demoMode && full && isPartnerChannelOffer(full)) {
+        setDemoActiveJobFromOffer(full);
+        Alert.alert('Job accepted', 'Open Active — partner dispatch view.', [
+          { text: 'Active', onPress: () => navigation.navigate('Active') },
+        ]);
+        return;
+      }
       await acceptOfferCallable(offerId);
       Alert.alert('Job accepted', 'Open the Active tab to run the mission.', [
         { text: 'OK', onPress: () => navigation.navigate('Active') },
@@ -103,15 +123,21 @@ export default function TechDispatch({ navigation }) {
         ) : null}
 
         {active ? (
-          <OfferFiltersBar
-            maxDistanceMi={maxDistanceMi}
-            onMaxDistanceChange={setMaxDistanceMi}
-            sortBy={sortBy}
-            onSortChange={setSortBy}
-            skillMatchOnly={skillMatchOnly}
-            onSkillMatchOnlyChange={setSkillMatchOnly}
-            resultCount={filteredOffers.length}
-          />
+          <>
+            <OfferFiltersBar
+              maxDistanceMi={maxDistanceMi}
+              onMaxDistanceChange={setMaxDistanceMi}
+              sortBy={sortBy}
+              onSortChange={setSortBy}
+              skillMatchOnly={skillMatchOnly}
+              onSkillMatchOnlyChange={setSkillMatchOnly}
+              resultCount={filteredOffers.length}
+            />
+            <View style={styles.partnerRow}>
+              <Text style={styles.partnerLabel}>Partner dispatch (Barrister)</Text>
+              <Switch value={partnerDispatchOnly} onValueChange={setPartnerDispatchOnly} />
+            </View>
+          </>
         ) : null}
 
         {!active ? (
@@ -125,26 +151,35 @@ export default function TechDispatch({ navigation }) {
             <Text style={styles.offlineSub}>Try widening distance or turning off “My skills”.</Text>
           </LetaCard>
         ) : (
-          filteredOffers.map((o) => (
-            <LetaCard key={o.id} style={styles.offer}>
-              <Text style={styles.payout}>{o.payout}</Text>
-              <Text style={styles.offerTitle}>{o.title || `Ticket ${o.ticketId}`}</Text>
-              <Text style={styles.offerMeta}>
-                {formatMiles(o.distanceMi)} · SLA {o.sla || '4 hr'}
-                {o.urgent ? ' · Urgent' : ''}
-              </Text>
-              {o.skills?.length ? (
-                <View style={styles.tags}>
-                  {o.skills.map((s) => (
-                    <View key={s} style={styles.tag}>
-                      <Text style={styles.tagText}>{s}</Text>
-                    </View>
-                  ))}
-                </View>
-              ) : null}
-              <LetaButton title="Accept job" onPress={() => accept(o.id)} />
-            </LetaCard>
-          ))
+          filteredOffers.map((o) =>
+            isPartnerChannelOffer(o) ? (
+              <PartnerOfferCard
+                key={o.id}
+                offer={o}
+                onPress={() => openOffer(o)}
+                onAccept={() => accept(o)}
+              />
+            ) : (
+              <LetaCard key={o.id} style={styles.offer}>
+                <Text style={styles.payout}>{o.payout}</Text>
+                <Text style={styles.offerTitle}>{o.title || `Ticket ${o.ticketId}`}</Text>
+                <Text style={styles.offerMeta}>
+                  {formatMiles(o.distanceMi)} · SLA {o.sla || '4 hr'}
+                  {o.urgent ? ' · Urgent' : ''}
+                </Text>
+                {o.skills?.length ? (
+                  <View style={styles.tags}>
+                    {o.skills.map((s) => (
+                      <View key={s} style={styles.tag}>
+                        <Text style={styles.tagText}>{s}</Text>
+                      </View>
+                    ))}
+                  </View>
+                ) : null}
+                <LetaButton title="Accept job" onPress={() => accept(o)} />
+              </LetaCard>
+            ),
+          )
         )}
       </TechOnboardingGate>
     </Screen>
@@ -171,4 +206,12 @@ const styles = StyleSheet.create({
     borderRadius: theme.radii.pill,
   },
   tagText: { fontSize: 11, fontWeight: '600', color: theme.colors.primary },
+  partnerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: theme.spacing.md,
+    paddingHorizontal: 4,
+  },
+  partnerLabel: { ...theme.typography.bodySmall, color: theme.colors.textSoft, flex: 1, paddingRight: 12 },
 });

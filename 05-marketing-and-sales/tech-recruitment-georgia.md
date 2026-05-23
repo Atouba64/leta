@@ -2,6 +2,8 @@
 
 **North star:** A deep, reliable 1099 bench in **every corner of Georgia**, not only metro Atlanta.
 
+**Anchor map (canonical):** [`../data/georgia-coverage.json`](../data/georgia-coverage.json) · Public: `website/coverage.html` · Recruit by city: [`../website/recruit/georgia-anchor-recruitment.md`](../website/recruit/georgia-anchor-recruitment.md)
+
 ## Who we recruit (four personas)
 
 | Persona | Where | Channel emphasis |

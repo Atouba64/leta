@@ -1,0 +1,367 @@
+/** Canonical GA coverage — keep in sync with data/georgia-coverage.json */
+window.LETA_GEORGIA_COVERAGE = {
+  "version": "2026-05-23",
+  "state": "Georgia",
+  "tagline": "Eighteen anchor markets + Metro Atlanta density — statewide reach without pretending every county is the same.",
+  "corridors": [
+    {
+      "id": "i-75",
+      "name": "I-75",
+      "role": "North–south spine (Dalton → Macon → Valdosta)"
+    },
+    {
+      "id": "i-16",
+      "name": "I-16",
+      "role": "Macon → Savannah east-west freight and retail"
+    },
+    {
+      "id": "i-85",
+      "name": "I-85",
+      "role": "Atlanta → LaGrange → Alabama border west flank"
+    },
+    {
+      "id": "i-985",
+      "name": "I-985",
+      "role": "Gainesville into North GA mountains"
+    },
+    {
+      "id": "i-20",
+      "name": "I-20",
+      "role": "Augusta ↔ Atlanta ↔ Alabama (Columbus leg)"
+    }
+  ],
+  "metroAtlanta": {
+    "id": "metro-atlanta",
+    "name": "Metro Atlanta",
+    "cities": [
+      "Atlanta",
+      "Marietta",
+      "Alpharetta",
+      "Douglasville",
+      "McDonough"
+    ],
+    "region": "core-density",
+    "role": "Highest liquidity, fastest SLA proof, recruit and partner HQ narrative.",
+    "corridors": [
+      "i-75",
+      "i-85",
+      "i-20"
+    ],
+    "recruitPriority": 1,
+    "rolloutPhase": 0,
+    "targetTechsMin": 40,
+    "partnerPitch": "Default overflow bench for national partners; density for sub-4hr SLAs inside the Perimeter and I-285 corridors."
+  },
+  "regions": [
+    {
+      "id": "extremes-corners",
+      "name": "State extremes & corners",
+      "description": "Anchor the geographic box so no partner WO is 'too far from Atlanta' on paper."
+    },
+    {
+      "id": "central-heart",
+      "name": "Central anchors (heart of Georgia)",
+      "description": "Macon is the geographic center (I-75 × I-16). Middle-of-state WOs route here first."
+    },
+    {
+      "id": "deep-south-i75",
+      "name": "Deep South (I-75 corridor)",
+      "description": "South-central logistics and retail between Macon and Florida."
+    },
+    {
+      "id": "north-northeast",
+      "name": "North & Northeast",
+      "description": "Mountains, I-985, and university-heavy north Georgia."
+    },
+    {
+      "id": "western-i85",
+      "name": "Western interstate (I-85 corridor)",
+      "description": "Fills the long gap between Atlanta and Columbus along the Alabama flank."
+    },
+    {
+      "id": "eastern-inland",
+      "name": "Eastern inland",
+      "description": "Rural gap between Augusta and the coast."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "dalton",
+      "name": "Dalton",
+      "region": "extremes-corners",
+      "subregion": "Northwest",
+      "cities": [
+        "Dalton"
+      ],
+      "corridors": [
+        "i-75"
+      ],
+      "role": "I-75 corridor at the Tennessee line; carpet/logistics belt and NW Georgia retail.",
+      "recruitPriority": 2,
+      "rolloutPhase": 2,
+      "targetTechsMin": 3,
+      "partnerPitch": "Northwest corner coverage without routing everything through Atlanta."
+    },
+    {
+      "id": "bainbridge-albany",
+      "name": "Bainbridge / Albany",
+      "region": "extremes-corners",
+      "subregion": "Southwest",
+      "cities": [
+        "Bainbridge",
+        "Albany"
+      ],
+      "corridors": [
+        "i-75"
+      ],
+      "role": "SW corner (FL/AL borders); Albany is the recognized hub for all of southwest Georgia.",
+      "recruitPriority": 2,
+      "rolloutPhase": 3,
+      "targetTechsMin": 4,
+      "partnerPitch": "Southwest GA hub — critical for ag, healthcare, and retail chains south of Macon."
+    },
+    {
+      "id": "savannah-brunswick",
+      "name": "Savannah / Brunswick",
+      "region": "extremes-corners",
+      "subregion": "Southeast coast",
+      "cities": [
+        "Savannah",
+        "Brunswick"
+      ],
+      "corridors": [
+        "i-16"
+      ],
+      "role": "Coastal east; Brunswick pushes to the southeastern corner; port and tourism logistics.",
+      "recruitPriority": 1,
+      "rolloutPhase": 1,
+      "targetTechsMin": 6,
+      "partnerPitch": "Coastal SLA coverage — ports, hospitality, and I-16 retail corridors."
+    },
+    {
+      "id": "augusta",
+      "name": "Augusta",
+      "region": "extremes-corners",
+      "subregion": "East / Northeast",
+      "cities": [
+        "Augusta",
+        "Evans"
+      ],
+      "corridors": [
+        "i-20"
+      ],
+      "role": "SC border; healthcare, manufacturing, and CSRA retail.",
+      "recruitPriority": 1,
+      "rolloutPhase": 1,
+      "targetTechsMin": 5,
+      "partnerPitch": "Eastern extreme — CSRA enterprise and retail without Atlanta drive time."
+    },
+    {
+      "id": "columbus",
+      "name": "Columbus",
+      "region": "extremes-corners",
+      "subregion": "West",
+      "cities": [
+        "Columbus",
+        "Phenix City area"
+      ],
+      "corridors": [
+        "i-85",
+        "i-20"
+      ],
+      "role": "Middle-western anchor on the Alabama border.",
+      "recruitPriority": 1,
+      "rolloutPhase": 1,
+      "targetTechsMin": 5,
+      "partnerPitch": "West GA anchor for Fort Moore corridor and Alabama-border retail."
+    },
+    {
+      "id": "macon-warner-robins",
+      "name": "Macon / Warner Robins",
+      "region": "central-heart",
+      "subregion": "Geographic center",
+      "cities": [
+        "Macon",
+        "Warner Robins"
+      ],
+      "corridors": [
+        "i-75",
+        "i-16"
+      ],
+      "role": "Literal center of GA (I-75 × I-16). Fast reach to any middle-of-state WO.",
+      "recruitPriority": 1,
+      "rolloutPhase": 1,
+      "targetTechsMin": 8,
+      "partnerPitch": "Mandatory central hub — one Macon tech covers more of GA per mile than any other single anchor.",
+      "marketingHighlight": true
+    },
+    {
+      "id": "valdosta",
+      "name": "Valdosta",
+      "region": "deep-south-i75",
+      "subregion": "Deep South",
+      "cities": [
+        "Valdosta"
+      ],
+      "corridors": [
+        "i-75"
+      ],
+      "role": "Deep southern middle on I-75 before Florida.",
+      "recruitPriority": 2,
+      "rolloutPhase": 2,
+      "targetTechsMin": 4,
+      "partnerPitch": "South GA I-75 stop — logistics, education, and FL-border retail."
+    },
+    {
+      "id": "tifton",
+      "name": "Tifton",
+      "region": "deep-south-i75",
+      "subregion": "South-Central",
+      "cities": [
+        "Tifton"
+      ],
+      "corridors": [
+        "i-75"
+      ],
+      "role": "Between Macon and Valdosta; major south-central logistics crossroads.",
+      "recruitPriority": 2,
+      "rolloutPhase": 2,
+      "targetTechsMin": 3,
+      "partnerPitch": "Ag and distribution belt between central and deep south."
+    },
+    {
+      "id": "gainesville",
+      "name": "Gainesville",
+      "region": "north-northeast",
+      "subregion": "Northeast / mountains gateway",
+      "cities": [
+        "Gainesville"
+      ],
+      "corridors": [
+        "i-985"
+      ],
+      "role": "NE Georgia and I-985 into the mountains.",
+      "recruitPriority": 1,
+      "rolloutPhase": 1,
+      "targetTechsMin": 4,
+      "partnerPitch": "Northeast anchor — lake country retail and mountain corridor overflow."
+    },
+    {
+      "id": "athens",
+      "name": "Athens",
+      "region": "north-northeast",
+      "subregion": "Northeast",
+      "cities": [
+        "Athens"
+      ],
+      "corridors": [
+        "i-85"
+      ],
+      "role": "Major regional hub for eastern north Georgia; university and healthcare.",
+      "recruitPriority": 1,
+      "rolloutPhase": 1,
+      "targetTechsMin": 5,
+      "partnerPitch": "Eastern north GA — UGA market and I-85 north corridor."
+    },
+    {
+      "id": "rome",
+      "name": "Rome",
+      "region": "north-northeast",
+      "subregion": "Northwest interior",
+      "cities": [
+        "Rome"
+      ],
+      "corridors": [
+        "i-75"
+      ],
+      "role": "Rugged NW between Atlanta and Tennessee; healthcare and manufacturing.",
+      "recruitPriority": 2,
+      "rolloutPhase": 2,
+      "targetTechsMin": 3,
+      "partnerPitch": "NW interior — covers gap between Atlanta and Dalton."
+    },
+    {
+      "id": "lagrange-newnan",
+      "name": "LaGrange / Newnan",
+      "region": "western-i85",
+      "subregion": "West I-85 flank",
+      "cities": [
+        "LaGrange",
+        "Newnan"
+      ],
+      "corridors": [
+        "i-85"
+      ],
+      "role": "Western I-85 toward Alabama; fills Atlanta–Columbus gap.",
+      "recruitPriority": 2,
+      "rolloutPhase": 2,
+      "targetTechsMin": 5,
+      "partnerPitch": "West-side I-85 bench — automotive, logistics, and Coweta county retail."
+    },
+    {
+      "id": "statesboro",
+      "name": "Statesboro",
+      "region": "eastern-inland",
+      "subregion": "Eastern inland",
+      "cities": [
+        "Statesboro"
+      ],
+      "corridors": [
+        "i-16"
+      ],
+      "role": "University town; fills rural gap between Augusta and Savannah.",
+      "recruitPriority": 2,
+      "rolloutPhase": 2,
+      "targetTechsMin": 3,
+      "partnerPitch": "Inland east — Boro corridor without coast premium pricing."
+    }
+  ],
+  "rolloutPhases": [
+    {
+      "phase": 0,
+      "name": "Core density",
+      "anchors": [
+        "metro-atlanta"
+      ],
+      "goal": "Prove SLA, payouts, and partner pilot KPIs."
+    },
+    {
+      "phase": 1,
+      "name": "Regional hubs",
+      "anchors": [
+        "macon-warner-robins",
+        "savannah-brunswick",
+        "augusta",
+        "columbus",
+        "athens",
+        "gainesville"
+      ],
+      "goal": "Cover the six corners + center so partners can say 'statewide' honestly."
+    },
+    {
+      "phase": 2,
+      "name": "Corridor fill",
+      "anchors": [
+        "valdosta",
+        "tifton",
+        "dalton",
+        "rome",
+        "lagrange-newnan",
+        "statesboro"
+      ],
+      "goal": "Close I-75 / I-85 / I-16 gaps between hubs."
+    },
+    {
+      "phase": 3,
+      "name": "Deep rural & corners",
+      "anchors": [
+        "bainbridge-albany"
+      ],
+      "goal": "SW box complete; long-radius techs with realistic drive-time pricing."
+    }
+  ],
+  "minimumBenchTargets": {
+    "statewideActiveTechs": 80,
+    "notes": "Pilot honesty: market 'statewide coordination' once Phase 1 hubs each have ≥ targetTechsMin; full box after Phase 3."
+  }
+};

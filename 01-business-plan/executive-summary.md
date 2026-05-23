@@ -22,7 +22,7 @@ Leta is an "Uber-meets-IT-Support" platform, initially launching exclusively in 
 
 ## Target Market & Rollout Strategy
 
-- **Phase 1 (Proof of Concept):** State of Georgia (focusing heavily on the Atlanta Metro, Gainesville, and Savannah areas).
+- **Phase 1 (Proof of Concept):** State of Georgia — **eighteen anchor markets** (Metro Atlanta density plus regional hubs: Macon at the geographic center, coastal and border cities, I-75 / I-85 / I-16 corridors). See [`georgia-rollout-strategy.md`](./georgia-rollout-strategy.md) and [`../data/georgia-coverage.json`](../data/georgia-coverage.json).
 - **Target Audience:** Small-to-Medium Businesses (SMBs) needing network setups/repairs, Enterprise branch locations (retail POS systems, server racks), and high-end residential smart-home installations.
 
 ## The Founder's Advantage

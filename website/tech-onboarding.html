@@ -246,15 +246,7 @@
                 <label for="home_metro">Primary Georgia area</label>
                 <select id="home_metro" name="home_metro" required>
                   <option value="">Select…</option>
-                  <option value="Metro Atlanta">Metro Atlanta</option>
-                  <option value="Athens">Athens area</option>
-                  <option value="Augusta">Augusta area</option>
-                  <option value="Columbus">Columbus area</option>
-                  <option value="Macon">Macon area</option>
-                  <option value="Savannah">Savannah area</option>
-                  <option value="North GA / mountains">North Georgia</option>
-                  <option value="South GA / rural">South / rural Georgia</option>
-                  <option value="Other GA">Other Georgia</option>
+                  <!-- Options filled from georgia-coverage-data.js + georgia-coverage-render.js -->
                 </select>
               </div>
               <div class="leta-form__field">
@@ -556,6 +548,8 @@
         }
       })();
     </script>
+    <script src="georgia-coverage-data.js" defer></script>
+    <script src="georgia-coverage-render.js" defer></script>
     <script src="contact-config.js" defer></script>
     <script src="leta-tawk-theme.js" defer></script>
     <script src="leta-live-chat.js" defer></script>

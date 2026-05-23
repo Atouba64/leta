@@ -9,7 +9,7 @@
     <title>Coverage | Leta | Georgia-first field IT</title>
     <meta
       name="description"
-      content="Leta builds depth across Georgia. Metros, edge markets, and rural routes. Before chasing wider geography, with statewide coordination and local realism."
+      content="Leta covers Georgia with 18 anchor markets — Macon at the center, coastal and border hubs, and I-75 / I-85 / I-16 corridors. Metro Atlanta density plus statewide bench."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -72,10 +72,9 @@
       <header class="page-hero">
         <p class="eyebrow eyebrow--section">Georgia first</p>
         <h1>Coverage</h1>
-        <p class="section-deck">
-          We cover the entire state of Georgia with intentional depth: Atlanta and secondary metros, edge markets, and rural
-          routes where “nationwide” networks often go thin. Geography is a product decision. Better to be reliably excellent
-          here than nominally everywhere.
+        <p class="section-deck" data-leta-coverage-tagline>
+          We cover the entire state of Georgia with intentional depth: eighteen anchor markets, interstate corridors, and Metro
+          Atlanta density where SLAs are tightest.
         </p>
         <div class="page-cta">
           <a class="btn btn-primary" href="partners.html">Partner view</a>
@@ -106,6 +105,60 @@
           </div>
         </div>
       </section>
+
+      <section class="section-block" aria-labelledby="coverage-corridors-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Interstate logic</p>
+          <h2 id="coverage-corridors-heading">How techs actually move</h2>
+          <p class="section-deck">
+            Matching respects real corridors — not ruler distance from a single pin in downtown Atlanta.
+          </p>
+        </header>
+        <ul class="coverage-corridors" id="coverage-corridors"></ul>
+      </section>
+
+      <section class="section-block" aria-labelledby="coverage-anchors-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Anchor markets</p>
+          <h2 id="coverage-anchors-heading">Minimum statewide footprint</h2>
+          <p class="section-deck">
+            Partners and techs see the same map: corner anchors, central Macon hub, corridor cities, and rural realism between
+            them.
+          </p>
+        </header>
+        <div id="coverage-anchor-grid"></div>
+      </section>
+
+      <section class="section-block" aria-labelledby="coverage-rollout-heading">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--section">Rollout honesty</p>
+          <h2 id="coverage-rollout-heading">We grow the bench in phases</h2>
+        </header>
+        <div class="bento bento--quad">
+          <div class="tile tile--soft">
+            <h3 class="tile-title">Phase 0 — Atlanta</h3>
+            <p>Prove dispatch, payouts, and partner KPIs where density is highest.</p>
+          </div>
+          <div class="tile tile--soft">
+            <h3 class="tile-title">Phase 1 — Regional hubs</h3>
+            <p>Macon, Savannah, Augusta, Columbus, Athens, Gainesville — honest “statewide” coordination.</p>
+          </div>
+          <div class="tile tile--soft">
+            <h3 class="tile-title">Phase 2 — Corridors</h3>
+            <p>Valdosta, Tifton, Dalton, Rome, LaGrange/Newnan, Statesboro — close the gaps between hubs.</p>
+          </div>
+          <div class="tile tile--soft">
+            <h3 class="tile-title">Phase 3 — Deep SW</h3>
+            <p>Bainbridge / Albany and long-radius rural with drive-time-aware offers.</p>
+          </div>
+        </div>
+        <p class="section-deck">
+          Recruiting in your anchor?
+          <a href="technicians.html#join">Join the Leta Tech crew</a>
+          · Partners:
+          <a href="partners.html">statewide bench pitch</a>
+        </p>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -121,6 +174,8 @@
         · <a data-leta-tel href="tel:+14702526681"><span data-leta-phone-display>(470) 252-6681</span></a>
       </p>
     </footer>
+    <script src="georgia-coverage-data.js" defer></script>
+    <script src="georgia-coverage-render.js" defer></script>
     <script src="contact-config.js" defer></script>
     <script src="leta-tawk-theme.js" defer></script>
     <script src="leta-live-chat.js" defer></script>

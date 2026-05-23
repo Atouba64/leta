@@ -25,9 +25,11 @@
 
 ## Georgia-first wedge (why now)
 
-- We are **building density** in GA metros + rural corridors (not “national someday”).  
-- Pilot = **5–10 WOs** with KPI: fewer status calls, on-time arrival, audit trail.  
+- We are **building density** at **eighteen anchor markets** — Macon (geographic center), corner hubs, and interstate corridors (see [`../../data/georgia-coverage.json`](../../data/georgia-coverage.json)).  
+- Pilot = **5–10 WOs** in *their* anchor city with KPI: fewer status calls, on-time arrival, audit trail.  
 - Low risk for them: **overflow / gap-fill**, not rip-and-replace.
+
+Regional pitch lines: [`../../05-marketing-and-sales/georgia-partner-acquisition-by-region.md`](../../05-marketing-and-sales/georgia-partner-acquisition-by-region.md)
 
 ## Coopetition frame (critical for Barrister-class)
 

@@ -5,7 +5,7 @@
 ## Week 0 — setup
 
 - Complete [`onboarding-checklist.md`](./onboarding-checklist.md)
-- Identify pilot counties (e.g. metro Atlanta + 1 rural)
+- Pick pilot **anchor** from [`../data/georgia-coverage.json`](../data/georgia-coverage.json) (e.g. Macon + Savannah, or ATL + Columbus) — see [`georgia-dispatch-corridors.md`](./georgia-dispatch-corridors.md)
 - Name partner dispatcher + Leta ops owner
 
 ## Week 1 — tickets 1–3
