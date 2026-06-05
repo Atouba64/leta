@@ -10,6 +10,8 @@
     "ios": "npm run ios:device --prefix app",
     "ios:device": "npm run ios:device --prefix app",
     "install:app": "npm install --legacy-peer-deps --prefix app",
-    "install:functions": "npm install --prefix functions"
+    "install:functions": "npm install --prefix functions",
+    "deploy:functions": "npm run deploy --prefix functions",
+    "firebase": "npm exec --prefix functions -- firebase"
   }
 }

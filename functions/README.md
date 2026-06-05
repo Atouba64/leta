@@ -12,12 +12,15 @@ Node 20 · region `us-east1`
 | `createLiveSession` | Start Leta Live escalation + signaling room |
 | `joinLiveSession` | Remote expert joins session |
 | `openclawOpsDigest` | Optional admin draft via local OpenClaw (`OPENCLAW_OPS_ENABLED`) |
+| `letaAgentChat` | Unified AI — public or role-aware (requires `LETA_AGENT_ENABLED`) |
 
 ## HTTP
 
 | Endpoint | Purpose |
 |----------|---------|
-| `api` | Express health check |
+| `api` | Express app |
+| `POST /agent/chat` | Website AI widget + external clients (`LETA_AGENT_ENABLED`) |
+| `GET /health` | Health check |
 | `stripeWebhook` | Stripe `payment_intent.succeeded` → update ticket |
 
 ## Setup

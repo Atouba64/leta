@@ -76,14 +76,25 @@ window.LETA_CONTACT = {
   socialHandleSuggested: "@letatechga",
 
   /**
-   * OpenClaw (optional, not wired to the public site yet).
-   * Operator setup: ../openclaw/README.md
-   * Placeholders: OPENCLAW_URL, OPENCLAW_GATEWAY_TOKEN in openclaw/.env
+   * Leta AI assistant (website widget → Cloud Function → OpenClaw gateway).
+   * Deploy functions with LETA_AGENT_ENABLED=true, then set firebaseProjectId or aiChatApiUrl.
+   * Setup: ../openclaw/README.md · ../openclaw/CHANNELS.md
    */
-  /** Local OpenClaw gateway — operator tools only, not public */
+  aiChatEnabled: true,
+  aiChatLabel: "Ask Leta",
+  aiChatWelcome:
+    "Hi — I'm Leta's AI assistant. Ask about Georgia coverage, becoming a tech, partners, or how Leta works.",
+  /** Firebase project ID — widget builds api URL automatically when aiChatApiUrl is empty */
+  firebaseProjectId: "leta-e7d8d",
+  /** Full URL override, e.g. https://us-east1-YOUR_PROJECT.cloudfunctions.net/api/agent/chat */
+  aiChatApiUrl: "",
+
+  /**
+   * OpenClaw gateway (operator + messaging channels — WhatsApp, Telegram, Discord).
+   * Not called directly from the browser; see openclaw/CHANNELS.md.
+   */
   openclawEnabled: true,
   openclawGatewayUrl: "http://127.0.0.1:18789",
-  /** WhatsApp allowlist placeholder — Leta business line (link device in OpenClaw) */
   openclawWhatsAppPlaceholder: "+14702526681",
   openclawOpsWebhookUrl: "",
 };

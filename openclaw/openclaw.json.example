@@ -4,25 +4,45 @@
       {
         "id": "leta",
         "default": true,
-        "name": "Leta Ops",
-        "workspace": "/home/zongo9/Documents/Github/projects/leta/openclaw/workspace",
-        "model": "google/gemini-2.0-flash"
+        "name": "Leta",
+        "workspace": "/ABSOLUTE/PATH/TO/leta/openclaw/workspace",
+        "model": "google/gemini-2.5-flash"
       }
     ],
     "defaults": {
+      "workspace": "/ABSOLUTE/PATH/TO/leta/openclaw/workspace",
       "model": {
-        "primary": "google/gemini-2.0-flash"
+        "primary": "google/gemini-2.5-flash"
+      },
+      "compaction": {
+        "mode": "safeguard"
       }
     }
   },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
   "channels": {
     "whatsapp": {
-      "dmPolicy": "allowlist",
-      "selfChatMode": true,
+      "dmPolicy": "pairing",
       "allowFrom": ["+14702526681"],
       "groupPolicy": "allowlist",
-      "mediaMaxMb": 50,
-      "debounceMs": 0
+      "mediaMaxMb": 50
+    },
+    "telegram": {
+      "enabled": false,
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "groups": {
+        "*": { "requireMention": true }
+      }
+    },
+    "discord": {
+      "enabled": false,
+      "token": "YOUR_DISCORD_BOT_TOKEN",
+      "dm": { "enabled": true, "policy": "pairing" },
+      "groupPolicy": "allowlist"
     }
   },
   "gateway": {
@@ -41,7 +61,9 @@
   },
   "plugins": {
     "entries": {
-      "whatsapp": { "enabled": true }
+      "whatsapp": { "enabled": true },
+      "telegram": { "enabled": false },
+      "discord": { "enabled": false }
     }
   }
 }

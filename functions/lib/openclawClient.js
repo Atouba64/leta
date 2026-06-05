@@ -4,30 +4,42 @@
  * Budget: no calls when disabled; use local gateway + Gemini free tier.
  */
 
-/**
- * @param {string} userMessage
- * @param {{ agentId?: string, maxTokens?: number }} [opts]
- * @returns {Promise<{ text: string } | null>}
- */
-async function askOpenClaw(userMessage, opts = {}) {
-  if (process.env.OPENCLAW_OPS_ENABLED !== 'true') {
-    return null;
-  }
-
+function openClawBaseConfig() {
   const baseUrl = (process.env.OPENCLAW_URL || '').replace(/\/$/, '');
   const token = process.env.OPENCLAW_GATEWAY_TOKEN;
-  const agentId = opts.agentId || process.env.OPENCLAW_AGENT_ID || 'leta';
+  const agentId = process.env.OPENCLAW_AGENT_ID || 'leta';
+  const configured = Boolean(
+    baseUrl && token && !token.startsWith('YOUR_')
+  );
+  return { baseUrl, token, agentId, configured };
+}
 
-  if (!baseUrl || !token || token.startsWith('YOUR_')) {
+function isOpenClawConfigured() {
+  const ops = process.env.OPENCLAW_OPS_ENABLED === 'true';
+  const agent = process.env.LETA_AGENT_ENABLED === 'true';
+  return (ops || agent) && openClawBaseConfig().configured;
+}
+
+function isAgentChatEnabled() {
+  return process.env.LETA_AGENT_ENABLED === 'true' && openClawBaseConfig().configured;
+}
+
+/**
+ * @param {{ messages: Array<{role: string, content: string}>, agentId?: string, maxTokens?: number }} opts
+ * @returns {Promise<{ text: string } | null>}
+ */
+async function chatWithOpenClaw(opts) {
+  const { baseUrl, token, agentId, configured } = openClawBaseConfig();
+  if (!configured) {
     console.warn('openclawClient: missing OPENCLAW_URL or OPENCLAW_GATEWAY_TOKEN');
     return null;
   }
 
   const url = `${baseUrl}/v1/chat/completions`;
   const body = {
-    model: `openclaw:${agentId}`,
-    messages: [{ role: 'user', content: userMessage }],
-    max_tokens: opts.maxTokens ?? 512,
+    model: `openclaw:${opts.agentId || agentId}`,
+    messages: opts.messages,
+    max_tokens: opts.maxTokens ?? 1024,
   };
 
   const res = await fetch(url, {
@@ -54,13 +66,25 @@ async function askOpenClaw(userMessage, opts = {}) {
   return { text: String(text).trim() };
 }
 
-function isOpenClawConfigured() {
-  return (
-    process.env.OPENCLAW_OPS_ENABLED === 'true' &&
-    process.env.OPENCLAW_URL &&
-    process.env.OPENCLAW_GATEWAY_TOKEN &&
-    !process.env.OPENCLAW_GATEWAY_TOKEN.startsWith('YOUR_')
-  );
+/**
+ * @param {string} userMessage
+ * @param {{ agentId?: string, maxTokens?: number }} [opts]
+ * @returns {Promise<{ text: string } | null>}
+ */
+async function askOpenClaw(userMessage, opts = {}) {
+  if (process.env.OPENCLAW_OPS_ENABLED !== 'true') {
+    return null;
+  }
+  return chatWithOpenClaw({
+    messages: [{ role: 'user', content: userMessage }],
+    agentId: opts.agentId,
+    maxTokens: opts.maxTokens,
+  });
 }
 
-module.exports = { askOpenClaw, isOpenClawConfigured };
+module.exports = {
+  askOpenClaw,
+  chatWithOpenClaw,
+  isOpenClawConfigured,
+  isAgentChatEnabled,
+};

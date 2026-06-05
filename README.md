@@ -57,16 +57,18 @@ npm start                 # from repo root — runs Expo dev client in app/
 # or: cd app && npm run start:dev
 ```
 
-## OpenClaw (optional, budget-friendly)
+## Leta AI (unified assistant)
 
-Local AI ops assistant for drafts and dev help — **Gemini free tier** + **local gateway** (no OpenClaw cloud fee).
+One **Leta brain** for staff, techs, visitors, and messaging apps — **OpenClaw gateway** + **Gemini** + optional **Cloud Function bridge**.
 
-| Piece | Location |
-|-------|----------|
-| Setup guide | [`openclaw/README.md`](./openclaw/README.md) |
-| Placeholders | [`openclaw/.env.example`](./openclaw/.env.example), [`leta/.cursor/mcp.json`](./.cursor/mcp.json) |
-| Agent workspace | [`openclaw/workspace/`](./openclaw/workspace/) |
-| Cloud hook (off by default) | `functions/lib/openclawClient.js` → `openclawOpsDigest` |
+| Surface | How |
+|---------|-----|
+| Website | [`website/leta-ai-chat.js`](./website/leta-ai-chat.js) → `POST /agent/chat` |
+| WhatsApp / Telegram / Discord | [`openclaw/CHANNELS.md`](./openclaw/CHANNELS.md) |
+| App / signed-in users | Callable `letaAgentChat` (role-aware ticket context) |
+| Devs | [`openclaw/README.md`](./openclaw/README.md) + Cursor MCP |
+
+Enable: `LETA_AGENT_ENABLED=true` in `functions/.env`, deploy functions, set `firebaseProjectId` in `website/contact-config.js`.
 
 ## Backend (Firebase)
 

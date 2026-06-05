@@ -1,0 +1,31 @@
+{
+  "company": "Leta",
+  "tagline": "Georgia-first on-demand IT field service — customers, 1099 field techs, fulfillment partners, remote experts.",
+  "website": "https://leta.repair",
+  "phone": "(470) 252-6681",
+  "emails": {
+    "general": "hello@leta.repair",
+    "support": "support@leta.repair",
+    "partners": "partners@leta.repair",
+    "technicians": "techs@leta.repair"
+  },
+  "bookingUrl": "https://cal.com/mabele-liango-zjkn1b/30min",
+  "coverage": {
+    "state": "Georgia",
+    "anchorCount": 18,
+    "metros": "Metro Atlanta · Macon · Savannah · Augusta · Columbus · Athens · Gainesville · Valdosta · Dalton · Albany",
+    "corridors": ["I-75", "I-16", "I-85", "I-985", "I-20"]
+  },
+  "audiences": {
+    "customers": "Order onsite IT with clear status and professional close-out.",
+    "fieldTechs": "Dispatch board, partner + direct offers, faster payouts, escalate to remote experts.",
+    "remoteTechs": "Overwatch via Leta Live video when field techs escalate.",
+    "partners": "Fulfillment capacity in Georgia — partner keeps client relationships; Leta executes."
+  },
+  "recruit": {
+    "link": "https://leta.repair/technicians.html#join",
+    "responseTime": "within 1–2 business days",
+    "requirements": "Smartphone, reliable vehicle, Georgia service area"
+  },
+  "partnerChannels": ["Barrister Global Services (liaison model — phone/email dispatch migrating to platform)"]
+}

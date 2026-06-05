@@ -15,6 +15,7 @@ const stripeSecret = process.env.STRIPE_SECRET_KEY;
 const stripe = stripeSecret ? require('stripe')(stripeSecret) : null;
 
 const { askOpenClaw, isOpenClawConfigured } = require('./lib/openclawClient');
+const { handleLetaAgentChat } = require('./lib/letaAgentChat');
 
 const ROLES = ['customer', 'field_tech', 'remote_tech', 'admin', 'partner_dispatcher'];
 
@@ -328,6 +329,25 @@ app.get('/health', (_req, res) => {
   res.json({ ok: true, service: 'leta-functions' });
 });
 
+/**
+ * Public + authenticated AI chat for website widget and external clients.
+ * POST /agent/chat  { message, history? }  — optional Authorization: Bearer <Firebase ID token>
+ */
+app.post('/agent/chat', express.json({ limit: '32kb' }), async (req, res) => {
+  try {
+    const result = await handleLetaAgentChat(db, admin.auth(), {
+      message: req.body?.message,
+      history: req.body?.history,
+      authorization: req.headers.authorization,
+    });
+    const status = result.ok ? 200 : result.enabled ? 502 : 503;
+    res.status(status).json(result);
+  } catch (err) {
+    console.error('agent/chat', err);
+    res.status(err.status || 500).json({ ok: false, message: err.message || 'Server error' });
+  }
+});
+
 exports.api = onRequest(app);
 
 exports.stripeWebhook = onRequest(async (req, res) => {
@@ -393,4 +413,26 @@ exports.openclawOpsDigest = onCall(async (request) => {
   }
 
   return { enabled: true, ok: true, draft: result.text };
+});
+
+/**
+ * Callable: Leta AI chat — public (no auth) or role-aware when signed in.
+ * Used by mobile app and authenticated clients.
+ */
+exports.letaAgentChat = onCall(async (request) => {
+  const payload = {
+    message: request.data?.message,
+    history: request.data?.history,
+    authorization: request.rawRequest?.headers?.authorization,
+  };
+
+  if (request.auth?.uid) {
+    payload.auth = {
+      uid: request.auth.uid,
+      role: request.auth.token.role || 'customer',
+      tenantId: request.auth.token.tenantId || null,
+    };
+  }
+
+  return handleLetaAgentChat(db, admin.auth(), payload);
 });

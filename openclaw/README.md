@@ -53,9 +53,22 @@ OPENCLAW_OPS_ENABLED=true
 
 Callable `openclawOpsDigest` returns a draft summary when enabled; otherwise `{ enabled: false }` (no API cost).
 
-## WhatsApp / channels
+## Leta AI (unified assistant)
 
-Disabled in `openclaw.json.example` to avoid extra setup cost. Enable later in `~/.openclaw/openclaw.json` if needed.
+| Surface | Doc |
+|---------|-----|
+| Website widget | `website/leta-ai-chat.js` → `functions` `POST /agent/chat` |
+| WhatsApp / Telegram / Discord | [`CHANNELS.md`](./CHANNELS.md) |
+| Audience rules | `workspace/AUDIENCES.md` |
+
+Enable in `functions/.env`: `LETA_AGENT_ENABLED=true` + `OPENCLAW_*`. Set `firebaseProjectId` in `website/contact-config.js`.
+
+Repair broken gateway config:
+
+```bash
+chmod +x openclaw/scripts/repair-openclaw-json.sh
+./openclaw/scripts/repair-openclaw-json.sh
+```
 
 ## Files in this folder
 
