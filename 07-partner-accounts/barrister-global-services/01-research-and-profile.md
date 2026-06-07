@@ -15,3 +15,10 @@ Barrister's biggest systemic friction is the "telephone game" of dispatch—disp
 
 ## 4. Operational Alignment
 *   **Technical Integration:** We offer them a "Georgia Wedge Pilot." They route their hard-to-fill or rural Georgia tickets to Leta. They keep the enterprise customer of record; we act as the invisible white-labeled field force.
+
+## 5. Independent Research & Reference Links
+*For Leta Sales & Operations Staff:* Use the following links to stay updated on Barrister Global Services's latest contracts, corporate culture, and technical shifts.
+*   **Corporate Website:** [Barrister Global Services Official Site](https://www.google.com/search?q=Barrister%20Global%20Services+official+website)
+*   **LinkedIn Profile:** [Barrister Global Services on LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Barrister%20Global%20Services)
+*   **Glassdoor Reviews (Contractor Sentiment):** [Read Reviews](https://www.glassdoor.com/Reviews/index.htm?keyword=Barrister%20Global%20Services) *(Tip: Look for complaints about "dispatch" or "contractors" to understand their current pain points).*
+*   **Recent News & Press Releases:** [Google News: Barrister Global Services](https://news.google.com/search?q=Barrister%20Global%20Services%20IT%20services)

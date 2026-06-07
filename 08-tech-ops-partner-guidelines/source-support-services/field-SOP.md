@@ -15,3 +15,9 @@ There is a massive disconnect between their premium enterprise marketing and the
 ## 4. White-Label & Professionalism
 * Represent Source Support Services to the end-client. 
 * Do not discuss Leta dispatch rates, smart contracts, or AI routing with the client.
+
+## 5. Independent Research & Reference Links
+*For Leta Field Technicians:* If you want to do your own research on Source Support Services before arriving on-site, use the links below to understand who you are representing today.
+*   **Company Overview:** [Source Support Services Official Website](https://www.google.com/search?q=Source%20Support%20Services+official+website)
+*   **What they say about themselves (LinkedIn):** [Source Support Services LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Source%20Support%20Services)
+*   **Tech Community Chatter (Reddit/Spiceworks):** [Search for Source Support Services discussions](https://www.google.com/search?q=site:reddit.com+OR+site:community.spiceworks.com+"Source%20Support%20Services") *(Tip: Other techs often share tips on working with their NOC or dispatchers).*

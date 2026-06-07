@@ -15,3 +15,10 @@ Firms like Techlink historically act as middlemen utilizing administrative porta
 ## 4. Operational Alignment
 * **Technical Integration:** We leverage advanced architectures (Offline-first, CRDTs, SAGA patterns, AI-dispatch) to solve the exact systemic friction points their legacy systems face.
 * **Target:** Convert their chaotic local dispatcher operations in Georgia into a streamlined, API-driven flow executed by Leta.
+
+## 5. Independent Research & Reference Links
+*For Leta Sales & Operations Staff:* Use the following links to stay updated on Techlink Services's latest contracts, corporate culture, and technical shifts.
+*   **Corporate Website:** [Techlink Services Official Site](https://www.google.com/search?q=Techlink%20Services+official+website)
+*   **LinkedIn Profile:** [Techlink Services on LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Techlink%20Services)
+*   **Glassdoor Reviews (Contractor Sentiment):** [Read Reviews](https://www.glassdoor.com/Reviews/index.htm?keyword=Techlink%20Services) *(Tip: Look for complaints about "dispatch" or "contractors" to understand their current pain points).*
+*   **Recent News & Press Releases:** [Google News: Techlink Services](https://news.google.com/search?q=Techlink%20Services%20IT%20services)

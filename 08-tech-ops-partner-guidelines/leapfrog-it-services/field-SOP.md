@@ -18,3 +18,9 @@
 ## 4. Checkout / Release Process
 * Once the work is done, message the Leta Remote Support Specialist via the app.
 * They will verify the photos. Once they give you the "Green Light," you may leave the site.
+
+## 5. Independent Research & Reference Links
+*For Leta Field Technicians:* If you want to do your own research on Leapfrog It Services before arriving on-site, use the links below to understand who you are representing today.
+*   **Company Overview:** [Leapfrog It Services Official Website](https://www.google.com/search?q=Leapfrog%20It%20Services+official+website)
+*   **What they say about themselves (LinkedIn):** [Leapfrog It Services LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Leapfrog%20It%20Services)
+*   **Tech Community Chatter (Reddit/Spiceworks):** [Search for Leapfrog It Services discussions](https://www.google.com/search?q=site:reddit.com+OR+site:community.spiceworks.com+"Leapfrog%20It%20Services") *(Tip: Other techs often share tips on working with their NOC or dispatchers).*

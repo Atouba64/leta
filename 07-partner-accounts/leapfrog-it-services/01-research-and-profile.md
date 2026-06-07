@@ -14,3 +14,10 @@ Leta serves as Leapfrog’s "Statewide Smart Hands." We allow their Level 2 and 
 ## 4. Operational Alignment
 * **Dispatch Model:** Leta integrates as a primary fulfillment arm for their Georgia-based tickets.
 * **Platform Fit:** They can utilize the Leta Partner Portal to inject work orders, or Leta can consume tickets from their existing portal, keeping status updated in real-time.
+
+## 5. Independent Research & Reference Links
+*For Leta Sales & Operations Staff:* Use the following links to stay updated on Leapfrog It Services's latest contracts, corporate culture, and technical shifts.
+*   **Corporate Website:** [Leapfrog It Services Official Site](https://www.google.com/search?q=Leapfrog%20It%20Services+official+website)
+*   **LinkedIn Profile:** [Leapfrog It Services on LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Leapfrog%20It%20Services)
+*   **Glassdoor Reviews (Contractor Sentiment):** [Read Reviews](https://www.glassdoor.com/Reviews/index.htm?keyword=Leapfrog%20It%20Services) *(Tip: Look for complaints about "dispatch" or "contractors" to understand their current pain points).*
+*   **Recent News & Press Releases:** [Google News: Leapfrog It Services](https://news.google.com/search?q=Leapfrog%20It%20Services%20IT%20services)

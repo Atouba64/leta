@@ -15,3 +15,9 @@ Firms like Techlink historically act as middlemen utilizing administrative porta
 ## 4. White-Label & Professionalism
 * Represent TechLink Services to the end-client. 
 * Do not discuss Leta dispatch rates, smart contracts, or AI routing with the client.
+
+## 5. Independent Research & Reference Links
+*For Leta Field Technicians:* If you want to do your own research on Techlink Services before arriving on-site, use the links below to understand who you are representing today.
+*   **Company Overview:** [Techlink Services Official Website](https://www.google.com/search?q=Techlink%20Services+official+website)
+*   **What they say about themselves (LinkedIn):** [Techlink Services LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Techlink%20Services)
+*   **Tech Community Chatter (Reddit/Spiceworks):** [Search for Techlink Services discussions](https://www.google.com/search?q=site:reddit.com+OR+site:community.spiceworks.com+"Techlink%20Services") *(Tip: Other techs often share tips on working with their NOC or dispatchers).*

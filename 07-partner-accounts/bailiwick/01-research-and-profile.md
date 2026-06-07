@@ -15,3 +15,10 @@ Bailiwick’s biggest vulnerability is extreme bureaucratic friction, with work 
 ## 4. Operational Alignment
 * **Technical Integration:** We leverage advanced architectures (Offline-first, CRDTs, SAGA patterns, AI-dispatch) to solve the exact systemic friction points their legacy systems face.
 * **Target:** Convert their chaotic local dispatcher operations in Georgia into a streamlined, API-driven flow executed by Leta.
+
+## 5. Independent Research & Reference Links
+*For Leta Sales & Operations Staff:* Use the following links to stay updated on Bailiwick's latest contracts, corporate culture, and technical shifts.
+*   **Corporate Website:** [Bailiwick Official Site](https://www.google.com/search?q=Bailiwick+official+website)
+*   **LinkedIn Profile:** [Bailiwick on LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Bailiwick)
+*   **Glassdoor Reviews (Contractor Sentiment):** [Read Reviews](https://www.glassdoor.com/Reviews/index.htm?keyword=Bailiwick) *(Tip: Look for complaints about "dispatch" or "contractors" to understand their current pain points).*
+*   **Recent News & Press Releases:** [Google News: Bailiwick](https://news.google.com/search?q=Bailiwick%20IT%20services)

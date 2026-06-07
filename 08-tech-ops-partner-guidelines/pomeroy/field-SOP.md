@@ -15,3 +15,9 @@ When Pomeroy dispatches technicians to swap or install hardware, maintaining pre
 ## 4. White-Label & Professionalism
 * Represent Pomeroy to the end-client. 
 * Do not discuss Leta dispatch rates, smart contracts, or AI routing with the client.
+
+## 5. Independent Research & Reference Links
+*For Leta Field Technicians:* If you want to do your own research on Pomeroy before arriving on-site, use the links below to understand who you are representing today.
+*   **Company Overview:** [Pomeroy Official Website](https://www.google.com/search?q=Pomeroy+official+website)
+*   **What they say about themselves (LinkedIn):** [Pomeroy LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Pomeroy)
+*   **Tech Community Chatter (Reddit/Spiceworks):** [Search for Pomeroy discussions](https://www.google.com/search?q=site:reddit.com+OR+site:community.spiceworks.com+"Pomeroy") *(Tip: Other techs often share tips on working with their NOC or dispatchers).*

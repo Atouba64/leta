@@ -15,3 +15,9 @@
 ## 4. Dress Code & Etiquette
 *   Business casual (polo shirt, neat pants, closed-toe shoes). No prominent logos other than Leta (if approved) or blank attire.
 *   Bring a fully equipped standard IT toolkit (screwdrivers, snips, console cable, ethernet cables).
+
+## 5. Independent Research & Reference Links
+*For Leta Field Technicians:* If you want to do your own research on Barrister Global Services before arriving on-site, use the links below to understand who you are representing today.
+*   **Company Overview:** [Barrister Global Services Official Website](https://www.google.com/search?q=Barrister%20Global%20Services+official+website)
+*   **What they say about themselves (LinkedIn):** [Barrister Global Services LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Barrister%20Global%20Services)
+*   **Tech Community Chatter (Reddit/Spiceworks):** [Search for Barrister Global Services discussions](https://www.google.com/search?q=site:reddit.com+OR+site:community.spiceworks.com+"Barrister%20Global%20Services") *(Tip: Other techs often share tips on working with their NOC or dispatchers).*

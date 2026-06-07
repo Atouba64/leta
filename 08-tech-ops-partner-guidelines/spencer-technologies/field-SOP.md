@@ -15,3 +15,9 @@ Spencer struggles with workforce reliability because they frequently back out of
 ## 4. White-Label & Professionalism
 * Represent Spencer Technologies to the end-client. 
 * Do not discuss Leta dispatch rates, smart contracts, or AI routing with the client.
+
+## 5. Independent Research & Reference Links
+*For Leta Field Technicians:* If you want to do your own research on Spencer Technologies before arriving on-site, use the links below to understand who you are representing today.
+*   **Company Overview:** [Spencer Technologies Official Website](https://www.google.com/search?q=Spencer%20Technologies+official+website)
+*   **What they say about themselves (LinkedIn):** [Spencer Technologies LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Spencer%20Technologies)
+*   **Tech Community Chatter (Reddit/Spiceworks):** [Search for Spencer Technologies discussions](https://www.google.com/search?q=site:reddit.com+OR+site:community.spiceworks.com+"Spencer%20Technologies") *(Tip: Other techs often share tips on working with their NOC or dispatchers).*

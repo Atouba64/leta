@@ -15,3 +15,9 @@ Bailiwick’s biggest vulnerability is extreme bureaucratic friction, with work 
 ## 4. White-Label & Professionalism
 * Represent Bailiwick to the end-client. 
 * Do not discuss Leta dispatch rates, smart contracts, or AI routing with the client.
+
+## 5. Independent Research & Reference Links
+*For Leta Field Technicians:* If you want to do your own research on Bailiwick before arriving on-site, use the links below to understand who you are representing today.
+*   **Company Overview:** [Bailiwick Official Website](https://www.google.com/search?q=Bailiwick+official+website)
+*   **What they say about themselves (LinkedIn):** [Bailiwick LinkedIn](https://www.linkedin.com/search/results/companies/?keywords=Bailiwick)
+*   **Tech Community Chatter (Reddit/Spiceworks):** [Search for Bailiwick discussions](https://www.google.com/search?q=site:reddit.com+OR+site:community.spiceworks.com+"Bailiwick") *(Tip: Other techs often share tips on working with their NOC or dispatchers).*
