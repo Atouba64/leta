@@ -1,0 +1,66 @@
+{
+  "operations": [
+    {
+      "task": "navigation",
+      "letaNative": {
+        "name": "Leta Predictive Routing",
+        "action": "NAVIGATE_INTERNAL"
+      },
+      "alternatives": [
+        {
+          "name": "Google Maps",
+          "os": "universal",
+          "deepLinkIOS": "comgooglemaps://?daddr=${lat},${lng}",
+          "deepLinkAndroid": "google.navigation:q=${lat},${lng}"
+        },
+        {
+          "name": "Waze",
+          "os": "universal",
+          "deepLinkIOS": "waze://?ll=${lat},${lng}&navigate=yes",
+          "deepLinkAndroid": "waze://?ll=${lat},${lng}&navigate=yes"
+        },
+        {
+          "name": "Apple Maps",
+          "os": "ios",
+          "deepLinkIOS": "maps://?daddr=${lat},${lng}"
+        }
+      ]
+    },
+    {
+      "task": "network_scan",
+      "letaNative": {
+        "name": "Leta Network Scraper",
+        "action": "SCAN_INTERNAL"
+      },
+      "alternatives": [
+        {
+          "name": "Fing",
+          "os": "universal",
+          "storeLinkIOS": "https://apps.apple.com/app/fing-network-scanner/id430921107",
+          "storeLinkAndroid": "https://play.google.com/store/apps/details?id=com.overlook.android.fing"
+        },
+        {
+          "name": "WiFiman",
+          "os": "universal",
+          "storeLinkIOS": "https://apps.apple.com/app/ubiquiti-wifiman/id1385561119",
+          "storeLinkAndroid": "https://play.google.com/store/apps/details?id=com.ubnt.usurvey"
+        }
+      ]
+    },
+    {
+      "task": "ssh_terminal",
+      "letaNative": {
+        "name": "Leta WebRTC Shell",
+        "action": "TERMINAL_INTERNAL"
+      },
+      "alternatives": [
+        {
+          "name": "Termius",
+          "os": "universal",
+          "deepLinkIOS": "termius://",
+          "deepLinkAndroid": "termius://"
+        }
+      ]
+    }
+  ]
+}
