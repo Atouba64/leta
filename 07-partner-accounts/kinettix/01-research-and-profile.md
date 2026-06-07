@@ -2,15 +2,16 @@
 
 ## 1. Company Overview
 * **Headquarters:** Cincinnati, OH
-* **Website:** https://kinettix.com
-* **Core Focus:** Global IT field technician dispatcher and aggregator.
+* **Phone:** 888-397-0086
+* **Email:** contact@kinettix.com / global@kinettix.com
+* **Website:** kinettix.com
 
-## 2. Mode of Operation
-Kinettix operates as an aggregator. They do not maintain a massive W2 field workforce. Instead, they act as the coordination and project management layer between large Enterprise/MSP clients and local field technicians. They heavily rely on vetting, dispatching, and managing 1099 IT partners and freelancers globally. Their pain point is managing hundreds of individual freelancers, ensuring SLA compliance, and tracking deliverables.
+## 2. What They Do
+Kinettix offers global IT field service coordination, providing staff augmentation and deployment oversight for MSPs and retail IT.
 
-## 3. How Leta Serves Them
-Leta serves as their primary, trusted "super-vendor" for the entire state of Georgia. Instead of Kinettix dispatchers juggling 30 different individual contractors across Atlanta, Macon, and Savannah, they route all GA tickets to Leta. We handle the local routing, guarantee the SLA, and our portal gives them the API/thread-level visibility they need without having to micromanage the tech.
+## 3. How Leta Solves Their Exact Pain Points
+Because Kinettix is purely focused on managing outcomes and coordinating deployments, they need an impenetrable ecosystem beneath them. Leta serves as the ultimate execution arm. By utilizing Leta's SAGA pattern microservices architecture, Kinettix can ensure that every multi-step transaction (dispatch, parts retrieval, deployment) maintains system-wide data integrity without costly localized failures.
 
 ## 4. Operational Alignment
-* **Dispatch Model:** Leta integrates as a primary fulfillment arm for their Georgia-based tickets.
-* **Platform Fit:** They can utilize the Leta Partner Portal to inject work orders, or Leta can consume tickets from their existing portal, keeping status updated in real-time.
+* **Technical Integration:** We leverage advanced architectures (Offline-first, CRDTs, SAGA patterns, AI-dispatch) to solve the exact systemic friction points their legacy systems face.
+* **Target:** Convert their chaotic local dispatcher operations in Georgia into a streamlined, API-driven flow executed by Leta.

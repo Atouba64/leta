@@ -1,20 +1,18 @@
 # Outreach Strategy: Essintial Enterprise Solutions
 
-## 1. Value Proposition & Key Arguments
-When speaking with Essintial Enterprise Solutions, we must emphasize these core arguments:
-* **Parts + Labor Synchronization:** Leta's portal allows for custom workflows. We can track when a tech picks up a part from your depot and when they arrive on site.
-* **Enterprise Expertise:** We filter for enterprise-grade techs who know how to swap server motherboards, handle SAN storage, and follow strict data-center protocols.
+## 1. The Core Argument & Technical Pitch
+When speaking to Essintial Enterprise Solutions, our differentiator is not just "we have techs." Our differentiator is our technology.
+**Use this specific technical argument:**
+* "Essintial suffers from severe digital execution flaws, notably a 50% job cancellation rate due to logistics failures and extreme hold times for remote technical support. Leta can serve them by integrating our predictive logistics routing to ensure technicians and parts arrive simultaneously. Furthermore, Leta’s offline-first app will eliminate their communication bottlenecks, preventing technicians from sitting on hold to close out tickets."
 
 ## 2. Target Personas
-To break into Essintial Enterprise Solutions, we need to target the following roles:
-* Director of Service Delivery
-* Vendor Relations Manager
-* Logistics and Field Ops Manager
+* VP of Operations
+* Director of Field Services
+* Strategic Vendor Manager
+* Chief Technology Officer (CTO) - (for API Gateway and CRDT integration pitches)
 
-## 3. Contact Avenues
-* Essintial ISP/Partner network application.
-* LinkedIn targeting: Supply Chain & Field Services roles.
-* Direct email campaigns to their partner procurement team.
-
-## 4. The "Leta Difference" Pitch for Essintial Enterprise Solutions
-"You are experts at managing national and global IT portfolios. We are the experts at executing the physical layer in Georgia. By partnering with Leta, you bypass the friction of managing disparate 1099s and gain an invisible, highly accountable field force that makes your SLA compliance effortless."
+## 3. Contact Methods
+* Direct Dial: 800-384-7000 or 717-610-3200
+* Email: N/A
+* Website: essintial.com
+* LinkedIn targeting decision-makers.

@@ -1,20 +1,17 @@
 # Field SOP: Kinettix
 
-## 1. Arrival & White-Labeling
-* **When you arrive:** Introduce yourself. "Hi, I'm the local technician dispatched on behalf of Kinettix." 
-* **Do NOT:** Discuss Leta's payment terms or margins with the site manager. You are there as an extension of Kinettix.
+## 1. Overview for Leta Technicians
+**Who they are:** Kinettix offers global IT field service coordination, providing staff augmentation and deployment oversight for MSPs and retail IT.
 
-## 2. Dress Code & Etiquette
-* Business casual. Collared shirt (polo or button-down), clean work pants/jeans (no rips), and closed-toe shoes.
-* Bring your own basic toolkit, console cable, and laptop with an ethernet port.
+## 2. On-Site & Technical Requirements
+Staff augmentation and coordination. Kinettix relies on multi-step workflows (e.g., go to site A, pick up part, go to site B, install, configure). Follow the specific workflow gates in your Leta app meticulously, as our SAGA pattern architecture syncs these gates directly to their PMs.
 
-## 3. Required Deliverables (DO NOT LEAVE WITHOUT THESE)
-* **Photos:** 
-  1. Photo of the exterior of the building.
-  2. Before photo of the equipment/rack.
-  3. After photo of the completed installation/repair.
-* **Signature:** Digital signature from the Store Manager or Site Contact via the Leta App.
+## 3. Leta Technology Integration
+**How we process this partner:**
+Because Kinettix is purely focused on managing outcomes and coordinating deployments, they need an impenetrable ecosystem beneath them. Leta serves as the ultimate execution arm. By utilizing Leta's SAGA pattern microservices architecture, Kinettix can ensure that every multi-step transaction (dispatch, parts retrieval, deployment) maintains system-wide data integrity without costly localized failures.
 
-## 4. Checkout / Release Process
-* Once the work is done, message the Leta Remote Support Specialist via the app.
-* They will verify the photos. Once they give you the "Green Light," you may leave the site.
+*Note: Because our technology specifically solves their backend problems, you MUST use the Leta App precisely as trained so the data syncs correctly to Kinettix.*
+
+## 4. White-Label & Professionalism
+* Represent Kinettix to the end-client. 
+* Do not discuss Leta dispatch rates, smart contracts, or AI routing with the client.

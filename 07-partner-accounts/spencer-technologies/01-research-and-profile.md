@@ -1,16 +1,17 @@
 # Partner Profile: Spencer Technologies
 
 ## 1. Company Overview
-* **Headquarters:** Medway, MA
-* **Website:** https://spencertech.com
-* **Core Focus:** Retail, QSR (Quick Service Restaurant), and Hospitality IT deployments and support.
+* **Headquarters:** 10 Trotter Drive, Medway, MA 02053
+* **Phone:** 844-264-6363
+* **Email:** info@spencertech.com
+* **Website:** spencertech.com
 
-## 2. Mode of Operation
-Spencer handles massive rollouts (e.g., swapping out POS systems for 500 Starbucks locations) and break/fix services. They have a massive staging facility but rely on a mix of W2 and local partner networks to physically install the hardware on-site across the country. They are highly metric-driven and require strict sign-off procedures.
+## 2. What They Do
+Spencer focuses heavily on retail IT services, providing wireless network upgrades, POS deployments, and rapid rollout support for high-volume retailers.
 
-## 3. How Leta Serves Them
-We provide specialized retail IT hands in Georgia. Because Spencer does high-volume, low-margin deployments, they need techs who show up on time and follow rigid checklists. Leta's mobile check-in and photo-upload requirements ensure Spencer gets exactly the deliverables they need to bill their end-client.
+## 3. How Leta Solves Their Exact Pain Points
+Spencer struggles with workforce reliability because they frequently back out of jobs at the last minute and refuse standard minimum compensation blocks, causing top technicians to blacklist them. Leta can act as their premium labor gateway, using our automated smart-contracts and fair-pay guarantees to funnel the highest-tier talent to Spencer's retail rollouts, ensuring they hit their Service Level Agreements (SLAs).
 
 ## 4. Operational Alignment
-* **Dispatch Model:** Leta integrates as a primary fulfillment arm for their Georgia-based tickets.
-* **Platform Fit:** They can utilize the Leta Partner Portal to inject work orders, or Leta can consume tickets from their existing portal, keeping status updated in real-time.
+* **Technical Integration:** We leverage advanced architectures (Offline-first, CRDTs, SAGA patterns, AI-dispatch) to solve the exact systemic friction points their legacy systems face.
+* **Target:** Convert their chaotic local dispatcher operations in Georgia into a streamlined, API-driven flow executed by Leta.

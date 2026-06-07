@@ -1,20 +1,18 @@
 # Outreach Strategy: CompuCom
 
-## 1. Value Proposition & Key Arguments
-When speaking with CompuCom, we must emphasize these core arguments:
-* **Zero Fixed Cost Expansion:** Expand your Georgia footprint and bid on larger local contracts without hiring a single new W2 technician. Leta provides the elasticity.
-* **Enterprise-Grade Security:** Leta can enforce any background check, badge, or certification requirements CompuCom demands for its strict enterprise clients.
+## 1. The Core Argument & Technical Pitch
+When speaking to CompuCom, our differentiator is not just "we have techs." Our differentiator is our technology.
+**Use this specific technical argument:**
+* "Managing field operations across massive geographic footprints creates opacity. CompuCom can utilize Leta's platform for real-time geographic tracking. Our system actively ingests live traffic data and hardware validation, serving as an invisible force multiplier that guarantees CompuCom's enterprise clients rapid issue resolution and absolute visibility."
 
 ## 2. Target Personas
-To break into CompuCom, we need to target the following roles:
-* VP of Field Services
-* Strategic Sourcing Manager
-* Director of Partner Alliances
+* VP of Operations
+* Director of Field Services
+* Strategic Vendor Manager
+* Chief Technology Officer (CTO) - (for API Gateway and CRDT integration pitches)
 
-## 3. Contact Avenues
-* CompuCom Supplier Diversity and Partner Portal.
-* LinkedIn outreach to Regional VP of Service Delivery.
-* Emailing strategic sourcing/procurement departments.
-
-## 4. The "Leta Difference" Pitch for CompuCom
-"You are experts at managing national and global IT portfolios. We are the experts at executing the physical layer in Georgia. By partnering with Leta, you bypass the friction of managing disparate 1099s and gain an invisible, highly accountable field force that makes your SLA compliance effortless."
+## 3. Contact Methods
+* Direct Dial: 803-228-7400
+* Email: sales@compucom.com
+* Website: compucom.com
+* LinkedIn targeting decision-makers.

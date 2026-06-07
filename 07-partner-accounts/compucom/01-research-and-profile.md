@@ -1,16 +1,17 @@
 # Partner Profile: CompuCom
 
 ## 1. Company Overview
-* **Headquarters:** Fort Mill, SC
-* **Website:** https://www.compucom.com
-* **Core Focus:** Managed workplace services, digital workspace, and hardware support.
+* **Headquarters:** 8106 Calvin Hall Road, Fort Mill, SC 29707
+* **Phone:** 803-228-7400
+* **Email:** sales@compucom.com
+* **Website:** compucom.com
 
-## 2. Mode of Operation
-CompuCom is one of the oldest and largest IT service providers in the US. They service massive enterprise clients. While they have a large W2 workforce, their sheer scale dictates that they use regional sub-contractors for remote areas or massive concurrent deployments.
+## 2. What They Do
+A massive provider of end-to-end managed IT services, hardware lifecycle solutions, and digital workplace consulting for enterprise businesses.
 
-## 3. How Leta Serves Them
-Leta serves as their agile, regional overflow force. When CompuCom wins a massive enterprise contract that strains their local W2 headcount in Georgia, Leta absorbs the overflow seamlessly.
+## 3. How Leta Solves Their Exact Pain Points
+Managing field operations across massive geographic footprints creates opacity. CompuCom can utilize Leta's platform for real-time geographic tracking. Our system actively ingests live traffic data and hardware validation, serving as an invisible force multiplier that guarantees CompuCom's enterprise clients rapid issue resolution and absolute visibility.
 
 ## 4. Operational Alignment
-* **Dispatch Model:** Leta integrates as a primary fulfillment arm for their Georgia-based tickets.
-* **Platform Fit:** They can utilize the Leta Partner Portal to inject work orders, or Leta can consume tickets from their existing portal, keeping status updated in real-time.
+* **Technical Integration:** We leverage advanced architectures (Offline-first, CRDTs, SAGA patterns, AI-dispatch) to solve the exact systemic friction points their legacy systems face.
+* **Target:** Convert their chaotic local dispatcher operations in Georgia into a streamlined, API-driven flow executed by Leta.

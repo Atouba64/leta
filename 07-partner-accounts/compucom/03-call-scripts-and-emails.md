@@ -1,28 +1,23 @@
 # Call Scripts & Emails: CompuCom
 
-## 1. LinkedIn Connection Request (Targeting: VP of Field Services)
-**Subject/Note:** Local IT field coverage in Georgia
-"Hi [Name], I see you manage vendor networks for CompuCom. Leta is an IT field service platform based in GA. We provide a single, SLA-guaranteed tech bench for the entire state so you don't have to juggle multiple 1099s. Would love to connect and share how we support MSPs/NSPs."
-
-## 2. Cold Email - The "Georgia Coverage" Play
-**Subject:** Upgrading your IT field coverage in Georgia
+## 1. The Technical Cold Email
+**Subject:** Resolving your field execution bottlenecks in Georgia
 
 Hi [Name],
 
-I know CompuCom handles massive deployment and support volumes. One of the biggest challenges for NSPs is maintaining reliable, high-quality "hands and eyes" in specific regional markets without expanding W2 headcount. 
+I know CompuCom executes critical deployments globally. I also know that one of the biggest liabilities for enterprise deployments in local markets like Georgia is outdated field execution logistics.
 
-At Leta, we act as the exclusive field fulfillment layer for companies like yours across Georgia. Instead of your dispatchers chasing individual 1099s for ETAs or site photos, our portal gives you:
-* **Live thread visibility** (see when a tech is en route/on site).
-* **Audit-ready closeouts** (mandatory signature and photo uploads).
-* **Anchor coverage** from Atlanta down to Valdosta.
+At Leta, we have built a fulfillment engine specifically to solve the friction your PMs face.
+* **The Solution:** Managing field operations across massive geographic footprints creates opacity. CompuCom can utilize Leta's platform for real-time geographic tracking. Our system actively ingests live traffic data and hardware validation, serving as an invisible force multiplier that guarantees CompuCom's enterprise clients rapid issue resolution and absolute visibility.
 
-We'd love to handle your overflow or become your primary vendor for the state. Are you open to a brief 10-minute intro call next week to see if we're a fit for your vendor network?
+We serve as the ultimate execution arm in Georgia, meaning your team gets real-time data integrity without managing unvetted contractors or dealing with blind spots. 
+
+Are you open to a brief 10-minute technical introduction next week to see how our architecture interfaces with your operations?
 
 Best,
 [Your Name]
 Leta Partnerships
 
-## 3. Discovery Call Script (Key Questions)
-1. "When you deploy to a state like Georgia, are you primarily flying out W2s, or relying on local partners?"
-2. "What is your biggest bottleneck right now with your existing 1099 network? Is it ETAs, quality of work, or close-out documentation?"
-3. "If we could integrate into your workflow and guarantee SLA for all Georgia tickets, what is the process to get Leta approved as a preferred vendor?"
+## 2. The Phone Script (Bypassing the Gatekeeper)
+* **To Gatekeeper:** "Hi, I need to speak to the Director of Field Operations. We are a Georgia-based execution partner looking to integrate our API dispatch gateway with your vendor management system."
+* **To Decision Maker:** Pitch the exact solution: "Managing field operations across massive geographic footprints creates opacity. CompuCom can utilize Leta's platform for real-time geographic tracking. Our system actively ingests live traffic data and hardware validation, serving as an invisible force multiplier that guarantees CompuCom's enterprise clients rapid issue resolution and absolute visibility."
