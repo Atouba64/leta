@@ -1,6 +1,6 @@
 # Leta brand assets (print & merchandise)
 
-High-resolution vectors for **t-shirts, flags, banners, stickers, and pitch decks**. Concept: **“Signal at the edge”** — field pin + bridge to remote node.
+High-resolution vectors for **t-shirts, flags, banners, stickers, and pitch decks**. Concept: **“Signal at the edge”** — field pin with gear (operations), house (onsite), and circuit motifs (connected field + remote support).
 
 Website runtime files stay in [`../website/`](../website/) (`logo-icon.svg`, `favicon.svg`). Use this folder for anything physical or large-format.
 

@@ -1,0 +1,5 @@
+<!-- Shared Leta pin outline  field presence at the edge -->
+<path
+  id="leta-pin"
+  d="M16 2C9.35 2 4.5 6.95 4.5 12.4c0 3.55 1.85 6.8 4.85 8.65L16 30l6.65-9.95c3-1.85 4.85-5.1 4.85-8.65C27.5 6.95 22.65 2 16 2z"
+/>

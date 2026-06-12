@@ -2,7 +2,13 @@
 
 ## Logo concept: “Signal at the edge”
 
-The mark is an **engineered map pin** (onsite field presence) with a **bridge** to a **satellite node** (remote expert / partner visibility on the same ticket). It reads at favicon size and supports light/dark via CSS `mask` + `var(--accent)`.
+The mark is an **engineered map pin** (onsite field presence) with interior motifs:
+
+- **Gear** — field operations and dispatch execution  
+- **House** — onsite service at the customer site  
+- **Circuit traces** — connected field tech, remote support, and partner visibility on the same ticket  
+
+Grid dividers separate the quadrants. It reads at favicon size and supports light/dark via CSS `mask` + `var(--accent)`.
 
 ## Files
 

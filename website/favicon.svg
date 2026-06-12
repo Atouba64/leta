@@ -4,9 +4,33 @@
     fill="#fff"
     d="M16 4.5C10.6 4.5 6.5 8.75 6.5 13.4c0 3.1 1.6 5.95 4.2 7.55L16 27.5l5.3-6.55c2.6-1.6 4.2-4.45 4.2-7.55 0-4.65-4.1-8.9-9.5-8.9z"
   />
-  <path
-    fill="#fff"
-    d="M17.05 14.65 21.7 11.7a1.05 1.05 0 0 1 1.35.35 1.05 1.05 0 0 1-.18 1.45l-4 2.65a1.18 1.18 0 0 1-1.45-.18 1.18 1.18 0 0 1 .18-1.72z"
-  />
-  <circle cx="23.35" cy="11.65" r="2.1" fill="#fff"/>
+  <g fill="#2563eb">
+    <rect x="15.55" y="7.35" width="0.95" height="10.75" rx="0.18" />
+    <rect x="8.35" y="12.45" width="6.75" height="0.82" rx="0.18" />
+    <circle cx="13.25" cy="12.15" r="1.22" />
+    <rect x="12.72" y="9.95" width="1.05" height="1.15" rx="0.18" />
+    <rect x="12.72" y="13.2" width="1.05" height="1.15" rx="0.18" />
+    <rect x="11.15" y="11.65" width="1.15" height="1.05" rx="0.18" />
+    <rect x="14.2" y="11.65" width="1.15" height="1.05" rx="0.18" />
+    <rect x="11.75" y="10.55" width="1.05" height="1.05" rx="0.18" transform="rotate(-45 12.28 11.08)" />
+    <rect x="13.65" y="10.55" width="1.05" height="1.05" rx="0.18" transform="rotate(45 14.18 11.08)" />
+    <rect x="11.75" y="12.95" width="1.05" height="1.05" rx="0.18" transform="rotate(45 12.28 13.48)" />
+    <rect x="13.65" y="12.95" width="1.05" height="1.05" rx="0.18" transform="rotate(-45 14.18 13.48)" />
+    <path d="M18.15 13.35h2.75V11.45L19.52 10.35 18.15 11.45v1.9z" />
+    <rect x="19.95" y="10.45" width="0.65" height="1" rx="0.12" />
+    <rect x="18.85" y="11.95" width="0.48" height="0.48" rx="0.08" />
+    <rect x="19.62" y="11.95" width="0.48" height="0.48" rx="0.08" />
+    <rect x="8.15" y="8.55" width="0.72" height="2" rx="0.18" transform="rotate(-28 8.52 9.55)" />
+    <circle cx="8.15" cy="8.55" r="0.48" />
+    <circle cx="9.15" cy="9.95" r="0.48" />
+    <rect x="20.15" y="8.35" width="0.72" height="2.25" rx="0.18" />
+    <circle cx="20.52" cy="8.35" r="0.48" />
+    <circle cx="20.52" cy="10.25" r="0.48" />
+    <rect x="8.75" y="14.75" width="0.72" height="1.85" rx="0.18" transform="rotate(22 9.12 15.68)" />
+    <circle cx="8.75" cy="14.75" r="0.48" />
+    <circle cx="9.52" cy="16.05" r="0.48" />
+    <rect x="20.15" y="14.55" width="0.72" height="2" rx="0.18" />
+    <circle cx="20.52" cy="14.55" r="0.48" />
+    <circle cx="20.52" cy="16.35" r="0.48" />
+  </g>
 </svg>
