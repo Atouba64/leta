@@ -19,3 +19,5 @@ app/dist/
 app/web-build/
 app/.env
 app/.env.local
+.DS_Store
+**/.DS_Store
