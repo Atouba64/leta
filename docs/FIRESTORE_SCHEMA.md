@@ -31,6 +31,7 @@ Logical model aligned with [`../02-app-documentation/system-architecture.md`](..
 | `travelRadiusMi` | number | Default max distance for offers |
 | `minPayout` | number | USD floor for dispatch filters |
 | `workPreferences` | string[] | e.g. break-fix, partner dispatch |
+| `tier` | string | `Tier 1: Junior Tech` \| `Tier 2: Field Tech` \| `Tier 3: Senior Specialist` |
 
 Auth **custom claims** mirror `role` and `tenantId` (Cloud Function `syncUserRoleClaims`).
 

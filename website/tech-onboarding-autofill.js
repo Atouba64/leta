@@ -74,7 +74,7 @@
 
     setValue("profile_headline", "Atlanta POS, networking and Cradlepoint · 1099");
     setValue("profile_pitch", PITCH);
-    setValue("skill_level_self", "Solid generalist");
+    setValue("skill_level_self", "Tier 2: Field Tech");
     setValue("min_payout_per_job", "$100+");
     checkBoxes("work_preferences", ["Quick break-fix", "Partner dispatch jobs", "Multi-hour projects"]);
 
