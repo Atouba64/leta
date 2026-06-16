@@ -43,6 +43,7 @@ Auth **custom claims** mirror `role` and `tenantId` (Cloud Function `syncUserRol
 | `assignedTechId` | string? | |
 | `remoteTechId` | string? | Overwatch |
 | `partnerId` | string? | Fulfillment partner (`tenantId` on dispatcher) |
+| `sourceSystem` | string? | e.g. `servicechannel`, `fieldglass`, `corrigo`, `fieldnation` |
 | `partnerDispatcherId` | string? | Who created the WO |
 | `partnerWorkOrderId` | string? | Partner’s upstream ticket id |
 | `contactPolicy` | string? | e.g. `poc_only` |
