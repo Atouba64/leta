@@ -6,8 +6,11 @@ Dedicated workspace for **named fulfillment partners**: outreach, pilots, stakeh
 
 ## Structure
 
-| Folder | Purpose |
-|--------|---------|
+| Resource | Purpose |
+|----------|---------|
+| [`00-LETA-PARTNER-ACQUISITION-PLAYBOOK.md`](./00-LETA-PARTNER-ACQUISITION-PLAYBOOK.md) | Master sales and partner-type playbook |
+| [`01-PLATFORM-AND-CHANNEL-TARGETS.md`](./01-PLATFORM-AND-CHANNEL-TARGETS.md) | Strategic list of CMMS, VMS, MSP, and gov channels |
+| [`02-REGISTRATION-URLS.md`](./02-REGISTRATION-URLS.md) | **Registration tracker** — URLs, status, COI, date applied |
 | [`partners-reach/`](./partners-reach/) | Cross-partner **outreach strategy**, templates, cadence |
 | [`barrister-global-services/`](./barrister-global-services/) | **First partner target** — Barrister Global Services Network |
 
