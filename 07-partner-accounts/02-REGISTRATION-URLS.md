@@ -1,6 +1,8 @@
 # Leta Tech — Platform Registration Tracker
 
-Master list of platforms where Leta Tech can register as a partner, approved vendor, or service company. Use this file to track outreach, applications, and onboarding progress.
+Master list of platforms where Leta Tech can register as a partner, approved vendor, or service company.
+
+> **Canonical live tracker:** edit [`data/partner-platform-tracker.json`](../data/partner-platform-tracker.json) → view at [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html). How-to: [`05-TRACKER-HOW-TO-UPDATE.md`](./05-TRACKER-HOW-TO-UPDATE.md). This markdown file is a URL reference mirror; update **status** in the JSON for Leta-wide sync.
 
 **Related docs**
 - Channel targets overview: [`01-PLATFORM-AND-CHANNEL-TARGETS.md`](./01-PLATFORM-AND-CHANNEL-TARGETS.md)
@@ -73,7 +75,7 @@ Master list of platforms where Leta Tech can register as a partner, approved ven
 
 | Platform | Registration URL | Type | Status | Date applied | COI uploaded | Owner | Notes |
 |----------|------------------|------|--------|--------------|--------------|-------|-------|
-| Field Nation (Service Company) | https://fieldnation.com/signup/plus | Self-serve | Not started | | No | | Register as service company (EIN required) |
+| Field Nation (Service Company) | https://fieldnation.com/signup/plus | Self-serve | In progress | 2026-06-16 | No | | Company profile created; pending account information completion (Tier 1 outstanding) |
 | Field Nation (provider) | https://fieldnation.com/technician-signup/form | Self-serve | Not started | | No | | Individual tech signup |
 | WorkMarket (contractors) | https://www.workmarket.com/contractors/join-workmarket | Self-serve | Not started | | No | | Contractor account |
 | WorkMarket (business) | https://www.adp.com/what-we-offer/products/workmarket.aspx | Apply | Not started | | No | | Request demo as dispatch company |
@@ -213,4 +215,4 @@ Master list of platforms where Leta Tech can register as a partner, approved ven
 | Applied | — |
 | Approved / Active | — |
 
-*Last updated: 2026-06-16*
+*Last updated: 2026-06-16 — Field Nation profile created*

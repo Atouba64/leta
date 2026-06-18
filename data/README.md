@@ -3,6 +3,7 @@
 | File | Purpose |
 |------|---------|
 | [`georgia-coverage.json`](./georgia-coverage.json) | **Canonical** Georgia anchor markets, corridors, rollout phases |
+| [`partner-platform-tracker.json`](./partner-platform-tracker.json) | **Canonical** partner & platform outreach/registration status |
 
 ## Sync to website
 
@@ -20,3 +21,13 @@ fs.writeFileSync(
 ```
 
 Also review `website/contact-config.js` (`recruitMetros`, `recruitRegions`) and `app/src/constants/georgiaAnchors.js`.
+
+## Sync partner tracker to website
+
+After editing `partner-platform-tracker.json`:
+
+```bash
+node scripts/sync-partner-tracker.js
+```
+
+Live page: [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html). Guide: [`07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md`](../07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md).

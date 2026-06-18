@@ -10,7 +10,12 @@ Dedicated workspace for **named fulfillment partners**: outreach, pilots, stakeh
 |----------|---------|
 | [`00-LETA-PARTNER-ACQUISITION-PLAYBOOK.md`](./00-LETA-PARTNER-ACQUISITION-PLAYBOOK.md) | Master sales and partner-type playbook |
 | [`01-PLATFORM-AND-CHANNEL-TARGETS.md`](./01-PLATFORM-AND-CHANNEL-TARGETS.md) | Strategic list of CMMS, VMS, MSP, and gov channels |
-| [`02-REGISTRATION-URLS.md`](./02-REGISTRATION-URLS.md) | **Registration tracker** — URLs, status, COI, date applied |
+| [`02-REGISTRATION-URLS.md`](./02-REGISTRATION-URLS.md) | Platform registration **URLs** (markdown mirror) |
+| [`03-WORK-ORDER-SOURCES-GEORGIA.md`](./03-WORK-ORDER-SOURCES-GEORGIA.md) | **All WO sources** — bid sites, gov, MSPs + Leta service fit |
+| [`04-PARTNER-REACH-MASTER-LIST.md`](./04-PARTNER-REACH-MASTER-LIST.md) | **Partner outreach list** — export to Google Sheets/Docs |
+| [`05-TRACKER-HOW-TO-UPDATE.md`](./05-TRACKER-HOW-TO-UPDATE.md) | How to update the canonical tracker |
+| [`../data/partner-platform-tracker.json`](../data/partner-platform-tracker.json) | **Canonical tracker** (platforms + partners) |
+| [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) | **Live viewer** (updates on push to `main`) |
 | [`partners-reach/`](./partners-reach/) | Cross-partner **outreach strategy**, templates, cadence |
 | [`barrister-global-services/`](./barrister-global-services/) | **First partner target** — Barrister Global Services Network |
 

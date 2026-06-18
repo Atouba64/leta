@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Partner &amp; platform tracker | Leta ops</title>
+    <meta name="description" content="Internal Leta tracker for work-order platforms and fulfillment partner outreach." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .ops-tracker { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+      .ops-banner {
+        background: var(--surface-elevated, #f1f5f9);
+        border: 1px solid var(--border, #e2e8f0);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+      .ops-banner a { font-weight: 600; }
+      .ops-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        align-items: center;
+      }
+      .ops-filters label { font-size: 0.85rem; font-weight: 600; }
+      .ops-filters select,
+      .ops-filters input {
+        font: inherit;
+        padding: 0.45rem 0.65rem;
+        border-radius: 8px;
+        border: 1px solid var(--border, #cbd5e1);
+        background: var(--bg, #fff);
+        min-width: 10rem;
+      }
+      .ops-filters input[type="search"] { flex: 1; min-width: 14rem; }
+      .ops-stats { font-size: 0.9rem; color: var(--muted, #64748b); margin-bottom: 0.75rem; }
+      .ops-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border, #e2e8f0); }
+      table.ops-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+      .ops-table th,
+      .ops-table td { padding: 0.65rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border, #e2e8f0); vertical-align: top; }
+      .ops-table th { background: var(--surface-elevated, #f8fafc); font-weight: 700; white-space: nowrap; }
+      .ops-table tr:last-child td { border-bottom: none; }
+      .ops-badge {
+        display: inline-block;
+        padding: 0.15rem 0.5rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+      .ops-badge--not_started { background: #f1f5f9; color: #475569; }
+      .ops-badge--in_progress { background: #fef3c7; color: #92400e; }
+      .ops-badge--applied { background: #dbeafe; color: #1e40af; }
+      .ops-badge--active,
+      .ops-badge--approved { background: #d1fae5; color: #065f46; }
+      .ops-badge--rejected { background: #fee2e2; color: #991b1b; }
+      .ops-kind { font-size: 0.75rem; color: var(--muted, #64748b); }
+      .ops-detail { font-size: 0.82rem; color: var(--muted, #64748b); margin-top: 0.25rem; max-width: 28rem; }
+      .ops-priority { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+      @media (max-width: 720px) {
+        .ops-table th:nth-child(4),
+        .ops-table td:nth-child(4),
+        .ops-table th:nth-child(7),
+        .ops-table td:nth-child(7) { display: none; }
+      }
+    </style>
+    <script src="partner-platform-tracker-data.js" defer></script>
+    <script src="ops-tracker.js" defer></script>
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">ops tracker</span></a
+          >
+        </div>
+      </header>
+    </div>
+
+    <main class="ops-tracker" id="top">
+      <header class="page-hero">
+        <p class="eyebrow eyebrow--section">Internal · Georgia work orders</p>
+        <h1>Partner &amp; platform tracker</h1>
+        <p class="section-deck">
+          Canonical status for bid sites, procurement portals, and named fulfillment partners. Updates when
+          <code>data/partner-platform-tracker.json</code> is pushed to <code>main</code>.
+        </p>
+      </header>
+
+      <div class="ops-banner" id="ops-banner">
+        Loading tracker…
+      </div>
+
+      <div class="ops-filters">
+        <label for="ops-search">Search</label>
+        <input type="search" id="ops-search" placeholder="Name, notes, status…" autocomplete="off" />
+        <label for="ops-kind">Kind</label>
+        <select id="ops-kind">
+          <option value="">All</option>
+          <option value="platform">Platforms</option>
+          <option value="partner">Partners</option>
+        </select>
+        <label for="ops-status">Status</label>
+        <select id="ops-status">
+          <option value="">All statuses</option>
+        </select>
+        <label for="ops-category">Category</label>
+        <select id="ops-category">
+          <option value="">All categories</option>
+        </select>
+      </div>
+
+      <p class="ops-stats" id="ops-stats"></p>
+
+      <div class="ops-table-wrap">
+        <table class="ops-table" id="ops-table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Status</th>
+              <th scope="col">Category</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Updated</th>
+              <th scope="col">Link</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody id="ops-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p><a href="index.html">Leta</a> · <a href="coverage.html">Coverage</a> · <a href="partners.html">Partners</a></p>
+    </footer>
+  </body>
+</html>
