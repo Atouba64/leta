@@ -2,7 +2,7 @@
 
 Master list of platforms where Leta Tech can register as a partner, approved vendor, or service company.
 
-> **Canonical live tracker:** edit [`data/partner-platform-tracker.json`](../data/partner-platform-tracker.json) → view at [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html). How-to: [`05-TRACKER-HOW-TO-UPDATE.md`](./05-TRACKER-HOW-TO-UPDATE.md). This markdown file is a URL reference mirror; update **status** in the JSON for Leta-wide sync.
+> **Canonical live tracker:** edit [`data/partner-platform-tracker.json`](../data/partner-platform-tracker.json) → run `node scripts/sync-partner-tracker.js` → view at [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html). How-to: [`05-TRACKER-HOW-TO-UPDATE.md`](./05-TRACKER-HOW-TO-UPDATE.md).
 
 **Related docs**
 - Channel targets overview: [`01-PLATFORM-AND-CHANNEL-TARGETS.md`](./01-PLATFORM-AND-CHANNEL-TARGETS.md)

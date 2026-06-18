@@ -1,8 +1,8 @@
-(function () {
-  var data = window.LETA_PARTNER_PLATFORM_TRACKER;
+window.initOpsTracker = function (data) {
   if (!data || !data.entries) return;
 
   var meta = data.meta || {};
+  var cfg = data.config || {};
   var statusDefs = data.statusDefinitions || {};
   var categoryDefs = data.categoryDefinitions || {};
 
@@ -14,15 +14,23 @@
   var statusEl = document.getElementById('ops-status');
   var categoryEl = document.getElementById('ops-category');
 
+  if (!banner || !tbody) return;
+
+  var editUrl = cfg.bannerEditLink || meta.githubEditUrl || '#';
+  var howToUrl = cfg.bannerHowToLink || meta.updateGuide || '#';
+
   banner.innerHTML =
     '<strong>Last updated:</strong> ' +
     (meta.lastUpdated || '—') +
     ' · <strong>Entries:</strong> ' +
     data.entries.length +
+    ' · <strong>Source:</strong> <code>data/partner-platform-tracker.json</code>' +
     ' · <a href="' +
-    (meta.githubEditUrl || '#') +
+    editUrl +
     '" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>' +
-    ' · <a href="https://github.com/Atouba64/leta/blob/main/07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md" target="_blank" rel="noopener noreferrer">How to update</a>';
+    ' · <a href="' +
+    howToUrl +
+    '" target="_blank" rel="noopener noreferrer">How to update</a>';
 
   Object.keys(statusDefs).forEach(function (key) {
     var opt = document.createElement('option');
@@ -133,4 +141,4 @@
   statusEl.addEventListener('change', render);
   categoryEl.addEventListener('change', render);
   render();
-})();
+};

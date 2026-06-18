@@ -30,4 +30,6 @@ After editing `partner-platform-tracker.json`:
 node scripts/sync-partner-tracker.js
 ```
 
-Live page: [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) (PIN gate). Guide: [`07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md`](../07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md).
+This writes `website/ops-tracker-data.json` (all page config, partners, platforms). Commit **both** the source JSON and the synced deploy file.
+
+Live page: [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) (PIN in `config.pin`). Guide: [`07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md`](../07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md).

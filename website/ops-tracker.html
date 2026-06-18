@@ -120,6 +120,7 @@
         color: #b91c1c;
       }
     </style>
+    <script src="ops-tracker.js" defer></script>
     <script src="ops-tracker-auth.js" defer></script>
   </head>
   <body>
@@ -139,7 +140,7 @@
     <section class="ops-gate" id="ops-gate" aria-labelledby="ops-gate-title">
       <div class="ops-gate__card">
         <h2 id="ops-gate-title">Ops tracker</h2>
-        <p>Enter your PIN to view partner and platform status.</p>
+        <p id="ops-gate-subtitle">Enter your PIN to view partner and platform status.</p>
         <form id="ops-gate-form" autocomplete="off">
           <div class="ops-gate__field">
             <label for="ops-gate-pin">PIN</label>
@@ -162,11 +163,11 @@
 
     <main class="ops-tracker" id="ops-app" hidden>
       <header class="page-hero">
-        <p class="eyebrow eyebrow--section">Internal · Georgia work orders</p>
-        <h1>Partner &amp; platform tracker</h1>
-        <p class="section-deck">
-          Canonical status for bid sites, procurement portals, and named fulfillment partners. Updates when
-          <code>data/partner-platform-tracker.json</code> is pushed to <code>main</code>.
+        <p class="eyebrow eyebrow--section" id="ops-page-eyebrow">Internal · Georgia work orders</p>
+        <h1 id="ops-page-title">Partner &amp; platform tracker</h1>
+        <p class="section-deck" id="ops-page-deck">
+          Canonical status for bid sites, procurement portals, and named fulfillment partners. Edit
+          <code>data/partner-platform-tracker.json</code>, sync, and push.
         </p>
       </header>
 
