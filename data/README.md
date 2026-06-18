@@ -30,4 +30,4 @@ After editing `partner-platform-tracker.json`:
 node scripts/sync-partner-tracker.js
 ```
 
-Live page: [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html). Guide: [`07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md`](../07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md).
+Live page: [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) (PIN gate). Guide: [`07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md`](../07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md).

@@ -5,7 +5,7 @@ The **canonical** tracker is one file. Everything else mirrors it.
 | What | Where |
 |------|--------|
 | **Source of truth** | [`data/partner-platform-tracker.json`](../../data/partner-platform-tracker.json) |
-| **Live viewer** | [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) |
+| **Live viewer** | [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) (PIN required — ops team only) |
 | **Website bundle** | `website/partner-platform-tracker-data.js` (auto-generated) |
 | **Markdown mirror** | [`02-REGISTRATION-URLS.md`](./02-REGISTRATION-URLS.md) (platform URLs; sync status manually or via chat) |
 

@@ -74,9 +74,53 @@
         .ops-table th:nth-child(7),
         .ops-table td:nth-child(7) { display: none; }
       }
+      .ops-gate {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1.25rem;
+      }
+      .ops-gate__card {
+        width: 100%;
+        max-width: 22rem;
+        padding: 1.75rem;
+        border-radius: 12px;
+        border: 1px solid var(--border, #e2e8f0);
+        background: var(--surface-elevated, #f8fafc);
+        box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+      }
+      .ops-gate__card h2 { margin: 0 0 0.35rem; font-size: 1.25rem; }
+      .ops-gate__card p { margin: 0 0 1.25rem; font-size: 0.9rem; color: var(--muted, #64748b); }
+      .ops-gate__field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+      .ops-gate__field label { font-size: 0.85rem; font-weight: 600; }
+      .ops-gate__field input {
+        font: inherit;
+        padding: 0.55rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid var(--border, #cbd5e1);
+        letter-spacing: 0.2em;
+        text-align: center;
+      }
+      .ops-gate__submit {
+        width: 100%;
+        font: inherit;
+        font-weight: 600;
+        padding: 0.65rem 1rem;
+        border: none;
+        border-radius: 8px;
+        background: #2563eb;
+        color: #fff;
+        cursor: pointer;
+      }
+      .ops-gate__submit:hover { background: #1d4ed8; }
+      .ops-gate__error {
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        color: #b91c1c;
+      }
     </style>
-    <script src="partner-platform-tracker-data.js" defer></script>
-    <script src="ops-tracker.js" defer></script>
+    <script src="ops-tracker-auth.js" defer></script>
   </head>
   <body>
     <div class="site-top">
@@ -92,7 +136,31 @@
       </header>
     </div>
 
-    <main class="ops-tracker" id="top">
+    <section class="ops-gate" id="ops-gate" aria-labelledby="ops-gate-title">
+      <div class="ops-gate__card">
+        <h2 id="ops-gate-title">Ops tracker</h2>
+        <p>Enter your PIN to view partner and platform status.</p>
+        <form id="ops-gate-form" autocomplete="off">
+          <div class="ops-gate__field">
+            <label for="ops-gate-pin">PIN</label>
+            <input
+              id="ops-gate-pin"
+              name="pin"
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              maxlength="12"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <button type="submit" class="ops-gate__submit">Unlock</button>
+          <p class="ops-gate__error" id="ops-gate-error" hidden role="alert">Incorrect PIN. Try again.</p>
+        </form>
+      </div>
+    </section>
+
+    <main class="ops-tracker" id="ops-app" hidden>
       <header class="page-hero">
         <p class="eyebrow eyebrow--section">Internal · Georgia work orders</p>
         <h1>Partner &amp; platform tracker</h1>
@@ -145,7 +213,7 @@
       </div>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="ops-footer">
       <p><a href="index.html">Leta</a> · <a href="coverage.html">Coverage</a> · <a href="partners.html">Partners</a></p>
     </footer>
   </body>
