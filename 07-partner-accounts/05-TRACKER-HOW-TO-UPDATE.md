@@ -126,4 +126,4 @@ Import [`04-PARTNER-REACH-MASTER-LIST.md`](./04-PARTNER-REACH-MASTER-LIST.md) fo
 | `statusDetail` | Company profile created; pending account information completion |
 | `dateStarted` | `2026-06-16` |
 
-Tier 1 still blocked until Workers’ Comp COI + 3 W2 operational employees.
+Still having issues with Tax information.
