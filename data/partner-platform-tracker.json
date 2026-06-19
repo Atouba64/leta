@@ -1,16 +1,16 @@
 {
   "meta": {
     "version": "1.0.0",
-    "lastUpdated": "2026-06-16",
+    "lastUpdated": "2026-06-19",
     "canonicalFile": "data/partner-platform-tracker.json",
     "deployFile": "website/ops-tracker-data.json",
     "liveViewer": "https://leta.repair/ops-tracker.html",
-    "updateGuide": "07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md",
+    "updateGuide": "07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md",
     "githubEditUrl": "https://github.com/Atouba64/leta/edit/main/data/partner-platform-tracker.json",
     "entryCount": 82
   },
   "config": {
-    "pin": "1998",
+    "pin": 1998,
     "page": {
       "eyebrow": "Internal · Georgia work orders",
       "title": "Partner & platform tracker",
@@ -22,7 +22,7 @@
     },
     "bannerEditLink": "https://github.com/Atouba64/leta/edit/main/data/partner-platform-tracker.json",
     "bannerHowToLink": "https://github.com/Atouba64/leta/blob/main/07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md",
-    "googleSheetUrl": ""
+    "googleSheetUrl": "https://docs.google.com/spreadsheets/d/1FveV0DBFNxMC91Gp9qwvEbbI3w0W59uCojFqT0PBNQg/edit"
   },
   "statusDefinitions": {
     "not_started": "Not started",
@@ -84,13 +84,15 @@
       ],
       "status": "in_progress",
       "statusDetail": "Company profile created; pending account information completion (Tier 1: Workers Comp COI + 3 W2 ops employees)",
-      "dateStarted": "2026-06-16",
+      "dateStarted": "Tue Jun 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)",
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 4,
-      "notes": "Service company signup at fieldnation.com/signup/plus. Complete Company Details + Tier 1 requirements when ready."
+      "notes": "Service company signup at fieldnation.com/signup/plus. Complete Company Details + Tier 1 requirements when ready.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "field-nation-provider",
@@ -109,11 +111,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Per-tech signup path; separate from service company account."
+      "notes": "Per-tech signup path; separate from service company account.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "cloudwork-pro",
@@ -132,11 +136,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 5,
-      "notes": "IT-only marketplace; GL insurance required."
+      "notes": "IT-only marketplace; GL insurance required.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "workmarket-contractors",
@@ -155,11 +161,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "workmarket-business",
@@ -177,11 +185,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Request demo as dispatch company."
+      "notes": "Request demo as dispatch company.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "beeline-bsn",
@@ -200,11 +210,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 6,
-      "notes": "Enterprise VMS; Get Started form on BSN site."
+      "notes": "Enterprise VMS; Get Started form on BSN site.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "coupa-supplier",
@@ -222,11 +234,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 7,
-      "notes": "Self-register or customer invitation."
+      "notes": "Self-register or customer invitation.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "sap-ariba",
@@ -244,11 +258,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 7,
-      "notes": "Standard supplier account for PO/invoice rails."
+      "notes": "Standard supplier account for PO/invoice rails.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "team-georgia-marketplace",
@@ -268,11 +284,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 1,
-      "notes": "State supplier registration; NIGP codes required."
+      "notes": "State supplier registration; NIGP codes required.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "atlsuppliers",
@@ -291,11 +309,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 2,
-      "notes": "Municipal vendor registration."
+      "notes": "Municipal vendor registration.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "sam-gov",
@@ -314,11 +334,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 3,
-      "notes": "Required baseline for federal entity registration and subcontracting."
+      "notes": "Required baseline for federal entity registration and subcontracting.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "servicechannel",
@@ -337,11 +359,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 10,
-      "notes": "Client invitation or contact via servicechannel.com."
+      "notes": "Client invitation or contact via servicechannel.com.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "corrigo",
@@ -356,15 +380,17 @@
         "networking",
         "cctv_access"
       ],
-      "status": "not_started",
+      "status": "in_progress",
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 10,
-      "notes": "Invitation from connect@corrigo.com."
+      "notes": "Invitation from connect@corrigo.com.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "sap-fieldglass",
@@ -383,11 +409,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Buyer sends registration link; prep vendor packet."
+      "notes": "Buyer sends registration link; prep vendor packet.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "tech-connect",
@@ -405,11 +433,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Contact for provider onboarding."
+      "notes": "Contact for provider onboarding.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "barrister-global-services",
@@ -428,7 +458,7 @@
       "statusDetail": "First partner target — outreach prep complete; first call (Enver) not logged",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 1,
@@ -453,7 +483,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 8,
@@ -478,7 +508,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": 9,
@@ -503,7 +533,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -527,7 +557,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -552,7 +582,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -576,7 +606,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -600,11 +630,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Installation partner registration."
+      "notes": "Installation partner registration.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "qmerit",
@@ -621,11 +653,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Licensed electrician network."
+      "notes": "Licensed electrician network.",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "fmpilot-cbre",
@@ -643,11 +677,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Enterprise vendor onboarding via CBRE"
+      "notes": "Enterprise vendor onboarding via CBRE",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "verisae",
@@ -665,11 +701,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "fexa",
@@ -686,11 +724,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Select For Service Providers"
+      "notes": "Select For Service Providers",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "fexa-link",
@@ -707,11 +747,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Provider waitlist"
+      "notes": "Provider waitlist",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "magnit-supplier",
@@ -728,11 +770,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "magnit-login",
@@ -749,11 +793,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Login after approval"
+      "notes": "Login after approval",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "cloudwork-pro-guide",
@@ -770,11 +816,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "techlink-services",
@@ -793,7 +841,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -817,7 +865,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -841,7 +889,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -865,7 +913,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -889,7 +937,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -912,11 +960,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Regional field partner"
+      "notes": "Regional field partner",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "diebold-supplier",
@@ -933,11 +983,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "diebold-oracle",
@@ -954,11 +1006,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "After supplier approval"
+      "notes": "After supplier approval",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "diebold-partner",
@@ -975,11 +1029,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "level10",
@@ -997,11 +1053,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "servicepoint",
@@ -1018,11 +1076,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "htg-inc",
@@ -1039,11 +1099,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "zones",
@@ -1060,11 +1122,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "poszeo",
@@ -1081,11 +1145,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "posdata",
@@ -1102,11 +1168,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "georgia-doas",
@@ -1123,11 +1191,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "gsa-mas-eoffer",
@@ -1144,11 +1214,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "gsa-mas-roadmap",
@@ -1165,11 +1237,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "gsa-elibrary",
@@ -1186,11 +1260,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Find prime contractors"
+      "notes": "Find prime contractors",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "sourcewell-portal",
@@ -1208,11 +1284,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "sourcewell-info",
@@ -1229,11 +1307,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "hall-county",
@@ -1250,11 +1330,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "gainesville-ga",
@@ -1271,11 +1353,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Vendor packet W-9"
+      "notes": "Vendor packet W-9",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "usg-procurement",
@@ -1293,11 +1377,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "usac-erate",
@@ -1314,11 +1400,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "sam-contract-search",
@@ -1335,11 +1423,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Find DoD/VA primes"
+      "notes": "Find DoD/VA primes",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "luxer-one-certified",
@@ -1356,11 +1446,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "luxer-one-network",
@@ -1377,11 +1469,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "parcel-pending",
@@ -1398,11 +1492,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "modern-office-systems",
@@ -1419,11 +1515,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "elite-storage",
@@ -1440,11 +1538,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "samsara-resources",
@@ -1461,11 +1561,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "samsara-dev",
@@ -1482,11 +1584,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "radius-telematics",
@@ -1503,11 +1607,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "verizon-connect",
@@ -1524,11 +1630,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "gps-insight",
@@ -1545,11 +1653,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "netradyne",
@@ -1566,11 +1676,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "qmerit-contractors",
@@ -1587,11 +1699,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "blink-installers",
@@ -1608,11 +1722,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "blink-commissioning",
@@ -1629,11 +1745,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "blink-support",
@@ -1650,11 +1768,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "mis-solutions",
@@ -1671,11 +1791,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Metro Atlanta"
+      "notes": "Metro Atlanta",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "vtc-tech",
@@ -1692,11 +1814,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Gainesville / Hall County"
+      "notes": "Gainesville / Hall County",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "navious",
@@ -1713,11 +1837,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Marietta / North GA"
+      "notes": "Marietta / North GA",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "the20-msp",
@@ -1734,11 +1860,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "abel-solutions",
@@ -1755,11 +1883,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Alpharetta"
+      "notes": "Alpharetta",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "advantech",
@@ -1776,11 +1906,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Middle Georgia"
+      "notes": "Middle Georgia",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "integris",
@@ -1797,7 +1929,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -1821,7 +1953,7 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
@@ -1842,11 +1974,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": "Annual MSP networking"
+      "notes": "Annual MSP networking",
+      "repoFolder": "",
+      "outreachStage": ""
     },
     {
       "id": "msp-summit",
@@ -1861,11 +1995,13 @@
       "statusDetail": "",
       "dateStarted": null,
       "dateApplied": null,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "coiUploaded": false,
       "owner": "",
       "priority": null,
-      "notes": ""
+      "notes": "",
+      "repoFolder": "",
+      "outreachStage": ""
     }
   ]
 }
