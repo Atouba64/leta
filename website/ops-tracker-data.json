@@ -5,7 +5,7 @@
     "canonicalFile": "data/partner-platform-tracker.json",
     "deployFile": "website/ops-tracker-data.json",
     "liveViewer": "https://leta.repair/ops-tracker.html",
-    "updateGuide": "07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md",
+    "updateGuide": "07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md",
     "githubEditUrl": "https://github.com/Atouba64/leta/edit/main/data/partner-platform-tracker.json",
     "entryCount": 82,
     "syncedAt": "2026-06-19"
@@ -22,7 +22,7 @@
     },
     "bannerEditLink": "https://github.com/Atouba64/leta/edit/main/data/partner-platform-tracker.json",
     "bannerHowToLink": "https://github.com/Atouba64/leta/blob/main/07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md",
-    "googleSheetUrl": "",
+    "googleSheetUrl": "https://docs.google.com/spreadsheets/d/1FveV0DBFNxMC91Gp9qwvEbbI3w0W59uCojFqT0PBNQg/edit",
     "pinHash": "d54123de468bd42ea00dafbd777f85fe5fa1ff6404d9838c007953c25c92a1c5"
   },
   "statusDefinitions": {
@@ -97,7 +97,7 @@
       "relationshipGoal": "vendor_registration",
       "painHypothesis": "National marketplace for overflow WOs when direct partners are saturated",
       "geographies": "Georgia, national",
-      "dateStarted": "2026-06-16",
+      "dateStarted": "Tue Jun 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)",
       "dateApplied": null,
       "lastTouchDate": null,
       "nextStepDate": "2026-06-23",
@@ -105,8 +105,9 @@
       "blockers": "Tax information validation failing on FN portal",
       "futurePlan": "Secondary WO channel after direct aggregator relationships mature",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Service company signup at fieldnation.com/signup/plus. Complete Company Details + Tier 1 requirements when ready."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Service company signup at fieldnation.com/signup/plus. Complete Company Details + Tier 1 requirements when ready.",
+      "repoFolder": ""
     },
     {
       "id": "field-nation-provider",
@@ -143,8 +144,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Per-tech signup path; separate from service company account."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Per-tech signup path; separate from service company account.",
+      "repoFolder": ""
     },
     {
       "id": "cloudwork-pro",
@@ -181,8 +183,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "IT-only marketplace; GL insurance required."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "IT-only marketplace; GL insurance required.",
+      "repoFolder": ""
     },
     {
       "id": "workmarket-contractors",
@@ -219,8 +222,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "workmarket-business",
@@ -256,8 +260,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Request demo as dispatch company."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Request demo as dispatch company.",
+      "repoFolder": ""
     },
     {
       "id": "beeline-bsn",
@@ -294,8 +299,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Enterprise VMS; Get Started form on BSN site."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Enterprise VMS; Get Started form on BSN site.",
+      "repoFolder": ""
     },
     {
       "id": "coupa-supplier",
@@ -331,8 +337,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Self-register or customer invitation."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Self-register or customer invitation.",
+      "repoFolder": ""
     },
     {
       "id": "sap-ariba",
@@ -368,8 +375,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Standard supplier account for PO/invoice rails."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Standard supplier account for PO/invoice rails.",
+      "repoFolder": ""
     },
     {
       "id": "team-georgia-marketplace",
@@ -407,8 +415,9 @@
       "blockers": "",
       "futurePlan": "Qualified state IT field vendor",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "State supplier registration; NIGP codes required."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "State supplier registration; NIGP codes required.",
+      "repoFolder": ""
     },
     {
       "id": "atlsuppliers",
@@ -445,8 +454,9 @@
       "blockers": "",
       "futurePlan": "City of Atlanta field services vendor",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Municipal vendor registration."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Municipal vendor registration.",
+      "repoFolder": ""
     },
     {
       "id": "sam-gov",
@@ -483,8 +493,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Required baseline for federal entity registration and subcontracting."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Required baseline for federal entity registration and subcontracting.",
+      "repoFolder": ""
     },
     {
       "id": "servicechannel",
@@ -521,8 +532,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Client invitation or contact via servicechannel.com."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Client invitation or contact via servicechannel.com.",
+      "repoFolder": ""
     },
     {
       "id": "corrigo",
@@ -537,7 +549,7 @@
         "networking",
         "cctv_access"
       ],
-      "status": "not_started",
+      "status": "in_progress",
       "statusDetail": "",
       "outreachStage": "",
       "owner": "",
@@ -559,8 +571,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Invitation from connect@corrigo.com."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Invitation from connect@corrigo.com.",
+      "repoFolder": ""
     },
     {
       "id": "sap-fieldglass",
@@ -597,8 +610,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Buyer sends registration link; prep vendor packet."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Buyer sends registration link; prep vendor packet.",
+      "repoFolder": ""
     },
     {
       "id": "tech-connect",
@@ -634,8 +648,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Contact for provider onboarding."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Contact for provider onboarding.",
+      "repoFolder": ""
     },
     {
       "id": "barrister-global-services",
@@ -672,7 +687,7 @@
       "blockers": "No meeting logged yet",
       "futurePlan": "Signed pilot: Barrister WO# on Leta tickets, liaison model, coopetition reference",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "Folder: 07-partner-accounts/barrister-global-services/",
       "repoFolder": "barrister-global-services"
     },
@@ -711,7 +726,7 @@
       "blockers": "",
       "futurePlan": "Local aggregator ally or overflow partner for enterprise rollouts",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "HQ Lawrenceville, GA — priority local target.",
       "repoFolder": "source-support-services"
     },
@@ -750,7 +765,7 @@
       "blockers": "",
       "futurePlan": "POS rollout overflow when Spencer network is saturated",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "Spencer Certified Partner application.",
       "repoFolder": "spencer-technologies"
     },
@@ -789,7 +804,7 @@
       "blockers": "",
       "futurePlan": "Preferred Georgia execution arm for Kinettix-staffed programs",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "kinettix"
     },
@@ -827,7 +842,7 @@
       "blockers": "",
       "futurePlan": "Elastic GA smart-hands so L3 stays remote",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "Atlanta MSP — smart hands pitch.",
       "repoFolder": "leapfrog-it-services"
     },
@@ -866,7 +881,7 @@
       "blockers": "",
       "futurePlan": "Staffing/subcontract lane for enterprise break-fix",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "Atlanta footprint.",
       "repoFolder": "compucom"
     },
@@ -904,7 +919,7 @@
       "blockers": "",
       "futurePlan": "POS rollout partner for NCR-led Georgia deployments",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "HQ Atlanta — retail/POS partner network.",
       "repoFolder": "ncr-voyix"
     },
@@ -942,8 +957,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Installation partner registration."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Installation partner registration.",
+      "repoFolder": ""
     },
     {
       "id": "qmerit",
@@ -978,8 +994,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Licensed electrician network."
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Licensed electrician network.",
+      "repoFolder": ""
     },
     {
       "id": "fmpilot-cbre",
@@ -1015,8 +1032,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Enterprise vendor onboarding via CBRE"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Enterprise vendor onboarding via CBRE",
+      "repoFolder": ""
     },
     {
       "id": "verisae",
@@ -1052,8 +1070,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "fexa",
@@ -1088,8 +1107,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Select For Service Providers"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Select For Service Providers",
+      "repoFolder": ""
     },
     {
       "id": "fexa-link",
@@ -1124,8 +1144,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Provider waitlist"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Provider waitlist",
+      "repoFolder": ""
     },
     {
       "id": "magnit-supplier",
@@ -1160,8 +1181,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "magnit-login",
@@ -1196,8 +1218,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Login after approval"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Login after approval",
+      "repoFolder": ""
     },
     {
       "id": "cloudwork-pro-guide",
@@ -1232,8 +1255,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "techlink-services",
@@ -1270,7 +1294,7 @@
       "blockers": "",
       "futurePlan": "Subcontract bench for locker and network rollouts",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "techlink-services"
     },
@@ -1308,7 +1332,7 @@
       "blockers": "",
       "futurePlan": "Deployment partner for security hardware programs",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "telaid-industries"
     },
@@ -1346,7 +1370,7 @@
       "blockers": "",
       "futurePlan": "Registered vendor for Essintial Georgia WOs",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "essintial-enterprise-solutions"
     },
@@ -1384,7 +1408,7 @@
       "blockers": "",
       "futurePlan": "Subcontract for infrastructure rollouts",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "pomeroy"
     },
@@ -1422,7 +1446,7 @@
       "blockers": "",
       "futurePlan": "Regional execution partner for pre-kitted rollouts",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "bailiwick"
     },
@@ -1459,8 +1483,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Regional field partner"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Regional field partner",
+      "repoFolder": ""
     },
     {
       "id": "diebold-supplier",
@@ -1495,8 +1520,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "diebold-oracle",
@@ -1531,8 +1557,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "After supplier approval"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "After supplier approval",
+      "repoFolder": ""
     },
     {
       "id": "diebold-partner",
@@ -1567,8 +1594,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "level10",
@@ -1604,8 +1632,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "servicepoint",
@@ -1640,8 +1669,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "htg-inc",
@@ -1676,8 +1706,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "zones",
@@ -1712,8 +1743,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "poszeo",
@@ -1748,8 +1780,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "posdata",
@@ -1784,8 +1817,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "georgia-doas",
@@ -1820,8 +1854,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "gsa-mas-eoffer",
@@ -1856,8 +1891,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "gsa-mas-roadmap",
@@ -1892,8 +1928,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "gsa-elibrary",
@@ -1928,8 +1965,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Find prime contractors"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Find prime contractors",
+      "repoFolder": ""
     },
     {
       "id": "sourcewell-portal",
@@ -1965,8 +2003,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "sourcewell-info",
@@ -2001,8 +2040,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "hall-county",
@@ -2037,8 +2077,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "gainesville-ga",
@@ -2073,8 +2114,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Vendor packet W-9"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Vendor packet W-9",
+      "repoFolder": ""
     },
     {
       "id": "usg-procurement",
@@ -2110,8 +2152,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "usac-erate",
@@ -2146,8 +2189,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "sam-contract-search",
@@ -2182,8 +2226,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Find DoD/VA primes"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Find DoD/VA primes",
+      "repoFolder": ""
     },
     {
       "id": "luxer-one-certified",
@@ -2218,8 +2263,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "luxer-one-network",
@@ -2254,8 +2300,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "parcel-pending",
@@ -2290,8 +2337,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "modern-office-systems",
@@ -2326,8 +2374,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "elite-storage",
@@ -2362,8 +2411,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "samsara-resources",
@@ -2398,8 +2448,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "samsara-dev",
@@ -2434,8 +2485,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "radius-telematics",
@@ -2470,8 +2522,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "verizon-connect",
@@ -2506,8 +2559,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "gps-insight",
@@ -2542,8 +2596,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "netradyne",
@@ -2578,8 +2633,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "qmerit-contractors",
@@ -2614,8 +2670,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "blink-installers",
@@ -2650,8 +2707,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "blink-commissioning",
@@ -2686,8 +2744,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "blink-support",
@@ -2722,8 +2781,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "mis-solutions",
@@ -2758,8 +2818,9 @@
       "blockers": "",
       "futurePlan": "Overflow bench for branch-office dispatches",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Metro Atlanta"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Metro Atlanta",
+      "repoFolder": ""
     },
     {
       "id": "vtc-tech",
@@ -2794,8 +2855,9 @@
       "blockers": "",
       "futurePlan": "Mutual overflow for north GA coverage",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Gainesville / Hall County"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Gainesville / Hall County",
+      "repoFolder": ""
     },
     {
       "id": "navious",
@@ -2830,8 +2892,9 @@
       "blockers": "",
       "futurePlan": "Smart-hands subcontract",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Marietta / North GA"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Marietta / North GA",
+      "repoFolder": ""
     },
     {
       "id": "the20-msp",
@@ -2866,8 +2929,9 @@
       "blockers": "",
       "futurePlan": "Atlanta franchise overflow bench",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     },
     {
       "id": "abel-solutions",
@@ -2902,8 +2966,9 @@
       "blockers": "",
       "futurePlan": "Subcontract smart hands",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Alpharetta"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Alpharetta",
+      "repoFolder": ""
     },
     {
       "id": "advantech",
@@ -2938,8 +3003,9 @@
       "blockers": "",
       "futurePlan": "Middle GA execution partner",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Middle Georgia"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Middle Georgia",
+      "repoFolder": ""
     },
     {
       "id": "integris",
@@ -2974,7 +3040,7 @@
       "blockers": "",
       "futurePlan": "Statewide smart-hands backfill for Integris pods",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "integris"
     },
@@ -3012,7 +3078,7 @@
       "blockers": "",
       "futurePlan": "Preferred field vendor for Granite Georgia installs",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
       "notes": "",
       "repoFolder": "granite-telecommunications"
     },
@@ -3047,8 +3113,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": "Annual MSP networking"
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "Annual MSP networking",
+      "repoFolder": ""
     },
     {
       "id": "msp-summit",
@@ -3081,8 +3148,9 @@
       "blockers": "",
       "futurePlan": "",
       "coiUploaded": false,
-      "dateUpdated": "2026-06-16",
-      "notes": ""
+      "dateUpdated": "2026-06-16T04:00:00.000Z",
+      "notes": "",
+      "repoFolder": ""
     }
   ],
   "outreachStageDefinitions": {
