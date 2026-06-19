@@ -33,6 +33,33 @@ const SHEET_PIPELINE = 'Pipeline';
 const SHEET_ACTIVE = 'Active_Queue';
 const ENTRIES_COL_END = 'AG';
 
+/** Columns shown on read-only view tabs (edit source rows on Entries). */
+const PLATFORM_VIEW_HEADERS = [
+  'name',
+  'category',
+  'status',
+  'statusDetail',
+  'registrationUrl',
+  'owner',
+  'pathPriority',
+  'nextStep',
+  'dateUpdated',
+];
+
+const PARTNER_VIEW_HEADERS = [
+  'name',
+  'category',
+  'outreachStage',
+  'status',
+  'owner',
+  'pathPriority',
+  'primaryContact',
+  'nextStep',
+  'blockers',
+  'enterpriseChain',
+  'futurePlan',
+];
+
 const ENTRY_HEADERS = [
   'id',
   'kind',
@@ -80,6 +107,11 @@ function onOpen() {
     .addItem('Test GitHub connection', 'testGitHubConnection')
     .addItem('Open live tracker', 'openLiveTracker')
     .addToUi();
+  try {
+    ensureViewTabsPopulated_();
+  } catch (e) {
+    // Menu still works if auto-refresh fails
+  }
 }
 
 function openLiveTracker() {
@@ -489,11 +521,32 @@ function populateSheetsFromJson_(data) {
 function refreshLinkedTabs() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   setupLinkedTabs_(ss);
+  const counts = countViewTabs_(ss);
   SpreadsheetApp.getUi().alert(
-    'Linked tabs refreshed.\n\n' +
-      '• Platforms / Partners / Pipeline / Active_Queue mirror Entries\n' +
-      '• Dropdowns on Entries use Status, Category, Outreach, Goal defs'
+    'Linked tabs refreshed from Entries.\n\n' +
+      '• Platforms: ' +
+      counts.platforms +
+      ' rows\n' +
+      '• Partners: ' +
+      counts.partners +
+      ' rows\n' +
+      '• Pipeline: ' +
+      counts.partners +
+      ' rows\n' +
+      '• Active_Queue: ' +
+      counts.active +
+      ' rows\n\n' +
+      'Edit data on the Entries tab — then Refresh linked tabs again.'
   );
+}
+
+function ensureViewTabsPopulated_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const entries = ss.getSheetByName(SHEET_ENTRIES);
+  const platforms = ss.getSheetByName(SHEET_PLATFORMS);
+  if (!entries || entries.getLastRow() < 2) return;
+  if (!platforms || platforms.getLastRow() > 1) return;
+  setupLinkedTabs_(ss);
 }
 
 function buildJsonFromSheets_() {
@@ -634,7 +687,9 @@ function writeSheet_(ss, name, headers, rows) {
   sh.clear();
   sh.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold');
   if (rows.length) {
-    sh.getRange(2, 1, rows.length, headers.length).setValues(rows);
+    const numRows = rows.length;
+    const numCols = headers.length;
+    sh.getRange(2, 1, numRows, numCols).setValues(rows);
   }
   sh.setFrozenRows(1);
   sh.autoResizeColumns(1, headers.length);
@@ -713,43 +768,67 @@ function applyEntriesValidations_(ss) {
 }
 
 function refreshFilterTabs_(ss) {
-  const entriesName = SHEET_ENTRIES;
-  const col = ENTRIES_COL_END;
+  populateViewTabsFromEntries_(ss);
+}
 
-  function setFilterFormula_(sheet, formula) {
-    if (!sheet) return;
-    sheet.clear();
-    sheet.getRange(1, 1).setFormula(formula);
-    sheet.setFrozenRows(1);
+function countViewTabs_(ss) {
+  function countDataRows(name) {
+    const sh = ss.getSheetByName(name);
+    if (!sh) return 0;
+    return Math.max(0, sh.getLastRow() - 1);
   }
+  return {
+    platforms: countDataRows(SHEET_PLATFORMS),
+    partners: countDataRows(SHEET_PARTNERS),
+    active: countDataRows(SHEET_ACTIVE),
+  };
+}
 
-  setFilterFormula_(
-    ss.getSheetByName(SHEET_PLATFORMS),
-    '=IFERROR(FILTER(' + entriesName + '!A:' + col + ',' + entriesName + '!B:B="platform"),"No platforms")'
-  );
+function populateViewTabsFromEntries_(ss) {
+  const entries = readEntriesSheet_(ss);
+  const platforms = entries.filter(function (e) {
+    return String(e.kind).toLowerCase() === 'platform';
+  });
+  const partners = entries.filter(function (e) {
+    return String(e.kind).toLowerCase() === 'partner';
+  });
+  const active = partners.filter(function (e) {
+    return (
+      String(e.status) === 'in_progress' ||
+      (e.nextStep != null && String(e.nextStep).trim() !== '')
+    );
+  });
 
-  setFilterFormula_(
-    ss.getSheetByName(SHEET_PARTNERS),
-    '=IFERROR(FILTER(' + entriesName + '!A:' + col + ',' + entriesName + '!B:B="partner"),"No partners")'
-  );
+  sortByPathThenName_(platforms);
+  sortByPathThenName_(partners);
+  sortByPathThenName_(active);
 
-  setFilterFormula_(
-    ss.getSheetByName(SHEET_PIPELINE),
-    '=IFERROR(FILTER(' + entriesName + '!A:' + col + ',' + entriesName + '!B:B="partner"),"No partners in pipeline")'
-  );
+  writeViewSheet_(ss, SHEET_PLATFORMS, PLATFORM_VIEW_HEADERS, platforms);
+  writeViewSheet_(ss, SHEET_PARTNERS, PARTNER_VIEW_HEADERS, partners);
+  writeViewSheet_(ss, SHEET_PIPELINE, PARTNER_VIEW_HEADERS, partners);
+  writeViewSheet_(ss, SHEET_ACTIVE, PARTNER_VIEW_HEADERS, active);
+}
 
-  setFilterFormula_(
-    ss.getSheetByName(SHEET_ACTIVE),
-    '=IFERROR(FILTER(' +
-      entriesName +
-      '!A:' +
-      col +
-      ',(' +
-      entriesName +
-      '!B:B="partner")*((' +
-      entriesName +
-      '!I:I="in_progress")+(' +
-      entriesName +
-      '!AA:AA<>""))),"No active queue items")'
-  );
+function sortByPathThenName_(list) {
+  list.sort(function (a, b) {
+    const pa = a.pathPriority == null ? 9999 : Number(a.pathPriority);
+    const pb = b.pathPriority == null ? 9999 : Number(b.pathPriority);
+    if (pa !== pb) return pa - pb;
+    return String(a.name || '').localeCompare(String(b.name || ''));
+  });
+}
+
+function writeViewSheet_(ss, sheetName, headers, entries) {
+  const rows = entries.map(function (e) {
+    return headers.map(function (h) {
+      return e[h] == null ? '' : e[h];
+    });
+  });
+  writeSheet_(ss, sheetName, headers, rows);
+  const sh = ss.getSheetByName(sheetName);
+  if (sh) {
+    sh.getRange(1, 1, 1, headers.length).setNote(
+      'Read-only view from Entries. Edit on Entries tab, then Leta Tracker → Refresh linked tabs.'
+    );
+  }
 }

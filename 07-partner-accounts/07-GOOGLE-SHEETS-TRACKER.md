@@ -70,7 +70,7 @@ Create empty tabs (or let the script create them): **Platforms**, **Partners**, 
 | **Pull from repo** | **Reload from GitHub** |
 | **Fix linked tabs** | **Refresh linked tabs** |
 
-Edits on **Entries** automatically flow to filtered tabs (Google Sheets `FILTER` formulas).
+Edits on **Entries** → run **Refresh linked tabs** to update Platforms / Partners / Pipeline / Active_Queue.
 
 ---
 
@@ -84,10 +84,12 @@ Edits on **Entries** automatically flow to filtered tabs (Google Sheets `FILTER`
 | **Category_Defs** | Yes | Category labels (dropdown) |
 | **Outreach_Stages** | Yes | Partner pipeline stage (dropdown) |
 | **Goal_Defs** | Yes | Relationship goal types (dropdown) |
-| **Platforms** | No | Live filter: `kind=platform` |
-| **Partners** | No | Live filter: `kind=partner` |
-| **Pipeline** | No | All partners (CRM view) |
-| **Active_Queue** | No | Partners with `in_progress` status or a **nextStep** |
+| **Platforms** | No | **55 platforms** — name, status, URL, next step (from Entries) |
+| **Partners** | No | **27 partners** — CRM fields, call order (from Entries) |
+| **Pipeline** | No | Same as Partners (partner CRM view) |
+| **Active_Queue** | No | Partners in progress or with a next step |
+
+**If Platforms or Partners are empty:** open **Entries** and confirm rows exist, then run **Leta Tracker → Refresh linked tabs**. View tabs copy from Entries (not manual edit).
 
 ---
 
@@ -123,7 +125,7 @@ Netlify rebuilds on every push to `main`.
 
 | Problem | Fix |
 |---------|-----|
-| Filter tabs empty | **Refresh linked tabs** or **Reload from GitHub** |
+| Filter tabs empty | Confirm **Entries** has data → **Refresh linked tabs** |
 | Push fails | **Set up GitHub token** + **Test GitHub connection** |
 | Dropdown missing | **Refresh linked tabs** after editing Status/Category/Outreach defs |
 | Live site stale | Wait ~1 min; hard-refresh ops-tracker |
