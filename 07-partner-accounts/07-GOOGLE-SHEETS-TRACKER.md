@@ -16,10 +16,17 @@ After setup, paste the sheet URL into `Settings` tab → `config.googleSheetUrl`
 
 ### Step 1 — Import current data
 
-From the leta repo root:
+From the **leta repo root** (folder that contains `package.json` and `data/` — **not** `website/`):
 
 ```bash
-node scripts/google-sheets/import-from-json.js
+cd /Users/mabele/Documents/Projects/GitHub/leta
+npm run sheets:export
+```
+
+If your terminal is already in `website/`:
+
+```bash
+node ../scripts/google-sheets/import-from-json.js
 ```
 
 This creates CSVs in `scripts/google-sheets/export/`:
@@ -50,26 +57,30 @@ Create two extra tabs (empty for now):
 
 You should see menu **Leta Tracker** in the menu bar.
 
-### Step 3 — Enable push to GitHub
+### Step 3 — Enable push to GitHub (updates live site)
 
-The menu **Leta Tracker → Save & push to GitHub** calls the Leta Cloud Function, which commits to `main`.
+**Yes — spreadsheet edits can update [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html).** Flow:
 
-1. Create a GitHub **fine-grained PAT** (Contents: read/write on `Atouba64/leta`)
-2. Add to `functions/.env`:
-   ```
-   GITHUB_TOKEN=ghp_...
-   ```
-3. Deploy functions (requires Firebase Blaze):
-   ```bash
-   cd functions && npm run deploy
-   ```
+```
+Google Sheet edit → Leta Tracker → Save & push → GitHub commit → Netlify deploy (~1 min) → live page
+```
+
+**Recommended (no Firebase billing):**
+
+1. Create a GitHub **fine-grained PAT** with **Contents: read and write** on `Atouba64/leta`
+2. In the spreadsheet: **Leta Tracker → Set up GitHub token (one time)** → paste the token
+3. Done — use **Save & push to GitHub** whenever you edit
 
 Optional Apps Script properties (**Project settings → Script properties**):
 
 | Property | Value |
 |----------|--------|
-| `OPS_TRACKER_PIN` | `1998` (or your PIN) |
-| `OPS_TRACKER_API_URL` | Override API URL if needed |
+| `GITHUB_TOKEN` | Set via menu instead, or paste here |
+| `OPS_TRACKER_PIN` | `1998` (or your PIN; must match Settings tab `config.pin`) |
+| `GITHUB_REPO_OWNER` | `Atouba64` (default) |
+| `GITHUB_REPO_NAME` | `leta` (default) |
+
+**Alternative:** deploy the Cloud Function with `GITHUB_TOKEN` in `functions/.env` (requires Firebase Blaze). The script falls back to that API if no token is stored in Apps Script.
 
 ---
 
@@ -82,7 +93,7 @@ Optional Apps Script properties (**Project settings → Script properties**):
 | **Browse platforms** | Open **Platforms** tab (FILTER view — edit on **Entries**) |
 | **Browse partners** | Open **Partners** tab |
 | **Reload from GitHub** | Menu **Leta Tracker → Reload from GitHub** |
-| **Publish changes** | Menu **Leta Tracker → Save & push to GitHub** → enter PIN |
+| **Publish changes** | Menu **Leta Tracker → Save & push to GitHub (updates live site)** → enter PIN `1998` |
 | **View live site** | Menu **Leta Tracker → Open live tracker** or [ops-tracker.html](https://leta.repair/ops-tracker.html) |
 
 After push, Netlify redeploys in ~1 minute → live tracker updates.
@@ -106,12 +117,12 @@ After push, Netlify redeploys in ~1 minute → live tracker updates.
 
 ## What gets committed
 
-On **Save & push**, Apps Script builds JSON and the API commits:
+On **Save & push**, Apps Script builds JSON and commits directly to GitHub (or via Cloud Function fallback):
 
 - `data/partner-platform-tracker.json`
 - `website/ops-tracker-data.json`
 
-Same files as editing locally + `node scripts/sync-partner-tracker.js`.
+Netlify rebuilds the site on every push to `main` → [ops-tracker.html](https://leta.repair/ops-tracker.html) loads the new `ops-tracker-data.json`.
 
 ---
 
@@ -131,8 +142,8 @@ Same files as editing locally + `node scripts/sync-partner-tracker.js`.
 | Problem | Fix |
 |---------|-----|
 | No **Leta Tracker** menu | Reload sheet; run `onOpen` in Apps Script |
-| Push fails: GITHUB_TOKEN | Set token in `functions/.env` and deploy functions |
-| Push fails: Invalid PIN | Use PIN from Settings tab `config.pin` |
+| Push fails: no token | **Leta Tracker → Set up GitHub token** |
+| Push fails: Invalid PIN | Use PIN from Settings tab `config.pin` (default `1998`) |
 | Platforms tab empty | Run **Reload from GitHub** once to install FILTER formulas |
 | Live site stale | Wait ~1 min after push; hard-refresh ops-tracker |
 

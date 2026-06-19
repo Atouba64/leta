@@ -5,9 +5,10 @@
 **Primary editor:** [Google Sheets setup guide](./07-GOOGLE-SHEETS-TRACKER.md)
 
 1. Create **Leta Ops Tracker** in [Google Sheets](https://sheets.google.com)
-2. Import CSVs from `node scripts/google-sheets/import-from-json.js`
+2. Import CSVs: `npm run sheets:export` (from repo root), then upload into the sheet
 3. Paste Apps Script from `scripts/google-sheets/LetaOpsTracker.gs`
-4. Menu **Leta Tracker → Save & push to GitHub** (updates [ops-tracker.html](https://leta.repair/ops-tracker.html))
+4. **Leta Tracker → Set up GitHub token** (one time)
+5. Menu **Leta Tracker → Save & push to GitHub** → updates [ops-tracker.html](https://leta.repair/ops-tracker.html) in ~1 minute
 
 Native **Ctrl+Z** undo in Google Sheets. Tabs: Settings, Entries, Platforms, Partners, definitions.
 

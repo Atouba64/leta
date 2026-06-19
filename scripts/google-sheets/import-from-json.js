@@ -2,7 +2,8 @@
 /**
  * Export data/partner-platform-tracker.json → CSV files for Google Sheets import.
  *
- * Usage:
+ * Usage (from leta repo root — not from website/):
+ *   npm run sheets:export
  *   node scripts/google-sheets/import-from-json.js
  *
  * Then in Google Sheets: File → Import → Upload each CSV into the matching tab.
@@ -14,6 +15,18 @@ const path = require('path');
 const root = path.join(__dirname, '../..');
 const src = path.join(root, 'data/partner-platform-tracker.json');
 const outDir = path.join(__dirname, 'export');
+
+if (!fs.existsSync(src)) {
+  console.error(
+    'Could not find data/partner-platform-tracker.json.\n\n' +
+      'Run this from the leta repo root (not website/):\n\n' +
+      '  cd /path/to/leta\n' +
+      '  npm run sheets:export\n\n' +
+      'If you are in website/, use:\n\n' +
+      '  node ../scripts/google-sheets/import-from-json.js\n'
+  );
+  process.exit(1);
+}
 
 const data = JSON.parse(fs.readFileSync(src, 'utf8'));
 fs.mkdirSync(outDir, { recursive: true });

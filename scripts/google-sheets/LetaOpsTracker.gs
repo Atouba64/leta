@@ -8,9 +8,12 @@
  *    Import each CSV into the matching tab (see 07-GOOGLE-SHEETS-TRACKER.md)
  * 4. Reload the sheet → menu "Leta Tracker" appears
  *
- * Script properties (Project settings → Script properties):
+ * Script properties (Project settings → Script properties, or use menu):
+ *   GITHUB_TOKEN        — required for Save & push (fine-grained PAT, Contents write)
  *   OPS_TRACKER_PIN     — same PIN as ops-tracker.html (default 1998)
- *   OPS_TRACKER_API_URL — optional; defaults to Firebase function below
+ *   GITHUB_REPO_OWNER   — optional (default Atouba64)
+ *   GITHUB_REPO_NAME    — optional (default leta)
+ *   GITHUB_REPO_BRANCH  — optional (default main)
  */
 
 const DEFAULT_API_URL =
@@ -50,9 +53,11 @@ const ENTRY_HEADERS = [
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('Leta Tracker')
+    .addItem('Save & push to GitHub (updates live site)', 'saveAndPush')
     .addItem('Reload from GitHub', 'loadFromGitHub')
-    .addItem('Save & push to GitHub', 'saveAndPush')
     .addSeparator()
+    .addItem('Set up GitHub token (one time)', 'configureGitHubToken')
+    .addItem('Test GitHub connection', 'testGitHubConnection')
     .addItem('Open live tracker', 'openLiveTracker')
     .addToUi();
 }
@@ -99,48 +104,318 @@ function loadFromGitHub() {
   }
 }
 
+function getGitHubConfig_() {
+  const props = PropertiesService.getScriptProperties();
+  return {
+    token: props.getProperty('GITHUB_TOKEN') || '',
+    owner: props.getProperty('GITHUB_REPO_OWNER') || 'Atouba64',
+    repo: props.getProperty('GITHUB_REPO_NAME') || 'leta',
+    branch: props.getProperty('GITHUB_REPO_BRANCH') || 'main',
+  };
+}
+
+function configureGitHubToken() {
+  const ui = SpreadsheetApp.getUi();
+  const existing = getGitHubConfig_().token;
+  const msg = existing
+    ? 'GitHub token is already saved. Enter a new token to replace it, or Cancel.'
+    : 'Create a fine-grained GitHub PAT with Contents read+write on Atouba64/leta.\n\nPaste the token (github_pat_... or ghp_...):';
+  const prompt = ui.prompt('GitHub token setup', msg, ui.ButtonSet.OK_CANCEL);
+  if (prompt.getSelectedButton() !== ui.Button.OK) return;
+  const token = String(prompt.getResponseText() || '').trim();
+  if (!token) {
+    ui.alert('No token entered.');
+    return;
+  }
+  PropertiesService.getScriptProperties().setProperty('GITHUB_TOKEN', token);
+  testGitHubConnection(true);
+}
+
+function testGitHubConnection(silent) {
+  const ui = SpreadsheetApp.getUi();
+  const gh = getGitHubConfig_();
+  if (!gh.token) {
+    ui.alert('No GitHub token saved.\n\nUse: Leta Tracker → Set up GitHub token (one time)');
+    return;
+  }
+  try {
+    const base = 'https://api.github.com/repos/' + gh.owner + '/' + gh.repo;
+    const repoRes = githubFetch_(base, gh.token);
+    if (repoRes.getResponseCode() !== 200) {
+      throw new Error(githubApiError_(repoRes, 'read repo'));
+    }
+    const repo = JSON.parse(repoRes.getContentText());
+    const refRes = githubFetch_(base + '/git/ref/heads/' + gh.branch, gh.token);
+    if (refRes.getResponseCode() !== 200) {
+      throw new Error(githubApiError_(refRes, 'read branch ' + gh.branch));
+    }
+    if (!silent) {
+      ui.alert(
+        'GitHub connection OK!\n\n' +
+          'Repo: ' +
+          repo.full_name +
+          '\nBranch: ' +
+          gh.branch +
+          '\n\nYou can use Save & push to GitHub.'
+      );
+    } else {
+      ui.alert(
+        'GitHub token saved and verified!\n\n' +
+          'Repo: ' +
+          repo.full_name +
+          '\n\nUse: Leta Tracker → Save & push to GitHub'
+      );
+    }
+  } catch (err) {
+    ui.alert(
+      'GitHub token test failed:\n\n' +
+        err.message +
+        '\n\nCheck:\n' +
+        '• Fine-grained PAT on account Atouba64\n' +
+        '• Repository access: only leta\n' +
+        '• Contents: Read and write\n' +
+        '• Token not expired'
+    );
+  }
+}
+
+function githubApiError_(res, step) {
+  const code = res.getResponseCode();
+  const text = res.getContentText();
+  try {
+    const json = JSON.parse(text);
+    return step + ' failed (HTTP ' + code + '): ' + (json.message || text).slice(0, 200);
+  } catch (e) {
+    return step + ' failed (HTTP ' + code + '): ' + String(text).replace(/<[^>]+>/g, ' ').slice(0, 200);
+  }
+}
+
+function verifyPin_(pin) {
+  return String(pin) === String(getPin());
+}
+
+function sha256Hex_(text) {
+  const bytes = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, text);
+  return bytes
+    .map(function (b) {
+      const v = (b < 0 ? b + 256 : b).toString(16);
+      return v.length === 1 ? '0' + v : v;
+    })
+    .join('');
+}
+
+function preparePartnerTrackerFiles_(sourceInput) {
+  const source = JSON.parse(JSON.stringify(sourceInput));
+  if (!source.config) source.config = {};
+
+  const deploy = JSON.parse(JSON.stringify(source));
+  if (source.config.pin) {
+    deploy.config.pinHash = sha256Hex_(String(source.config.pin));
+    delete deploy.config.pin;
+  }
+  if (deploy.config.pinHash && deploy.config.pin) delete deploy.config.pin;
+
+  const today = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd');
+  source.meta = source.meta || {};
+  source.meta.entryCount = (source.entries || []).length;
+  source.meta.lastUpdated = today;
+
+  deploy.meta = deploy.meta || {};
+  deploy.meta.entryCount = source.meta.entryCount;
+  deploy.meta.lastUpdated = today;
+  deploy.meta.syncedAt = today;
+
+  return {
+    sourceContent: JSON.stringify(source, null, 2) + '\n',
+    deployContent: JSON.stringify(deploy, null, 2) + '\n',
+  };
+}
+
+function githubFetch_(url, token, options) {
+  const headers = {
+    Authorization: 'Bearer ' + token,
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  };
+  const opts = options || {};
+  opts.headers = Object.assign(headers, opts.headers || {});
+  opts.muteHttpExceptions = true;
+  return UrlFetchApp.fetch(url, opts);
+}
+
+function commitFilesToGitHub_(cfg, message, files) {
+  try {
+    return commitFilesViaGitApi_(cfg, message, files);
+  } catch (gitErr) {
+    // Contents API works more reliably with fine-grained PATs
+    return commitFilesViaContentsApi_(cfg, message, files, gitErr.message);
+  }
+}
+
+function commitFilesViaGitApi_(cfg, message, files) {
+  const base = 'https://api.github.com/repos/' + cfg.owner + '/' + cfg.repo;
+  const refUrl = base + '/git/ref/heads/' + cfg.branch;
+
+  const refRes = githubFetch_(refUrl, cfg.token);
+  if (refRes.getResponseCode() !== 200) {
+    throw new Error(githubApiError_(refRes, 'read branch'));
+  }
+  const parentSha = JSON.parse(refRes.getContentText()).object.sha;
+
+  const commitRes = githubFetch_(base + '/git/commits/' + parentSha, cfg.token);
+  if (commitRes.getResponseCode() !== 200) {
+    throw new Error(githubApiError_(commitRes, 'read commit'));
+  }
+  const parentCommit = JSON.parse(commitRes.getContentText());
+
+  const treeItems = [];
+  files.forEach(function (file) {
+    const blobRes = githubFetch_(base + '/git/blobs', cfg.token, {
+      method: 'post',
+      contentType: 'application/json',
+      payload: JSON.stringify({ content: file.content, encoding: 'utf-8' }),
+    });
+    if (blobRes.getResponseCode() !== 201) {
+      throw new Error(githubApiError_(blobRes, 'upload ' + file.path));
+    }
+    const blob = JSON.parse(blobRes.getContentText());
+    treeItems.push({ path: file.path, mode: '100644', type: 'blob', sha: blob.sha });
+  });
+
+  const treeRes = githubFetch_(base + '/git/trees', cfg.token, {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify({ base_tree: parentCommit.tree.sha, tree: treeItems }),
+  });
+  if (treeRes.getResponseCode() !== 201) {
+    throw new Error(githubApiError_(treeRes, 'create tree'));
+  }
+  const tree = JSON.parse(treeRes.getContentText());
+
+  const newCommitRes = githubFetch_(base + '/git/commits', cfg.token, {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify({ message: message, tree: tree.sha, parents: [parentSha] }),
+  });
+  if (newCommitRes.getResponseCode() !== 201) {
+    throw new Error(githubApiError_(newCommitRes, 'create commit'));
+  }
+  const newCommit = JSON.parse(newCommitRes.getContentText());
+
+  const updateRes = githubFetch_(refUrl, cfg.token, {
+    method: 'patch',
+    contentType: 'application/json',
+    payload: JSON.stringify({ sha: newCommit.sha }),
+  });
+  if (updateRes.getResponseCode() !== 200) {
+    throw new Error(githubApiError_(updateRes, 'update branch'));
+  }
+
+  return {
+    sha: newCommit.sha,
+    url: 'https://github.com/' + cfg.owner + '/' + cfg.repo + '/commit/' + newCommit.sha,
+  };
+}
+
+function getFileSha_(cfg, path) {
+  const url =
+    'https://api.github.com/repos/' + cfg.owner + '/' + cfg.repo + '/contents/' + path + '?ref=' + cfg.branch;
+  const res = githubFetch_(url, cfg.token);
+  if (res.getResponseCode() === 404) return null;
+  if (res.getResponseCode() !== 200) {
+    throw new Error(githubApiError_(res, 'read ' + path));
+  }
+  return JSON.parse(res.getContentText()).sha;
+}
+
+function putFileViaContents_(cfg, path, content, message, sha) {
+  const url =
+    'https://api.github.com/repos/' + cfg.owner + '/' + cfg.repo + '/contents/' + path;
+  const body = {
+    message: message,
+    content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
+    branch: cfg.branch,
+  };
+  if (sha) body.sha = sha;
+  const res = githubFetch_(url, cfg.token, {
+    method: 'put',
+    contentType: 'application/json',
+    payload: JSON.stringify(body),
+  });
+  if (res.getResponseCode() !== 200 && res.getResponseCode() !== 201) {
+    throw new Error(githubApiError_(res, 'write ' + path));
+  }
+  const json = JSON.parse(res.getContentText());
+  return json.commit && json.commit.html_url;
+}
+
+function commitFilesViaContentsApi_(cfg, message, files, priorError) {
+  let lastUrl = '';
+  files.forEach(function (file, i) {
+    const sha = getFileSha_(cfg, file.path);
+    const fileMessage = files.length > 1 ? message + ' (' + (i + 1) + '/' + files.length + ')' : message;
+    lastUrl =
+      putFileViaContents_(cfg, file.path, file.content, fileMessage, sha) || lastUrl;
+  });
+  if (!lastUrl) {
+    throw new Error(priorError || 'Contents API commit failed');
+  }
+  return { sha: '', url: lastUrl };
+}
+
 function saveAndPush() {
   const ui = SpreadsheetApp.getUi();
   const pinPrompt = ui.prompt('Ops tracker PIN', 'Enter PIN to publish:', ui.ButtonSet.OK_CANCEL);
   if (pinPrompt.getSelectedButton() !== ui.Button.OK) return;
 
   const pin = pinPrompt.getResponseText();
+  if (!verifyPin_(pin)) {
+    ui.alert('Incorrect PIN.');
+    return;
+  }
+
   let data;
   try {
     data = buildJsonFromSheets_();
+    // Always store this sheet URL on publish
+    data.config.googleSheetUrl = SpreadsheetApp.getActiveSpreadsheet().getUrl();
   } catch (err) {
     ui.alert('Build JSON failed: ' + err.message);
     return;
   }
 
-  const payload = {
-    pin: pin,
-    data: data,
-    commitMessage:
-      'chore(ops-tracker): Google Sheets update (' + (data.meta?.lastUpdated || 'sheet') + ')',
-  };
+  const commitMessage =
+    'chore(ops-tracker): Google Sheets update (' + (data.meta?.lastUpdated || 'sheet') + ')';
+
+  const files = preparePartnerTrackerFiles_(data);
+  const gh = getGitHubConfig_();
+
+  if (!gh.token) {
+    ui.alert(
+      'No GitHub token saved.\n\n' +
+        '1. Leta Tracker → Set up GitHub token (one time)\n' +
+        '2. Leta Tracker → Test GitHub connection\n' +
+        '3. Try Save & push again'
+    );
+    return;
+  }
 
   try {
-    const res = UrlFetchApp.fetch(getApiUrl(), {
-      method: 'post',
-      contentType: 'application/json',
-      payload: JSON.stringify(payload),
-      muteHttpExceptions: true,
-    });
-    const body = JSON.parse(res.getContentText());
-    if (res.getResponseCode() !== 200 || !body.ok) {
-      throw new Error(body.message || 'HTTP ' + res.getResponseCode());
-    }
+    const result = commitFilesToGitHub_(gh, commitMessage, [
+      { path: 'data/partner-platform-tracker.json', content: files.sourceContent },
+      { path: 'website/ops-tracker-data.json', content: files.deployContent },
+    ]);
     ui.alert(
       'Published to GitHub!\n\n' +
-        (body.commitUrl || '') +
-        '\n\nops-tracker.html updates in ~1 minute after Netlify deploy.'
+        result.url +
+        '\n\nhttps://leta.repair/ops-tracker.html will update in ~1 minute (Netlify deploy).'
     );
   } catch (err) {
     ui.alert(
-      'Push failed: ' +
+      'Push failed:\n\n' +
         err.message +
-        '\n\nEnsure GITHUB_TOKEN is set on Cloud Functions (see 07-GOOGLE-SHEETS-TRACKER.md).'
+        '\n\nTry: Leta Tracker → Test GitHub connection\n' +
+        'Re-save token if expired or permissions changed.'
     );
   }
 }

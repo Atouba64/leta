@@ -13,7 +13,6 @@ function preparePartnerTrackerFiles(sourceInput) {
     deploy.config.pinHash = crypto.createHash('sha256').update(String(source.config.pin)).digest('hex');
     delete deploy.config.pin;
   }
-  delete deploy.config.pinHash;
 
   const today = new Date().toISOString().slice(0, 10);
   source.meta = source.meta || {};
