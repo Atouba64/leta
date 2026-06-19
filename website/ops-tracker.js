@@ -28,7 +28,7 @@ window.initOpsTracker = function (data) {
     ' · <a href="' +
     editUrl +
     '" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>' +
-    ' · <a href="ops-tracker-sheet.html">Spreadsheet editor</a>' +
+    ' · <a href="https://github.com/Atouba64/leta/blob/main/07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md" target="_blank" rel="noopener noreferrer">Google Sheets editor</a>' +
     ' · <a href="' +
     howToUrl +
     '" target="_blank" rel="noopener noreferrer">How to update</a>';

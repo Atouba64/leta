@@ -21,7 +21,8 @@
       "subtitle": "Enter your PIN to view partner and platform status."
     },
     "bannerEditLink": "https://github.com/Atouba64/leta/edit/main/data/partner-platform-tracker.json",
-    "bannerHowToLink": "https://github.com/Atouba64/leta/blob/main/07-partner-accounts/05-TRACKER-HOW-TO-UPDATE.md"
+    "bannerHowToLink": "https://github.com/Atouba64/leta/blob/main/07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md",
+    "googleSheetUrl": ""
   },
   "statusDefinitions": {
     "not_started": "Not started",

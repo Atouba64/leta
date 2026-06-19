@@ -21,3 +21,6 @@ app/.env
 app/.env.local
 .DS_Store
 **/.DS_Store
+
+# Google Sheets import CSVs (regenerate with import-from-json.js)
+scripts/google-sheets/export/

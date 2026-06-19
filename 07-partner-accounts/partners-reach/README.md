@@ -12,9 +12,7 @@ How Leta **finds, qualifies, and wins** fulfillment partners (MSPs, OEMs, nation
 | [`follow-up-cadence.md`](./follow-up-cadence.md) | Days 0–30 after first touch |
 | [`crm-tracking-fields.md`](./crm-tracking-fields.md) | What to log per account |
 
-**Master outreach table (Google Sheets export):** [`../04-PARTNER-REACH-MASTER-LIST.md`](../04-PARTNER-REACH-MASTER-LIST.md)
-
-**Live status (platforms + partners):** [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html)
+**Google Sheets editor:** [`07-GOOGLE-SHEETS-TRACKER.md`](../07-GOOGLE-SHEETS-TRACKER.md)
 
 ## Active accounts
 
