@@ -8,7 +8,7 @@
 - [`partners-reach/follow-up-cadence.md`](./partners-reach/follow-up-cadence.md) — days 0–30
 - [`partners-reach/crm-tracking-fields.md`](./partners-reach/crm-tracking-fields.md) — field definitions
 
-**Live status tracker (platforms + partners):** [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html)
+**Live status tracker (platforms + partners):** [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) — sort by **pathPriority** for HP-adjacent call order. Full map: [`08-HP-ADJACENT-TARGET-MAP.md`](./08-HP-ADJACENT-TARGET-MAP.md).
 
 ---
 

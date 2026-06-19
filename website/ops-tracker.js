@@ -5,6 +5,7 @@ window.initOpsTracker = function (data) {
   var cfg = data.config || {};
   var statusDefs = data.statusDefinitions || {};
   var categoryDefs = data.categoryDefinitions || {};
+  var outreachDefs = data.outreachStageDefinitions || {};
 
   var banner = document.getElementById('ops-banner');
   var tbody = document.getElementById('ops-tbody');
@@ -55,6 +56,11 @@ window.initOpsTracker = function (data) {
     return categoryDefs[key] || key;
   }
 
+  function labelOutreach(key) {
+    if (!key) return '—';
+    return outreachDefs[key] || key.replace(/_/g, ' ');
+  }
+
   function render() {
     var q = (searchEl.value || '').toLowerCase().trim();
     var kind = kindEl.value;
@@ -73,11 +79,24 @@ window.initOpsTracker = function (data) {
         ' ' +
         (e.notes || '') +
         ' ' +
+        (e.nextStep || '') +
+        ' ' +
+        (e.blockers || '') +
+        ' ' +
+        (e.owner || '') +
+        ' ' +
+        (e.primaryContact || '') +
+        ' ' +
+        (e.enterpriseChain || '') +
+        ' ' +
         (e.status || '');
       return hay.toLowerCase().indexOf(q) !== -1;
     });
 
     rows.sort(function (a, b) {
+      var hpA = a.pathPriority == null ? 9999 : a.pathPriority;
+      var hpB = b.pathPriority == null ? 9999 : b.pathPriority;
+      if (hpA !== hpB) return hpA - hpB;
       var pa = a.priority == null ? 999 : a.priority;
       var pb = b.priority == null ? 999 : b.priority;
       if (pa !== pb) return pa - pb;
@@ -93,11 +112,19 @@ window.initOpsTracker = function (data) {
       if (e.repoFolder) {
         notes += (notes ? ' · ' : '') + 'Repo: ' + escapeHtml(e.repoFolder);
       }
+      var nextLine = e.nextStep
+        ? '<div class="ops-detail">' + escapeHtml(e.nextStep) + '</div>'
+        : '';
+      if (e.blockers) {
+        nextLine +=
+          '<div class="ops-detail" style="opacity:0.85">Blocker: ' + escapeHtml(e.blockers) + '</div>';
+      }
       tr.innerHTML =
         '<td><strong>' +
         escapeHtml(e.name) +
         '</strong>' +
         kindLine +
+        (e.priority != null ? '<div class="ops-kind">P' + e.priority + '</div>' : '') +
         '</td>' +
         '<td><span class="ops-badge ops-badge--' +
         escapeHtml(e.status) +
@@ -110,7 +137,19 @@ window.initOpsTracker = function (data) {
         escapeHtml(labelCategory(e.category)) +
         '</td>' +
         '<td class="ops-priority">' +
-        (e.priority != null ? e.priority : '—') +
+        (e.pathPriority != null ? e.pathPriority : '—') +
+        '</td>' +
+        '<td class="ops-detail">' +
+        escapeHtml(e.enterpriseChain || '—') +
+        '</td>' +
+        '<td>' +
+        escapeHtml(e.owner || '—') +
+        '</td>' +
+        '<td class="ops-detail">' +
+        escapeHtml(labelOutreach(e.outreachStage)) +
+        '</td>' +
+        '<td class="ops-detail">' +
+        nextLine +
         '</td>' +
         '<td>' +
         escapeHtml(e.dateUpdated || '—') +

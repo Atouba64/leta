@@ -6,7 +6,7 @@
  * 2. Extensions → Apps Script → paste this file → Save
  * 3. Run import script locally: node scripts/google-sheets/import-from-json.js
  *    Import each CSV into the matching tab (see 07-GOOGLE-SHEETS-TRACKER.md)
- * 4. Reload the sheet → menu "Leta Tracker" appears
+ * 100% free path: Google Sheet → GitHub → Netlify. No Firebase or database required.
  *
  * Script properties (Project settings → Script properties, or use menu):
  *   GITHUB_TOKEN        — required for Save & push (fine-grained PAT, Contents write)
@@ -16,8 +16,7 @@
  *   GITHUB_REPO_BRANCH  — optional (default main)
  */
 
-const DEFAULT_API_URL =
-  'https://us-east1-leta-e7d8d.cloudfunctions.net/api/ops-tracker/save';
+
 const GITHUB_JSON_URL =
   'https://raw.githubusercontent.com/Atouba64/leta/main/data/partner-platform-tracker.json';
 
@@ -27,6 +26,12 @@ const SHEET_STATUS = 'Status_Defs';
 const SHEET_CATEGORY = 'Category_Defs';
 const SHEET_PLATFORMS = 'Platforms';
 const SHEET_PARTNERS = 'Partners';
+
+const SHEET_OUTREACH = 'Outreach_Stages';
+const SHEET_GOALS = 'Goal_Defs';
+const SHEET_PIPELINE = 'Pipeline';
+const SHEET_ACTIVE = 'Active_Queue';
+const ENTRIES_COL_END = 'AG';
 
 const ENTRY_HEADERS = [
   'id',
@@ -39,15 +44,29 @@ const ENTRY_HEADERS = [
   'letaServices',
   'status',
   'statusDetail',
-  'dateStarted',
-  'dateApplied',
-  'dateUpdated',
-  'coiUploaded',
+  'outreachStage',
   'owner',
   'priority',
+  'pathPriority',
+  'enterpriseChain',
+  'primaryContact',
+  'contactTitle',
+  'contactEmail',
+  'contactPhone',
+  'relationshipGoal',
+  'painHypothesis',
+  'geographies',
+  'dateStarted',
+  'dateApplied',
+  'lastTouchDate',
+  'nextStepDate',
+  'nextStep',
+  'blockers',
+  'futurePlan',
+  'coiUploaded',
+  'dateUpdated',
   'notes',
   'repoFolder',
-  'outreachStage',
 ];
 
 function onOpen() {
@@ -55,6 +74,7 @@ function onOpen() {
     .createMenu('Leta Tracker')
     .addItem('Save & push to GitHub (updates live site)', 'saveAndPush')
     .addItem('Reload from GitHub', 'loadFromGitHub')
+    .addItem('Refresh linked tabs', 'refreshLinkedTabs')
     .addSeparator()
     .addItem('Set up GitHub token (one time)', 'configureGitHubToken')
     .addItem('Test GitHub connection', 'testGitHubConnection')
@@ -68,13 +88,6 @@ function openLiveTracker() {
   SpreadsheetApp.getUi().showModalDialog(
     HtmlService.createHtmlOutput(html).setWidth(10).setHeight(10),
     'Opening…'
-  );
-}
-
-function getApiUrl() {
-  return (
-    PropertiesService.getScriptProperties().getProperty('OPS_TRACKER_API_URL') ||
-    DEFAULT_API_URL
   );
 }
 
@@ -460,7 +473,27 @@ function populateSheetsFromJson_(data) {
   });
   writeSheet_(ss, SHEET_CATEGORY, ['key', 'label'], catRows);
 
-  refreshFilterTabs_(ss);
+  const outreachRows = Object.keys(data.outreachStageDefinitions || {}).map(function (k) {
+    return [k, data.outreachStageDefinitions[k]];
+  });
+  writeSheet_(ss, SHEET_OUTREACH, ['key', 'label'], outreachRows);
+
+  const goalRows = Object.keys(data.relationshipGoalDefinitions || {}).map(function (k) {
+    return [k, data.relationshipGoalDefinitions[k]];
+  });
+  writeSheet_(ss, SHEET_GOALS, ['key', 'label'], goalRows);
+
+  setupLinkedTabs_(ss);
+}
+
+function refreshLinkedTabs() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  setupLinkedTabs_(ss);
+  SpreadsheetApp.getUi().alert(
+    'Linked tabs refreshed.\n\n' +
+      '• Platforms / Partners / Pipeline / Active_Queue mirror Entries\n' +
+      '• Dropdowns on Entries use Status, Category, Outreach, Goal defs'
+  );
 }
 
 function buildJsonFromSheets_() {
@@ -502,6 +535,8 @@ function buildJsonFromSheets_() {
       partner: 'Named company to reach out to for fulfillment or subcontract overflow',
     },
     categoryDefinitions: readDefsSheet_(ss, SHEET_CATEGORY),
+    outreachStageDefinitions: readDefsSheet_(ss, SHEET_OUTREACH),
+    relationshipGoalDefinitions: readDefsSheet_(ss, SHEET_GOALS),
     letaServices: [
       'break_fix',
       'pos_rollout',
@@ -552,9 +587,15 @@ function readEntriesSheet_(ss) {
           .filter(Boolean);
       } else if (h === 'georgiaRelevant' || h === 'coiUploaded') {
         obj[h] = String(v).toUpperCase() === 'TRUE';
-      } else if (h === 'priority') {
+      } else if (h === 'priority' || h === 'pathPriority') {
         obj[h] = v === '' || v == null ? null : Number(v);
-      } else if (h === 'dateStarted' || h === 'dateApplied') {
+      } else if (
+        h === 'dateStarted' ||
+        h === 'dateApplied' ||
+        h === 'lastTouchDate' ||
+        h === 'nextStepDate' ||
+        h === 'dateUpdated'
+      ) {
         obj[h] = v === '' || v == null ? null : String(v);
       } else {
         obj[h] = v == null ? '' : v;
@@ -600,35 +641,115 @@ function writeSheet_(ss, name, headers, rows) {
 }
 
 function ensureSheets_(ss) {
-  [SHEET_SETTINGS, SHEET_ENTRIES, SHEET_STATUS, SHEET_CATEGORY, SHEET_PLATFORMS, SHEET_PARTNERS].forEach(
-    function (name) {
-      if (!ss.getSheetByName(name)) ss.insertSheet(name);
-    }
-  );
+  [
+    SHEET_SETTINGS,
+    SHEET_ENTRIES,
+    SHEET_STATUS,
+    SHEET_CATEGORY,
+    SHEET_OUTREACH,
+    SHEET_GOALS,
+    SHEET_PLATFORMS,
+    SHEET_PARTNERS,
+    SHEET_PIPELINE,
+    SHEET_ACTIVE,
+  ].forEach(function (name) {
+    if (!ss.getSheetByName(name)) ss.insertSheet(name);
+  });
+}
+
+function setupLinkedTabs_(ss) {
+  refreshFilterTabs_(ss);
+  applyEntriesValidations_(ss);
+}
+
+function applyEntriesValidations_(ss) {
+  const entries = ss.getSheetByName(SHEET_ENTRIES);
+  if (!entries) return;
+  const lastRow = Math.max(entries.getLastRow(), 200);
+  const numRows = lastRow - 1;
+  if (numRows < 1) return;
+
+  const kindRule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(['platform', 'partner'], true)
+    .setAllowInvalid(false)
+    .build();
+  entries.getRange(2, 2, numRows, 1).setDataValidation(kindRule);
+
+  const statusSh = ss.getSheetByName(SHEET_STATUS);
+  if (statusSh && statusSh.getLastRow() > 1) {
+    const statusRule = SpreadsheetApp.newDataValidation()
+      .requireValueInRange(statusSh.getRange(2, 1, statusSh.getLastRow() - 1, 1), true)
+      .setAllowInvalid(false)
+      .build();
+    entries.getRange(2, 9, numRows, 1).setDataValidation(statusRule);
+  }
+
+  const catSh = ss.getSheetByName(SHEET_CATEGORY);
+  if (catSh && catSh.getLastRow() > 1) {
+    const catRule = SpreadsheetApp.newDataValidation()
+      .requireValueInRange(catSh.getRange(2, 1, catSh.getLastRow() - 1, 1), true)
+      .setAllowInvalid(false)
+      .build();
+    entries.getRange(2, 4, numRows, 1).setDataValidation(catRule);
+  }
+
+  const outreachSh = ss.getSheetByName(SHEET_OUTREACH);
+  if (outreachSh && outreachSh.getLastRow() > 1) {
+    const outreachRule = SpreadsheetApp.newDataValidation()
+      .requireValueInRange(outreachSh.getRange(2, 1, outreachSh.getLastRow() - 1, 1), true)
+      .setAllowInvalid(true)
+      .build();
+    entries.getRange(2, 11, numRows, 1).setDataValidation(outreachRule);
+  }
+
+  const goalSh = ss.getSheetByName(SHEET_GOALS);
+  if (goalSh && goalSh.getLastRow() > 1) {
+    const goalRule = SpreadsheetApp.newDataValidation()
+      .requireValueInRange(goalSh.getRange(2, 1, goalSh.getLastRow() - 1, 1), true)
+      .setAllowInvalid(true)
+      .build();
+    entries.getRange(2, 18, numRows, 1).setDataValidation(goalRule);
+  }
 }
 
 function refreshFilterTabs_(ss) {
-  const platforms = ss.getSheetByName(SHEET_PLATFORMS);
-  const partners = ss.getSheetByName(SHEET_PARTNERS);
   const entriesName = SHEET_ENTRIES;
+  const col = ENTRIES_COL_END;
 
-  platforms.clear();
-  platforms
-    .getRange(1, 1)
-    .setFormula(
-      '=IFERROR(FILTER(' +
-        entriesName +
-        '!A:S,' +
-        entriesName +
-        '!B:B="platform"),"No platforms")'
-    );
-  platforms.setFrozenRows(1);
+  function setFilterFormula_(sheet, formula) {
+    if (!sheet) return;
+    sheet.clear();
+    sheet.getRange(1, 1).setFormula(formula);
+    sheet.setFrozenRows(1);
+  }
 
-  partners.clear();
-  partners
-    .getRange(1, 1)
-    .setFormula(
-      '=IFERROR(FILTER(' + entriesName + '!A:S,' + entriesName + '!B:B="partner"),"No partners")'
-    );
-  partners.setFrozenRows(1);
+  setFilterFormula_(
+    ss.getSheetByName(SHEET_PLATFORMS),
+    '=IFERROR(FILTER(' + entriesName + '!A:' + col + ',' + entriesName + '!B:B="platform"),"No platforms")'
+  );
+
+  setFilterFormula_(
+    ss.getSheetByName(SHEET_PARTNERS),
+    '=IFERROR(FILTER(' + entriesName + '!A:' + col + ',' + entriesName + '!B:B="partner"),"No partners")'
+  );
+
+  setFilterFormula_(
+    ss.getSheetByName(SHEET_PIPELINE),
+    '=IFERROR(FILTER(' + entriesName + '!A:' + col + ',' + entriesName + '!B:B="partner"),"No partners in pipeline")'
+  );
+
+  setFilterFormula_(
+    ss.getSheetByName(SHEET_ACTIVE),
+    '=IFERROR(FILTER(' +
+      entriesName +
+      '!A:' +
+      col +
+      ',(' +
+      entriesName +
+      '!B:B="partner")*((' +
+      entriesName +
+      '!I:I="in_progress")+(' +
+      entriesName +
+      '!AA:AA<>""))),"No active queue items")'
+  );
 }

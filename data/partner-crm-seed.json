@@ -1,0 +1,242 @@
+{
+  "outreachStageDefinitions": {
+    "research": "Research — profile written, ICP fit confirmed",
+    "outreach": "Outreach — first email or call attempted",
+    "conversation": "Conversation — meeting or demo scheduled",
+    "pilot_scoping": "Pilot scoping — counties, rates, ticket format",
+    "pilot_live": "Pilot live — work orders flowing",
+    "production": "Production — MSA / steady volume",
+    "nurture": "Nurture — revisit later"
+  },
+  "relationshipGoalDefinitions": {
+    "overflow_subcontract": "Georgia overflow / subcontract bench",
+    "coopetition": "Coopetition — they keep customer, we fulfill locally",
+    "vendor_registration": "Vendor registration on their network",
+    "oem_field_partner": "OEM / rollout field partner",
+    "msp_smart_hands": "MSP smart-hands backfill",
+    "demand_channel": "Demand channel only (events, networking)"
+  },
+  "entries": {
+    "field-nation-service-company": {
+      "owner": "Mabele",
+      "relationshipGoal": "vendor_registration",
+      "painHypothesis": "National marketplace for overflow WOs when direct partners are saturated",
+      "geographies": "Georgia, national",
+      "nextStep": "Fix tax information; upload Workers Comp COI; complete Tier 1 (3 W2 ops employees)",
+      "nextStepDate": "2026-06-23",
+      "blockers": "Tax information validation failing on FN portal",
+      "futurePlan": "Secondary WO channel after direct aggregator relationships mature"
+    },
+    "barrister-global-services": {
+      "owner": "Mabele",
+      "primaryContact": "Enver",
+      "contactTitle": "Partnerships (TBD)",
+      "relationshipGoal": "coopetition",
+      "painHypothesis": "GA bench gap, phone/email dispatch load, weak ticket-level visibility for partners",
+      "geographies": "Georgia wedge (Macon, Savannah, Columbus / ATL overflow)",
+      "outreachStage": "outreach",
+      "nextStep": "First partnership call with Enver; pitch Georgia wedge pilot",
+      "nextStepDate": "2026-06-30",
+      "futurePlan": "Signed pilot: Barrister WO# on Leta tickets, liaison model, coopetition reference",
+      "blockers": "No meeting logged yet"
+    },
+    "source-support-services": {
+      "owner": "Jeremy",
+      "relationshipGoal": "coopetition",
+      "painHypothesis": "Lawrenceville HQ — local credibility; enterprise OEM bench gaps in GA",
+      "geographies": "Georgia, Southeast",
+      "outreachStage": "research",
+      "nextStep": "Complete account profile in repo; cold outreach to vendor partnerships",
+      "futurePlan": "Local aggregator ally or overflow partner for enterprise rollouts"
+    },
+    "spencer-technologies": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "Retail POS surge capacity; Spencer backs out of jobs last-minute per market intel",
+      "geographies": "Georgia retail sites",
+      "outreachStage": "research",
+      "nextStep": "Apply Spencer Certified Partner (SCP); identify dispatch contact",
+      "futurePlan": "POS rollout overflow when Spencer network is saturated"
+    },
+    "kinettix": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "National coordinator — GA 1099 management pain; wants managed vendors",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "Cold email per kinettix/ outreach folder",
+      "futurePlan": "Preferred Georgia execution arm for Kinettix-staffed programs"
+    },
+    "leapfrog-it-services": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Sending premium engineers to Savannah/Augusta/Columbus kills margin",
+      "geographies": "Metro Atlanta + statewide branches",
+      "outreachStage": "research",
+      "nextStep": "LinkedIn outreach to Director of Field Services",
+      "futurePlan": "Elastic GA smart-hands so L3 stays remote"
+    },
+    "compucom": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "National MSP staffing; Atlanta footprint needs bench depth",
+      "geographies": "Atlanta metro, Georgia",
+      "outreachStage": "research",
+      "nextStep": "Research CompuCom staffing vendor onboarding path",
+      "futurePlan": "Staffing/subcontract lane for enterprise break-fix"
+    },
+    "ncr-voyix": {
+      "owner": "Mabele",
+      "relationshipGoal": "oem_field_partner",
+      "painHypothesis": "Atlanta HQ OEM — retail field partner network for POS deployments",
+      "geographies": "Georgia retail",
+      "outreachStage": "research",
+      "nextStep": "Identify NCR field services partner program contact",
+      "futurePlan": "POS rollout partner for NCR-led Georgia deployments"
+    },
+    "techlink-services": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "Smart lockers, SD-WAN — needs vetted onsite execution",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "Outreach per techlink-services folder",
+      "futurePlan": "Subcontract bench for locker and network rollouts"
+    },
+    "telaid-industries": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "CCTV, access control deployments need local installers",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "First outreach email",
+      "futurePlan": "Deployment partner for security hardware programs"
+    },
+    "essintial": {
+      "owner": "Jeremy",
+      "relationshipGoal": "vendor_registration",
+      "painHypothesis": "National break-fix; high cancellation rates — reliable GA bench is differentiator",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "Submit vendor partner form at essintial.com",
+      "futurePlan": "Registered vendor for Essintial Georgia WOs"
+    },
+    "pomeroy": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "Infrastructure lifecycle projects need regional smart hands",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "Identify field services partnership contact",
+      "futurePlan": "Subcontract for infrastructure rollouts"
+    },
+    "bailiwick": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "Heavy admin burden slows techs — Leta offers faster close-out in GA",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "Outreach emphasizing execution speed vs admin overhead",
+      "futurePlan": "Regional execution partner for pre-kitted rollouts"
+    },
+    "buchanan-technologies": {
+      "owner": "Jeremy",
+      "relationshipGoal": "overflow_subcontract",
+      "painHypothesis": "Regional field services arm for enterprise clients",
+      "geographies": "Southeast, Georgia",
+      "outreachStage": "research",
+      "nextStep": "Research field services partner program",
+      "futurePlan": "Subcontract overflow for Buchanan-led projects"
+    },
+    "integris": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Atlanta pod serves hundreds of GA clients — onsite gap outside metro",
+      "geographies": "Georgia statewide",
+      "outreachStage": "research",
+      "nextStep": "Outreach to Atlanta pod field services lead",
+      "futurePlan": "Statewide smart-hands backfill for Integris pods"
+    },
+    "granite-telecom": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Telecom/NSP field work — single SLA bench across GA",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "Vendor network intro per granite-telecommunications folder",
+      "futurePlan": "Preferred field vendor for Granite Georgia installs"
+    },
+    "mis-solutions": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Metro Atlanta MSP overflow",
+      "geographies": "Atlanta metro",
+      "outreachStage": "research",
+      "nextStep": "Identify ops contact; smart-hands pitch",
+      "futurePlan": "Overflow bench for branch-office dispatches"
+    },
+    "vtc-tech": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Gainesville/Hall County — expand reach without hiring W2 bench",
+      "geographies": "North Georgia",
+      "outreachStage": "research",
+      "nextStep": "Local MSP partnership call",
+      "futurePlan": "Mutual overflow for north GA coverage"
+    },
+    "navious": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Marietta MSP — north GA onsite gap",
+      "geographies": "North Georgia",
+      "outreachStage": "research",
+      "nextStep": "Outreach to service delivery lead",
+      "futurePlan": "Smart-hands subcontract"
+    },
+    "the20-msp": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Franchise MSP model — standardized overflow vendor",
+      "geographies": "Atlanta metro",
+      "outreachStage": "research",
+      "nextStep": "Research The 20 partner/vendor policies",
+      "futurePlan": "Atlanta franchise overflow bench"
+    },
+    "abel-solutions": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Alpharetta MSP — north metro overflow",
+      "geographies": "North Atlanta",
+      "outreachStage": "research",
+      "nextStep": "Cold outreach",
+      "futurePlan": "Subcontract smart hands"
+    },
+    "advantech": {
+      "owner": "Jeremy",
+      "relationshipGoal": "msp_smart_hands",
+      "painHypothesis": "Middle Georgia corridor — Macon-area bench gap",
+      "geographies": "Middle Georgia",
+      "outreachStage": "research",
+      "nextStep": "Align with Macon anchor city strategy",
+      "futurePlan": "Middle GA execution partner"
+    },
+    "team-georgia-marketplace": {
+      "owner": "Mabele",
+      "relationshipGoal": "vendor_registration",
+      "painHypothesis": "State procurement — government onsite work in GA",
+      "geographies": "Georgia",
+      "outreachStage": "research",
+      "nextStep": "Complete Team Georgia vendor registration",
+      "futurePlan": "Qualified state IT field vendor"
+    },
+    "atlsuppliers": {
+      "owner": "Mabele",
+      "relationshipGoal": "vendor_registration",
+      "painHypothesis": "City of Atlanta supplier portal for municipal work",
+      "geographies": "Atlanta",
+      "outreachStage": "research",
+      "nextStep": "Register on ATLSuppliers",
+      "futurePlan": "City of Atlanta field services vendor"
+    }
+  }
+}

@@ -14,6 +14,7 @@
     "deploy:functions": "npm run deploy --prefix functions",
     "firebase": "npm exec --prefix functions -- firebase",
     "sheets:export": "node scripts/google-sheets/import-from-json.js",
-    "tracker:sync": "node scripts/sync-partner-tracker.js"
+    "tracker:sync": "node scripts/sync-partner-tracker.js",
+    "tracker:migrate-crm": "node scripts/migrate-tracker-crm.js"
   }
 }

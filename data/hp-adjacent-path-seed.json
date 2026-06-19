@@ -1,0 +1,140 @@
+{
+  "entries": {
+    "barrister-global-services": {
+      "pathPriority": 1,
+      "enterpriseChain": "HP/enterprise IT → Barrister national panel → Leta (Georgia wedge)",
+      "primaryContact": "Enver",
+      "contactTitle": "Partnerships (confirm title on call)"
+    },
+    "source-support-services": {
+      "pathPriority": 2,
+      "enterpriseChain": "OEM/enterprise → Source Support (HQ Lawrenceville) → Leta GA bench"
+    },
+    "essintial": {
+      "pathPriority": 3,
+      "enterpriseChain": "Enterprise break-fix programs → Essintial → Leta GA vendor",
+      "relationshipGoal": "vendor_registration",
+      "nextStep": "Submit essintial.com vendor partner form; follow up in 5 business days"
+    },
+    "compucom": {
+      "pathPriority": 4,
+      "enterpriseChain": "Enterprise MSP/staffing (HP-class clients) → CompuCom → Leta GA"
+    },
+    "ncr-voyix": {
+      "pathPriority": 5,
+      "enterpriseChain": "Retail/OEM refresh → NCR Voyix (Atlanta HQ) → Leta GA rollout"
+    },
+    "kinettix": {
+      "pathPriority": 6,
+      "enterpriseChain": "Global field coordination → Kinettix → Leta managed GA vendor"
+    },
+    "spencer-technologies": {
+      "pathPriority": 7,
+      "enterpriseChain": "National POS rollout → Spencer SCP → Leta GA labor gateway"
+    },
+    "pomeroy": {
+      "pathPriority": 8,
+      "enterpriseChain": "Infrastructure lifecycle → Pomeroy → Leta GA smart hands"
+    },
+    "bailiwick": {
+      "pathPriority": 9,
+      "enterpriseChain": "Pre-kit deployments → Bailiwick → Leta GA execution"
+    },
+    "techlink-services": {
+      "pathPriority": 10,
+      "enterpriseChain": "SD-WAN / smart locker programs → TechLink → Leta GA"
+    },
+    "telaid-industries": {
+      "pathPriority": 11,
+      "enterpriseChain": "Security deployments → Telaid → Leta GA installers"
+    },
+    "buchanan-technologies": {
+      "pathPriority": 12,
+      "enterpriseChain": "Regional enterprise field → Buchanan → Leta Southeast/GA"
+    },
+    "field-nation-service-company": {
+      "pathPriority": 13,
+      "enterpriseChain": "Primes post overflow WOs → Field Nation → Leta service company"
+    },
+    "team-georgia-marketplace": {
+      "pathPriority": 14,
+      "enterpriseChain": "State of GA procurement → Team Georgia → Leta direct vendor"
+    },
+    "atlsuppliers": {
+      "pathPriority": 15,
+      "enterpriseChain": "City of Atlanta → ATLSuppliers → Leta municipal vendor"
+    },
+    "sam-gov": {
+      "pathPriority": 16,
+      "enterpriseChain": "Federal primes → SAM.gov eligible sub → Leta GA onsite"
+    },
+    "coupa-supplier": {
+      "pathPriority": 17,
+      "enterpriseChain": "Fortune 500 buyer Coupa → invited supplier → Leta"
+    },
+    "sap-ariba": {
+      "pathPriority": 18,
+      "enterpriseChain": "Enterprise Ariba network → buyer invite → Leta"
+    },
+    "beeline-bsn": {
+      "pathPriority": 19,
+      "enterpriseChain": "VMS/contingent workforce → Beeline → Leta (when invited)"
+    },
+    "cloudwork-pro": {
+      "pathPriority": 20,
+      "enterpriseChain": "IT field marketplace → CloudWork|PRO → Leta provider account"
+    },
+    "workmarket-business": {
+      "pathPriority": 21,
+      "enterpriseChain": "ADP labor cloud → WorkMarket → Leta (secondary overflow)"
+    },
+    "leapfrog-it-services": {
+      "pathPriority": 22,
+      "enterpriseChain": "Regional MSP clients → Leapfrog → Leta smart hands"
+    },
+    "integris": {
+      "pathPriority": 23,
+      "enterpriseChain": "National MSP Atlanta pod → Integris → Leta GA overflow"
+    },
+    "granite-telecom": {
+      "pathPriority": 24,
+      "enterpriseChain": "Telecom/NSP field → Granite → Leta GA network installs"
+    },
+    "mis-solutions": {
+      "pathPriority": 25,
+      "enterpriseChain": "Atlanta MSP branch sites → MIS → Leta overflow"
+    },
+    "vtc-tech": {
+      "pathPriority": 26,
+      "enterpriseChain": "North GA MSP → VTC Tech → Leta Hall County coverage"
+    },
+    "navious": {
+      "pathPriority": 27,
+      "enterpriseChain": "North GA MSP → Navious → Leta smart hands"
+    },
+    "the20-msp": {
+      "pathPriority": 28,
+      "enterpriseChain": "MSP franchise Atlanta → The 20 → Leta overflow vendor"
+    },
+    "abel-solutions": {
+      "pathPriority": 29,
+      "enterpriseChain": "North Atlanta MSP → Abel → Leta subcontract"
+    },
+    "advantech": {
+      "pathPriority": 30,
+      "enterpriseChain": "Middle GA MSP → AdvanTech → Leta Macon corridor bench"
+    },
+    "level10": {
+      "pathPriority": 31,
+      "enterpriseChain": "Retail RFID/POS rollout → Level 10 → Leta GA"
+    },
+    "servicepoint": {
+      "pathPriority": 32,
+      "enterpriseChain": "Multi-site retail deployment → ServicePoint → Leta GA"
+    },
+    "htg-inc": {
+      "pathPriority": 33,
+      "enterpriseChain": "Retail IT services → HTG → Leta GA"
+    }
+  }
+}

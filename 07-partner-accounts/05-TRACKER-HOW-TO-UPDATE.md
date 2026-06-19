@@ -1,8 +1,10 @@
 # How to update the partner & platform tracker
 
-## Recommended: Google Sheets
+## Recommended: Google Sheets (free — no Firebase)
 
 **Primary editor:** [Google Sheets setup guide](./07-GOOGLE-SHEETS-TRACKER.md)
+
+Google Sheet → **Save & push** → GitHub → Netlify → [ops-tracker.html](https://leta.repair/ops-tracker.html). No database or Cloud Functions required.
 
 1. Create **Leta Ops Tracker** in [Google Sheets](https://sheets.google.com)
 2. Import CSVs: `npm run sheets:export` (from repo root), then upload into the sheet

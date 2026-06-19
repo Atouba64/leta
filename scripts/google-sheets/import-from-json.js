@@ -7,7 +7,6 @@
  *   node scripts/google-sheets/import-from-json.js
  *
  * Then in Google Sheets: File → Import → Upload each CSV into the matching tab.
- * Or: create blank tabs and paste data from CSVs.
  */
 const fs = require('fs');
 const path = require('path');
@@ -70,31 +69,45 @@ const entryHeaders = [
   'letaServices',
   'status',
   'statusDetail',
-  'dateStarted',
-  'dateApplied',
-  'dateUpdated',
-  'coiUploaded',
+  'outreachStage',
   'owner',
   'priority',
+  'pathPriority',
+  'enterpriseChain',
+  'primaryContact',
+  'contactTitle',
+  'contactEmail',
+  'contactPhone',
+  'relationshipGoal',
+  'painHypothesis',
+  'geographies',
+  'dateStarted',
+  'dateApplied',
+  'lastTouchDate',
+  'nextStepDate',
+  'nextStep',
+  'blockers',
+  'futurePlan',
+  'coiUploaded',
+  'dateUpdated',
   'notes',
   'repoFolder',
-  'outreachStage',
 ];
 
 const entryRows = (data.entries || []).map(function (e) {
   return entryHeaders.map(function (h) {
     if (h === 'letaServices') return (e.letaServices || []).join(', ');
     if (h === 'georgiaRelevant' || h === 'coiUploaded') return e[h] ? 'TRUE' : 'FALSE';
+    if (h === 'priority' || h === 'pathPriority') return e[h] == null ? '' : e[h];
     return e[h] == null ? '' : e[h];
   });
 });
 
-const statusRows = Object.entries(data.statusDefinitions || {});
-const categoryRows = Object.entries(data.categoryDefinitions || {});
-
 writeCsv('Settings.csv', ['key', 'value'], settingsRows);
 writeCsv('Entries.csv', entryHeaders, entryRows);
-writeCsv('Status_Defs.csv', ['key', 'label'], statusRows);
-writeCsv('Category_Defs.csv', ['key', 'label'], categoryRows);
+writeCsv('Status_Defs.csv', ['key', 'label'], Object.entries(data.statusDefinitions || {}));
+writeCsv('Category_Defs.csv', ['key', 'label'], Object.entries(data.categoryDefinitions || {}));
+writeCsv('Outreach_Stages.csv', ['key', 'label'], Object.entries(data.outreachStageDefinitions || {}));
+writeCsv('Goal_Defs.csv', ['key', 'label'], Object.entries(data.relationshipGoalDefinitions || {}));
 
 console.log('\nImport into Google Sheets (see 07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md)');
