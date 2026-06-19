@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Ops tracker spreadsheet | Leta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator_modern.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="ops-tracker-sheet.css" />
+    <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+    <script src="contact-config.js" defer></script>
+    <script src="ops-tracker-sheet.js" defer></script>
+  </head>
+  <body>
+    <div class="site-top">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html"
+            ><span class="logo-row"
+              ><span class="logo-icon" aria-hidden="true"></span
+              ><span class="logo-mark">Leta<span class="dot">.</span></span></span
+            ><span class="sub">ops spreadsheet</span></a
+          >
+        </div>
+      </header>
+    </div>
+
+    <section class="sheet-gate" id="sheet-gate">
+      <div class="sheet-gate__card">
+        <h2>Ops spreadsheet</h2>
+        <p>Enter PIN to edit the partner &amp; platform tracker.</p>
+        <form id="sheet-gate-form" autocomplete="off">
+          <label for="sheet-gate-pin">PIN</label>
+          <input id="sheet-gate-pin" type="password" inputmode="numeric" maxlength="12" required autocomplete="off" />
+          <button type="submit">Unlock editor</button>
+          <p class="sheet-gate__error" id="sheet-gate-error" hidden role="alert"></p>
+        </form>
+      </div>
+    </section>
+
+    <main class="sheet-app" id="sheet-app" hidden>
+      <header class="sheet-toolbar">
+        <div class="sheet-toolbar__left">
+          <h1>Partner &amp; platform spreadsheet</h1>
+          <p class="sheet-toolbar__hint">
+            Connected to <a href="ops-tracker.html">ops-tracker.html</a> · Ctrl+Z undo · Ctrl+Shift+Z redo
+          </p>
+        </div>
+        <div class="sheet-toolbar__actions">
+          <button type="button" class="sheet-btn sheet-btn--ghost" id="sheet-btn-undo" title="Undo (Ctrl+Z)">Undo</button>
+          <button type="button" class="sheet-btn sheet-btn--ghost" id="sheet-btn-redo" title="Redo (Ctrl+Shift+Z)">Redo</button>
+          <button type="button" class="sheet-btn sheet-btn--ghost" id="sheet-btn-reload">Reload</button>
+          <button type="button" class="sheet-btn sheet-btn--primary" id="sheet-btn-save">Save &amp; push to GitHub</button>
+        </div>
+      </header>
+
+      <p class="sheet-status" id="sheet-status" role="status"></p>
+
+      <nav class="sheet-tabs" id="sheet-tabs" aria-label="Tracker sections">
+        <button type="button" class="sheet-tab sheet-tab--active" data-tab="settings">Settings</button>
+        <button type="button" class="sheet-tab" data-tab="all">All entries</button>
+        <button type="button" class="sheet-tab" data-tab="platforms">Platforms</button>
+        <button type="button" class="sheet-tab" data-tab="partners">Partners</button>
+        <button type="button" class="sheet-tab" data-tab="definitions">Definitions</button>
+      </nav>
+
+      <div class="sheet-panel sheet-panel--active" id="panel-settings" data-panel="settings">
+        <div id="table-settings"></div>
+      </div>
+      <div class="sheet-panel" id="panel-all" data-panel="all">
+        <div id="table-all"></div>
+      </div>
+      <div class="sheet-panel" id="panel-platforms" data-panel="platforms">
+        <div id="table-platforms"></div>
+      </div>
+      <div class="sheet-panel" id="panel-partners" data-panel="partners">
+        <div id="table-partners"></div>
+      </div>
+      <div class="sheet-panel" id="panel-definitions" data-panel="definitions">
+        <h2 class="sheet-subhead">Status labels</h2>
+        <div id="table-status-defs"></div>
+        <h2 class="sheet-subhead">Category labels</h2>
+        <div id="table-category-defs"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p><a href="ops-tracker.html">View tracker</a> · <a href="index.html">Leta</a></p>
+    </footer>
+  </body>
+</html>

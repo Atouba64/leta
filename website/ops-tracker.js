@@ -28,6 +28,7 @@ window.initOpsTracker = function (data) {
     ' · <a href="' +
     editUrl +
     '" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>' +
+    ' · <a href="ops-tracker-sheet.html">Spreadsheet editor</a>' +
     ' · <a href="' +
     howToUrl +
     '" target="_blank" rel="noopener noreferrer">How to update</a>';

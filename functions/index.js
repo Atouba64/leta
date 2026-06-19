@@ -16,6 +16,11 @@ const stripe = stripeSecret ? require('stripe')(stripeSecret) : null;
 
 const { askOpenClaw, isOpenClawConfigured } = require('./lib/openclawClient');
 const { handleLetaAgentChat } = require('./lib/letaAgentChat');
+const {
+  preparePartnerTrackerFiles,
+  verifyOpsTrackerPin,
+} = require('./lib/partnerTrackerDeploy');
+const { commitFilesToGitHub } = require('./lib/partnerTrackerGitHub');
 
 const ROLES = ['customer', 'field_tech', 'remote_tech', 'admin', 'partner_dispatcher'];
 
@@ -345,6 +350,62 @@ app.post('/agent/chat', express.json({ limit: '32kb' }), async (req, res) => {
   } catch (err) {
     console.error('agent/chat', err);
     res.status(err.status || 500).json({ ok: false, message: err.message || 'Server error' });
+  }
+});
+
+/**
+ * POST /ops-tracker/save — commit tracker JSON to GitHub (PIN + GITHUB_TOKEN required).
+ * Body: { pin, data, commitMessage? }
+ */
+app.post('/ops-tracker/save', express.json({ limit: '4mb' }), async (req, res) => {
+  try {
+    const { pin, data, commitMessage } = req.body || {};
+    if (!verifyOpsTrackerPin(pin)) {
+      return res.status(403).json({ ok: false, message: 'Invalid PIN.' });
+    }
+    if (!data || !Array.isArray(data.entries)) {
+      return res.status(400).json({ ok: false, message: 'Invalid tracker payload (entries required).' });
+    }
+
+    const token = process.env.GITHUB_TOKEN;
+    const owner = process.env.GITHUB_REPO_OWNER || 'Atouba64';
+    const repo = process.env.GITHUB_REPO_NAME || 'leta';
+    const branch = process.env.GITHUB_REPO_BRANCH || 'main';
+
+    if (!token) {
+      return res.status(503).json({
+        ok: false,
+        message:
+          'GITHUB_TOKEN not configured on Cloud Functions. See functions/.env.example and deploy functions.',
+      });
+    }
+
+    const { sourceContent, deployContent } = preparePartnerTrackerFiles(data);
+    const message =
+      commitMessage ||
+      `chore(ops-tracker): update partner platform tracker (${data.meta?.lastUpdated || 'sheet'})`;
+
+    const result = await commitFilesToGitHub({
+      token,
+      owner,
+      repo,
+      branch,
+      message,
+      files: [
+        { path: 'data/partner-platform-tracker.json', content: sourceContent },
+        { path: 'website/ops-tracker-data.json', content: deployContent },
+      ],
+    });
+
+    res.json({
+      ok: true,
+      commitSha: result.sha,
+      commitUrl: result.url,
+      message: 'Pushed to GitHub. Netlify will redeploy ops-tracker in ~1 minute.',
+    });
+  } catch (err) {
+    console.error('ops-tracker/save', err);
+    res.status(500).json({ ok: false, message: err.message || 'Save failed.' });
   }
 });
 

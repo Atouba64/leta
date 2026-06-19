@@ -15,7 +15,9 @@ Dedicated workspace for **named fulfillment partners**: outreach, pilots, stakeh
 | [`04-PARTNER-REACH-MASTER-LIST.md`](./04-PARTNER-REACH-MASTER-LIST.md) | **Partner outreach list** — export to Google Sheets/Docs |
 | [`05-TRACKER-HOW-TO-UPDATE.md`](./05-TRACKER-HOW-TO-UPDATE.md) | How to update the canonical tracker |
 | [`../data/partner-platform-tracker.json`](../data/partner-platform-tracker.json) | **Canonical tracker** (platforms + partners) |
-| [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) | **Live viewer** (updates on push to `main`) |
+| [leta.repair/ops-tracker.html](https://leta.repair/ops-tracker.html) | **Live table viewer** (PIN) |
+| [leta.repair/ops-tracker-sheet.html](https://leta.repair/ops-tracker-sheet.html) | **Spreadsheet editor** (PIN, undo, GitHub push) |
+| [`06-OPS-TRACKER-SPREADSHEET.md`](./06-OPS-TRACKER-SPREADSHEET.md) | Spreadsheet setup & usage |
 | [`partners-reach/`](./partners-reach/) | Cross-partner **outreach strategy**, templates, cadence |
 | [`barrister-global-services/`](./barrister-global-services/) | **First partner target** — Barrister Global Services Network |
 

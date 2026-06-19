@@ -40,8 +40,11 @@ node scripts/sync-partner-tracker.js
 
 # 3. Serve website/
 cd website && python3 -m http.server 8080
-# Open http://localhost:8080/ops-tracker.html — use config.pin
+# Table:  http://localhost:8080/ops-tracker.html
+# Sheet:  http://localhost:8080/ops-tracker-sheet.html  ← spreadsheet editor
 ```
+
+**Spreadsheet editor:** [ops-tracker-sheet.html](https://leta.repair/ops-tracker-sheet.html) — tabbed UI, Ctrl+Z undo, **Save & push to GitHub**. See [`06-OPS-TRACKER-SPREADSHEET.md`](./06-OPS-TRACKER-SPREADSHEET.md).
 
 ---
 
@@ -126,4 +129,4 @@ Import [`04-PARTNER-REACH-MASTER-LIST.md`](./04-PARTNER-REACH-MASTER-LIST.md) fo
 | `statusDetail` | Company profile created; pending account information completion |
 | `dateStarted` | `2026-06-16` |
 
-Still having issues with Tax information.
+Tier 1 still blocked until Workers’ Comp COI + 3 W2 operational employees.
