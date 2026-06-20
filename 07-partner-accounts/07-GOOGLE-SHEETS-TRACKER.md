@@ -42,7 +42,7 @@ Import each CSV from `scripts/google-sheets/export/`:
 
 For each: select tab → **File → Import → Upload** → CSV → **Replace current sheet**.
 
-Create empty tabs (or let the script create them): **Platforms**, **Partners**, **Pipeline**, **Active_Queue**.
+Create empty tabs (or let the script create them): **Platforms**, **Partners**, **Pipeline**, **Active_Queue**, **Kanban**.
 
 ### Step 2 — Install Apps Script
 
@@ -72,7 +72,7 @@ Create empty tabs (or let the script create them): **Platforms**, **Partners**, 
 | **Pull from repo** | **Reload from GitHub** |
 | **Fix linked tabs** | **Refresh linked tabs** |
 
-Edits on **Entries** → run **Refresh linked tabs** to update Platforms / Partners / Pipeline / Active_Queue.
+Edits on **Entries** (or Kanban quick-edit) → **Refresh linked tabs** → **Save & push** for live site.
 
 ---
 
