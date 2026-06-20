@@ -256,9 +256,9 @@
         "break_fix",
         "networking"
       ],
-      "status": "not_started",
-      "statusDetail": "",
-      "dateStarted": null,
+      "status": "in_progress",
+      "statusDetail": "Company profile created; pending account information completion (Tier 1: Workers Comp COI + 3 W2 ops employees)",
+      "dateStarted": "Thu Jun 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)",
       "dateApplied": null,
       "dateUpdated": "Tue Jun 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)",
       "coiUploaded": false,
