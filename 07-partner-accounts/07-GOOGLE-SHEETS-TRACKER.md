@@ -71,8 +71,41 @@ Create empty tabs (or let the script create them): **Platforms**, **Partners**, 
 | **Publish** | **Save & push to GitHub** → PIN `1998` |
 | **Pull from repo** | **Reload from GitHub** |
 | **Fix linked tabs** | **Refresh linked tabs** |
+| **Browse / pivot summaries** | **Pivot_Dashboard** tab |
+| **Rebuild pivots only** | **Rebuild pivot dashboard** |
 
 Edits on **Entries** (or Kanban quick-edit) → **Refresh linked tabs** → **Save & push** for live site.
+
+---
+
+## Browse data (one tab or many)
+
+### Single tab with lots of rows
+
+| Goal | How |
+|------|-----|
+| **Filter one tab** | Open **Entries**, **Partners**, or **Pivot_Partners** → select header row → **Data → Create a filter** → use ▼ on columns |
+| **Find text** | **Ctrl+F** / **Cmd+F** (e.g. search `Barrister`, `Mabele`, `in_progress`) |
+| **Sort** | Click column header **pathPriority** or **name** → **Data → Sort sheet** |
+| **Pre-filtered lists** | Use **Platforms**, **Partners**, **Active_Queue**, **Filter_Production**, **Filter_Blocked** instead of full **Entries** |
+
+### Multiple tabs at once
+
+| Goal | How |
+|------|-----|
+| **Summary across all data** | Open **Pivot_Dashboard** — five pivots (partners, platforms, combined) |
+| **Partner pipeline** | **Kanban** tab (visual) or pivot ①② on **Pivot_Dashboard** |
+| **Raw data for pivots** | **Pivot_Source** (all rows), **Pivot_Partners**, **Pivot_Platforms** |
+| **Jump between views** | **Kanban** metrics row has links to **Partners**, **Active_Queue**, etc. |
+
+### Pivot tables (recommended)
+
+1. **Leta Tracker → Refresh linked tabs** (updates pivot source sheets + rebuilds **Pivot_Dashboard**)
+2. Open **Pivot_Dashboard**
+3. Click **▼** on any pivot row/column to filter (e.g. only `research` stage, only owner `Jeremy`)
+4. To see underlying rows: open **Pivot_Partners** or **Entries** and use **Data → Create a filter** matching your pivot selection
+
+**Custom pivot:** **Insert → Pivot table** → **Use existing data** → range **`Pivot_Partners!A:I`** (partners) or **`Pivot_Platforms!A:G`** (platforms) or **`Pivot_Source!A:AG`** (everything).
 
 ---
 
@@ -93,6 +126,10 @@ Edits on **Entries** (or Kanban quick-edit) → **Refresh linked tabs** → **Sa
 | **Kanban** | Quick-edit table | Partner pipeline board + metrics (source: **Entries**) |
 | **Filter_Production** | No | Partners with `outreachStage` = production (Won) |
 | **Filter_Blocked** | No | Partners with blockers listed |
+| **Pivot_Source** | No | All entries — flat copy for pivot tables |
+| **Pivot_Partners** | No | Partners only — pivot-friendly columns |
+| **Pivot_Platforms** | No | Platforms only — pivot-friendly columns |
+| **Pivot_Dashboard** | No | **5 built-in pivot tables** — browse & filter summaries |
 
 **If Platforms or Partners are empty:** open **Entries** and confirm rows exist, then run **Leta Tracker → Refresh linked tabs**.
 
@@ -142,6 +179,7 @@ Netlify rebuilds on every push to `main`.
 | Filter tabs empty | Confirm **Entries** has data → **Refresh linked tabs** |
 | Push fails | **Set up GitHub token** + **Test GitHub connection** |
 | Dropdown missing | **Refresh linked tabs** after editing Status/Category/Outreach defs |
+| Pivot dashboard empty | **Refresh linked tabs** or **Rebuild pivot dashboard** |
 | Live site stale | Wait ~1 min; hard-refresh ops-tracker |
 
 ---

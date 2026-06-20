@@ -34,7 +34,35 @@ const SHEET_ACTIVE = 'Active_Queue';
 const SHEET_KANBAN = 'Kanban';
 const SHEET_FILTER_PRODUCTION = 'Filter_Production';
 const SHEET_FILTER_BLOCKED = 'Filter_Blocked';
+const SHEET_PIVOT_SOURCE = 'Pivot_Source';
+const SHEET_PIVOT_PARTNERS = 'Pivot_Partners';
+const SHEET_PIVOT_PLATFORMS = 'Pivot_Platforms';
+const SHEET_PIVOT_DASHBOARD = 'Pivot_Dashboard';
 const ENTRIES_COL_END = 'AG';
+
+/** Flat partner rows for pivot tables (refreshed from Entries). */
+const PIVOT_PARTNER_HEADERS = [
+  'name',
+  'category',
+  'outreachStage',
+  'status',
+  'owner',
+  'pathPriority',
+  'relationshipGoal',
+  'geographies',
+  'hasBlocker',
+];
+
+/** Flat platform rows for pivot tables. */
+const PIVOT_PLATFORM_HEADERS = [
+  'name',
+  'category',
+  'status',
+  'registrationType',
+  'owner',
+  'pathPriority',
+  'dateUpdated',
+];
 
 /** Partner pipeline columns left → right (nurture = backlog). */
 const KANBAN_STAGES = [
@@ -126,6 +154,7 @@ function onOpen() {
     .addItem('Save & push to GitHub (updates live site)', 'saveAndPush')
     .addItem('Reload from GitHub', 'loadFromGitHub')
     .addItem('Refresh linked tabs', 'refreshLinkedTabs')
+    .addItem('Rebuild pivot dashboard', 'rebuildPivotDashboard')
     .addItem('Apply Kanban edits → Entries', 'applyKanbanEditsToEntries')
     .addSeparator()
     .addItem('Set up GitHub token (one time)', 'configureGitHubToken')
@@ -561,7 +590,8 @@ function refreshLinkedTabs() {
       '• Active_Queue: ' +
       counts.active +
       ' rows\n' +
-      '• Kanban: partner pipeline board\n\n' +
+      '• Kanban: partner pipeline board\n' +
+      '• Pivot_Dashboard: summary pivots (Partners / Platforms / All)\n\n' +
       'Edit on Entries or Kanban quick-edit table → Apply Kanban edits → Entries'
   );
 }
@@ -815,6 +845,10 @@ function ensureSheets_(ss) {
     SHEET_KANBAN,
     SHEET_FILTER_PRODUCTION,
     SHEET_FILTER_BLOCKED,
+    SHEET_PIVOT_SOURCE,
+    SHEET_PIVOT_PARTNERS,
+    SHEET_PIVOT_PLATFORMS,
+    SHEET_PIVOT_DASHBOARD,
   ].forEach(function (name) {
     if (!ss.getSheetByName(name)) ss.insertSheet(name);
   });
@@ -927,6 +961,196 @@ function populateViewTabsFromEntries_(ss) {
   writeViewSheet_(ss, SHEET_FILTER_BLOCKED, PARTNER_VIEW_HEADERS, blocked);
 
   populateKanbanTab_(ss, partners);
+  populatePivotSourceSheets_(ss, entries);
+  rebuildPivotDashboard_(ss);
+}
+
+function rebuildPivotDashboard() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const entries = readEntriesSheet_(ss);
+  populatePivotSourceSheets_(ss, entries);
+  rebuildPivotDashboard_(ss);
+  SpreadsheetApp.getUi().alert(
+    'Pivot dashboard rebuilt.\n\nOpen Pivot_Dashboard tab — use ▼ on each pivot to filter.\nRaw rows: Pivot_Partners, Pivot_Platforms, Pivot_Source.'
+  );
+}
+
+function pivotCol_(headers, name) {
+  const i = headers.indexOf(name);
+  if (i < 0) throw new Error('Missing pivot column: ' + name);
+  return i + 1;
+}
+
+function entryToRow_(e, headers) {
+  return headers.map(function (h) {
+    if (h === 'letaServices') {
+      return Array.isArray(e.letaServices) ? e.letaServices.join(', ') : '';
+    }
+    if (h === 'georgiaRelevant' || h === 'coiUploaded') {
+      return e[h] === true ? 'TRUE' : e[h] === false ? 'FALSE' : '';
+    }
+    return e[h] == null ? '' : e[h];
+  });
+}
+
+function partnerToPivotRow_(p) {
+  return PIVOT_PARTNER_HEADERS.map(function (h) {
+    if (h === 'hasBlocker') {
+      return p.blockers != null && String(p.blockers).trim() !== '' ? 'YES' : 'NO';
+    }
+    if (h === 'outreachStage') return normalizePartnerStage_(p);
+    return p[h] == null ? '' : p[h];
+  });
+}
+
+function platformToPivotRow_(p) {
+  return PIVOT_PLATFORM_HEADERS.map(function (h) {
+    return p[h] == null ? '' : p[h];
+  });
+}
+
+function writePivotSourceSheet_(ss, name, headers, rows) {
+  writeSheet_(ss, name, headers, rows);
+  const sh = ss.getSheetByName(name);
+  if (sh) {
+    sh.getRange(1, 1, 1, headers.length).setNote(
+      'Pivot source — read only. Edit Entries tab, then Refresh linked tabs.'
+    );
+  }
+}
+
+function populatePivotSourceSheets_(ss, entries) {
+  const allRows = entries.map(function (e) {
+    return entryToRow_(e, ENTRY_HEADERS);
+  });
+  writePivotSourceSheet_(ss, SHEET_PIVOT_SOURCE, ENTRY_HEADERS, allRows);
+
+  const partners = entries.filter(function (e) {
+    return String(e.kind).toLowerCase() === 'partner';
+  });
+  writePivotSourceSheet_(
+    ss,
+    SHEET_PIVOT_PARTNERS,
+    PIVOT_PARTNER_HEADERS,
+    partners.map(partnerToPivotRow_)
+  );
+
+  const platforms = entries.filter(function (e) {
+    return String(e.kind).toLowerCase() === 'platform';
+  });
+  writePivotSourceSheet_(
+    ss,
+    SHEET_PIVOT_PLATFORMS,
+    PIVOT_PLATFORM_HEADERS,
+    platforms.map(platformToPivotRow_)
+  );
+}
+
+function rebuildPivotDashboard_(ss) {
+  let dash = ss.getSheetByName(SHEET_PIVOT_DASHBOARD);
+  if (!dash) dash = ss.insertSheet(SHEET_PIVOT_DASHBOARD);
+  dash.clear();
+
+  dash
+    .getRange(1, 1, 1, 10)
+    .merge()
+    .setValue('Leta Ops Pivot Dashboard')
+    .setFontWeight('bold')
+    .setFontSize(14);
+  dash
+    .getRange(2, 1, 2, 10)
+    .merge()
+    .setValue(
+      'Browse summaries here. Click ▼ on any pivot row/column to filter. ' +
+        'Drill to raw data: Pivot_Partners | Pivot_Platforms | Pivot_Source | Entries. ' +
+        'Refreshes with Leta Tracker → Refresh linked tabs.'
+    )
+    .setWrap(true)
+    .setFontSize(10)
+    .setFontColor('#444444');
+
+  const partnersSh = ss.getSheetByName(SHEET_PIVOT_PARTNERS);
+  const platformsSh = ss.getSheetByName(SHEET_PIVOT_PLATFORMS);
+  const sourceSh = ss.getSheetByName(SHEET_PIVOT_SOURCE);
+  let row = 4;
+
+  try {
+    if (partnersSh && partnersSh.getLastRow() >= 2) {
+      const src = partnersSh.getRange(1, 1, partnersSh.getLastRow(), partnersSh.getLastColumn());
+      const h = PIVOT_PARTNER_HEADERS;
+
+      dash.getRange(row, 1).setValue('① Partners by outreach stage').setFontWeight('bold');
+      row += 1;
+      dash
+        .getRange(row, 1)
+        .createPivotTable(src)
+        .addRowGroup(pivotCol_(h, 'outreachStage'))
+        .addPivotValue(pivotCol_(h, 'name'), SpreadsheetApp.PivotTableSummarizeFunction.COUNTA);
+      row += 14;
+
+      dash.getRange(row, 1).setValue('② Partners by owner × stage').setFontWeight('bold');
+      row += 1;
+      dash
+        .getRange(row, 1)
+        .createPivotTable(src)
+        .addRowGroup(pivotCol_(h, 'owner'))
+        .addColumnGroup(pivotCol_(h, 'outreachStage'))
+        .addPivotValue(pivotCol_(h, 'name'), SpreadsheetApp.PivotTableSummarizeFunction.COUNTA);
+      row += 16;
+
+      dash.getRange(row, 1).setValue('③ Partners by category').setFontWeight('bold');
+      row += 1;
+      dash
+        .getRange(row, 1)
+        .createPivotTable(src)
+        .addRowGroup(pivotCol_(h, 'category'))
+        .addColumnGroup(pivotCol_(h, 'status'))
+        .addPivotValue(pivotCol_(h, 'name'), SpreadsheetApp.PivotTableSummarizeFunction.COUNTA);
+      row += 16;
+    }
+
+    if (platformsSh && platformsSh.getLastRow() >= 2) {
+      const src = platformsSh.getRange(1, 1, platformsSh.getLastRow(), platformsSh.getLastColumn());
+      const h = PIVOT_PLATFORM_HEADERS;
+
+      dash.getRange(row, 1).setValue('④ Platforms by status × category').setFontWeight('bold');
+      row += 1;
+      dash
+        .getRange(row, 1)
+        .createPivotTable(src)
+        .addRowGroup(pivotCol_(h, 'status'))
+        .addColumnGroup(pivotCol_(h, 'category'))
+        .addPivotValue(pivotCol_(h, 'name'), SpreadsheetApp.PivotTableSummarizeFunction.COUNTA);
+      row += 16;
+    }
+
+    if (sourceSh && sourceSh.getLastRow() >= 2) {
+      const src = sourceSh.getRange(1, 1, sourceSh.getLastRow(), sourceSh.getLastColumn());
+
+      dash.getRange(row, 1).setValue('⑤ All entries: kind × status (platforms + partners)').setFontWeight('bold');
+      row += 1;
+      dash
+        .getRange(row, 1)
+        .createPivotTable(src)
+        .addRowGroup(pivotCol_(ENTRY_HEADERS, 'kind'))
+        .addColumnGroup(pivotCol_(ENTRY_HEADERS, 'status'))
+        .addPivotValue(pivotCol_(ENTRY_HEADERS, 'name'), SpreadsheetApp.PivotTableSummarizeFunction.COUNTA);
+    }
+
+    dash.setColumnWidth(1, 220);
+    dash.setColumnWidth(2, 120);
+  } catch (err) {
+    dash
+      .getRange(4, 1, 4, 8)
+      .merge()
+      .setValue(
+        'Could not build pivot tables: ' +
+          err.message +
+          '\n\nEnsure Pivot_Partners has data, then run Rebuild pivot dashboard.'
+      )
+      .setWrap(true)
+      .setBackground('#fce8e6');
+  }
 }
 
 function normalizePartnerStage_(entry) {
