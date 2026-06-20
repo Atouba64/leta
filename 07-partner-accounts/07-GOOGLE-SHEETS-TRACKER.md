@@ -65,7 +65,9 @@ Create empty tabs (or let the script create them): **Platforms**, **Partners**, 
 | **Edit** | **Entries** tab (source of truth) |
 | **See platforms** | **Platforms** tab (auto-updates from Entries) |
 | **See partners** | **Partners** or **Pipeline** tab |
-| **See action queue** | **Active_Queue** (in-progress + next steps) |
+| **See action queue** | **Active_Queue** tab |
+| **Partner Kanban** | **Kanban** tab (metrics + pipeline columns) |
+| **Move partner stage** | Kanban quick-edit table → **Apply Kanban edits → Entries** |
 | **Publish** | **Save & push to GitHub** → PIN `1998` |
 | **Pull from repo** | **Reload from GitHub** |
 | **Fix linked tabs** | **Refresh linked tabs** |
@@ -88,8 +90,20 @@ Edits on **Entries** → run **Refresh linked tabs** to update Platforms / Partn
 | **Partners** | No | **27 partners** — CRM fields, call order (from Entries) |
 | **Pipeline** | No | Same as Partners (partner CRM view) |
 | **Active_Queue** | No | Partners in progress or with a next step |
+| **Kanban** | Quick-edit table | Partner pipeline board + metrics (source: **Entries**) |
+| **Filter_Production** | No | Partners with `outreachStage` = production (Won) |
+| **Filter_Blocked** | No | Partners with blockers listed |
 
-**If Platforms or Partners are empty:** open **Entries** and confirm rows exist, then run **Leta Tracker → Refresh linked tabs**. View tabs copy from Entries (not manual edit).
+**If Platforms or Partners are empty:** open **Entries** and confirm rows exist, then run **Leta Tracker → Refresh linked tabs**.
+
+### Kanban workflow
+
+1. **Refresh linked tabs** — builds Kanban columns + metrics from **Entries**
+2. Move a partner — change **outreachStage** in the Kanban quick-edit table (bottom) or on **Entries**
+3. **Apply Kanban edits → Entries** — syncs quick-edit table to **Entries**
+4. **Refresh linked tabs** again — updates board + **Save & push** for live site
+
+**Metrics** (top of Kanban tab): clickable links open **Partners**, **Filter_Production**, **Active_Queue**, **Filter_Blocked**, or **Entries**. Success rate = Production / total partners (Closed Won / Total).
 
 ---
 

@@ -31,7 +31,31 @@ const SHEET_OUTREACH = 'Outreach_Stages';
 const SHEET_GOALS = 'Goal_Defs';
 const SHEET_PIPELINE = 'Pipeline';
 const SHEET_ACTIVE = 'Active_Queue';
+const SHEET_KANBAN = 'Kanban';
+const SHEET_FILTER_PRODUCTION = 'Filter_Production';
+const SHEET_FILTER_BLOCKED = 'Filter_Blocked';
 const ENTRIES_COL_END = 'AG';
+
+/** Partner pipeline columns left → right (nurture = backlog). */
+const KANBAN_STAGES = [
+  { key: 'research', label: 'Research', color: '#e8eaf6' },
+  { key: 'outreach', label: 'Outreach', color: '#e3f2fd' },
+  { key: 'conversation', label: 'Conversation', color: '#e0f7fa' },
+  { key: 'pilot_scoping', label: 'Pilot scoping', color: '#fff8e1' },
+  { key: 'pilot_live', label: 'Pilot live', color: '#fff3e0' },
+  { key: 'production', label: 'Production', color: '#e8f5e9' },
+  { key: 'nurture', label: 'Nurture', color: '#f5f5f5' },
+];
+
+const KANBAN_EDIT_HEADERS = [
+  'id',
+  'name',
+  'outreachStage',
+  'owner',
+  'pathPriority',
+  'nextStep',
+  'blockers',
+];
 
 /** Columns shown on read-only view tabs (edit source rows on Entries). */
 const PLATFORM_VIEW_HEADERS = [
@@ -102,6 +126,7 @@ function onOpen() {
     .addItem('Save & push to GitHub (updates live site)', 'saveAndPush')
     .addItem('Reload from GitHub', 'loadFromGitHub')
     .addItem('Refresh linked tabs', 'refreshLinkedTabs')
+    .addItem('Apply Kanban edits → Entries', 'applyKanbanEditsToEntries')
     .addSeparator()
     .addItem('Set up GitHub token (one time)', 'configureGitHubToken')
     .addItem('Test GitHub connection', 'testGitHubConnection')
@@ -535,18 +560,98 @@ function refreshLinkedTabs() {
       ' rows\n' +
       '• Active_Queue: ' +
       counts.active +
-      ' rows\n\n' +
-      'Edit data on the Entries tab — then Refresh linked tabs again.'
+      ' rows\n' +
+      '• Kanban: partner pipeline board\n\n' +
+      'Edit on Entries or Kanban quick-edit table → Apply Kanban edits → Entries'
   );
+}
+
+function applyKanbanEditsToEntries() {
+  const ui = SpreadsheetApp.getUi();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  try {
+    const n = syncKanbanEditsToEntries_(ss);
+    setupLinkedTabs_(ss);
+    ui.alert('Updated ' + n + ' row(s) on Entries from Kanban quick-edit table.');
+  } catch (err) {
+    ui.alert('Kanban sync failed: ' + err.message);
+  }
+}
+
+function syncKanbanEditsToEntries_(ss) {
+  const kanban = ss.getSheetByName(SHEET_KANBAN);
+  const entriesSh = ss.getSheetByName(SHEET_ENTRIES);
+  if (!kanban || !entriesSh) throw new Error('Missing Kanban or Entries tab');
+
+  const editStart = findKanbanEditTableStart_(kanban);
+  if (!editStart) throw new Error('Kanban edit table not found — run Refresh linked tabs first');
+
+  const editValues = kanban.getRange(editStart, 1, kanban.getLastRow() - editStart + 1, KANBAN_EDIT_HEADERS.length).getValues();
+  if (editValues.length < 2) return 0;
+
+  const headers = editValues[0].map(function (h) {
+    return String(h).trim();
+  });
+  const entriesValues = entriesSh.getDataRange().getValues();
+  const entryHeaders = entriesValues[0].map(function (h) {
+    return String(h).trim();
+  });
+  const idCol = entryHeaders.indexOf('id');
+  if (idCol < 0) throw new Error('Entries missing id column');
+
+  const colMap = {};
+  KANBAN_EDIT_HEADERS.forEach(function (h) {
+    const ei = entryHeaders.indexOf(h);
+    const ki = headers.indexOf(h);
+    if (ei >= 0 && ki >= 0) colMap[h] = { entry: ei, kanban: ki };
+  });
+
+  let updated = 0;
+  for (var r = 1; r < editValues.length; r++) {
+    const row = editValues[r];
+    const id = String(row[headers.indexOf('id')] || '').trim();
+    if (!id) continue;
+
+    for (var er = 1; er < entriesValues.length; er++) {
+      if (String(entriesValues[er][idCol]) !== id) continue;
+      KANBAN_EDIT_HEADERS.forEach(function (h) {
+        if (h === 'id' || h === 'name') return;
+        if (!colMap[h]) return;
+        const newVal = row[colMap[h].kanban];
+        if (entriesValues[er][colMap[h].entry] !== newVal) {
+          entriesValues[er][colMap[h].entry] = newVal;
+          updated++;
+        }
+      });
+      break;
+    }
+  }
+
+  if (updated > 0) {
+    entriesSh.getRange(1, 1, entriesValues.length, entriesValues[0].length).setValues(entriesValues);
+  }
+  return updated;
+}
+
+function findKanbanEditTableStart_(sh) {
+  const last = sh.getLastRow();
+  if (last < 1) return null;
+  const colA = sh.getRange(1, 1, last, 1).getValues();
+  for (var i = 0; i < colA.length; i++) {
+    if (String(colA[i][0]).trim() === 'id') return i + 1;
+  }
+  return null;
 }
 
 function ensureViewTabsPopulated_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const entries = ss.getSheetByName(SHEET_ENTRIES);
   const platforms = ss.getSheetByName(SHEET_PLATFORMS);
+  const kanban = ss.getSheetByName(SHEET_KANBAN);
   if (!entries || entries.getLastRow() < 2) return;
-  if (!platforms || platforms.getLastRow() > 1) return;
-  setupLinkedTabs_(ss);
+  if ((!platforms || platforms.getLastRow() <= 1) || (!kanban || kanban.getLastRow() <= 1)) {
+    setupLinkedTabs_(ss);
+  }
 }
 
 function buildJsonFromSheets_() {
@@ -707,6 +812,9 @@ function ensureSheets_(ss) {
     SHEET_PARTNERS,
     SHEET_PIPELINE,
     SHEET_ACTIVE,
+    SHEET_KANBAN,
+    SHEET_FILTER_PRODUCTION,
+    SHEET_FILTER_BLOCKED,
   ].forEach(function (name) {
     if (!ss.getSheetByName(name)) ss.insertSheet(name);
   });
@@ -798,15 +906,204 @@ function populateViewTabsFromEntries_(ss) {
       (e.nextStep != null && String(e.nextStep).trim() !== '')
     );
   });
+  const production = partners.filter(function (e) {
+    return String(e.outreachStage) === 'production';
+  });
+  const blocked = partners.filter(function (e) {
+    return e.blockers != null && String(e.blockers).trim() !== '';
+  });
 
   sortByPathThenName_(platforms);
   sortByPathThenName_(partners);
   sortByPathThenName_(active);
+  sortByPathThenName_(production);
+  sortByPathThenName_(blocked);
 
   writeViewSheet_(ss, SHEET_PLATFORMS, PLATFORM_VIEW_HEADERS, platforms);
   writeViewSheet_(ss, SHEET_PARTNERS, PARTNER_VIEW_HEADERS, partners);
   writeViewSheet_(ss, SHEET_PIPELINE, PARTNER_VIEW_HEADERS, partners);
   writeViewSheet_(ss, SHEET_ACTIVE, PARTNER_VIEW_HEADERS, active);
+  writeViewSheet_(ss, SHEET_FILTER_PRODUCTION, PARTNER_VIEW_HEADERS, production);
+  writeViewSheet_(ss, SHEET_FILTER_BLOCKED, PARTNER_VIEW_HEADERS, blocked);
+
+  populateKanbanTab_(ss, partners);
+}
+
+function normalizePartnerStage_(entry) {
+  const s = String(entry.outreachStage || '').trim();
+  if (s) return s;
+  return 'research';
+}
+
+function formatKanbanCard_(e) {
+  const prio = e.pathPriority != null ? 'P' + e.pathPriority + ' · ' : '';
+  const lines = [prio + e.name];
+  if (e.owner) lines.push('Owner: ' + e.owner);
+  if (e.primaryContact) lines.push('Contact: ' + e.primaryContact);
+  if (e.nextStep) lines.push('Next: ' + e.nextStep);
+  if (e.blockers) lines.push('Blocker: ' + e.blockers);
+  return lines.join('\n');
+}
+
+function sheetLinkFormula_(ss, sheetName, label) {
+  const sh = ss.getSheetByName(sheetName);
+  if (!sh) return label;
+  return '=HYPERLINK("#gid=' + sh.getSheetId() + '&range=A1","' + label.replace(/"/g, '""') + '")';
+}
+
+function populateKanbanTab_(ss, partners) {
+  let sh = ss.getSheetByName(SHEET_KANBAN);
+  if (!sh) sh = ss.insertSheet(SHEET_KANBAN);
+  sh.clear();
+
+  const total = partners.length;
+  const won = partners.filter(function (p) {
+    return normalizePartnerStage_(p) === 'production';
+  }).length;
+  const successPct = total ? Math.round((won / total) * 1000) / 10 : 0;
+  const inProgress = partners.filter(function (p) {
+    return String(p.status) === 'in_progress';
+  }).length;
+  const withNext = partners.filter(function (p) {
+    return p.nextStep != null && String(p.nextStep).trim() !== '';
+  }).length;
+  const blockedCount = partners.filter(function (p) {
+    return p.blockers != null && String(p.blockers).trim() !== '';
+  }).length;
+
+  sh.getRange(1, 1, 1, KANBAN_STAGES.length)
+    .mergeAcross()
+    .setValue('Partner pipeline Kanban — source data: Entries tab')
+    .setFontWeight('bold')
+    .setFontSize(13);
+  sh.getRange(2, 1, 2, KANBAN_STAGES.length)
+    .mergeAcross()
+    .setValue(
+      'Move cards by editing outreachStage below (or on Entries) → Apply Kanban edits → Entries → Refresh linked tabs'
+    )
+    .setFontSize(10)
+    .setFontColor('#555555');
+
+  const metricLabels = [
+    'Total partners',
+    'Won (Production)',
+    'Success rate',
+    'In progress',
+    'Has next step',
+    'Blocked',
+  ];
+  const metricValues = [
+    total,
+    won,
+    successPct + '%',
+    inProgress,
+    withNext,
+    blockedCount,
+  ];
+  const metricLinks = [
+    sheetLinkFormula_(ss, SHEET_PARTNERS, 'Open Partners →'),
+    sheetLinkFormula_(ss, SHEET_FILTER_PRODUCTION, 'Open Production →'),
+    'Closed Won / Total',
+    sheetLinkFormula_(ss, SHEET_ACTIVE, 'Open Active_Queue →'),
+    sheetLinkFormula_(ss, SHEET_ENTRIES, 'Filter on Entries →'),
+    sheetLinkFormula_(ss, SHEET_FILTER_BLOCKED, 'Open Blocked →'),
+  ];
+
+  sh.getRange(4, 1, 4, 6).setValues([metricLabels]).setFontWeight('bold').setBackground('#f3f3f3');
+  sh.getRange(5, 1, 5, 6).setValues([metricValues]).setHorizontalAlignment('center');
+  sh.getRange(6, 1, 6, 6).setFormulas([metricLinks]).setFontSize(9);
+
+  const boardStartRow = 8;
+  const stageBuckets = KANBAN_STAGES.map(function (stage) {
+    return partners
+      .filter(function (p) {
+        return normalizePartnerStage_(p) === stage.key;
+      })
+      .sort(function (a, b) {
+        const pa = a.pathPriority == null ? 9999 : Number(a.pathPriority);
+        const pb = b.pathPriority == null ? 9999 : Number(b.pathPriority);
+        if (pa !== pb) return pa - pb;
+        return String(a.name || '').localeCompare(String(b.name || ''));
+      });
+  });
+  const maxCards = Math.max.apply(
+    null,
+    stageBuckets.map(function (b) {
+      return b.length;
+    }).concat([1])
+  );
+
+  KANBAN_STAGES.forEach(function (stage, colIdx) {
+    const col = colIdx + 1;
+    const count = stageBuckets[colIdx].length;
+    sh.getRange(boardStartRow, col)
+      .setValue(stage.label + ' (' + count + ')')
+      .setFontWeight('bold')
+      .setBackground(stage.color)
+      .setHorizontalAlignment('center');
+    for (var i = 0; i < maxCards; i++) {
+      const cell = sh.getRange(boardStartRow + 1 + i, col);
+      if (i < stageBuckets[colIdx].length) {
+        cell.setValue(formatKanbanCard_(stageBuckets[colIdx][i])).setWrap(true).setVerticalAlignment('top');
+      } else {
+        cell.setValue('').setBackground('#fafafa');
+      }
+    }
+  });
+
+  const editStartRow = boardStartRow + 1 + maxCards + 2;
+  sh.getRange(editStartRow, 1, editStartRow, KANBAN_EDIT_HEADERS.length)
+    .mergeAcross()
+    .setValue('Quick edit — change outreachStage here, then Leta Tracker → Apply Kanban edits → Entries')
+    .setFontWeight('bold')
+    .setBackground('#fffde7');
+
+  const editHeaderRow = editStartRow + 1;
+  sh.getRange(editHeaderRow, 1, editHeaderRow, KANBAN_EDIT_HEADERS.length)
+    .setValues([KANBAN_EDIT_HEADERS])
+    .setFontWeight('bold');
+
+  const sortedPartners = partners.slice().sort(function (a, b) {
+    const pa = a.pathPriority == null ? 9999 : Number(a.pathPriority);
+    const pb = b.pathPriority == null ? 9999 : Number(b.pathPriority);
+    if (pa !== pb) return pa - pb;
+    return String(a.name || '').localeCompare(String(b.name || ''));
+  });
+  const sortedEditRows = sortedPartners.map(function (p) {
+    return KANBAN_EDIT_HEADERS.map(function (h) {
+      if (h === 'outreachStage') return normalizePartnerStage_(p);
+      return p[h] == null ? '' : p[h];
+    });
+  });
+  if (sortedEditRows.length) {
+    sh.getRange(
+      editHeaderRow + 1,
+      1,
+      editHeaderRow + sortedEditRows.length,
+      KANBAN_EDIT_HEADERS.length
+    ).setValues(sortedEditRows);
+  }
+
+  const outreachSh = ss.getSheetByName(SHEET_OUTREACH);
+  if (outreachSh && outreachSh.getLastRow() > 1 && sortedEditRows.length) {
+    const stageRule = SpreadsheetApp.newDataValidation()
+      .requireValueInRange(outreachSh.getRange(2, 1, outreachSh.getLastRow() - 1, 1), true)
+      .setAllowInvalid(false)
+      .build();
+    const stageCol = KANBAN_EDIT_HEADERS.indexOf('outreachStage') + 1;
+    sh.getRange(
+      editHeaderRow + 1,
+      stageCol,
+      editHeaderRow + sortedEditRows.length,
+      stageCol
+    ).setDataValidation(stageRule);
+  }
+
+  sh.setFrozenRows(boardStartRow);
+  for (var c = 1; c <= KANBAN_STAGES.length; c++) {
+    sh.setColumnWidth(c, 180);
+  }
+  sh.setColumnWidth(7, 200);
 }
 
 function sortByPathThenName_(list) {
