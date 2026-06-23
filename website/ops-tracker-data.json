@@ -1,14 +1,14 @@
 {
   "meta": {
     "version": "1.0.0",
-    "lastUpdated": "2026-06-19",
+    "lastUpdated": "2026-06-23",
     "canonicalFile": "data/partner-platform-tracker.json",
     "deployFile": "website/ops-tracker-data.json",
     "liveViewer": "https://leta.repair/ops-tracker.html",
     "updateGuide": "07-partner-accounts/07-GOOGLE-SHEETS-TRACKER.md",
     "githubEditUrl": "https://github.com/Atouba64/leta/edit/main/data/partner-platform-tracker.json",
     "entryCount": 82,
-    "syncedAt": "2026-06-19"
+    "syncedAt": "2026-06-23"
   },
   "config": {
     "page": {
