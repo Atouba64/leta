@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "lastUpdated": "2026-06-19",
+    "lastUpdated": "2026-06-23",
     "canonicalFile": "data/partner-platform-tracker.json",
     "deployFile": "website/ops-tracker-data.json",
     "liveViewer": "https://leta.repair/ops-tracker.html",
