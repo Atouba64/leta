@@ -101,5 +101,13 @@ service cloud.firestore {
       allow create: if signedIn() && hasRole('field_tech');
       allow update: if signedIn() && (hasRole('remote_tech') || isAdmin());
     }
+
+    match /technician_applications/{applicationId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /mailing_list/{email} {
+      allow read, write: if isAdmin();
+    }
   }
 }

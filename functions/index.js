@@ -335,6 +335,50 @@ app.get('/health', (_req, res) => {
 });
 
 /**
+ * POST /tech/onboard
+ * Receives technician onboarding form submission, saves full data,
+ * and extracts email for mailing list.
+ */
+app.post('/tech/onboard', express.json({ limit: '1mb' }), async (req, res) => {
+  try {
+    const data = req.body;
+    if (!data || !data.email) {
+      return res.status(400).json({ ok: false, message: 'Email is required' });
+    }
+
+    const timestamp = admin.firestore.FieldValue.serverTimestamp();
+
+    // 1. Save full application to technician_applications
+    const appRef = db.collection('technician_applications').doc();
+    
+    // 2. Save essential data to mailing_list (upsert by email to prevent duplicates)
+    const emailKey = data.email.toLowerCase().trim();
+    const mailingListRef = db.collection('mailing_list').doc(emailKey);
+
+    await db.runTransaction(async (tx) => {
+      tx.set(appRef, {
+        ...data,
+        createdAt: timestamp,
+        status: 'pending',
+      });
+
+      tx.set(mailingListRef, {
+        email: emailKey,
+        firstName: data.legal_first_name || '',
+        lastName: data.legal_last_name || '',
+        source: 'tech_onboarding_form',
+        updatedAt: timestamp,
+      }, { merge: true });
+    });
+
+    res.json({ ok: true, message: 'Application received' });
+  } catch (err) {
+    console.error('tech/onboard error:', err);
+    res.status(500).json({ ok: false, message: 'Internal server error' });
+  }
+});
+
+/**
  * Public + authenticated AI chat for website widget and external clients.
  * POST /agent/chat  { message, history? }  — optional Authorization: Bearer <Firebase ID token>
  */

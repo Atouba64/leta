@@ -300,12 +300,25 @@
     ensureHidden("app_uid", (params.get("uid") || "").trim());
     ensureHidden("app_source", params.get("source") || "web");
 
-    var body = new URLSearchParams(new FormData(form)).toString();
+    var formData = new FormData(form);
+    var bodyObj = {};
+    formData.forEach(function (value, key) {
+      if (bodyObj[key]) {
+        if (!Array.isArray(bodyObj[key])) bodyObj[key] = [bodyObj[key]];
+        bodyObj[key].push(value);
+      } else {
+        bodyObj[key] = value;
+      }
+    });
 
-    fetch("/", {
+    var apiUrl = cfg.aiChatApiUrl 
+      ? cfg.aiChatApiUrl.replace('/agent/chat', '/tech/onboard')
+      : "https://us-east1-" + (cfg.firebaseProjectId || "leta-e7d8d") + ".cloudfunctions.net/api/tech/onboard";
+
+    fetch(apiUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: body,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bodyObj),
     })
       .then(function (res) {
         if (!res.ok) throw new Error("Network error");
