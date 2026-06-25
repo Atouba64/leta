@@ -118,6 +118,10 @@
         history.push({ role: "assistant", content: data.reply });
         if (history.length > 24) history = history.slice(-24);
         appendMessage("assistant", data.reply);
+      } else {
+        if (data.automatedReply) {
+          appendMessage("assistant", data.automatedReply);
+        }
       }
     } catch (_e) {
       appendMessage("assistant", "Could not reach the server. Check your connection.");

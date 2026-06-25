@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In - Leta Technologies</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <!-- Animated Blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="auth-container">
+    <div class="auth-header">
+      <img src="../logo-icon.svg" alt="Leta Logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%232563eb%22><path d=%22M12 2L2 22h20L12 2z%22/></svg>'">
+      <h1>Welcome Back</h1>
+      <p>Sign in to your Leta account</p>
+    </div>
+
+    <div id="auth-error"></div>
+    <div id="auth-success"></div>
+
+    <form class="auth-form" id="signin-form">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" required placeholder="you@example.com" autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password" />
+      </div>
+
+      <div style="text-align: right; margin-top: -12px;">
+        <a href="forgot-password.html" style="font-size: 13px; color: var(--brand-blue); text-decoration: none; font-weight: 600;">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn">Sign In</button>
+    </form>
+
+    <div class="auth-toggle">
+      <span>Don't have an account?</span> 
+      <a href="signup.html">Sign up now</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import { handleSignIn } from './auth-ui.js';
+    
+    document.getElementById('signin-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const pass = document.getElementById('password').value;
+      handleSignIn(email, pass);
+    });
+  </script>
+</body>
+</html>

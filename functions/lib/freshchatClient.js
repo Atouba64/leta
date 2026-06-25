@@ -15,6 +15,22 @@ async function getHeaders() {
   };
 }
 
+let cachedChannelId = null;
+async function getChannelId() {
+  if (cachedChannelId) return cachedChannelId;
+  const res = await fetch(`${FRESHCHAT_API_URL}/channels`, {
+    headers: await getHeaders()
+  });
+  if (!res.ok) throw new Error("Failed to fetch channels: " + await res.text());
+  const data = JSON.parse(await res.text() || '{}');
+  if (data.channels && data.channels.length > 0) {
+    cachedChannelId = data.channels[0].id;
+  } else {
+    throw new Error("No Freshchat channels found in this account.");
+  }
+  return cachedChannelId;
+}
+
 /**
  * Creates a new user in Freshchat
  */
@@ -29,32 +45,39 @@ async function createUser(sessionId) {
     })
   });
   if (!res.ok) {
-    throw new Error(`Failed to create Freshchat user: ${res.statusText}`);
+    const errorBody = await res.text();
+    throw new Error(`Failed to create Freshchat user: ${res.statusText} - ${errorBody}`);
   }
-  const data = await res.json();
+  const data = JSON.parse(await res.text() || '{}');
   return data.id;
 }
 
 /**
  * Creates a conversation for a user
  */
-async function createConversation(userId) {
-  // Freshchat requires a conversation to be created with messages or directly
-  // Sometimes we can just post a message to /users/{user_id}/messages to create conv
-  // But let's use the standard POST /conversations
+async function createConversation(userId, text) {
+  const channelId = await getChannelId();
   const res = await fetch(`${FRESHCHAT_API_URL}/conversations`, {
     method: 'POST',
     headers: await getHeaders(),
     body: JSON.stringify({
+      channel_id: channelId,
       users: [{ id: userId }],
-      status: 'new'
+      status: 'new',
+      messages: [{
+        actor_type: 'user',
+        actor_id: userId,
+        message_type: 'normal',
+        message_parts: [{ text: { content: text || "Hello" } }]
+      }]
     })
   });
   if (!res.ok) {
-    throw new Error(`Failed to create Freshchat conversation: ${res.statusText}`);
+    const errorBody = await res.text();
+    throw new Error(`Failed to create Freshchat conversation: ${res.statusText} - ${errorBody}`);
   }
-  const data = await res.json();
-  return data.id;
+  const data = JSON.parse(await res.text() || '{}');
+  return data.conversation_id || data.id;
 }
 
 /**
@@ -72,9 +95,10 @@ async function sendMessage(conversationId, userId, text) {
     })
   });
   if (!res.ok) {
-    throw new Error(`Failed to send Freshchat message: ${res.statusText}`);
+    const errorBody = await res.text();
+    throw new Error(`Failed to send Freshchat message: ${res.statusText} - ${errorBody}`);
   }
-  return await res.json();
+  return JSON.parse(await res.text() || '{}');
 }
 
 /**

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Email - Leta Technologies</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <!-- Animated Blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="auth-container" style="text-align: center;">
+    <div class="auth-header">
+      <img src="../logo-icon.svg" alt="Leta Logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%232563eb%22><path d=%22M12 2L2 22h20L12 2z%22/></svg>'">
+      <h1>Check Your Inbox</h1>
+      <p style="margin-top: 16px;">We've sent an email verification link to your address. Please click the link to activate your account.</p>
+    </div>
+
+    <button onclick="window.location.href='/auth/signin.html'" class="btn" style="margin-top: 24px;">Return to Sign In</button>
+
+    <div class="auth-toggle">
+      <span>Didn't receive it?</span> 
+      <a href="signup.html">Try signing up again</a>
+    </div>
+  </div>
+</body>
+</html>

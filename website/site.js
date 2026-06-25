@@ -229,3 +229,6 @@
     if (e.key === "Escape") close();
   });
 })();
+
+// Dynamically load Firebase Auth state logic
+import('./auth-state.js').catch(e => console.warn('Auth state load skipped:', e));

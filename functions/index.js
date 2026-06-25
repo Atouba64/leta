@@ -24,7 +24,7 @@ const { commitFilesToGitHub } = require('./lib/partnerTrackerGitHub');
 const freshchat = require('./lib/freshchatClient');
 const mercuryClient = require('./lib/mercuryClient');
 
-const ROLES = ['customer', 'field_tech', 'remote_tech', 'admin', 'partner_dispatcher'];
+const ROLES = ['customer', 'field_tech', 'remote_tech', 'admin', 'partner_dispatcher', 'employee', 'support'];
 
 /**
  * Sync Firestore user.role → Auth custom claims (client refreshes ID token after signup).
@@ -417,7 +417,7 @@ app.post('/agent/human-chat/send', express.json({ limit: '32kb' }), async (req, 
 
     if (!snap.exists) {
       fcUserId = await freshchat.createUser(sessionId);
-      fcConvId = await freshchat.createConversation(fcUserId);
+      fcConvId = await freshchat.createConversation(fcUserId, message);
       await sessionRef.set({
         freshchatUserId: fcUserId,
         freshchatConversationId: fcConvId,
@@ -427,10 +427,20 @@ app.post('/agent/human-chat/send', express.json({ limit: '32kb' }), async (req, 
       const data = snap.data();
       fcUserId = data.freshchatUserId;
       fcConvId = data.freshchatConversationId;
+      await freshchat.sendMessage(fcConvId, fcUserId, message);
     }
 
-    await freshchat.sendMessage(fcConvId, fcUserId, message);
-    res.json({ ok: true });
+    let automatedReply = null;
+    const isAgentJoined = snap.exists && snap.data().agentJoined === true;
+    if (!isAgentJoined && isOpenClawConfigured()) {
+      const prompt = `Roleplay as a helpful Leta IT field services bot. Keep it brief (1-2 sentences). You are just acknowledging their message and letting them know a live agent has been notified and will join the chat shortly. User says: "${message}"`;
+      const result = await askOpenClaw(prompt);
+      if (result && result.text) {
+        automatedReply = result.text;
+      }
+    }
+
+    res.json({ ok: true, automatedReply });
   } catch (err) {
     console.error('human-chat/send error:', err);
     res.status(500).json({ ok: false, message: 'Support system temporarily unavailable.' });
@@ -473,7 +483,8 @@ app.get('/agent/human-chat/sync', async (req, res) => {
     if (filteredMessages.length > 0) {
       const maxTimeStr = filteredMessages.reduce((max, msg) => msg.created_time > max ? msg.created_time : max, filteredMessages[0].created_time);
       await sessionRef.update({
-        lastSyncTime: admin.firestore.Timestamp.fromDate(new Date(maxTimeStr))
+        lastSyncTime: admin.firestore.Timestamp.fromDate(new Date(maxTimeStr)),
+        agentJoined: true
       });
     }
 
@@ -660,4 +671,59 @@ exports.letaAgentChat = onCall(async (request) => {
   }
 
   return handleLetaAgentChat(db, admin.auth(), payload);
+});
+
+/**
+ * Callable: Leta employee onboarding
+ */
+exports.onboardEmployee = onCall(async (request) => {
+  if (!request.auth) throw new HttpsError('unauthenticated', 'Sign in required.');
+  
+  const { role, department, name } = request.data;
+  if (!['admin', 'employee', 'support'].includes(role)) {
+    throw new HttpsError('invalid-argument', 'Invalid employee role.');
+  }
+
+  // Save employee record
+  await db.collection('leta_employees').doc(request.auth.uid).set({
+    role,
+    department,
+    name,
+    email: request.auth.token.email || '',
+    onboardedAt: admin.firestore.FieldValue.serverTimestamp()
+  });
+
+  // Promote user role
+  await db.collection('users').doc(request.auth.uid).set({
+    role: role,
+    email: request.auth.token.email || '',
+    name: name || '',
+    updatedAt: admin.firestore.FieldValue.serverTimestamp()
+  }, { merge: true });
+
+  return { ok: true, message: 'Employee onboarded and role updated.' };
+});
+
+/**
+ * Callable: Get Work Orders for internal dashboard
+ * In the future, this will fetch directly from Partner APIs (Barrister, etc.)
+ */
+exports.getWorkOrders = onCall(async (request) => {
+  if (!request.auth) throw new HttpsError('unauthenticated', 'Sign in required.');
+  
+  const role = request.auth.token.role;
+  if (!['admin', 'employee', 'support'].includes(role)) {
+    throw new HttpsError('permission-denied', 'You do not have access to work orders.');
+  }
+
+  // MOCK DATA for dashboard UI
+  const mockOrders = [
+    { id: 'WO-10492', partner: 'barrister', location: 'Atlanta, GA', date: '2026-06-25T10:00:00Z', status: 'open', tech: null },
+    { id: 'WO-10493', partner: 'compucom', location: 'Marietta, GA', date: '2026-06-24T14:30:00Z', status: 'assigned', tech: 'Alex M.' },
+    { id: 'WO-10494', partner: 'kinettix', location: 'Decatur, GA', date: '2026-06-23T09:15:00Z', status: 'completed', tech: 'Sarah Connor' },
+    { id: 'WO-10495', partner: 'barrister', location: 'Sandy Springs, GA', date: '2026-06-26T11:00:00Z', status: 'open', tech: null },
+    { id: 'WO-10496', partner: 'barrister', location: 'Alpharetta, GA', date: '2026-06-25T16:00:00Z', status: 'assigned', tech: 'John D.' }
+  ];
+
+  return { ok: true, orders: mockOrders };
 });

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leta Internal - Work Orders</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background: var(--bg);
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .topbar {
+      background: var(--bg-elevated);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .container {
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .controls {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .filter-input, .sort-select {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-elevated);
+      color: var(--text);
+    }
+    .table-card {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      font-weight: 600;
+      color: var(--text-soft);
+      background: rgba(0,0,0,0.02);
+      cursor: pointer;
+    }
+    th:hover {
+      background: rgba(0,0,0,0.05);
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .status-open { background: #dbeafe; color: #1e40af; }
+    .status-assigned { background: #fef08a; color: #854d0e; }
+    .status-completed { background: #dcfce7; color: #166534; }
+    #auth-guard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="auth-guard">
+    <h2 style="color: var(--text-soft);">Checking permissions...</h2>
+  </div>
+
+  <div id="dashboard-app" style="display: none;">
+    <div class="topbar">
+      <h1>Leta Internal Dashboard</h1>
+      <div class="topbar-right">
+        <span id="user-info" style="color: var(--text-soft); font-size: 14px;"></span>
+        <a href="#" id="sign-out-btn" style="color: var(--accent); text-decoration: none; font-weight: 600;">Sign Out</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="controls">
+        <input type="text" id="search-filter" class="filter-input" placeholder="Search ID, Partner, or Tech..." style="flex: 1;" />
+        <select id="status-filter" class="sort-select">
+          <option value="all">All Statuses</option>
+          <option value="open">Open</option>
+          <option value="assigned">Assigned</option>
+          <option value="completed">Completed</option>
+        </select>
+        <select id="partner-filter" class="sort-select">
+          <option value="all">All Partners</option>
+          <option value="barrister">Barrister</option>
+          <option value="compucom">Compucom</option>
+          <option value="kinettix">Kinettix</option>
+        </select>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th data-sort="id">Order ID ↕</th>
+              <th data-sort="partner">Partner ↕</th>
+              <th data-sort="location">Location ↕</th>
+              <th data-sort="date">Date ↕</th>
+              <th data-sort="status">Status ↕</th>
+              <th data-sort="tech">Assigned Tech ↕</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Rendered via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
