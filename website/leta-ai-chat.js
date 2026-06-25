@@ -185,31 +185,7 @@
   }
 
   function buildLauncher() {
-    var wrap = document.createElement("div");
-    wrap.className = "leta-ai-launch";
-
-    launcherBtn = document.createElement("button");
-    launcherBtn.type = "button";
-    launcherBtn.className = "btn btn-primary leta-ai-launch__btn";
-    launcherBtn.setAttribute("aria-controls", "leta-ai-panel");
-    launcherBtn.setAttribute("aria-expanded", "false");
-
-    var icon = document.createElement("span");
-    icon.className = "leta-ai-launch__icon";
-    icon.setAttribute("aria-hidden", "true");
-    icon.textContent = "✦";
-
-    var text = document.createElement("span");
-    text.textContent = label;
-
-    launcherBtn.appendChild(icon);
-    launcherBtn.appendChild(text);
-    launcherBtn.addEventListener("click", function () {
-      setOpen(!panelOpen);
-    });
-
-    wrap.appendChild(launcherBtn);
-    document.body.appendChild(wrap);
+    // Disabled: Launcher is now handled by the unified Leta Chat Hub (leta-chat-hub.js)
   }
 
   function wireTriggers() {

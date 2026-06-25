@@ -21,6 +21,7 @@ const {
   verifyOpsTrackerPin,
 } = require('./lib/partnerTrackerDeploy');
 const { commitFilesToGitHub } = require('./lib/partnerTrackerGitHub');
+const mercuryClient = require('./lib/mercuryClient');
 
 const ROLES = ['customer', 'field_tech', 'remote_tech', 'admin', 'partner_dispatcher'];
 
@@ -450,6 +451,39 @@ app.post('/ops-tracker/save', express.json({ limit: '4mb' }), async (req, res) =
   } catch (err) {
     console.error('ops-tracker/save', err);
     res.status(500).json({ ok: false, message: err.message || 'Save failed.' });
+  }
+});
+
+/**
+ * POST /webhooks/mercury
+ * Receives webhook events from Mercury API (e.g., transaction.created).
+ */
+app.post('/webhooks/mercury', express.json({ limit: '1mb' }), async (req, res) => {
+  try {
+    const rawBody = JSON.stringify(req.body);
+    
+    // In production, validate the webhook signature
+    if (!mercuryClient.validateMercuryWebhook(req.headers, rawBody)) {
+      return res.status(401).json({ ok: false, message: 'Invalid signature' });
+    }
+
+    const event = req.body;
+    console.log('Received Mercury Webhook:', event.type, event.id);
+
+    // Save event to Firestore for auditing/tracking
+    const webhookRef = db.collection('mercury_webhooks').doc(event.id || Date.now().toString());
+    await webhookRef.set({
+      ...event,
+      receivedAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    // TODO: Process specific events like `transaction.created` to sync balances
+    // or notify the team in Slack.
+
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Mercury webhook error:', err);
+    res.status(500).json({ ok: false, message: 'Internal server error' });
   }
 });
 

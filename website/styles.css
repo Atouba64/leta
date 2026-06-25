@@ -2919,3 +2919,86 @@ body.leta-modal-open {
 .coverage-corridors li {
   margin-bottom: 0.5rem;
 }
+
+/* =========================================
+   Unified Leta Chat Hub
+   ========================================= */
+
+.leta-chat-hub {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483640;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.leta-hub-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  padding: 12px 20px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.leta-hub-btn:hover {
+  transform: scale(1.05);
+}
+
+.leta-hub-menu {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: letaPopIn 0.2s ease-out forwards;
+}
+
+.leta-hub-menu[hidden] {
+  display: none;
+}
+
+.leta-hub-menu__title {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
+.leta-hub-menu__option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.leta-hub-menu__option:hover {
+  background: var(--surface-hover);
+}
+
+.leta-hub-menu__option .icon {
+  font-size: 1.2rem;
+}
+
+@keyframes letaPopIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
