@@ -3,30 +3,45 @@
   if (cfg.aiChatEnabled === false) return;
 
   var label = (cfg.aiChatLabel || "Ask Leta").trim();
-  var apiUrl = (cfg.aiChatApiUrl || "").trim();
   var projectId = (cfg.firebaseProjectId || "").trim();
-  if (!apiUrl && projectId) {
-    apiUrl = "https://us-east1-" + projectId + ".cloudfunctions.net/api/agent/chat";
+  
+  var baseApiUrl = cfg.aiChatApiUrl ? cfg.aiChatApiUrl.replace("/agent/chat", "") : "";
+  if (!baseApiUrl && projectId) {
+    baseApiUrl = "https://us-east1-" + projectId + ".cloudfunctions.net/api";
   }
 
   var panelOpen = false;
   var busy = false;
+  var chatMode = "ai"; // 'ai' or 'human'
   var history = [];
   var sessionId = "web-" + Math.random().toString(36).slice(2, 10);
+  var pollInterval = null;
 
-  var launcherBtn = null;
   var panel = null;
+  var head = null;
   var messagesEl = null;
   var inputEl = null;
   var sendBtn = null;
+  var humanBtn = null;
+
+  function updatePanelMode() {
+    if (!head) return;
+    if (chatMode === "ai") {
+      head.innerHTML = '<div><strong>' + label + '</strong><span>Georgia onsite IT · AI assistant</span></div>';
+      if (humanBtn) humanBtn.hidden = false;
+      inputEl.placeholder = "Ask anything about Leta…";
+      stopPolling();
+    } else {
+      head.innerHTML = '<div><strong>Live Support</strong><span>Chatting with a Leta team member</span></div>';
+      if (humanBtn) humanBtn.hidden = true;
+      inputEl.placeholder = "Type your message...";
+      startPolling();
+    }
+  }
 
   function setOpen(open) {
     panelOpen = open;
     document.documentElement.classList.toggle("leta-ai-open", open);
-    if (launcherBtn) {
-      launcherBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      launcherBtn.classList.toggle("leta-ai-launch__btn--open", open);
-    }
     if (panel) {
       panel.hidden = !open;
     }
@@ -34,6 +49,11 @@
       setTimeout(function () {
         inputEl.focus();
       }, 80);
+    }
+    if (!open) {
+      stopPolling();
+    } else if (chatMode === "human") {
+      startPolling();
     }
   }
 
@@ -56,11 +76,7 @@
     document.documentElement.classList.toggle("leta-ai-busy", on);
   }
 
-  function openHumanChat() {
-    if (typeof window.LetaOpenLiveChat === "function") {
-      window.LetaOpenLiveChat();
-      return;
-    }
+  function openHumanChatFallback() {
     window.open("contact.html", "_blank", "noopener");
   }
 
@@ -69,11 +85,8 @@
     var text = (inputEl.value || "").trim();
     if (!text) return;
 
-    if (!apiUrl) {
-      appendMessage(
-        "assistant",
-        "AI chat is not configured yet. Set aiChatApiUrl or firebaseProjectId in contact-config.js, or email hello@leta.repair."
-      );
+    if (!baseApiUrl) {
+      appendMessage("assistant", "Chat is not configured yet. Set firebaseProjectId in contact-config.js.");
       return;
     }
 
@@ -81,35 +94,66 @@
     inputEl.value = "";
     setBusy(true);
 
+    var endpoint = chatMode === "ai" ? "/agent/chat" : "/agent/human-chat/send";
+
     try {
-      var res = await fetch(apiUrl, {
+      var res = await fetch(baseApiUrl + endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Leta-Session": sessionId },
         body: JSON.stringify({ message: text, history: history }),
       });
+      
       var data = await res.json().catch(function () {
         return {};
       });
 
       if (!res.ok || !data.ok) {
-        var errMsg =
-          data.message ||
-          "The assistant is temporarily unavailable. Try live chat or call (470) 252-6681.";
+        var errMsg = data.message || "The chat service is temporarily unavailable.";
         appendMessage("assistant", errMsg);
         return;
       }
 
-      history.push({ role: "user", content: text });
-      history.push({ role: "assistant", content: data.reply });
-      if (history.length > 24) history = history.slice(-24);
-      appendMessage("assistant", data.reply);
+      if (chatMode === "ai") {
+        history.push({ role: "user", content: text });
+        history.push({ role: "assistant", content: data.reply });
+        if (history.length > 24) history = history.slice(-24);
+        appendMessage("assistant", data.reply);
+      }
     } catch (_e) {
-      appendMessage(
-        "assistant",
-        "Could not reach the assistant. Check your connection or use live chat on the Contact page."
-      );
+      appendMessage("assistant", "Could not reach the server. Check your connection.");
     } finally {
       setBusy(false);
+    }
+  }
+
+  function startPolling() {
+    if (pollInterval || !baseApiUrl) return;
+    pollInterval = setInterval(async function() {
+      if (!panelOpen || chatMode !== "human") {
+        stopPolling();
+        return;
+      }
+      try {
+        var res = await fetch(baseApiUrl + "/agent/human-chat/sync?sessionId=" + encodeURIComponent(sessionId), {
+          method: "GET",
+        });
+        if (!res.ok) return;
+        var data = await res.json();
+        if (data.messages && data.messages.length > 0) {
+          data.messages.forEach(function(msg) {
+            appendMessage("assistant", msg.text);
+          });
+        }
+      } catch (e) {
+        // Silently fail polling
+      }
+    }, 5000);
+  }
+
+  function stopPolling() {
+    if (pollInterval) {
+      clearInterval(pollInterval);
+      pollInterval = null;
     }
   }
 
@@ -121,17 +165,13 @@
     panel.setAttribute("role", "dialog");
     panel.setAttribute("aria-label", label);
 
-    var head = document.createElement("header");
+    head = document.createElement("header");
     head.className = "leta-ai-panel__head";
-    head.innerHTML =
-      '<div><strong>' +
-      label +
-      '</strong><span>Georgia onsite IT · AI assistant</span></div>';
 
     var closeBtn = document.createElement("button");
     closeBtn.type = "button";
     closeBtn.className = "leta-ai-panel__close";
-    closeBtn.setAttribute("aria-label", "Close assistant");
+    closeBtn.setAttribute("aria-label", "Close chat");
     closeBtn.textContent = "×";
     closeBtn.addEventListener("click", function () {
       setOpen(false);
@@ -143,9 +183,7 @@
     messagesEl.setAttribute("role", "log");
     messagesEl.setAttribute("aria-live", "polite");
 
-    var starter =
-      cfg.aiChatWelcome ||
-      "Hi — I'm Leta's AI assistant. Ask about coverage, becoming a tech, partners, or how Leta works.";
+    var starter = cfg.aiChatWelcome || "Hi — I'm Leta's AI assistant. Ask about coverage, becoming a tech, partners, or how Leta works.";
     appendMessage("assistant", starter);
 
     var foot = document.createElement("footer");
@@ -154,7 +192,6 @@
     inputEl = document.createElement("textarea");
     inputEl.className = "leta-ai-panel__input";
     inputEl.rows = 2;
-    inputEl.placeholder = "Ask anything about Leta…";
     inputEl.addEventListener("keydown", function (e) {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
@@ -168,11 +205,17 @@
     sendBtn.textContent = "Send";
     sendBtn.addEventListener("click", sendMessage);
 
-    var humanBtn = document.createElement("button");
+    humanBtn = document.createElement("button");
     humanBtn.type = "button";
     humanBtn.className = "leta-ai-panel__human";
     humanBtn.textContent = "Talk to a human";
-    humanBtn.addEventListener("click", openHumanChat);
+    humanBtn.addEventListener("click", function() {
+      if (typeof window.LetaOpenHumanChat === "function") {
+        window.LetaOpenHumanChat();
+      } else {
+        openHumanChatFallback();
+      }
+    });
 
     foot.appendChild(inputEl);
     foot.appendChild(sendBtn);
@@ -182,34 +225,28 @@
     panel.appendChild(messagesEl);
     panel.appendChild(foot);
     document.body.appendChild(panel);
-  }
 
-  function buildLauncher() {
-    // Disabled: Launcher is now handled by the unified Leta Chat Hub (leta-chat-hub.js)
-  }
-
-  function wireTriggers() {
-    document.querySelectorAll("[data-leta-open-ai]").forEach(function (node) {
-      if (node.getAttribute("data-leta-ai-bound") === "1") return;
-      node.setAttribute("data-leta-ai-bound", "1");
-      node.addEventListener("click", function () {
-        setOpen(true);
-      });
-    });
-    document.querySelectorAll("[data-leta-ai-label]").forEach(function (node) {
-      node.textContent = label;
-    });
+    updatePanelMode();
   }
 
   function init() {
     buildPanel();
-    buildLauncher();
-    wireTriggers();
     document.documentElement.classList.add("leta-ai-enabled");
   }
 
   window.LetaOpenAiChat = function () {
+    chatMode = "ai";
+    updatePanelMode();
     setOpen(true);
+  };
+
+  window.LetaOpenHumanChat = function () {
+    chatMode = "human";
+    updatePanelMode();
+    setOpen(true);
+    if (history.length === 0 || messagesEl.children.length === 1) {
+       appendMessage("assistant", "You are now connected to live support. An agent will be with you shortly. How can we help?");
+    }
   };
 
   if (document.readyState === "loading") {
@@ -217,5 +254,4 @@
   } else {
     init();
   }
-  document.addEventListener("DOMContentLoaded", wireTriggers);
 })();

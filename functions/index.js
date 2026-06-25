@@ -21,6 +21,7 @@ const {
   verifyOpsTrackerPin,
 } = require('./lib/partnerTrackerDeploy');
 const { commitFilesToGitHub } = require('./lib/partnerTrackerGitHub');
+const freshchat = require('./lib/freshchatClient');
 const mercuryClient = require('./lib/mercuryClient');
 
 const ROLES = ['customer', 'field_tech', 'remote_tech', 'admin', 'partner_dispatcher'];
@@ -395,6 +396,91 @@ app.post('/agent/chat', express.json({ limit: '32kb' }), async (req, res) => {
   } catch (err) {
     console.error('agent/chat', err);
     res.status(err.status || 500).json({ ok: false, message: err.message || 'Server error' });
+  }
+});
+
+/**
+ * POST /agent/human-chat/send
+ * Routes website chat messages to Freshchat API
+ */
+app.post('/agent/human-chat/send', express.json({ limit: '32kb' }), async (req, res) => {
+  try {
+    const { message } = req.body;
+    const sessionId = req.headers['x-leta-session'];
+    if (!message || !sessionId) {
+      return res.status(400).json({ ok: false, message: 'Missing message or sessionId' });
+    }
+
+    const sessionRef = db.collection('web_sessions').doc(sessionId);
+    const snap = await sessionRef.get();
+    let fcUserId, fcConvId;
+
+    if (!snap.exists) {
+      fcUserId = await freshchat.createUser(sessionId);
+      fcConvId = await freshchat.createConversation(fcUserId);
+      await sessionRef.set({
+        freshchatUserId: fcUserId,
+        freshchatConversationId: fcConvId,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+    } else {
+      const data = snap.data();
+      fcUserId = data.freshchatUserId;
+      fcConvId = data.freshchatConversationId;
+    }
+
+    await freshchat.sendMessage(fcConvId, fcUserId, message);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('human-chat/send error:', err);
+    res.status(500).json({ ok: false, message: 'Support system temporarily unavailable.' });
+  }
+});
+
+/**
+ * GET /agent/human-chat/sync
+ * Polls Freshchat for new agent replies
+ */
+app.get('/agent/human-chat/sync', async (req, res) => {
+  try {
+    const sessionId = req.query.sessionId;
+    if (!sessionId) return res.status(400).json({ ok: false, messages: [] });
+
+    const sessionRef = db.collection('web_sessions').doc(sessionId);
+    const snap = await sessionRef.get();
+    if (!snap.exists) return res.json({ ok: true, messages: [] });
+
+    const fcConvId = snap.data().freshchatConversationId;
+    const data = await freshchat.getMessages(fcConvId);
+    
+    const newMessages = (data.messages || [])
+      .filter(m => m.actor_type === 'agent')
+      .map(m => {
+        const textParts = m.message_parts.filter(p => p.text).map(p => p.text.content);
+        return {
+          id: m.id,
+          text: textParts.join(' '),
+          created_time: m.created_time
+        };
+      });
+
+    const lastSyncTime = snap.data().lastSyncTime || null;
+    let filteredMessages = newMessages;
+    if (lastSyncTime) {
+      filteredMessages = newMessages.filter(m => new Date(m.created_time).getTime() > lastSyncTime.toDate().getTime());
+    }
+
+    if (filteredMessages.length > 0) {
+      const maxTimeStr = filteredMessages.reduce((max, msg) => msg.created_time > max ? msg.created_time : max, filteredMessages[0].created_time);
+      await sessionRef.update({
+        lastSyncTime: admin.firestore.Timestamp.fromDate(new Date(maxTimeStr))
+      });
+    }
+
+    res.json({ ok: true, messages: filteredMessages });
+  } catch (err) {
+    console.error('human-chat/sync error:', err);
+    res.status(500).json({ ok: false, messages: [] });
   }
 });
 

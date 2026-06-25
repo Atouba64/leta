@@ -56,8 +56,8 @@
     humanBtn.innerHTML = '<span class="icon">👩‍💻</span> Talk to an Agent';
     humanBtn.addEventListener("click", function () {
       setHubOpen(false);
-      if (typeof window.LetaOpenLiveChat === "function") {
-        window.LetaOpenLiveChat();
+      if (typeof window.LetaOpenHumanChat === "function") {
+        window.LetaOpenHumanChat();
       }
     });
 
