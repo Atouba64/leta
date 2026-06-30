@@ -23,6 +23,7 @@ const GITHUB_JSON_URL =
 const SHEET_SETTINGS = 'Settings';
 const SHEET_ENTRIES = 'Entries';
 const SHEET_STATUS = 'Status_Defs';
+const SHEET_STATUS_DETAIL = 'Status_Detail_Defs';
 const SHEET_CATEGORY = 'Category_Defs';
 const SHEET_PLATFORMS = 'Platforms';
 const SHEET_PARTNERS = 'Partners';
@@ -554,6 +555,11 @@ function populateSheetsFromJson_(data) {
   });
   writeSheet_(ss, SHEET_STATUS, ['key', 'label'], statusRows);
 
+  const statusDetailRows = Object.keys(data.statusDetailDefinitions || {}).map(function (k) {
+    return [k, data.statusDetailDefinitions[k]];
+  });
+  writeSheet_(ss, SHEET_STATUS_DETAIL, ['key', 'label'], statusDetailRows);
+
   const catRows = Object.keys(data.categoryDefinitions || {}).map(function (k) {
     return [k, data.categoryDefinitions[k]];
   });
@@ -718,6 +724,7 @@ function buildJsonFromSheets_() {
       googleSheetUrl: settings['config.googleSheetUrl'] || ss.getUrl(),
     },
     statusDefinitions: readDefsSheet_(ss, SHEET_STATUS),
+    statusDetailDefinitions: readDefsSheet_(ss, SHEET_STATUS_DETAIL),
     kindDefinitions: {
       platform: 'Portal, marketplace, or procurement system (work-order bid / vendor registration)',
       partner: 'Named company to reach out to for fulfillment or subcontract overflow',
@@ -835,6 +842,7 @@ function ensureSheets_(ss) {
     SHEET_SETTINGS,
     SHEET_ENTRIES,
     SHEET_STATUS,
+    SHEET_STATUS_DETAIL,
     SHEET_CATEGORY,
     SHEET_OUTREACH,
     SHEET_GOALS,
@@ -879,6 +887,15 @@ function applyEntriesValidations_(ss) {
       .setAllowInvalid(false)
       .build();
     entries.getRange(2, 9, numRows, 1).setDataValidation(statusRule);
+  }
+
+  const statusDetailSh = ss.getSheetByName(SHEET_STATUS_DETAIL);
+  if (statusDetailSh && statusDetailSh.getLastRow() > 1) {
+    const statusDetailRule = SpreadsheetApp.newDataValidation()
+      .requireValueInRange(statusDetailSh.getRange(2, 1, statusDetailSh.getLastRow() - 1, 1), true)
+      .setAllowInvalid(true)
+      .build();
+    entries.getRange(2, 10, numRows, 1).setDataValidation(statusDetailRule);
   }
 
   const catSh = ss.getSheetByName(SHEET_CATEGORY);

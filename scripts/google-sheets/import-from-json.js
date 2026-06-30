@@ -106,6 +106,7 @@ const entryRows = (data.entries || []).map(function (e) {
 writeCsv('Settings.csv', ['key', 'value'], settingsRows);
 writeCsv('Entries.csv', entryHeaders, entryRows);
 writeCsv('Status_Defs.csv', ['key', 'label'], Object.entries(data.statusDefinitions || {}));
+writeCsv('Status_Detail_Defs.csv', ['key', 'label'], Object.entries(data.statusDetailDefinitions || {}));
 writeCsv('Category_Defs.csv', ['key', 'label'], Object.entries(data.categoryDefinitions || {}));
 writeCsv('Outreach_Stages.csv', ['key', 'label'], Object.entries(data.outreachStageDefinitions || {}));
 writeCsv('Goal_Defs.csv', ['key', 'label'], Object.entries(data.relationshipGoalDefinitions || {}));
